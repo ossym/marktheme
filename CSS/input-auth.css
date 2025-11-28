@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================
+   Authenticated User Custom Styles (Auth Mode)
+   ============================================ */
+
+@layer components {
+  /* New Order Page - Essential Styles */
+  
+  /* Tabs Navigation */
+  .new-order-tabs nav a.active {
+    color: white;
+    background-color: #10c3f4;
+    border-bottom-color: #10c3f4;
+  }
+
+  /* Form Container */
+  #order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* RTL Support */
+  .rtl-form {
+    direction: rtl;
+  }
+
+  .rtl-form .input-wrapper button {
+    right: 12px;
+    left: auto;
+  }
+
+  .rtl-alert {
+    direction: rtl;
+  }
+
+  .rtl-content {
+    direction: rtl;
+    text-align: right;
+  }
+
+  /* Search Dropdown Focus */
+  .search-dropdown input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(16, 195, 244, 0.5);
+    border-color: transparent;
+  }
+
+  /* Select Dropdowns - Custom Arrow */
+  select[data-select="true"] {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+  }
+
+  .rtl-form select[data-select="true"] {
+    background-position: left 0.5rem center;
+    padding-right: 1rem;
+    padding-left: 2.5rem;
+  }
+
+  /* Input Read-only State */
+  input[readonly] {
+    background-color: #f9fafb;
+    cursor: not-allowed;
+  }
+
+  .dark input[readonly] {
+    background-color: #0f1f3a;
+  }
+
+  /* Checkbox Focus */
+  input[type="checkbox"].terms-accept-checkbox:focus {
+    box-shadow: 0 0 0 2px rgba(16, 195, 244, 0.5);
+  }
+
+  /* Service Description Sidebar */
+  #service_description_sidebar.hidden {
+    display: none;
+  }
+
+  /* Dynamic Fields Container */
+  #fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  /* Loading States */
+  #order-form.loading button[type="submit"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  /* Success/Error Field States */
+  #order-form .field-error {
+    border-color: #fca5a5;
+  }
+
+  .dark #order-form .field-error {
+    border-color: #991b1b;
+  }
+
+  #order-form .field-error:focus {
+    box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.5);
+    border-color: #fca5a5;
+  }
+
+  #order-form .field-success {
+    border-color: #86efac;
+  }
+
+  .dark #order-form .field-success {
+    border-color: #166534;
+  }
+
+  /* Form Submission Animation */
+  @keyframes formSubmit {
+    0% { transform: scale(1); }
+    50% { transform: scale(0.98); }
+    100% { transform: scale(1); }
+  }
+
+  #order-form.submitting button[type="submit"] {
+    animation: formSubmit 0.3s ease-in-out;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    #order-form {
+      gap: 1rem;
+    }
+  }
+}
+

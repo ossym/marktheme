@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "MarkTheme - PerfectPanel SMM Theme with Tailwind CSS",
   "scripts": {
-    "build:css": "tailwindcss -i ./CSS/input.css -o ./CSS/bootstrap.css --minify",
-    "watch:css": "tailwindcss -i ./CSS/input.css -o ./CSS/bootstrap.css --watch"
+    "build:css": "npm run build:css:guest && npm run build:css:auth",
+    "build:css:guest": "tailwindcss -i ./CSS/input.css -o ./CSS/bootstrap.css --config ./tailwind.config.guest.js --minify",
+    "build:css:auth": "tailwindcss -i ./CSS/input-auth.css -o ./CSS/style.css --config ./tailwind.config.auth.js --minify",
+    "watch:css": "npm run watch:css:guest & npm run watch:css:auth",
+    "watch:css:guest": "tailwindcss -i ./CSS/input.css -o ./CSS/bootstrap.css --config ./tailwind.config.guest.js --watch",
+    "watch:css:auth": "tailwindcss -i ./CSS/input-auth.css -o ./CSS/style.css --config ./tailwind.config.auth.js --watch"
   },
   "devDependencies": {
     "tailwindcss": "^3.4.1"

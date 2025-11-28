@@ -31,6 +31,10 @@
 </head>
 
 <body class="bg-gray-50 {% if site['rtl'] %} rtl {% endif %}" id="theme-body">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[9999] focus:px-4 focus:py-2 focus:bg-primary-500 focus:text-white focus:rounded-lg focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+        Skip to main content
+    </a>
     {% if user['auth'] %}
     <!-- Authenticated Mode: Sidebar + Header -->
     <div class="flex h-screen overflow-hidden">
@@ -100,8 +104,8 @@
                         <span class="text-xl font-bold text-primary-500">{{ site['name'] }}</span>
                         {% endif %}
                     </a>
-                    <button id="close-sidebar" class="p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button id="close-sidebar" class="p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100" aria-label="Close navigation menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     </button>
@@ -137,17 +141,17 @@
                     <!-- Left: Sidebar Expand/Collapse + Menu Toggle (mobile) + Logo (mobile) -->
                     <div class="flex items-center">
                         <!-- Sidebar Expand/Collapse Button (Desktop) -->
-                        <button id="sidebar-expand-toggle" class="hidden lg:flex p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 mr-2 transition-colors" title="Toggle Sidebar">
-                            <svg id="sidebar-expand-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <button id="sidebar-expand-toggle" class="hidden lg:flex p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 mr-2 transition-colors" title="Toggle Sidebar" aria-label="Toggle sidebar" aria-expanded="true" aria-controls="sidebar">
+                            <svg id="sidebar-expand-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
                             </svg>
-                            <svg id="sidebar-collapse-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg id="sidebar-collapse-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
                             </svg>
                         </button>
                         <!-- Mobile Menu Toggle -->
-                        <button id="sidebar-toggle" class="lg:hidden p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 mr-2">
-                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <button id="sidebar-toggle" class="lg:hidden p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 mr-2" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-sidebar">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                         </button>
@@ -163,18 +167,18 @@
                     <!-- Right: Theme Toggle + Balance + User Info -->
                     <div class="flex items-center space-x-3 {% if site['rtl'] %} space-x-reverse {% endif %}">
                         <!-- Theme Toggle -->
-                        <button id="theme-toggle" class="p-2 rounded-lg text-gray-400 hover:text-gray-500 hover:bg-gray-100 transition-colors">
-                            <svg id="theme-icon-sun" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <button id="theme-toggle" class="p-2 rounded-lg text-gray-400 hover:text-gray-500 hover:bg-gray-100 transition-colors" aria-label="Toggle dark mode" aria-pressed="false">
+                            <svg id="theme-icon-sun" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                             </svg>
-                            <svg id="theme-icon-moon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg id="theme-icon-moon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                             </svg>
                         </button>
 
                         <!-- Add Funds Button -->
-                        <a href="{{ page_url('addfunds') }}" class="p-2 rounded-lg text-gray-400 hover:text-gray-500 hover:bg-gray-100 transition-colors" title="Add Funds">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <a href="{{ page_url('addfunds') }}" class="p-2 rounded-lg text-gray-400 hover:text-gray-500 hover:bg-gray-100 transition-colors" title="Add Funds" aria-label="Add funds to account">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                             </svg>
                         </a>
@@ -182,9 +186,9 @@
                         <!-- Balance Dropdown -->
                         {% if site.currencies %}
                         <div class="relative dropdown dropdown-currencies">
-                            <button class="flex items-center px-3 py-2 rounded-lg text-sm font-medium text-gray-700 bg-gray-50 hover:bg-gray-100 transition-colors" data-toggle="dropdown">
+                            <button class="flex items-center px-3 py-2 rounded-lg text-sm font-medium text-gray-700 bg-gray-50 hover:bg-gray-100 transition-colors" data-toggle="dropdown" aria-label="Select currency" aria-expanded="false" aria-haspopup="true" aria-controls="currencies-list">
                                 <span class="font-semibold text-primary-500">{{ user.balance_formatted }}</span>
-                                <svg class="ml-1.5 h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg class="ml-1.5 h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                 </svg>
                             </button>
@@ -204,12 +208,12 @@
 
                         <!-- User Menu -->
                         <div class="relative dropdown">
-                            <button class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors" data-toggle="dropdown">
-                                <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center">
+                            <button class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors" data-toggle="dropdown" aria-label="User menu for {{ user.username }}" aria-expanded="false" aria-haspopup="true">
+                                <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center" aria-hidden="true">
                                     <span class="text-sm font-medium text-primary-500">{{ user.username[0]|upper }}</span>
                                 </div>
                                 <span class="hidden sm:block text-sm font-medium text-gray-700">{{ user.username }}</span>
-                                <svg class="hidden sm:block h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <svg class="hidden sm:block h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                 </svg>
                             </button>
@@ -228,7 +232,7 @@
             </header>
 
             <!-- Page Content -->
-            <main class="flex-1 overflow-y-auto bg-gray-50">
+            <main id="main-content" class="flex-1 overflow-y-auto bg-gray-50" role="main">
                 <div class="py-6">
                     {{ content }}
                 </div>
@@ -286,11 +290,11 @@
                     {% endif %}
 
                     <!-- Theme Toggle -->
-                    <button id="theme-toggle" class="p-2 rounded-lg text-gray-400 hover:text-gray-500 hover:bg-gray-100 transition-colors">
-                        <svg id="theme-icon-sun" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button id="theme-toggle" class="p-2 rounded-lg text-gray-400 hover:text-gray-500 hover:bg-gray-100 transition-colors" aria-label="Toggle dark mode" aria-pressed="false">
+                        <svg id="theme-icon-sun" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
                         </svg>
-                        <svg id="theme-icon-moon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg id="theme-icon-moon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
                         </svg>
                     </button>
@@ -306,8 +310,8 @@
                     </a>
 
                     <!-- Mobile Menu Toggle -->
-                    <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
                     </button>
@@ -315,7 +319,7 @@
             </div>
 
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-gray-200">
+            <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-gray-200" role="menu" aria-label="Mobile navigation menu">
                 <div class="pt-4 space-y-1">
                     {% for menu in site['menu'] %}
                     <a href="{{ menu['link'] }}" {% if menu['external'] %} target="_blank" {% endif %} class="block px-4 py-2 text-base font-medium {% if menu['active'] %} text-primary-500 bg-primary-50 {% else %} text-gray-700 hover:text-gray-900 hover:bg-gray-100 {% endif %}">
@@ -344,9 +348,116 @@
     </header>
 
     <!-- Guest Content -->
-    <main class="min-h-screen">
+    <main id="main-content" class="min-h-screen" role="main">
         {{ content }}
     </main>
+
+    <!-- Footer (Guest Mode Only) -->
+    <footer class="bg-white dark:bg-dark-secondary border-t border-gray-200 dark:border-dark-tertiary mt-auto transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+                <!-- Left Section: Logo -->
+                <div class="flex flex-col items-center md:items-start">
+                    <a href="{{ page_url('index') }}" class="flex items-center mb-4">
+                        {% if site['logo'] %}
+                        <img src="{{ site['logo'] }}" alt="{{ site['name'] }}" title="{{ site['name'] }}" class="h-10 w-auto">
+                        {% else %}
+                        <div class="flex items-center">
+                            <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-accent-500 rounded-lg flex items-center justify-center mr-3">
+                                <span class="text-white font-bold text-xl">M</span>
+                            </div>
+                            <span class="text-xl font-bold text-gray-900 dark:text-slate-100">{{ site['name'] }}</span>
+                        </div>
+                        {% endif %}
+                    </a>
+                </div>
+
+                <!-- Middle Section: Menu -->
+                <div>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-slate-100 mb-4">Menu</h3>
+                    <div class="grid grid-cols-2 gap-3">
+                        <a href="{{ page_url('index') }}" class="text-gray-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200">Home</a>
+                        <a href="{{ page_url('terms') }}" class="text-gray-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200">Terms</a>
+                        <a href="{{ page_url('services') }}" class="text-gray-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200">Services</a>
+                        <a href="{{ page_url('privacy') }}" class="text-gray-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200">Privacy policy</a>
+                        <a href="{{ page_url('blog') }}" class="text-gray-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200">Blog</a>
+                        <a href="{{ page_url('contact') }}" class="text-gray-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200">Contact</a>
+                    </div>
+                </div>
+
+                <!-- Right Section: Follow Us -->
+                <div>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-slate-100 mb-4">Follow us</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <!-- Telegram -->
+                        <a href="#" class="w-10 h-10 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-500/30 rounded-lg flex items-center justify-center text-primary-500 dark:text-primary-400 hover:bg-primary-100 dark:hover:bg-primary-900/40 hover:border-primary-300 dark:hover:border-primary-500/50 transition-all duration-200" title="Telegram" aria-label="Follow us on Telegram">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+                            </svg>
+                        </a>
+                        <!-- WhatsApp -->
+                        <a href="#" class="w-10 h-10 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-500/30 rounded-lg flex items-center justify-center text-primary-500 dark:text-primary-400 hover:bg-primary-100 dark:hover:bg-primary-900/40 hover:border-primary-300 dark:hover:border-primary-500/50 transition-all duration-200" title="WhatsApp" aria-label="Contact us on WhatsApp">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.369 1.262.589 1.694.755.712.27 1.36.232 1.871.141.574-.099 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                        </a>
+                        <!-- X (Twitter) -->
+                        <a href="#" class="w-10 h-10 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-500/30 rounded-lg flex items-center justify-center text-primary-500 dark:text-primary-400 hover:bg-primary-100 dark:hover:bg-primary-900/40 hover:border-primary-300 dark:hover:border-primary-500/50 transition-all duration-200" title="X (Twitter)" aria-label="Follow us on X (formerly Twitter)">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </a>
+                        <!-- Skype -->
+                        <a href="#" class="w-10 h-10 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-500/30 rounded-lg flex items-center justify-center text-primary-500 dark:text-primary-400 hover:bg-primary-100 dark:hover:bg-primary-900/40 hover:border-primary-300 dark:hover:border-primary-500/50 transition-all duration-200" title="Skype" aria-label="Contact us on Skype">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12.04 0C5.408-.02.004 5.37.004 12.017c0 3.63 1.94 6.818 4.84 8.58l-.64 2.38 2.56-.67c.72.2 1.48.32 2.28.32 6.624 0 11.996-5.4 11.996-12.05C22.036 5.37 16.664.02 12.04 0zm5.84 15.19c-.16.45-.92.84-1.28 1.01-.36.17-.72.26-1.6.53-.88.26-2.04.4-2.96.4-2.48 0-4.4-.8-5.84-2.24-1.44-1.44-2.24-3.36-2.24-5.84 0-.92.13-2.08.4-2.96.13-.44.36-1.2.53-1.6.17-.36.56-1.12 1.01-1.28.45-.16.92-.08 1.2.08.28.16 1.84 1.2 2.08 1.44.24.24.4.52.24.88-.16.36-.24.6-.4.88-.16.28-.32.4-.56.64-.24.24-.52.52-.24.88.28.36 1.12 1.44 2.4 2.32 1.28.88 2.36 1.16 2.72 1.28.36.12.6.04.88-.12.28-.16 1.2-.72 1.52-.96.32-.24.56-.16.88.08.32.24 2.08 1.96 2.44 2.32.36.36.6.52.72.88.12.36.04.6-.08.88z"/>
+                            </svg>
+                        </a>
+                        <!-- YouTube -->
+                        <a href="#" class="w-10 h-10 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-500/30 rounded-lg flex items-center justify-center text-primary-500 dark:text-primary-400 hover:bg-primary-100 dark:hover:bg-primary-900/40 hover:border-primary-300 dark:hover:border-primary-500/50 transition-all duration-200" title="YouTube" aria-label="Subscribe to our YouTube channel">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                        </a>
+                        <!-- Medium -->
+                        <a href="#" class="w-10 h-10 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-500/30 rounded-lg flex items-center justify-center text-primary-500 dark:text-primary-400 hover:bg-primary-100 dark:hover:bg-primary-900/40 hover:border-primary-300 dark:hover:border-primary-500/50 transition-all duration-200" title="Medium" aria-label="Follow us on Medium">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer Bar -->
+            <div class="mt-8 pt-8 border-t border-primary-200 dark:border-primary-500/30 flex flex-col sm:flex-row items-center justify-between gap-4 transition-colors duration-300">
+                <!-- Disclaimer -->
+                <p class="text-sm text-gray-500 dark:text-slate-400 text-center sm:text-left">
+                    Marketerum is not directly related to any Social Media platform.
+                </p>
+                <!-- Copyright -->
+                <p class="text-sm text-gray-500 dark:text-slate-400 text-center sm:text-right">
+                    Marketerum Copyright © 2025 - All rights Reserved
+                </p>
+            </div>
+        </div>
+
+        <!-- Floating Action Buttons -->
+        <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
+            <!-- Scroll to Top Button -->
+            <button id="scroll-to-top" class="w-12 h-12 bg-primary-500 text-white rounded-full shadow-lg hover:bg-primary-600 transition-all hover:shadow-xl flex items-center justify-center hidden" aria-label="Scroll to top">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                </svg>
+            </button>
+            <!-- WhatsApp Button -->
+            <a href="#" class="w-12 h-12 bg-accent-500 text-white rounded-full shadow-lg hover:bg-accent-600 transition-all hover:shadow-xl flex items-center justify-center" title="WhatsApp" aria-label="Contact us on WhatsApp">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.369 1.262.589 1.694.755.712.27 1.36.232 1.871.141.574-.099 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+            </a>
+        </div>
+    </footer>
     {% endif %}
 
     <!-- Notifications wrapper -->

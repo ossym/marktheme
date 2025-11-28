@@ -1,98 +1,117 @@
-<section class="min-h-screen flex flex-col lg:flex-row bg-gray-50 hero">
+<section class="flex flex-col lg:flex-row bg-gradient-to-br from-slate-50 via-primary-50/30 to-accent-50/20 dark:from-dark dark:via-dark-secondary dark:to-dark transition-all duration-300 hero overflow-hidden">
     <!-- Left Section: Promotional Content -->
-    <div class="flex flex-1 items-center justify-center bg-gradient-to-br from-primary-50 to-accent-50 p-6 sm:p-8 lg:p-12 order-2 lg:order-1">
-        <div class="max-w-lg w-full space-y-6 sm:space-y-8">
+    <div class="flex flex-1 items-center justify-center relative p-6 sm:p-8 lg:p-10 xl:p-12 order-2 lg:order-1">
+        <!-- Decorative Background Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-primary-200/20 dark:bg-primary-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-accent-200/20 dark:bg-accent-500/10 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-lg w-full space-y-5 sm:space-y-6 relative z-10">
             <!-- Badge -->
-            <div class="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-white/80 backdrop-blur-sm border border-primary-200 rounded-full text-xs sm:text-sm font-medium text-primary-600">
-                <svg class="w-3 h-3 sm:w-4 sm:h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+            <div class="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-white/90 dark:bg-dark-secondary/90 backdrop-blur-md border border-primary-200/50 dark:border-primary-500/30 rounded-full text-xs sm:text-sm font-medium text-primary-600 dark:text-primary-400 shadow-sm transition-all duration-300 hover:shadow-md">
+                <svg class="w-3 h-3 sm:w-4 sm:h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                     <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
                 SMM Panel
             </div>
 
             <!-- Main Heading -->
-            <h1 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 leading-tight">
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-slate-100 leading-tight tracking-tight">
                 Complete SMM Panel Services Backed by 5 Years of Trust
             </h1>
 
             <!-- Description -->
-            <p class="text-base sm:text-lg text-gray-700 leading-relaxed">
-                Marketerum is a trusted <strong class="font-semibold text-gray-900">SMM panel provider</strong>, delivering fast and affordable services to creators, agencies, and businesses. Our <strong class="font-semibold text-gray-900">SMM panel</strong> has been running nonstop for more than 1,700 days (around 5 years), trusted by thousands of <strong class="font-semibold text-gray-900">SMM panel resellers</strong> worldwide.
+            <p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                Marketerum is a trusted <strong class="font-semibold text-gray-900 dark:text-slate-100">SMM panel provider</strong>, delivering fast and affordable services to creators, agencies, and businesses. Our <strong class="font-semibold text-gray-900 dark:text-slate-100">SMM panel</strong> has been running nonstop for more than 1,700 days (around 5 years), trusted by thousands of <strong class="font-semibold text-gray-900 dark:text-slate-100">SMM panel resellers</strong> worldwide.
             </p>
 
-            <!-- Features List (Optional) -->
-            <div class="grid grid-cols-1 gap-3 sm:gap-4 pt-2 sm:pt-4">
-                <div class="flex items-start">
-                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-primary-500 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span class="text-sm sm:text-base text-gray-700">Fast and reliable service delivery</span>
+            <!-- Features List -->
+            <div class="grid grid-cols-1 gap-3 sm:gap-3.5 pt-1">
+                <div class="flex items-start group">
+                    <div class="flex-shrink-0 mt-0.5 mr-3">
+                        <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center group-hover:bg-primary-200 dark:group-hover:bg-primary-900/50 transition-colors duration-200">
+                            <svg class="w-3 h-3 sm:w-4 sm:h-4 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                    </div>
+                    <span class="text-sm sm:text-base text-gray-700 dark:text-slate-300 group-hover:text-gray-900 dark:group-hover:text-slate-100 transition-colors duration-200">Fast and reliable service delivery</span>
                 </div>
-                <div class="flex items-start">
-                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-primary-500 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span class="text-sm sm:text-base text-gray-700">Affordable pricing for all budgets</span>
+                <div class="flex items-start group">
+                    <div class="flex-shrink-0 mt-0.5 mr-3">
+                        <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center group-hover:bg-primary-200 dark:group-hover:bg-primary-900/50 transition-colors duration-200">
+                            <svg class="w-3 h-3 sm:w-4 sm:h-4 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                    </div>
+                    <span class="text-sm sm:text-base text-gray-700 dark:text-slate-300 group-hover:text-gray-900 dark:group-hover:text-slate-100 transition-colors duration-200">Affordable pricing for all budgets</span>
                 </div>
-                <div class="flex items-start">
-                    <svg class="w-5 h-5 sm:w-6 sm:h-6 text-primary-500 mr-2 sm:mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span class="text-sm sm:text-base text-gray-700">Trusted by thousands of resellers globally</span>
+                <div class="flex items-start group">
+                    <div class="flex-shrink-0 mt-0.5 mr-3">
+                        <div class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center group-hover:bg-primary-200 dark:group-hover:bg-primary-900/50 transition-colors duration-200">
+                            <svg class="w-3 h-3 sm:w-4 sm:h-4 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                            </svg>
+                        </div>
+                    </div>
+                    <span class="text-sm sm:text-base text-gray-700 dark:text-slate-300 group-hover:text-gray-900 dark:group-hover:text-slate-100 transition-colors duration-200">Trusted by thousands of resellers globally</span>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Right Section: Login Form -->
-    <section class="flex-1 flex items-center justify-center py-8 sm:py-12 px-4 sm:px-6 lg:px-8 order-1 lg:order-2">
-        <div class="max-w-md w-full space-y-6 sm:space-y-8">
+    <div class="flex-1 flex items-center justify-center py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 xl:px-12 order-1 lg:order-2 transition-all duration-300 relative">
+        <!-- Decorative Background for Form Section -->
+        <div class="absolute inset-0 bg-gradient-to-br from-white/50 to-gray-50/50 dark:from-dark-secondary/50 dark:to-dark/50 pointer-events-none"></div>
+        <div class="max-w-lg w-full h-full space-y-5 sm:space-y-6 relative z-10">
 
         <!-- Form Card -->
-        <div class="bg-white rounded-lg shadow-md p-8 {% if site['rtl'] %} rtl-form {% endif %}">
+        <div class="bg-white/95 dark:bg-dark-secondary/95 backdrop-blur-sm rounded-xl shadow-lg dark:shadow-2xl border border-gray-200/50 dark:border-dark-tertiary/50 p-6 sm:p-8 transition-all duration-300 hover:shadow-xl dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 {% if site['rtl'] %} rtl-form {% endif %}">
             <form method="post" action="{{ page['url'] }}" class="space-y-6">
                 <!-- Error Alert -->
-                {% if error %}
-                <div class="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg flex items-center justify-between {% if site['rtl'] %} rtl-alert {% endif %}" role="alert">
+                    {% if error %}
+                <div class="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg flex items-center justify-between {% if site['rtl'] %} rtl-alert {% endif %}" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="flex items-center">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
                         </svg>
                         <span>{{ errorMessage }}</span>
                     </div>
-                    <button type="button" class="text-red-500 hover:text-red-700 focus:outline-none" onclick="this.parentElement.remove()">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <button type="button" class="text-red-500 hover:text-red-700 focus:outline-none" onclick="this.parentElement.remove()" aria-label="Close error message">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                             <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
                     </button>
-                </div>
-                {% endif %}
+                    </div>
+                    {% endif %}
 
                 <!-- Success Alert -->
-                {% if success %}
-                <div class="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg flex items-center justify-between" role="alert">
+                    {% if success %}
+                <div class="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg flex items-center justify-between" role="alert" aria-live="polite" aria-atomic="true">
                     <div class="flex items-center">
-                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                             <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
                         </svg>
                         <span>{{ successMessage }}</span>
                     </div>
-                    <button type="button" class="text-green-500 hover:text-green-700 focus:outline-none" onclick="this.parentElement.remove()">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                    <button type="button" class="text-green-500 hover:text-green-700 focus:outline-none" onclick="this.parentElement.remove()" aria-label="Close success message">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
                             <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
                         </svg>
                     </button>
-                </div>
-                {% endif %}
+                    </div>
+                    {% endif %}
 
                 <!-- Username Field -->
                 <div>
-                    <label for="username" class="block text-sm font-medium text-gray-700 mb-2">
+                    <label for="username" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">
                         {{ lang('signup.username') }}
                     </label>
                     <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <svg class="h-5 w-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none" aria-hidden="true">
+                            <svg class="h-5 w-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                             </svg>
                         </div>
@@ -101,16 +120,20 @@
                             id="username" 
                             name="LoginForm[username]" 
                             required
-                            class="appearance-none relative block w-full pl-10 pr-3 py-2 border border-primary-200 placeholder-gray-400 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm transition-colors"
+                            autocomplete="username"
+                            aria-required="true"
+                            aria-describedby="username-description"
+                            class="appearance-none relative block w-full pl-10 pr-3 py-2 border border-primary-200 dark:border-primary-500/30 placeholder-gray-400 dark:placeholder-slate-500 text-gray-900 dark:text-slate-100 dark:bg-dark-tertiary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm transition-colors"
                             placeholder="{{ lang('signup.username') }}"
                         >
+                        <span id="username-description" class="sr-only">Enter your username</span>
                     </div>
                 </div>
 
                 <!-- Password Field -->
                 <div class="form-group__password">
                     <div class="flex items-center justify-between mb-2">
-                        <label for="password" class="block text-sm font-medium text-gray-700">
+                        <label for="password" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
                             {{ lang('signup.password') }}
                         </label>
                         {% if site['resetPassword'] %}
@@ -120,8 +143,8 @@
                         {% endif %}
                     </div>
                     <div class="relative">
-                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                            <svg class="h-5 w-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none" aria-hidden="true">
+                            <svg class="h-5 w-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                             </svg>
                         </div>
@@ -130,9 +153,13 @@
                             id="password" 
                             name="LoginForm[password]" 
                             required
-                            class="appearance-none relative block w-full pl-10 pr-3 py-2 border border-primary-200 placeholder-gray-400 text-gray-900 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm transition-colors"
+                            autocomplete="current-password"
+                            aria-required="true"
+                            aria-describedby="password-description"
+                            class="appearance-none relative block w-full pl-10 pr-3 py-2 border border-primary-200 dark:border-primary-500/30 placeholder-gray-400 dark:placeholder-slate-500 text-gray-900 dark:text-slate-100 dark:bg-dark-tertiary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm transition-colors"
                             placeholder="{{ lang('signup.password') }}"
                         >
+                        <span id="password-description" class="sr-only">Enter your password</span>
                     </div>
                 </div>
 
@@ -144,16 +171,18 @@
                             name="LoginForm[remember]" 
                             value="1" 
                             id="remember"
+                            aria-describedby="remember-description"
                             class="h-4 w-4 text-primary-500 focus:ring-primary-500 border-gray-300 rounded"
                         >
-                        <label for="remember" class="ml-2 block text-sm text-gray-700">
+                        <label for="remember" class="ml-2 block text-sm text-gray-700 dark:text-slate-300">
                             {{ lang('signin.remember_me') }}
                         </label>
+                        <span id="remember-description" class="sr-only">Keep me signed in on this device</span>
                     </div>
-                </div>
+                    </div>
 
                 <!-- Captcha -->
-                {% if captcha %}
+                    {% if captcha %}
                 <div>
                     {{ captchaCode }}
                 </div>
@@ -167,6 +196,7 @@
                     <button 
                         type="submit" 
                         class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all shadow-md hover:shadow-lg"
+                        aria-label="Sign in to your account"
                     >
                         {{ lang('signin.button')|default('Sign In') }}
                     </button>
@@ -180,29 +210,29 @@
                 </div>
 
                 <!-- Sign Up Link -->
-                <div class="text-center text-sm text-gray-600">
+                <div class="text-center text-sm text-gray-600 dark:text-slate-400">
                     {{ lang('signin.text')|default('Do not have an account?') }} 
-                    <a href="{{ page_url('signup') }}" class="font-medium text-primary-500 hover:text-primary-600 transition-colors">
+                    <a href="{{ page_url('signup') }}" class="font-medium text-primary-500 dark:text-primary-400 hover:text-primary-600 dark:hover:text-primary-300 transition-colors">
                         {{ lang('signup.title')|default('Sign up') }}
                     </a>
                 </div>
             </form>
         </div>
         </div>
-    </section>
+    </div>
 </section>
 
 <!-- Marketerum Achievements Section -->
-<section class="py-12 sm:py-16 lg:py-20 bg-gray-50">
+<section class="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-dark transition-colors duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 text-center mb-8 sm:mb-12">Marketerum Achievements</h3>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-slate-100 text-center mb-8 sm:mb-12">Marketerum Achievements</h2>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
             <!-- Orders Completed Card -->
-            <div class="bg-white rounded-lg p-6 sm:p-8 shadow-md hover:shadow-lg transition-shadow">
+            <div class="bg-white dark:bg-dark-secondary rounded-lg p-6 sm:p-8 shadow-md dark:shadow-xl hover:shadow-lg dark:hover:shadow-2xl transition-all duration-300 border border-transparent dark:border-dark-tertiary hover:border-primary-200 dark:hover:border-primary-500/30">
                 <div class="flex items-start space-x-4">
                     <div class="flex-shrink-0">
                         <div class="w-14 h-14 sm:w-16 sm:h-16 bg-primary-500 rounded-full flex items-center justify-center">
-                            <svg class="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
                             </svg>
                         </div>
@@ -211,17 +241,17 @@
                         <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-500 mb-2">
                             {{ totals['ordersCompleted']|default('0')|number_format(0, '.', ',') }}
                         </div>
-                        <div class="text-base sm:text-lg text-gray-600">Orders Completed</div>
+                        <div class="text-base sm:text-lg text-gray-600 dark:text-slate-400">Orders Completed</div>
                     </div>
                 </div>
             </div>
 
             <!-- Satisfied Customers Card -->
-            <div class="bg-white rounded-lg p-6 sm:p-8 shadow-md hover:shadow-lg transition-shadow">
+            <div class="bg-white dark:bg-dark-secondary rounded-lg p-6 sm:p-8 shadow-md dark:shadow-xl hover:shadow-lg dark:hover:shadow-2xl transition-all duration-300 border border-transparent dark:border-dark-tertiary hover:border-primary-200 dark:hover:border-primary-500/30">
                 <div class="flex items-start space-x-4">
                     <div class="flex-shrink-0">
                         <div class="w-14 h-14 sm:w-16 sm:h-16 bg-primary-500 rounded-full flex items-center justify-center">
-                            <svg class="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                             </svg>
                         </div>
@@ -230,17 +260,17 @@
                         <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-500 mb-2">
                             {{ totals['usersActive']|default('0')|number_format(0, '.', ',') }}
                         </div>
-                        <div class="text-base sm:text-lg text-gray-600">Satisfied Customers</div>
+                        <div class="text-base sm:text-lg text-gray-600 dark:text-slate-400">Satisfied Customers</div>
                     </div>
                 </div>
             </div>
 
             <!-- Active Services Card -->
-            <div class="bg-white rounded-lg p-6 sm:p-8 shadow-md hover:shadow-lg transition-shadow">
+            <div class="bg-white dark:bg-dark-secondary rounded-lg p-6 sm:p-8 shadow-md dark:shadow-xl hover:shadow-lg dark:hover:shadow-2xl transition-all duration-300 border border-transparent dark:border-dark-tertiary hover:border-primary-200 dark:hover:border-primary-500/30">
                 <div class="flex items-start space-x-4">
                     <div class="flex-shrink-0">
                         <div class="w-14 h-14 sm:w-16 sm:h-16 bg-primary-500 rounded-full flex items-center justify-center">
-                            <svg class="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
@@ -250,7 +280,7 @@
                         <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-500 mb-2">
                             {{ totals['servicesAll']|default('0')|number_format(0, '.', ',') }}+
                         </div>
-                        <div class="text-base sm:text-lg text-gray-600">Active Services</div>
+                        <div class="text-base sm:text-lg text-gray-600 dark:text-slate-400">Active Services</div>
                     </div>
                 </div>
             </div>
@@ -259,31 +289,31 @@
 </section>
 
 <!-- About Us Section -->
-<section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-primary-50 to-white">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-2xl border border-primary-200 shadow-lg overflow-hidden">
+<section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-primary-50 to-white dark:from-dark-secondary dark:to-dark transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white dark:bg-dark-secondary rounded-2xl border border-primary-200 dark:border-primary-500/30 shadow-lg dark:shadow-xl overflow-hidden transition-all duration-300">
             <!-- Gradient Top -->
-            <div class="bg-gradient-to-b from-primary-50 to-white h-32 sm:h-40"></div>
+            <div class="bg-gradient-to-b from-primary-50 to-white dark:from-primary-900/20 dark:to-dark-secondary h-32 sm:h-40"></div>
             
             <!-- Content -->
             <div class="px-6 sm:px-8 lg:px-12 pb-8 sm:pb-12 lg:pb-16 -mt-20 sm:-mt-24 relative">
                 <!-- About Us Badge -->
-                <div class="inline-flex items-center px-4 py-2 bg-primary-100 border border-primary-200 rounded-full text-sm font-medium text-gray-700 mb-6">
+                <div class="inline-flex items-center px-4 py-2 bg-primary-100 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-500/30 rounded-full text-sm font-medium text-gray-700 dark:text-slate-300 mb-6">
                     About Us
                 </div>
 
                 <!-- Main Title -->
-                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 sm:mb-8 leading-tight">
-                    Premier <span class="text-primary-500">SMM Panel Provider</span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-6 sm:mb-8 leading-tight">
+                    Premier <span class="text-primary-500 dark:text-primary-400">SMM Panel Provider</span>
                 </h2>
 
                 <!-- Body Text -->
-                <div class="space-y-4 sm:space-y-5 text-base sm:text-lg text-gray-700 leading-relaxed">
+                <div class="space-y-4 sm:space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
                     <p>
-                        We launched in <strong class="font-semibold text-gray-900">2020</strong> because we were tired of the same old problems. Good <strong class="font-semibold text-gray-900">cheap SMM services</strong> were hard to find. Most providers either overcharged or sent fake likes and views. So our team, made up of real digital marketers with years in the trenches, built <strong class="font-semibold text-gray-900">Marketerum</strong>: an <strong class="font-semibold text-gray-900">SMM panel</strong> that actually delivers.
+                        We launched in <strong class="font-semibold text-gray-900 dark:text-slate-100">2020</strong> because we were tired of the same old problems. Good <strong class="font-semibold text-gray-900 dark:text-slate-100">cheap SMM services</strong> were hard to find. Most providers either overcharged or sent fake likes and views. So our team, made up of real digital marketers with years in the trenches, built <strong class="font-semibold text-gray-900 dark:text-slate-100">Marketerum</strong>: an <strong class="font-semibold text-gray-900 dark:text-slate-100">SMM panel</strong> that actually delivers.
                     </p>
                     <p>
-                        What started with a few local clients has turned into something much bigger. Today, we power over a million orders for everyone from solo creators to Fortune 500 brands across six continents. We keep our promise: offer the <strong class="font-semibold text-gray-900">cheapest SMM panel services</strong> that bring real results, every time.
+                        What started with a few local clients has turned into something much bigger. Today, we power over a million orders for everyone from solo creators to Fortune 500 brands across six continents. We keep our promise: offer the <strong class="font-semibold text-gray-900 dark:text-slate-100">cheapest SMM panel services</strong> that bring real results, every time.
                     </p>
                     <p>
                         Whether you're just starting out or running a full reseller business, our panel gives you pro-level tools at prices that won't break the bank. We don't do hype. We do results. That's how we've earned trust from thousands of users worldwide.
@@ -302,12 +332,12 @@
 </section>
 
 <!-- Why Choose Us Section -->
-<section class="py-12 sm:py-16 lg:py-20 bg-gray-50">
+<section class="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-dark transition-colors duration-300">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Decorative Hexagon Icon -->
         <div class="flex justify-start mb-6">
             <div class="relative">
-                <svg class="w-16 h-16 sm:w-20 sm:h-20 text-primary-300 transform rotate-12" fill="currentColor" viewBox="0 0 100 100">
+                <svg class="w-16 h-16 sm:w-20 sm:h-20 text-primary-300 transform rotate-12" fill="currentColor" viewBox="0 0 100 100" aria-hidden="true">
                     <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" stroke="currentColor" stroke-width="2" fill="currentColor" opacity="0.3"/>
                     <polygon points="50,15 85,32.5 85,67.5 50,85 15,67.5 15,32.5" stroke="currentColor" stroke-width="2" fill="currentColor" opacity="0.5"/>
                 </svg>
@@ -331,6 +361,683 @@
             <p>
                 choose Marketerum: We deliver lightning-fast results within minutes of ordering, ensuring your campaigns launch without delay. Our network consists of authentic, real active users who provide genuine engagement that protects your brand reputation. As the provider of <strong class="font-semibold text-gray-900">the cheapest SMM panel</strong> services starting at just $0.001 per service, we make professional social media marketing accessible to everyone. Our dedicated team offers 24/7 expert support in multiple languages, while our secure payment processing uses industry-standard encryption to protect every transaction. Additionally, we provide complete child panel solutions specifically designed for <strong class="font-semibold text-gray-900">SMM panel resellers</strong> looking to build their own profitable businesses.
             </p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-dark transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- FAQ Badge -->
+        <div class="text-center mb-6">
+            <div class="inline-flex items-center px-4 py-2 bg-primary-100 border border-primary-200 rounded-full text-sm font-medium text-gray-700 shadow-sm">
+                F.A.Q
+            </div>
+        </div>
+
+        <!-- Main Heading -->
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-center mb-6">
+            Got Questions? We've Got Answers
+        </h2>
+
+        <!-- Introductory Text -->
+        <p class="text-base sm:text-lg text-gray-700 text-center max-w-3xl mx-auto mb-10 sm:mb-12 leading-relaxed">
+            New to SMM panels? We hear the same questions every day from people just like you. Whether you're a business owner looking for <strong class="font-semibold text-gray-900">cheap SMM services</strong> or an entrepreneur interested in becoming an <strong class="font-semibold text-gray-900">SMM panel reseller</strong>, we've got the answers you need right here.
+        </p>
+
+                <!-- FAQ Accordion -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6" role="region" aria-label="Frequently Asked Questions">
+            <!-- Left Column -->
+            <div class="space-y-4 sm:space-y-6">
+                <!-- FAQ Item 1: How to register -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border-2 border-primary-200 dark:border-primary-500/30 shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="1" aria-expanded="true" aria-controls="faq-answer-1" id="faq-question-1">
+                        <span class="font-semibold text-gray-900 dark:text-slate-100 text-base sm:text-lg pr-4">How to register in our SMM Panel?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-primary-500 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-1" class="faq-answer p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-1">
+                        <p>
+                            To register an account on Marketerum, you can start by clicking the 'Sign Up' button, then complete the registration form, submit it, and then activate your account using the confirmation email we'll send you. 
+                            Our users are mostly SMM reseller panels, marketing agencies, companies, influencers, individual resells or even normal SMM users.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2: How to add funds -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="2" aria-expanded="false" aria-controls="faq-answer-2" id="faq-question-2">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">How to add funds?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-2" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 leading-relaxed" role="region" aria-labelledby="faq-question-2">
+                        <p>
+                        To add funds, login to your Marketerum account, click on the 'Add Funds' button, then choose your preferred payment method. In Nigeria, you can use Korapay. For those in Pakistan, you can use Cashmaal. In India, you can use PayTm, Paypal bank card or any other bank cards. For our Chinese users, we have Alipay and WeChat pay for you. Our users in South America, the USA, Canada or in Europe they can use bank card or Payop.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3: Add funds using Gcash -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="3" aria-expanded="false" aria-controls="faq-answer-3" id="faq-question-3">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">Add funds using Gcash or Debit/Credit card?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-3" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 leading-relaxed" role="region" aria-labelledby="faq-question-3">
+                        <p>
+                        We have more than 5 payment methods that support debit cards and credit cards from all over the world. For SMM Panel Philippines, you can use Gcash or Paymaya with 5% bonus on every payment you make. This is why we are considered as the cheapest smm reseller panel.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4: How to place an order -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="4" aria-expanded="false" aria-controls="faq-answer-4" id="faq-question-4">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">How to place an order?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-4" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 leading-relaxed" role="region" aria-labelledby="faq-question-4">
+                        <p>
+                        Supposing that you already registered an account, added funds and selected your SMM services, you can then place an order. We will start processing your order instantly, because we are simply the Fastest SMM Reseller panel.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="space-y-4 sm:space-y-6">
+                <!-- FAQ Item 5: How to make money -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="5" aria-expanded="false" aria-controls="faq-answer-5" id="faq-question-5">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">How to make money with Marketerum?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-5" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 leading-relaxed" role="region" aria-labelledby="faq-question-5">
+                        <p>
+                        
+							Our <a class="a_link" href="https://marketerum.com/main-smm-panel"><strong>main smm panel</strong></a> offer an affiliate program tailored specially for you. By sharing
+							your referral link with your friends and family, you can earn 5% on every deposit they make
+							in our smmpanel. Also, we paid thousands of influencers and marketers who shared our cheap
+							smm panel with their friends and communities.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6: Targeted services -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="6" aria-expanded="false" aria-controls="faq-answer-6" id="faq-question-6">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">Do we offer targeted SMM panel services?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-6" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 leading-relaxed" role="region" aria-labelledby="faq-question-6">
+                        <p>
+                        We offer the best SMM Panel services that target any specific country or demography. Because
+							we have worldwide users in Europe,
+							<a class="a_link" href="/african-smm-panel">Africa</a>, Asia, USA, they need TikTok Brazil,
+							SMM Panel Nigeria, smm panel for India or smm panel for Sri Lanka.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7: Free AI tools -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="7" aria-expanded="false" aria-controls="faq-answer-7" id="faq-question-7">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">Do we offer free Social Media AI tools?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-7" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 leading-relaxed" role="region" aria-labelledby="faq-question-7">
+                        <p>
+                        Because our users come from all over the world and from different backgrounds, and because free AI tools become more and more crucial for influencers and content creators, we decided to offer unique Social Media AI tools to our users and it is completely free.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 8: What are AI tools -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="8" aria-expanded="false" aria-controls="faq-answer-8" id="faq-question-8">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">What are our free Social Media AI tools about?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-8" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 leading-relaxed" role="region" aria-labelledby="faq-question-8">
+                        <p>
+                        We as SMM service provider, are dedicated to provider unique and affordable services to our users. This including free AI tools such as: Username generator, script writer, hashtag generator, video ideas generator, intro generator, bio generator, post generator. These tools are available for all social media platforms.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SMM Services Section -->
+<section class="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-dark transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- SMM Services Badge -->
+        <div class="text-center mb-6">
+            <div class="inline-flex items-center px-4 py-2 bg-primary-100 border border-primary-200 rounded-full text-sm font-medium text-gray-700 shadow-sm">
+                SMM SERVICES
+            </div>
+        </div>
+
+        <!-- Main Heading -->
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 text-center mb-8 sm:mb-12">
+            What Makes <span class="text-primary-500">Our SMM Panel Stand Out?</span>
+        </h2>
+
+        <!-- Tabs Navigation -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12 border-b border-primary-200 pb-4" role="tablist" aria-label="SMM Panel features">
+            <button class="service-tab active px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-medium text-white bg-primary-500 rounded-lg transition-all shadow-md" data-tab="pricing" role="tab" aria-selected="true" aria-controls="service-tab-panel-pricing" id="service-tab-pricing">
+                Pricing
+            </button>
+            <button class="service-tab px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-medium text-gray-700 hover:text-primary-500 transition-colors" data-tab="trust" role="tab" aria-selected="false" aria-controls="service-tab-panel-trust" id="service-tab-trust" tabindex="-1">
+                Trust
+            </button>
+            <button class="service-tab px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-medium text-gray-700 hover:text-primary-500 transition-colors" data-tab="reach" role="tab" aria-selected="false" aria-controls="service-tab-panel-reach" id="service-tab-reach" tabindex="-1">
+                Reach
+            </button>
+            <button class="service-tab px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-medium text-gray-700 hover:text-primary-500 transition-colors" data-tab="ease" role="tab" aria-selected="false" aria-controls="service-tab-panel-ease" id="service-tab-ease" tabindex="-1">
+                Ease
+            </button>
+            <button class="service-tab px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base font-medium text-gray-700 hover:text-primary-500 transition-colors" data-tab="speed" role="tab" aria-selected="false" aria-controls="service-tab-panel-speed" id="service-tab-speed" tabindex="-1">
+                Speed
+            </button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="service-content">
+            <!-- Pricing Tab Content (Default/Active) -->
+            <div id="service-tab-panel-pricing" class="service-tab-panel active" data-content="pricing" role="tabpanel" aria-labelledby="service-tab-pricing">
+                <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-lg dark:shadow-xl p-6 sm:p-8 lg:p-10 transition-all duration-300">
+                    <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-slate-100 mb-6">
+                        Affordable SMM Panel for Quick Results
+                    </h3>
+                    <div class="space-y-4 sm:space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                        <p>
+                            If you're starting out or working with a small budget, our SMM panel is the perfect choice. It offers powerful tools that help you grow your online presence without spending too much money. You don't need to invest a lot to see fast improvements.
+                        </p>
+                        <p>
+                            You can choose the services you need and control your costs with clear pricing. Everything is built to be simple, efficient, and budget-friendly. Whether you're promoting a business, a project, or your personal brand, you'll find the right options here.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Tab Content -->
+            <div id="service-tab-panel-trust" class="service-tab-panel hidden" data-content="trust" role="tabpanel" aria-labelledby="service-tab-trust" tabindex="0">
+                <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-lg dark:shadow-xl p-6 sm:p-8 lg:p-10 transition-all duration-300">
+                    <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-slate-100 mb-6">
+                        Trusted SMM Panel for Smart Marketing
+                    </h3>
+                    <div class="space-y-4 sm:space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                        <p>
+							Our platform is trusted by users from around the world because we focus on quality and honesty. Every order is processed with care, and we make sure you get what you expect, on time.
+						</p>
+                        <p>
+							Using our panel means you can rely on consistent results, friendly support, and a smooth experience. If you want to run smarter marketing with less stress, this is the right place to begin. We've helped many users reach their goals, and we're ready to help you too.
+						</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reach Tab Content -->
+            <div id="service-tab-panel-reach" class="service-tab-panel hidden" data-content="reach" role="tabpanel" aria-labelledby="service-tab-reach" tabindex="0">
+                <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-lg dark:shadow-xl p-6 sm:p-8 lg:p-10 transition-all duration-300">
+                    <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-slate-100 mb-6">
+                        Best SMM Panel for Reaching More People
+                    </h3>
+                    <div class="space-y-4 sm:space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                        <p>
+							Want to get more visibility and attract more attention? Our panel helps you spread your message to a wider audience in just a few clicks. Whether you run a small business or a large project, you'll benefit from better exposure.
+						</p>
+						<p>
+							You don't need to be an expert to use it. Just select the service, place your order, and your content will start getting more reach. It's the best way to grow your presence without needing expensive ads or complex tools.
+						</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ease Tab Content -->
+            <div id="service-tab-panel-ease" class="service-tab-panel hidden" data-content="ease" role="tabpanel" aria-labelledby="service-tab-ease" tabindex="0">
+                <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-lg dark:shadow-xl p-6 sm:p-8 lg:p-10 transition-all duration-300">
+                    <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-slate-100 mb-6">
+                        Simple SMM Panel for Easy Promotion
+                    </h3>
+                    <div class="space-y-4 sm:space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                        <p>
+							No more confusing dashboards or hard-to-use tools. Our panel was designed to be as simple as possible. Even if it's your first time using a service like this, you'll feel comfortable right away.
+						</p>
+						<p>
+							Everything is well organized, and you can start promoting in minutes. You don't need any technical knowledge — just choose your goal, and the system handles the rest. It's perfect for saving time while still growing your project.
+						</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Speed Tab Content -->
+            <div id="service-tab-panel-speed" class="service-tab-panel hidden" data-content="speed" role="tabpanel" aria-labelledby="service-tab-speed" tabindex="0">
+                <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-lg dark:shadow-xl p-6 sm:p-8 lg:p-10 transition-all duration-300">
+                    <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-slate-100 mb-6">
+                        Fast SMM Panel for Custom Growth
+                    </h3>
+                    <div class="space-y-4 sm:space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                        <p>
+							Some projects need speed. Our panel delivers fast results so you don't have to wait days to see progress. You can choose exactly how much you want to grow, and the system will start working right away.
+						</p>
+						<p>
+							Want to test small or scale big? No problem. This panel lets you decide your pace. Whether you're trying a new campaign or expanding a running one, you'll enjoy full control with quick outcomes.
+						</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SMM Panel Truths Section -->
+<section class="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-dark transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Badge -->
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center px-4 py-2 bg-primary-100 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-500/30 rounded-full text-sm font-medium text-gray-700 dark:text-slate-300 shadow-sm">
+                BEST AND CHEAPEST
+            </div>
+        </div>
+
+        <!-- Main Heading -->
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-100 text-center mb-8 sm:mb-12">
+            SMM Panel Truths Nobody Says
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+            <!-- Left Section: Tabs Navigation (Smaller) -->
+            <div class="lg:col-span-1">
+                <div class="space-y-2" role="tablist" aria-label="SMM Panel truths">
+                    <!-- Tab Item 1 -->
+                    <button class="truth-tab w-full text-left bg-white dark:bg-dark-secondary rounded-lg border-2 border-primary-200 dark:border-primary-500/50 p-4 hover:border-primary-300 dark:hover:border-primary-500/70 hover:shadow-md dark:hover:shadow-lg transition-all duration-300 active" data-tab="truth-1" role="tab" aria-selected="true" aria-controls="truth-tab-panel-1" id="truth-tab-1">
+                        <h3 class="text-sm sm:text-base font-medium text-gray-900 dark:text-slate-100">Why Digital Marketing Feels So Overwhelming in 2025</h3>
+                    </button>
+                    <!-- Tab Item 2 -->
+                    <button class="truth-tab w-full text-left bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary p-4 hover:border-primary-300 dark:hover:border-primary-500/50 hover:shadow-md dark:hover:shadow-lg transition-all duration-300" data-tab="truth-2" role="tab" aria-selected="false" aria-controls="truth-tab-panel-2" id="truth-tab-2" tabindex="-1">
+                        <h3 class="text-sm sm:text-base font-medium text-gray-900 dark:text-slate-100">What's the Real Story Behind SMM Panels?</h3>
+                    </button>
+                    <!-- Tab Item 3 -->
+                    <button class="truth-tab w-full text-left bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary p-4 hover:border-primary-300 dark:hover:border-primary-500/50 hover:shadow-md dark:hover:shadow-lg transition-all duration-300" data-tab="truth-3" role="tab" aria-selected="false" aria-controls="truth-tab-panel-3" id="truth-tab-3" tabindex="-1">
+                        <h3 class="text-sm sm:text-base font-medium text-gray-900 dark:text-slate-100">Finding the Cheapest SMM Panel That Won't Ruin Your Account</h3>
+                    </button>
+                    <!-- Tab Item 4 -->
+                    <button class="truth-tab w-full text-left bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary p-4 hover:border-primary-300 dark:hover:border-primary-500/50 hover:shadow-md dark:hover:shadow-lg transition-all duration-300" data-tab="truth-4" role="tab" aria-selected="false" aria-controls="truth-tab-panel-4" id="truth-tab-4" tabindex="-1">
+                        <h3 class="text-sm sm:text-base font-medium text-gray-900 dark:text-slate-100">Why I Recommend Easy SMM Panels to Overwhelmed Clients</h3>
+                    </button>
+                    <!-- Tab Item 5 -->
+                    <button class="truth-tab w-full text-left bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary p-4 hover:border-primary-300 dark:hover:border-primary-500/50 hover:shadow-md dark:hover:shadow-lg transition-all duration-300" data-tab="truth-5" role="tab" aria-selected="false" aria-controls="truth-tab-panel-5" id="truth-tab-5" tabindex="-1">
+                        <h3 class="text-sm sm:text-base font-medium text-gray-900 dark:text-slate-100">Philippines vs India vs Korea SMM Showdown</h3>
+                    </button>
+                    <!-- Tab Item 6 -->
+                    <button class="truth-tab w-full text-left bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary p-4 hover:border-primary-300 dark:hover:border-primary-500/50 hover:shadow-md dark:hover:shadow-lg transition-all duration-300" data-tab="truth-6" role="tab" aria-selected="false" aria-controls="truth-tab-panel-6" id="truth-tab-6" tabindex="-1">
+                        <h3 class="text-sm sm:text-base font-medium text-gray-900 dark:text-slate-100">The Fastest SMM Panels (When Speed Actually Matters)</h3>
+                    </button>
+                    <!-- Tab Item 7 -->
+                    <button class="truth-tab w-full text-left bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary p-4 hover:border-primary-300 dark:hover:border-primary-500/50 hover:shadow-md dark:hover:shadow-lg transition-all duration-300" data-tab="truth-7" role="tab" aria-selected="false" aria-controls="truth-tab-panel-7" id="truth-tab-7" tabindex="-1">
+                        <h3 class="text-sm sm:text-base font-medium text-gray-900 dark:text-slate-100">SMM Panel Indonesia: Why This Market Surprised Me</h3>
+                    </button>
+                    <!-- Tab Item 8 -->
+                    <button class="truth-tab w-full text-left bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary p-4 hover:border-primary-300 dark:hover:border-primary-500/50 hover:shadow-md dark:hover:shadow-lg transition-all duration-300" data-tab="truth-8" role="tab" aria-selected="false" aria-controls="truth-tab-panel-8" id="truth-tab-8" tabindex="-1">
+                        <h3 class="text-sm sm:text-base font-medium text-gray-900 dark:text-slate-100">The Truth About All in One SMM Panels</h3>
+                    </button>
+                    <!-- Tab Item 9 -->
+                    <button class="truth-tab w-full text-left bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary p-4 hover:border-primary-300 dark:hover:border-primary-500/50 hover:shadow-md dark:hover:shadow-lg transition-all duration-300" data-tab="truth-9" role="tab" aria-selected="false" aria-controls="truth-tab-panel-9" id="truth-tab-9" tabindex="-1">
+                        <h3 class="text-sm sm:text-base font-medium text-gray-900 dark:text-slate-100">Why Our SMM Panel Works Differently</h3>
+                    </button>
+                    <!-- Tab Item 10 -->
+                    <button class="truth-tab w-full text-left bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary p-4 hover:border-primary-300 dark:hover:border-primary-500/50 hover:shadow-md dark:hover:shadow-lg transition-all duration-300" data-tab="truth-10" role="tab" aria-selected="false" aria-controls="truth-tab-panel-10" id="truth-tab-10" tabindex="-1">
+                        <h3 class="text-sm sm:text-base font-medium text-gray-900 dark:text-slate-100">AI-Powered Content Creation Tools</h3>
+                    </button>
+                    <!-- Tab Item 11 -->
+                    <button class="truth-tab w-full text-left bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary p-4 hover:border-primary-300 dark:hover:border-primary-500/50 hover:shadow-md dark:hover:shadow-lg transition-all duration-300" data-tab="truth-11" role="tab" aria-selected="false" aria-controls="truth-tab-panel-11" id="truth-tab-11" tabindex="-1">
+                        <h3 class="text-sm sm:text-base font-medium text-gray-900 dark:text-slate-100">Global Network & Regional Panels</h3>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Section: Tab Content (Larger) -->
+            <div class="lg:col-span-2">
+                <div class="truth-content">
+                    <!-- Tab Content 1 (Default/Active) -->
+                    <div id="truth-tab-panel-1" class="truth-tab-panel active" data-content="truth-1" role="tabpanel" aria-labelledby="truth-tab-1">
+                        <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-lg dark:shadow-xl p-6 sm:p-8 lg:p-10 border border-gray-200/50 dark:border-dark-tertiary transition-all duration-300">
+                            <div class="space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                               <p class="text-gray-700 text-justify mb-4">
+                                    I've been in this for eight years. Every week I get the same call. "I spent $3,000 on ads and got nothing." The problem isn't you. It's the noise. Everyone sells the next "hack" while your budget vanishes. My friend Jake runs a little pizza shop in Detroit. He tried every <strong>cheapest SMM panel</strong> trick. Boosted posts. Influencers. TikTok ads. Zero sales. Then he did something simple. He filmed himself at 5 AM kneading dough with his grandma's recipe. No filters. No music. Just real. Posted it on Instagram. Sales jumped 40% in three months. That's the <strong>best SMM panel</strong> strategy. Stop chasing tools. Solve real problems. Use a <strong>trusted SMM panel</strong> to spark conversations, not fake likes.
+                                </p>
+                                <p class="text-gray-700 text-justify mb-4">
+                                    The overwhelm comes from thinking you need everything. You don't. You need one clear message and one <strong>reliable SMM panel</strong> to amplify it. Jake used a <strong>trusted SMM panel</strong> to get his first 500 real followers. Not bots. Real locals who love pizza. Then he posted more videos. People commented. He replied. Engagement grew. The <strong>SMM panel</strong> was just the spark. The fire was his story. That's how winners in 2025 operate. They use a <strong>trusted SMM panel</strong> to build credibility. Then they create content people care about. No vanity metrics. No fake likes. Just real growth.
+                                </p>
+                                <p class="text-gray-700 text-justify">
+                                    I tell every client to test small. Spend $50 on a <strong>trusted SMM panel</strong>. See what resonates. Track comments, saves, shares. Then double down. The <strong>best SMM panel</strong> isn't the one with 100 features. It's the one that gets you real conversations. That's how you go from overwhelmed to overbooked.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content 2 -->
+                    <div id="truth-tab-panel-2" class="truth-tab-panel hidden" data-content="truth-2" role="tabpanel" aria-labelledby="truth-tab-2">
+                        <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-lg dark:shadow-xl p-6 sm:p-8 lg:p-10 border border-gray-200/50 dark:border-dark-tertiary transition-all duration-300">
+                            <div class="space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                                <p class="text-gray-700 text-justify mb-4">
+                                    Let's be honest. <strong>SMM panels</strong> have a bad name. And most deserve it. I once bought 10K followers from a <strong>cheapest SMM panel</strong>. Cost $15. A week later, 7K vanished. Instagram buried the account. Reach dropped 80%. Lesson learned. But here's what nobody says. The <strong>best SMM panel</strong> isn't about quantity. It's about <strong>real engagement</strong>. I've tested over 50 providers. The winners use <strong>real SMM panel</strong> accounts. Active profiles. Natural drip-feed. No bots. Think of a <strong>trusted SMM panel</strong> like training wheels on a bike. It helps you start. Then you ride on your own.
+                                </p>
+                                <p class="text-gray-700 text-justify mb-4">
+                                    The <strong>SMM panel</strong> truth is simple. People trust numbers. A restaurant with 100 followers feels sketchy. One with 10K feels legit. A <strong>good SMM panel</strong> bridges that gap. But it's not magic. It's a tool. Use it to get 500 credible followers. 50 real comments. Then create content people love. That's how you go from needing an <strong>SMM reseller panel</strong> to running one. I did it. Started with $200. Now I manage 50 clients. The <strong>all in one SMM panel</strong> I use has one dashboard. 20+ platforms. Real-time stats. No juggling logins.
+                                </p>
+                                <p class="text-gray-700 text-justify">
+                                    The <strong>real SMM panel</strong> story isn't about cheating the system. It's about <strong>credibility</strong>. Use it right and you'll never need it again. Use it wrong and you're back to zero. Your choice.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content 3 -->
+                    <div id="truth-tab-panel-3" class="truth-tab-panel hidden" data-content="truth-3" role="tabpanel" aria-labelledby="truth-tab-3">
+                        <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-lg dark:shadow-xl p-6 sm:p-8 lg:p-10 border border-gray-200/50 dark:border-dark-tertiary transition-all duration-300">
+                            <div class="space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                                <p class="text-gray-700 text-justify mb-4">
+                                    I lost $800 on a <strong>cheapest SMM panel</strong> once. 10K followers. $0.08 each. Sounded like a steal. A week later, 8K vanished. Engagement died. Shadowban hit. Instagram flagged the account. Client fired me. That was my wake-up call. <strong>Cheapest SMM panel</strong> doesn't mean best. It means risk. The <strong>cheapest SMM panel India</strong> can work. But only if they use <strong>real users</strong>. Drip-feed delivery. 30-day refills. I now test every <strong>cheap SMM panel</strong> with $10 on my own account. Watch retention for 30 days. Calculate <strong>cost per real result</strong>, not per follower.
+                                </p>
+                                <p class="text-gray-700 text-justify mb-4">
+                                    The <strong>trusted SMM panel</strong> charges 20% more but delivers 5x value. Why? Real accounts. Natural timing. No sudden spikes. I've seen <strong>cheapest SMM panel</strong> providers deliver 10K views in 1 hour. YouTube kills the video. The <strong>reliable SMM panel</strong> spreads it over 7 days. Looks organic. Ranks higher. Want the <strong>cheapest SMM panel</strong> that's safe? Demand:
+                                </p>
+                                <ul class="list-disc list-inside text-gray-700 text-justify mb-4 space-y-2 ml-4">
+                                    <li>Real account sources</li>
+                                    <li>No password login</li>
+                                    <li>Live human support</li>
+                                    <li>Refill guarantee</li>
+                                    <li>Drip-feed control</li>
+                                </ul>
+                                <p class="text-gray-700 text-justify">
+                                    I've built 50+ accounts this way. Zero bans. All real.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content 4 -->
+                    <div id="truth-tab-panel-4" class="truth-tab-panel hidden" data-content="truth-4" role="tabpanel" aria-labelledby="truth-tab-4">
+                        <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-lg dark:shadow-xl p-6 sm:p-8 lg:p-10 border border-gray-200/50 dark:border-dark-tertiary transition-all duration-300">
+                            <div class="space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                                <p class="text-gray-700 text-justify mb-4">
+                                    Maria owns a bakery. She spent 3 hours on a complex <strong>SMM panel</strong> dashboard. Ordered followers instead of likes. Total mess. She called me crying. That's when I started pushing <strong>easy SMM panels</strong>. No 50-package confusion. Just 3 options. Starter. Growth. Premium. Pick one.
+                                </p>
+                                <p class="text-gray-700 text-justify mb-4">
+                                    Paste link. Done. The <strong>easy SMM panel</strong> I use has <strong>24/7 human support</strong>. They explain drip-feed like a friend. Maria's engagement doubled in 2 weeks. No stress. No mistakes.
+                                </p>
+                                <p class="text-gray-700 text-justify mb-4">
+                                    Clients using <strong>easy SMM panels</strong> save 10+ hours/month. They focus on baking, not algorithms. Yes, it costs slightly more than the <strong>cheapest SMM panel</strong>. But they avoid errors that kill accounts. I've seen it. One wrong order. Shadowban. Months to recover. The <strong>easy SMM panel</strong> prevents that. For busy owners, an <strong>easy SMM panel</strong> is the <strong>best SMM panel</strong>. Simple dashboard. Clear results. Real growth.
+                                </p>
+                                <p class="text-gray-700 text-justify">
+                                    I tell every client. If you're overwhelmed, start here. Use the <strong>easy SMM panel</strong> to get your first 500 real followers. Then create content. Reply to comments. Build trust. The panel is just the start. Your story is the finish.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content 5 -->
+                    <div id="truth-tab-panel-5" class="truth-tab-panel hidden" data-content="truth-5" role="tabpanel" aria-labelledby="truth-tab-5">
+                        <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-lg dark:shadow-xl p-6 sm:p-8 lg:p-10 border border-gray-200/50 dark:border-dark-tertiary transition-all duration-300">
+                            <div class="space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                                <p class="text-gray-700 text-justify mb-4">
+                                    I ran the same $500 campaign across three regions. Results shocked me.
+                                </p>
+                                <ul class="list-disc list-inside text-gray-700 text-justify mb-4 space-y-2 ml-4">
+                                    <li><strong>SMM panel Philippines</strong>: Dominated Facebook. Real local users shared posts. Perfect for restaurants, shops.</li>
+                                    <li><strong>Indian SMM panel</strong>: Won on price + scale. 30K YouTube views at 1/3 cost. High retention.</li>
+                                    <li><strong>SMM panel Korea</strong>: Delivered premium Instagram. Followers with real interests, organic behavior. The <strong>SMM panel Philippines</strong> feels like a local agency. <strong>Indian SMM panel</strong> is volume king. <strong>SMM panel Korea</strong> is luxury.</li>
+                                </ul>
+                                <p class="text-gray-700 text-justify mb-4">
+                                    My strategy now? Match the market to the goal. Use <strong>SMM panel Philippines</strong> for community growth. <strong>Indian SMM panel</strong> for viral scale. <strong>SMM panel Korea</strong> for brand prestige. No more one-size-fits-all. I've saved clients thousands by switching to local providers. Global panels are easy. Local panels are effective.
+                                </p>
+                                <p class="text-gray-700 text-justify">
+                                    Want <strong>SMM Panel Nigeria</strong>? <strong>SMM Panel Indonesia</strong>? We've got them. The <strong>best SMM panel</strong> isn't global. It's targeted.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content 6 -->
+                    <div id="truth-tab-panel-6" class="truth-tab-panel hidden" data-content="truth-6" role="tabpanel" aria-labelledby="truth-tab-6">
+                        <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-lg dark:shadow-xl p-6 sm:p-8 lg:p-10 border border-gray-200/50 dark:border-dark-tertiary transition-all duration-300">
+                            <div class="space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                                <p class="text-gray-700 text-justify mb-4">
+                                    Speed isn't always good. But sometimes it's everything. TikTok launch needed 5K views in 60 minutes to hit FYP. The <strong>Fastest SMM panel</strong> delivered. Safely. Result? 1.2M organic views. Conversion up 47%.
+                                </p>
+                                <p class="text-gray-700 text-justify mb-4">
+                                    YouTube? Fast equals death. Used a <strong>fastest SMM panel</strong> once. Views spiked, watch time crashed, ranking tanked. The <strong>fastest SMM panels</strong> let you customize speed.
+                                </p>
+                                <p class="text-gray-700 text-justify mb-4">
+                                    Want speed? Here's what works:
+                                </p>
+                                <ul class="list-disc list-inside text-gray-700 text-justify mb-4 space-y-2 ml-4">
+                                    <li><strong>TikTok/Twitter:</strong> 0 to 30 min</li>
+                                    <li><strong>Instagram:</strong> 1 to 3 hours</li>
+                                    <li><strong>YouTube:</strong> 7 to 10 days</li>
+                                </ul>
+                                <p class="text-gray-700 text-justify">
+                                    The <strong>best SMM panel</strong> isn't fastest. It's smartest. I've launched 50+ viral campaigns. Speed without strategy equals failure.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content 7 -->
+                    <div id="truth-tab-panel-7" class="truth-tab-panel hidden" data-content="truth-7" role="tabpanel" aria-labelledby="truth-tab-7">
+                        <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-lg dark:shadow-xl p-6 sm:p-8 lg:p-10 border border-gray-200/50 dark:border-dark-tertiary transition-all duration-300">
+                            <div class="space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                                <p class="text-gray-700 text-justify mb-4">
+                                    I ignored Indonesia for years. Big mistake. 80% social penetration. Shopee + Tokopedia dominance. WhatsApp for support. <strong>SMM Panel Indonesia</strong> delivers.
+                                </p>
+                                <ul class="list-disc list-inside text-gray-700 text-justify mb-4 space-y-2 ml-4">
+                                    <li>Bahasa comments that convert</li>
+                                    <li>Local targeting (Jakarta, Bali, etc.)</li>
+                                    <li>35% higher ROI than global panels</li>
+                                </ul>
+                                <p class="text-gray-700 text-justify">
+                                    Their <strong>SMM panel Indonesia</strong> uses ML to mimic real user patterns. Delivery looks 100% organic. Support in local time. For Southeast Asia brands, it's the <strong>best SMM panel</strong>. Hands down. I've shifted 30% of my budget here. Results don't lie.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content 8 -->
+                    <div id="truth-tab-panel-8" class="truth-tab-panel hidden" data-content="truth-8" role="tabpanel" aria-labelledby="truth-tab-8">
+                        <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-lg dark:shadow-xl p-6 sm:p-8 lg:p-10 border border-gray-200/50 dark:border-dark-tertiary transition-all duration-300">
+                            <div class="space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                                <p class="text-gray-700 text-justify mb-4">
+                                    One login. 20+ platforms. Sounds too good? It's not. The <strong>all in one SMM panel</strong> I use saves me 15 hours/month. Instagram, TikTok, YouTube, Twitter, LinkedIn. All in one dashboard. Real-time stats. API sync. No juggling logins. But here's the catch.
+                                </p>
+                                <ul class="list-disc list-inside text-gray-700 text-justify mb-4 space-y-2 ml-4">
+                                    <li>Bad ones equal low quality across all</li>
+                                    <li>Good ones equal partnered networks (India for volume, Philippines for Facebook, etc.)</li>
+                                </ul>
+                                <p class="text-gray-700 text-justify">
+                                    I test one platform first. If YouTube views retain 90%+, I scale. The <strong>all in one SMM panel</strong> is perfect for agencies and <strong>SMM reseller panel</strong> owners. Run your <strong>child panel solutions</strong> from one place. Keep 100% profit. I've built 3 reseller businesses this way. Zero overhead. All profit.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content 9 -->
+                    <div id="truth-tab-panel-9" class="truth-tab-panel hidden" data-content="truth-9" role="tabpanel" aria-labelledby="truth-tab-9">
+                        <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-lg dark:shadow-xl p-6 sm:p-8 lg:p-10 border border-gray-200/50 dark:border-dark-tertiary transition-all duration-300">
+                            <div class="space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                                <p class="text-gray-700 text-justify mb-4">
+                                    Why our
+                                    <b>SMM panel</b>
+                                    works differently: While other providers chase vanity metrics, we focus on growth that protects
+                                    your brand. Our
+                                    <b>cheap SMM services</b>
+                                    work alongside your content strategy, not against it. 
+                                </p>
+                                <p class="text-gray-700 text-justify">
+                                    Plus, if you're interested in
+                                    <a class="a_link" href="https://marketerum.com/buy-own-smm-panel">starting your own
+                                        business</a>, our
+                                    <b>child panel</b>
+                                    solutions help aspiring
+                                    <b>SMM panel resellers</b>
+                                    launch quickly and profitably — or build your own with our
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-script">SMM panel script</a>.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content 10 -->
+                    <div id="truth-tab-panel-10" class="truth-tab-panel hidden" data-content="truth-10" role="tabpanel" aria-labelledby="truth-tab-10">
+                        <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-lg dark:shadow-xl p-6 sm:p-8 lg:p-10 border border-gray-200/50 dark:border-dark-tertiary transition-all duration-300">
+                            <div class="space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                                <p class="text-gray-700 text-justify mb-4">
+                                    Elevate your social media presence with our comprehensive suite of AI-powered content creation tools. Whether you're crafting professional updates for LinkedIn or building your brand on X (formerly Twitter), we provide the resources you need to create engaging content that resonates with your audience. Our
+                                    <a class="a_link" href="https://marketerum.com/linkedin-post-generator">LinkedIn Post
+                                        Generator</a>
+                                    helps you create compelling professional content, while the
+                                    <a class="a_link" href="https://marketerum.com/linkedin-hook-generator">LinkedIn Hook
+                                        Generator</a>
+                                    ensures your posts grab attention from the first line. Maximize your reach with the
+                                    <a class="a_link" href="https://marketerum.com/linkedin-hashtag-generator">LinkedIn Hashtag
+                                        Generator</a>
+                                    to connect with the right professional networks.
+                                </p>
+                                <p class="text-gray-700 text-justify mb-4">
+                                    For Twitter and X platform users, our
+                                    <a class="a_link" href="https://marketerum.com/twitter-tweet-generator">Twitter Tweet
+                                        Generator</a>
+                                    creates engaging tweets that drive conversations, the
+                                    <a class="a_link" href="https://marketerum.com/twitter-hashtag-generator">Twitter Hashtag
+                                        Generator</a>
+                                    helps you discover trending tags, and the
+                                    <a class="a_link" href="https://marketerum.com/twitter-bio-generator">Twitter Bio Generator</a>
+                                    crafts profiles that make a lasting impression.
+                                </p>
+                                <p class="text-gray-700 text-justify mb-4">
+                                    Expand your reach on Instagram with our
+                                    <a class="a_link" href="https://marketerum.com/instagram-caption-generator">Instagram Caption Generator</a>,
+                                    <a class="a_link" href="https://marketerum.com/instagram-hashtag-generator">Instagram Hashtag Generator</a>,
+                                    and
+                                    <a class="a_link" href="https://marketerum.com/instagram-reel-script-writer">Instagram Reel Script Writer</a>
+                                    to create compelling visual content.
+                                </p>
+                                <p class="text-gray-700 text-justify mb-4">
+                                    For YouTube creators, leverage our
+                                    <a class="a_link" href="https://marketerum.com/youtube-script-writer">YouTube Script Writer</a>,
+                                    <a class="a_link" href="https://marketerum.com/youtube-seo-title-generator">YouTube SEO Title Generator</a>,
+                                    and
+                                    <a class="a_link" href="https://marketerum.com/youtube-hook-generator">YouTube Hook Generator</a>
+                                    to maximize engagement and views. Facebook marketers can enhance their posts and ads with our comprehensive suite of content creation tools available through our
+                                    <b>SMM panel</b>
+                                    platform. When combined with our powerful
+                                    <b>SMM panel</b> services, these tools create a complete social media growth strategy.
+                                </p>
+                                <p class="text-gray-700 text-justify">
+                                    Discover our full range of innovative <a class="a_link" href="https://marketerum.com/ai-tools">AI tools</a>
+                                    designed to streamline your social media workflow and boost your online presence through our comprehensive
+                                    <b>SMM panel</b> platform.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Tab Content 11 -->
+                    <div id="truth-tab-panel-11" class="truth-tab-panel hidden" data-content="truth-11" role="tabpanel" aria-labelledby="truth-tab-11">
+                        <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-lg dark:shadow-xl p-6 sm:p-8 lg:p-10 border border-gray-200/50 dark:border-dark-tertiary transition-all duration-300">
+                            <div class="space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                                <p class="text-gray-700 text-justify mb-4">
+                                    Our global network extends across six continents, offering tailored
+                                    <b>SMM panel</b>
+                                    solutions for businesses and creators worldwide. We understand that each market has unique needs, which is why we've developed specialized panels for key regions including
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-germany">Germany</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-france">France</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-italy">Italy</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-spain">Spain</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-russia">Russia</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-turkey">Turkey</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-south-korea">South Korea</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-japan">Japan</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-china">China</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-brazil">Brazil</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-pakistan">Pakistan</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-morocco">Morocco</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-vietnam">Vietnam</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-indonesia">Indonesia</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-termurah">Termurah</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-philippines">Philippines</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-nigeria">Nigeria</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-canada">Canada</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-usa">USA</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-uk">United Kingdom</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-australia">Australia</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-egypt">Egypt</a>,
+                                    <a class="a_link" href="https://marketerum.com/arab-smm-panel">Arab</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-kenya">Kenya</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-sri-lanka">Sri Lanka</a>,
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-india">India</a>,
+                                    and
+                                    <a class="a_link" href="https://marketerum.com/smm-panel-bangladesh">Bangladesh</a>.
+                                </p>
+                                <p class="text-gray-700 text-justify">
+                                    Each regional
+                                    <b>SMM panel</b>
+                                    is optimized for local market dynamics, ensuring authentic engagement from real users in your target geography. Whether you're targeting European markets, Asian audiences, or North American consumers, our localized approach helps you achieve better conversion rates and more meaningful connections with your audience. Our
+                                    <b>cheap SMM services</b>
+                                    are designed to work seamlessly across these diverse markets, providing consistent quality and reliable results regardless of your target location.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Join Now / CTA Section -->
+<section class="py-12 sm:py-16 lg:py-20 bg-primary-50 dark:bg-dark-secondary transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-gray-900 dark:bg-dark rounded-2xl p-8 sm:p-12 lg:p-16 text-center shadow-2xl dark:shadow-2xl border border-gray-800 dark:border-dark-tertiary transition-all duration-300">
+            <!-- Join Now Button -->
+            <div class="mb-6">
+                <button class="inline-flex items-center px-6 py-2 bg-primary-100 border-2 border-primary-500 rounded-full text-sm font-semibold text-primary-600 hover:bg-primary-200 transition-colors">
+                    Join Now
+                </button>
+            </div>
+
+            <!-- Main Headline -->
+            <h2 class="text-3xl sm:text-4xl lg:text-4xl xl:text-4xl font-bold text-white mb-6 leading-tight">
+                Everyone Wants To Be A Star On Social Media<br class="hidden sm:block"> With Marketerum It's EASY
+            </h2>
+
+            <!-- Quote -->
+            <p class="text-lg sm:text-xl text-white/90 mb-8 sm:mb-10 italic">
+                "In the future, everyone will be world-famous for 15 minutes." This celebrated quote has become Andy Warhol's most well-known statement.
+            </p>
+
+            <!-- CTA Button -->
+            <a href="{{ page_url('signup') }}" class="inline-flex items-center justify-center px-8 sm:px-12 py-4 sm:py-5 text-base sm:text-lg font-bold text-white bg-primary-500 rounded-lg hover:bg-primary-600 transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
+                Became A Fame On social media
+            </a>
         </div>
     </div>
 </section>
