@@ -1,166 +1,385 @@
 <!DOCTYPE html>
 <html lang="{{site['iso_lang_code']}}">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>{{ page['title'] }}</title>
-		<meta name="keywords" content="{{ site['seo_key'] }}">
-		<meta name="description" content="{{ site['seo_desc'] }}">
-		{% if site['favicon'] %}
-			<link rel="shortcut icon" type="image/ico" href="{{ site['favicon'] }}"/>
-		{% endif %}
 
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		  <![endif]-->
-		{{ site['custom_header'] }}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page['title'] }}</title>
+    <meta name="keywords" content="{{ site['seo_key'] }}">
+    <meta name="description" content="{{ site['seo_desc'] }}">
 
-		{% for style in site['styles'] %}
-			<link rel="stylesheet" type="text/css" href="{{ style['href'] }}">
-		{% endfor %}
-		<script>
-			window.modules = {};
+    {% if site['favicon'] %}
+    <link rel="shortcut icon" type="image/ico" href="{{ site['favicon'] }}" />
+    {% endif %}
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+
+    {{ site['custom_header'] }}
+
+    {% for style in site['styles'] %}
+		<link rel="stylesheet" type="text/css" href="{{ style['href'] }}">
+	{% endfor %}
+
+    <script>
+        window.modules = {};
+    </script>
+</head>
+
+<body class="bg-gray-50 {% if site['rtl'] %} rtl {% endif %}" id="theme-body">
+    {% if user['auth'] %}
+    <!-- Authenticated Mode: Sidebar + Header -->
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <aside id="sidebar" class="hidden lg:flex lg:flex-shrink-0 lg:flex-col bg-white border-r border-gray-200 transition-all duration-300 ease-in-out {% if site['rtl'] %} border-l border-r-0 {% endif %}" data-sidebar-expanded="true">
+            <div class="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto">
+                <!-- Logo -->
+                <div class="flex items-center flex-shrink-0 px-6 mb-6 sidebar-logo-container">
+                    <a href="{{ page_url('index') }}" class="flex items-center sidebar-logo">
+                        {% if site['logo'] %}
+                        <img src="{{ site['logo'] }}" alt="{{ site['name'] }}" title="{{ site['name'] }}" class="h-8 w-auto sidebar-logo-img">
+                        {% else %}
+                        <span class="text-xl font-bold text-primary-500 sidebar-logo-text">{{ site['name'] }}</span>
+                        {% endif %}
+                    </a>
+                </div>
+
+                <!-- New Order Button -->
+                <div class="px-4 mb-4 sidebar-new-order-container">
+                    <a href="{{ page_url('neworder') }}" class="flex items-center justify-center w-full px-4 py-3 text-sm font-semibold text-white bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg hover:from-primary-600 hover:to-primary-700 transition-all shadow-md hover:shadow-lg sidebar-new-order-btn">
+                        <svg class="w-5 h-5 sidebar-new-order-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                        <span class="sidebar-new-order-text ml-2">New Order</span>
+                    </a>
+                </div>
+
+                <!-- Navigation Menu -->
+                <nav class="flex-1 px-4 space-y-1 sidebar-nav">
+                    {% for menu in site['menu'] %}
+                    <a href="{{ menu['link'] }}" {% if menu['external'] %} target="_blank" {% endif %} class="flex items-center px-3 py-2.5 text-sm font-medium rounded-lg transition-colors sidebar-nav-item {% if menu['active'] %} bg-primary-50 text-primary-500 {% else %} text-gray-700 hover:bg-gray-100 hover:text-gray-900 {% endif %}" title="{{ menu['name'] }}">
+                        {% if menu['icon'] %}
+                        <i class="{{ menu['icon'] }} w-5 h-5 sidebar-nav-icon {% if menu['active'] %} text-primary-500 {% else %} text-gray-400 {% endif %}"></i>
+                        {% else %}
+                        <svg class="w-5 h-5 sidebar-nav-icon mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                        {% endif %}
+                        <span class="sidebar-nav-text">{{ menu['name'] }}</span>
+                    </a>
+                    {% endfor %}
+                </nav>
+
+                <!-- Updates/Support at bottom -->
+                <div class="px-4 mt-auto mb-4 sidebar-updates-container">
+                    <a href="#" class="flex items-center px-3 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 transition-colors sidebar-updates-link" title="Updates">
+                        <svg class="w-5 h-5 sidebar-updates-icon mr-3 text-accent-500" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.369 1.262.589 1.694.755.712.27 1.36.232 1.871.141.574-.099 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                        </svg>
+                        <span class="sidebar-updates-text">Updates</span>
+                    </a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Mobile Sidebar Overlay -->
+        <div id="sidebar-overlay" class="fixed inset-0 bg-gray-600 bg-opacity-75 z-40 lg:hidden hidden"></div>
+
+        <!-- Mobile Sidebar -->
+        <aside id="mobile-sidebar" class="fixed inset-y-0 z-50 w-sidebar-mobile bg-white transform transition-transform duration-300 ease-in-out lg:hidden {% if site['rtl'] %} right-0 -translate-x-full {% else %} left-0 -translate-x-full {% endif %}">
+            <div class="flex flex-col h-full">
+                <div class="flex items-center justify-between px-6 py-4 border-b border-gray-200">
+                    <a href="{{ page_url('index') }}" class="flex items-center">
+                        {% if site['logo'] %}
+                        <img src="{{ site['logo'] }}" alt="{{ site['name'] }}" class="h-8 w-auto">
+                        {% else %}
+                        <span class="text-xl font-bold text-primary-500">{{ site['name'] }}</span>
+                        {% endif %}
+                    </a>
+                    <button id="close-sidebar" class="p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="flex-1 overflow-y-auto py-4">
+                    <div class="px-4 mb-4">
+                        <a href="{{ page_url('neworder') }}" class="flex items-center justify-center w-full px-4 py-3 text-sm font-semibold text-white bg-gradient-to-r from-primary-500 to-primary-600 rounded-lg">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                            </svg>
+                            New Order
+                        </a>
+                    </div>
+                    <nav class="px-4 space-y-1">
+                        {% for menu in site['menu'] %}
+                        <a href="{{ menu['link'] }}" {% if menu['external'] %} target="_blank" {% endif %} class="flex items-center px-3 py-2.5 text-sm font-medium rounded-lg {% if menu['active'] %} bg-primary-50 text-primary-500 {% else %} text-gray-700 hover:bg-gray-100 {% endif %}">
+                            {% if menu['icon'] %}
+                            <i class="{{ menu['icon'] }} w-5 h-5 mr-3"></i>
+                            {% endif %}
+                            <span>{{ menu['name'] }}</span>
+                        </a>
+                        {% endfor %}
+                    </nav>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="flex flex-col flex-1 overflow-hidden">
+            <!-- Header -->
+            <header class="bg-white border-b border-gray-200 sticky top-0 z-30">
+                <div class="flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
+                    <!-- Left: Sidebar Expand/Collapse + Menu Toggle (mobile) + Logo (mobile) -->
+                    <div class="flex items-center">
+                        <!-- Sidebar Expand/Collapse Button (Desktop) -->
+                        <button id="sidebar-expand-toggle" class="hidden lg:flex p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 mr-2 transition-colors" title="Toggle Sidebar">
+                            <svg id="sidebar-expand-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
+                            </svg>
+                            <svg id="sidebar-collapse-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 5l7 7-7 7M5 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                        <!-- Mobile Menu Toggle -->
+                        <button id="sidebar-toggle" class="lg:hidden p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 mr-2">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                        </button>
+                        <a href="{{ page_url('index') }}" class="lg:hidden flex items-center">
+                            {% if site['logo'] %}
+                            <img src="{{ site['logo'] }}" alt="{{ site['name'] }}" class="h-7 w-auto">
+                            {% else %}
+                            <span class="text-lg font-bold text-primary-500">{{ site['name'] }}</span>
+                            {% endif %}
+                        </a>
+                    </div>
+
+                    <!-- Right: Theme Toggle + Balance + User Info -->
+                    <div class="flex items-center space-x-3 {% if site['rtl'] %} space-x-reverse {% endif %}">
+                        <!-- Theme Toggle -->
+                        <button id="theme-toggle" class="p-2 rounded-lg text-gray-400 hover:text-gray-500 hover:bg-gray-100 transition-colors">
+                            <svg id="theme-icon-sun" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                            </svg>
+                            <svg id="theme-icon-moon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                            </svg>
+                        </button>
+
+                        <!-- Add Funds Button -->
+                        <a href="{{ page_url('addfunds') }}" class="p-2 rounded-lg text-gray-400 hover:text-gray-500 hover:bg-gray-100 transition-colors" title="Add Funds">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                            </svg>
+                        </a>
+
+                        <!-- Balance Dropdown -->
+                        {% if site.currencies %}
+                        <div class="relative dropdown dropdown-currencies">
+                            <button class="flex items-center px-3 py-2 rounded-lg text-sm font-medium text-gray-700 bg-gray-50 hover:bg-gray-100 transition-colors" data-toggle="dropdown">
+                                <span class="font-semibold text-primary-500">{{ user.balance_formatted }}</span>
+                                <svg class="ml-1.5 h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <ul class="hidden absolute right-0 mt-2 w-48 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 dropdown-menu" id="currencies-list">
+                                {% for key, rate in site.currencies %}
+                                <li>
+                                    <a href="#" id="currencies-item" data-rate-key="{{ key }}" data-rate-symbol="{{ rate.symbol }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">{{ key }} {{ rate.symbol }}</a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% else %}
+                        <div class="px-3 py-2 text-sm font-medium text-gray-700">
+                            <span class="font-semibold text-primary-500">{{ user.balance_formatted }}</span>
+                        </div>
+                        {% endif %}
+
+                        <!-- User Menu -->
+                        <div class="relative dropdown">
+                            <button class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors" data-toggle="dropdown">
+                                <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center">
+                                    <span class="text-sm font-medium text-primary-500">{{ user.username[0]|upper }}</span>
+                                </div>
+                                <span class="hidden sm:block text-sm font-medium text-gray-700">{{ user.username }}</span>
+                                <svg class="hidden sm:block h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                                </svg>
+                            </button>
+                            <ul class="hidden absolute right-0 mt-2 w-48 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 dropdown-menu">
+                                {% for menu in site['account_menu'] %}
+                                {% if menu['link'] %}
+                                <li>
+                                    <a href="{{ menu['link'] }}" {% if menu['external'] %} target="_blank" {% endif %} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 {% if menu['active'] %} bg-primary-50 text-primary-500 {% endif %}">{{ menu['name'] }}</a>
+                                </li>
+                                {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Page Content -->
+            <main class="flex-1 overflow-y-auto bg-gray-50">
+                <div class="py-6">
+                    {{ content }}
+                </div>
+            </main>
+        </div>
+    </div>
+    {% else %}
+    <!-- Guest Mode: Header Only -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 {% if site['rtl'] %} rtl-navbar {% endif %}">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="{{ page_url('index') }}" class="flex items-center">
+                        {% if site['logo'] %}
+                        <img src="{{ site['logo'] }}" alt="{{ site['name'] }}" title="{{ site['name'] }}" class="h-8 w-auto">
+                        {% else %}
+                        <span class="text-xl font-bold text-primary-500">{{ site['name'] }}</span>
+                        {% endif %}
+                    </a>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex items-center space-x-1 {% if site['rtl'] %} space-x-reverse {% endif %}">
+                    {% for menu in site['menu'] %}
+                    <a href="{{ menu['link'] }}" {% if menu['external'] %} target="_blank" {% endif %} class="px-4 py-2 text-sm font-medium rounded-lg transition-colors {% if menu['active'] %} bg-primary-50 text-primary-500 {% else %} text-gray-700 hover:text-gray-900 hover:bg-gray-100 {% endif %}">
+                        {{ menu['name'] }}
+                    </a>
+                    {% endfor %}
+                </nav>
+
+                <!-- Right Side: Language + Theme + Auth Buttons -->
+                <div class="flex items-center space-x-3 {% if site['rtl'] %} space-x-reverse {% endif %}">
+                    <!-- Language Selector -->
+                    {% if site['languages']|length > 1 %}
+                    <div class="relative dropdown hidden md:block">
+                        {% for lang in site['languages'] %}
+                        {% if lang['active'] %}
+                        <button class="flex items-center px-3 py-2 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 transition-colors" data-toggle="dropdown">
+                            {{ lang['name'] }}
+                            <svg class="ml-1 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+                        {% endif %}
+                        {% endfor %}
+                        <ul class="hidden absolute right-0 mt-2 w-48 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50 dropdown-menu">
+                            {% for lang in site['languages'] %}
+                            <li>
+                                <a href="{{ lang['url'] }}" class="block px-4 py-2 text-sm {% if lang['active'] %} text-primary-500 bg-primary-50 font-medium {% else %} text-gray-700 hover:bg-gray-100 {% endif %}">{{ lang['name'] }}</a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg text-gray-400 hover:text-gray-500 hover:bg-gray-100 transition-colors">
+                        <svg id="theme-icon-sun" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        <svg id="theme-icon-moon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                        </svg>
+                    </button>
+
+                    <!-- Sign In Button -->
+                    <a href="{{ page_url('signin') }}" class="hidden md:inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
+                        Sign In
+                    </a>
+
+                    <!-- Sign Up Button -->
+                    <a href="{{ page_url('signup') }}" class="inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-primary-500 rounded-lg hover:bg-primary-600 transition-colors shadow-sm hover:shadow-md">
+                        Sign Up
+                    </a>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-gray-200">
+                <div class="pt-4 space-y-1">
+                    {% for menu in site['menu'] %}
+                    <a href="{{ menu['link'] }}" {% if menu['external'] %} target="_blank" {% endif %} class="block px-4 py-2 text-base font-medium {% if menu['active'] %} text-primary-500 bg-primary-50 {% else %} text-gray-700 hover:text-gray-900 hover:bg-gray-100 {% endif %}">
+                        {{ menu['name'] }}
+                    </a>
+                    {% endfor %}
+                    {% if site['languages']|length > 1 %}
+                    <div class="pt-4 border-t border-gray-200">
+                        <div class="px-4 py-2 text-sm font-medium text-gray-500">Language</div>
+                        {% for lang in site['languages'] %}
+                        <a href="{{ lang['url'] }}" class="block px-4 py-2 text-base font-medium {% if lang['active'] %} text-primary-500 bg-primary-50 {% else %} text-gray-700 hover:text-gray-900 hover:bg-gray-100 {% endif %}">{{ lang['name'] }}</a>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    <div class="pt-4 border-t border-gray-200 px-4 space-y-2">
+                        <a href="{{ page_url('signin') }}" class="block w-full text-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50">
+                            Sign In
+                        </a>
+                        <a href="{{ page_url('signup') }}" class="block w-full text-center px-4 py-2 text-sm font-semibold text-white bg-primary-500 rounded-lg hover:bg-primary-600">
+                            Sign Up
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Guest Content -->
+    <main class="min-h-screen">
+        {{ content }}
+    </main>
+    {% endif %}
+
+    <!-- Notifications wrapper -->
+    <div id="notify-wrapper" class="fixed top-4 right-4 z-50 max-w-sm w-full bg-green-50 border border-green-200 rounded-lg shadow-lg p-4 hidden" style="display: none;" role="alert">
+        <div class="flex items-start">
+            <div class="flex-shrink-0">
+                <svg class="h-5 w-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+            </div>
+            <div class="ml-3 flex-1">
+                <p class="text-sm font-medium text-green-800"></p>
+            </div>
+            <div class="ml-auto pl-3">
+                <button type="button" class="inline-flex text-green-400 hover:text-green-600 focus:outline-none" onclick="this.parentElement.parentElement.parentElement.style.display='none'">
+                    <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    {{ site['custom_footer'] }}
+
+	{% for script in site['scripts'] %}
+		<script type="text/javascript" {% if script['src'] %} src="{{ script['src'] }}" {% endif %}>
+			{% if script['code'] %}
+                {{ script['code'] }}
+            {% endif %}
 		</script>
-	</head>
-	<body>
-		{% if user['auth'] %}
-			<nav class="navbar navbar-default navbar-static-top {% if site['rtl'] %} rtl-navbar {% endif %}">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="{{ page_url('index') }}">
-							{% if site['logo'] %}
-								<img src="{{ site['logo'] }}" alt="{{ site['name'] }}" title="{{ site['name'] }}">
-							{% else %}
-								{{ site['name'] }}
-							{% endif %}
-						</a>
-					</div>
-					<div id="navbar" class="collapse navbar-collapse">
-						<ul class="nav navbar-nav navbar-left-block">
-							{% for menu in site['menu'] %}
-								<li {% if menu['active'] %} class="active" {% endif %}>
-									<a href="{{ menu['link'] }}" {% if menu['external'] %} target="_blank" {% endif %}>
-										{% if menu['icon'] %}
-											<i class="navbar-icon {{ menu['icon'] }}"></i>
-										{% endif %}
-										{{ menu['name'] }}
-									</a>
-								</li>
-							{% endfor %}
-						</ul>
-						<ul class="nav navbar-nav navbar-right navbar-right-block">
-							{% for menu in site['account_menu'] %}
-								{% if not menu['link'] %}
-									{% if site.currencies %}
-										<li class="dropdown dropdown-currencies">
-											<a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <span class="badge">{{ user.balance_formatted }}</span>
-                        <span class="caret"></span>
-                      </a>
-											<ul class="dropdown-menu" id="currencies-list">
-												{% for key, rate in site.currencies %}
-													<li>
-														<a href="#" id="currencies-item" data-rate-key="{{ key }}" data-rate-symbol="{{ rate.symbol }}">{{ key }} {{ rate.symbol }}</a>
-													</li>
-												{% endfor %}
-											</ul>
-										</li>
-									{% else %}
-										<li>
-											<a>{{ menu['name'] }}</a>
-										</li>
-									{% endif %}
-								{% else %}
-									<li {% if menu['active'] %} class="active" {% endif %}>
-										<a href="{{ menu['link'] }}" {% if menu['external'] %} target="_blank" {% endif %}>{{ menu['name'] }}</a>
-									</li>
-								{% endif %}
-							{% endfor %}
-						</ul>
-					</div>
-				</div>
-			</nav>
-		{% else %}
-			<nav class="navbar navbar-default navbar-static-top {% if site['rtl'] %} rtl-navbar {% endif %}">
-				<div class="container">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="navbar-brand" href="{{ page_url('index') }}">
-							{% if site['logo'] %}
-								<img src="{{ site['logo'] }}" alt="{{ site['name'] }}" title="">
-							{% else %}
-								{{ site['name'] }}
-							{% endif %}
-						</a>
-					</div>
-					<div id="navbar" class="collapse navbar-collapse">
-						{% if site['languages']|length > 1 %}
-							<ul class="nav navbar-nav navbar-left-block">
-								<li class="dropdown">
-									{% for lang in site['languages'] %}
-										{% if lang['active'] %}
-											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-												{{ lang['name'] }}
-												<span class="caret"></span>
-											</a>
-										{% endif %}
-									{% endfor %}
-									<ul class="dropdown-menu dropdown-max-height">
-										{% for lang in site['languages'] %}
-											<li {% if lang['active'] %} class="active" {% endif %}>
-												<a href="{{ lang['url'] }}">{{ lang['name'] }}</a>
-											</li>
-										{% endfor %}
-									</ul>
-								</li>
-							</ul>
-						{% endif %}
-						<ul class="nav navbar-nav navbar-right">
-							{% for menu in site['menu'] %}
-								<li {% if menu['active'] %} class="active" {% endif %}>
-									<a href="{{ menu['link'] }}" {% if menu['external'] %} target="_blank" {% endif %}>
-										{% if menu['icon'] %}
-											<i class="navbar-icon {{ menu['icon'] }}"></i>
-										{% endif %}
-										{{ menu['name'] }}
-									</a>
-								</li>
-							{% endfor %}
-						</ul>
-					</div>
-				</div>
-			</nav>
-		{% endif %}
+	{% endfor %}
 
-		<!-- Main variables *content* -->
-		{{ content }}
+</body>
 
-		<!-- Notifications wrapper -->
-		<div id="notify-wrapper" class="alert alert-success hidden" style="display: none;"></div>
-
-		{{ site['custom_footer'] }}
-
-		{% for script in site['scripts'] %}
-			<script type="text/javascript" {% if script['src'] %} src="{{ script['src'] }}" {% endif %}>
-				{% if script['code'] %}
-{{ script['code'] }}
-{% endif %}
-			</script>
-		{% endfor %}
-
-	</body>
 </html>

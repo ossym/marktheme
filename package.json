@@ -1,0 +1,13 @@
+{
+  "name": "marktheme",
+  "version": "1.0.0",
+  "description": "MarkTheme - PerfectPanel SMM Theme with Tailwind CSS",
+  "scripts": {
+    "build:css": "tailwindcss -i ./CSS/input.css -o ./CSS/bootstrap.css --minify",
+    "watch:css": "tailwindcss -i ./CSS/input.css -o ./CSS/bootstrap.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}
+
