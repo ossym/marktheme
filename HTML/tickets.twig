@@ -1,2 +1,553 @@
-{# Tickets template #}
+<main class="page-wrapper shrink grow bg-gray-50 dark:bg-dark transition-colors duration-200">
+	<div class="container mx-auto px-4 py-6 lg:py-8">
+		<div class="gap-6 lg:flex">
+			<!-- New Ticket -->
+			<div class="dash_card min-w-[50%] tabs__wrapper grow-0 lg:basis-1/2 bg-white dark:bg-dark-secondary rounded-xl shadow-sm border border-gray-200 dark:border-dark-tertiary transition-all duration-200">
+				<div class="tabs mb-6 flex basis-1/2 space-x-3 p-1 bg-gray-100 dark:bg-dark-tertiary rounded-lg">
+					<a class="tab active flex items-center gap-2 px-4 py-2.5 rounded-md font-medium text-sm transition-all duration-200 bg-white dark:bg-dark-secondary text-primary-600 dark:text-primary-400 shadow-sm"
+						data-tab="createTicket">
+						<svg width="20" height="20" viewbox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg"
+							class="flex-shrink-0">
+							<path
+								d="M12 0.25L23.875 7.125V20.875L12 27.75L0.125 20.875V7.125L12 0.25ZM3.86735 7.84712L12.0001 12.5555L20.1327 7.84717L12 3.13875L3.86735 7.84712ZM2.625 10.0166V19.4336L10.7501 24.1376V14.7206L2.625 10.0166ZM13.2501 24.1375L21.375 19.4336V10.0167L13.2501 14.7206V24.1375Z"
+								fill="currentColor"></path>
+						</svg>
+						<span>New Ticket</span>
+					</a>
+					<a class="tab flex items-center gap-2 px-4 py-2.5 rounded-md font-medium text-sm transition-all duration-200 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 relative"
+						data-tab="ticketHistory" id="ticketHistoryButton">
+						<svg width="20" height="20" viewbox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+							class="flex-shrink-0">
+							<path
+								d="M0.505859 8.875V2C0.505859 1.30964 1.06551 0.75 1.75586 0.75H24.2559C24.9463 0.75 25.5059 1.30964 25.5059 2V8.875C23.78 8.875 22.3809 10.2741 22.3809 12C22.3809 13.7259 23.78 15.125 25.5059 15.125V22C25.5059 22.6904 24.9463 23.25 24.2559 23.25H1.75586C1.06551 23.25 0.505859 22.6904 0.505859 22V15.125C2.23175 15.125 3.63086 13.7259 3.63086 12C3.63086 10.2741 2.23175 8.875 0.505859 8.875ZM15.5059 3.25H3.00586V6.9597C4.85801 7.88014 6.13086 9.79139 6.13086 12C6.13086 14.2085 4.85801 16.1199 3.00586 17.0403V20.75H15.5059V3.25ZM18.0059 3.25V20.75H23.0059V17.0403C21.1538 16.1199 19.8809 14.2085 19.8809 12C19.8809 9.79139 21.1538 7.88014 23.0059 6.9597V3.25H18.0059Z"
+								fill="currentColor" />
+						</svg>
+						<span>Recent Tickets</span>
+					</a>
+				</div>
+				<div class="tab__content-wrapper">
 
+					<div data-tab-content="createTicket" id="createTicket" class="active">
+						<script async src="https://imgbb.com/upload.js" data-auto-insert="viewer-links"></script>
+						<form method="post" action="" id="ticketsend" class="space-y-6">
+							<!-- Category Selection -->
+							<div class="space-y-4">
+								<div class="flex items-center gap-3 pb-3 border-b border-gray-200 dark:border-dark-tertiary">
+									<div class="flex items-center justify-center w-10 h-10 rounded-lg bg-primary-500 dark:bg-primary-600 flex-shrink-0">
+										<svg width="24" height="24" viewbox="0 0 25 26" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<rect y="0.875977" width="24.7422" height="24.2487" rx="9.69948"
+												fill="white" />
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M6.90764 5.72656C6.28468 5.72656 5.77344 6.22968 5.77344 6.84053V10.8911C5.77344 11.502 6.28468 12.0051 6.90764 12.0051H11.0284C11.6513 12.0051 12.1626 11.502 12.1626 10.8911V6.84053C12.1626 6.22969 11.6513 5.72656 11.0284 5.72656H6.90764Z"
+												fill="#00BFF3" />
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M14.5385 5.72656C13.9165 5.72656 13.4043 6.22895 13.4043 6.84053V10.8911C13.4043 11.5027 13.9165 12.0051 14.5385 12.0051H18.6608C19.2828 12.0051 19.7934 11.502 19.7934 10.8911V6.84053C19.7934 6.22969 19.2828 5.72656 18.6608 5.72656H14.5385Z"
+												fill="#00BFF3" />
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M6.90764 13.1875C6.28391 13.1875 5.77344 13.6916 5.77344 14.3015V18.3536C5.77344 18.9635 6.28391 19.4676 6.90764 19.4676H11.0284C11.6521 19.4676 12.1626 18.9635 12.1626 18.3536V14.3015C12.1626 13.6916 11.6521 13.1875 11.0284 13.1875H6.90764Z"
+												fill="#00BFF3" />
+											<path fill-rule="evenodd" clip-rule="evenodd"
+												d="M14.5385 13.1875C13.9157 13.1875 13.4043 13.6909 13.4043 14.3015V18.3536C13.4043 18.9642 13.9157 19.4676 14.5385 19.4676H18.6608C19.2836 19.4676 19.7934 18.9635 19.7934 18.3536V14.3015C19.7934 13.6916 19.2836 13.1875 18.6608 13.1875H14.5385Z"
+												fill="#00BFF3" />
+										</svg>
+									</div>
+									<p class="text-sm font-semibold text-gray-900 dark:text-gray-100">
+										Choose Category
+									</p>
+								</div>
+								<ul class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+									<li>
+										<input type="radio" id="subjectOrder" name="TicketForm[subject]"
+											class="subject sr-only peer" value="Order" checked="checked" />
+										<label for="subjectOrder"
+											class="flex flex-col items-center justify-center p-4 border-2 border-gray-200 dark:border-dark-tertiary rounded-lg cursor-pointer transition-all duration-200 peer-checked:border-primary-500 dark:peer-checked:border-primary-400 peer-checked:bg-primary-50 dark:peer-checked:bg-primary-900/20 hover:border-primary-300 dark:hover:border-primary-600 hover:bg-gray-50 dark:hover:bg-dark-tertiary">
+											<div class="w-12 h-12 flex items-center justify-center mb-2 rounded-lg bg-white dark:bg-dark-secondary">
+												<svg width="24" height="24" viewbox="0 0 24 24" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<rect width="24" height="24" rx="6" fill="currentColor"
+														class="text-gray-300 dark:text-gray-600" />
+													<path
+														d="M15.2453 17.9375L17.8516 15.35L17.0641 14.5625L15.2453 16.3438L14.5141 15.6125L13.7266 16.4188L15.2453 17.9375ZM6.78906 9.5H15.7891V8H6.78906V9.5ZM15.7891 20C14.7516 20 13.8673 19.6343 13.1363 18.9028C12.4053 18.1713 12.0396 17.287 12.0391 16.25C12.0391 15.2125 12.4048 14.3282 13.1363 13.5972C13.8678 12.8663 14.7521 12.5005 15.7891 12.5C16.8266 12.5 17.7111 12.8658 18.4426 13.5972C19.1741 14.3288 19.5396 15.213 19.5391 16.25C19.5391 17.2875 19.1733 18.172 18.4418 18.9035C17.7103 19.635 16.8261 20.0005 15.7891 20ZM4.53906 19.25V6.5C4.53906 6.0875 4.68606 5.7345 4.98006 5.441C5.27406 5.1475 5.62706 5.0005 6.03906 5H16.5391C16.9516 5 17.3048 5.147 17.5988 5.441C17.8928 5.735 18.0396 6.088 18.0391 6.5V11.5063C17.6891 11.3313 17.3233 11.203 16.9418 11.1215C16.5603 11.04 16.1761 10.9995 15.7891 11H6.78906V12.5H12.1141C11.9016 12.7125 11.7048 12.9437 11.5238 13.1938C11.3428 13.4438 11.1833 13.7125 11.0453 14H6.78906V15.5H10.5953C10.5703 15.625 10.5548 15.747 10.5488 15.866C10.5428 15.985 10.5396 16.113 10.5391 16.25C10.5391 16.775 10.6111 17.2783 10.7551 17.7598C10.8991 18.2413 11.1146 18.7005 11.4016 19.1375L11.2891 19.25L10.1641 18.125L9.03906 19.25L7.91406 18.125L6.78906 19.25L5.66406 18.125L4.53906 19.25Z"
+														fill="#0A2753" class="dark:fill-gray-300" />
+												</svg>
+											</div>
+											<span class="text-sm font-medium text-gray-700 dark:text-gray-300">Order</span>
+										</label>
+									</li>
+									<li>
+										<input type="radio" id="subjectPayment" name="TicketForm[subject]"
+											class="subject sr-only peer" value="Payment" />
+										<label for="subjectPayment"
+											class="flex flex-col items-center justify-center p-4 border-2 border-gray-200 dark:border-dark-tertiary rounded-lg cursor-pointer transition-all duration-200 peer-checked:border-primary-500 dark:peer-checked:border-primary-400 peer-checked:bg-primary-50 dark:peer-checked:bg-primary-900/20 hover:border-primary-300 dark:hover:border-primary-600 hover:bg-gray-50 dark:hover:bg-dark-tertiary">
+											<div
+												class="w-12 h-12 flex items-center justify-center mb-2 rounded-lg bg-white dark:bg-dark-secondary">
+												<svg width="18" height="16" viewbox="0 0 18 16" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<path
+														d="M15.0729 0.838286C14.9942 0.559011 14.8077 0.322441 14.5546 0.180617C14.3015 0.038792 14.0024 0.00333039 13.7231 0.0820327L1.08562 3.63765C0.806963 3.71639 0.570884 3.90239 0.429127 4.15489C0.287369 4.40738 0.251496 4.70578 0.329369 4.98468L15.0729 0.838286Z"
+														fill="#0A2753" class="dark:fill-gray-300" />
+													<path
+														d="M0.780743 5.55266H6.40683L15.6665 2.94475L15.222 1.36523L0.478516 5.5171L0.499029 5.59095C0.590868 5.56599 0.685573 5.55312 0.780743 5.55266Z"
+														fill="#0A2753" class="dark:fill-gray-300" />
+													<path d="M16.4003 5.55211L15.8137 3.4707L8.4248 5.55211H16.4003Z"
+														fill="#0A2753" class="dark:fill-gray-300" />
+													<path
+														d="M17.191 6.09961H0.780417C0.635338 6.09961 0.496202 6.15724 0.393616 6.25983C0.291031 6.36241 0.233398 6.50155 0.233398 6.64663L0.233398 14.8519C0.233398 14.997 0.291031 15.1361 0.393616 15.2387C0.496202 15.3413 0.635338 15.3989 0.780417 15.3989H17.191C17.336 15.3989 17.4752 15.3413 17.5778 15.2387C17.6804 15.1361 17.738 14.997 17.738 14.8519V6.64663C17.738 6.50155 17.6804 6.36241 17.5778 6.25983C17.4752 6.15724 17.336 6.09961 17.191 6.09961ZM17.191 13.5527C16.8464 13.5527 16.516 13.6896 16.2723 13.9333C16.0287 14.1769 15.8918 14.5073 15.8918 14.8519H2.07959C2.07959 14.5073 1.94271 14.1769 1.69907 13.9333C1.45543 13.6896 1.12498 13.5527 0.780417 13.5527V7.9458C1.12498 7.9458 1.45543 7.80892 1.69907 7.56528C1.94271 7.32164 2.07959 6.99119 2.07959 6.64663H15.8918C15.8918 6.99119 16.0287 7.32164 16.2723 7.56528C16.516 7.80892 16.8464 7.9458 17.191 7.9458V13.5527Z"
+														fill="#0A2753" class="dark:fill-gray-300" />
+												</svg>
+											</div>
+											<span
+												class="text-sm font-medium text-gray-700 dark:text-gray-300">Payment</span>
+										</label>
+									</li>
+									<li>
+										<input type="radio" id="subjectService" name="TicketForm[subject]"
+											class="subject sr-only peer" value="Other" />
+										<label for="subjectService"
+											class="flex flex-col items-center justify-center p-4 border-2 border-gray-200 dark:border-dark-tertiary rounded-lg cursor-pointer transition-all duration-200 peer-checked:border-primary-500 dark:peer-checked:border-primary-400 peer-checked:bg-primary-50 dark:peer-checked:bg-primary-900/20 hover:border-primary-300 dark:hover:border-primary-600 hover:bg-gray-50 dark:hover:bg-dark-tertiary">
+											<div
+												class="w-12 h-12 flex items-center justify-center mb-2 rounded-lg bg-white dark:bg-dark-secondary">
+												<svg width="24" height="24" viewbox="0 0 24 24" fill="none"
+													xmlns="http://www.w3.org/2000/svg">
+													<rect width="24" height="24" rx="6" fill="currentColor"
+														class="text-gray-300 dark:text-gray-600" />
+													<path
+														d="M6.8126 8.77559C7.89673 8.77559 8.77559 7.89673 8.77559 6.8126C8.77559 5.72847 7.89673 4.84961 6.8126 4.84961C5.72847 4.84961 4.84961 5.72847 4.84961 6.8126C4.84961 7.89673 5.72847 8.77559 6.8126 8.77559Z"
+														fill="#0a2753" class="dark:fill-gray-300" />
+													<path
+														d="M6.8126 13.6828C7.89673 13.6828 8.77559 12.804 8.77559 11.7198C8.77559 10.6357 7.89673 9.75684 6.8126 9.75684C5.72847 9.75684 4.84961 10.6357 4.84961 11.7198C4.84961 12.804 5.72847 13.6828 6.8126 13.6828Z"
+														fill="#0a2753" class="dark:fill-gray-300" />
+													<path
+														d="M6.8126 18.59C7.89673 18.59 8.77559 17.7112 8.77559 16.6271C8.77559 15.5429 7.89673 14.6641 6.8126 14.6641C5.72847 14.6641 4.84961 15.5429 4.84961 16.6271C4.84961 17.7112 5.72847 18.59 6.8126 18.59Z"
+														fill="#0a2753" class="dark:fill-gray-300" />
+													<path
+														d="M18.0995 5.34082H10.2476C9.97655 5.34082 9.75684 5.56054 9.75684 5.83157V7.79456C9.75684 8.06559 9.97655 8.28531 10.2476 8.28531H18.0995C18.3706 8.28531 18.5903 8.06559 18.5903 7.79456V5.83157C18.5903 5.56054 18.3706 5.34082 18.0995 5.34082Z"
+														fill="#0a2753" class="dark:fill-gray-300" />
+													<path
+														d="M18.0995 10.248H10.2476C9.97655 10.248 9.75684 10.4678 9.75684 10.7388V12.7018C9.75684 12.9728 9.97655 13.1925 10.2476 13.1925H18.0995C18.3706 13.1925 18.5903 12.9728 18.5903 12.7018V10.7388C18.5903 10.4678 18.3706 10.248 18.0995 10.248Z"
+														fill="#0a2753" class="dark:fill-gray-300" />
+													<path
+														d="M18.0995 15.1553H10.2476C9.97655 15.1553 9.75684 15.375 9.75684 15.646V17.609C9.75684 17.88 9.97655 18.0998 10.2476 18.0998H18.0995C18.3706 18.0998 18.5903 17.88 18.5903 17.609V15.646C18.5903 15.375 18.3706 15.1553 18.0995 15.1553Z"
+														fill="#0a2753" class="dark:fill-gray-300" />
+												</svg>
+											</div>
+											<span
+												class="text-sm font-medium text-gray-700 dark:text-gray-300">Other</span>
+										</label>
+									</li>
+								</ul>
+							</div>
+
+							<!-- Request Type Selection (Only shown for Order category) -->
+							<div
+								class="therequest space-y-4 pb-4 border-b border-gray-200 dark:border-dark-tertiary">
+								<div class="flex items-center gap-3">
+									<div
+										class="flex items-center justify-center w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex-shrink-0">
+										<svg width="20" height="20" viewbox="0 0 24 24" fill="none"
+											xmlns="http://www.w3.org/2000/svg">
+											<path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"
+												stroke-linecap="round" stroke-linejoin="round"
+												class="text-primary-600 dark:text-primary-400" />
+											<path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2"
+												stroke-linecap="round" stroke-linejoin="round"
+												class="text-primary-600 dark:text-primary-400" />
+											<path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2"
+												stroke-linecap="round" stroke-linejoin="round"
+												class="text-primary-600 dark:text-primary-400" />
+										</svg>
+									</div>
+									<p class="text-sm font-semibold text-gray-900 dark:text-gray-100">Request Type</p>
+								</div>
+								<ul class="grid grid-cols-2 sm:grid-cols-4 gap-2">
+									<li>
+										<input type="radio" class="second-options sr-only peer" value="Refill"
+											name="request" id="requestRefill">
+										<label for="requestRefill"
+											class="flex flex-col items-center justify-center p-3 border border-gray-200 dark:border-dark-tertiary rounded-lg cursor-pointer transition-all duration-200 peer-checked:border-primary-500 dark:peer-checked:border-primary-400 peer-checked:bg-primary-50 dark:peer-checked:bg-primary-900/20 hover:border-primary-300 dark:hover:border-primary-600">
+											<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-1.5">
+												<path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+													class="text-gray-600 dark:text-gray-400 peer-checked:text-primary-600 dark:peer-checked:text-primary-400" />
+												<path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+													class="text-gray-600 dark:text-gray-400 peer-checked:text-primary-600 dark:peer-checked:text-primary-400" />
+												<path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+													class="text-gray-600 dark:text-gray-400 peer-checked:text-primary-600 dark:peer-checked:text-primary-400" />
+											</svg>
+											<span
+												class="text-xs font-medium text-gray-700 dark:text-gray-300">Refill</span>
+										</label>
+									</li>
+									<li>
+										<input type="radio" class="second-options sr-only peer" value="Speed Up"
+											name="request" id="requestSpeed" checked="checked">
+										<label for="requestSpeed"
+											class="flex flex-col items-center justify-center p-3 border border-gray-200 dark:border-dark-tertiary rounded-lg cursor-pointer transition-all duration-200 peer-checked:border-primary-500 dark:peer-checked:border-primary-400 peer-checked:bg-primary-50 dark:peer-checked:bg-primary-900/20 hover:border-primary-300 dark:hover:border-primary-600">
+											<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-1.5">
+												<path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+													class="text-gray-600 dark:text-gray-400 peer-checked:text-primary-600 dark:peer-checked:text-primary-400" />
+											</svg>
+											<span class="text-xs font-medium text-gray-700 dark:text-gray-300">Speed
+												Up</span>
+										</label>
+									</li>
+									<li>
+										<input type="radio" class="second-options sr-only peer" value="Others"
+											name="request" id="requestOthers">
+										<label for="requestOthers"
+											class="flex flex-col items-center justify-center p-3 border border-gray-200 dark:border-dark-tertiary rounded-lg cursor-pointer transition-all duration-200 peer-checked:border-primary-500 dark:peer-checked:border-primary-400 peer-checked:bg-primary-50 dark:peer-checked:bg-primary-900/20 hover:border-primary-300 dark:hover:border-primary-600">
+											<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-1.5">
+												<circle cx="12" cy="12" r="1" fill="currentColor"
+													class="text-gray-600 dark:text-gray-400 peer-checked:text-primary-600 dark:peer-checked:text-primary-400" />
+												<circle cx="19" cy="12" r="1" fill="currentColor"
+													class="text-gray-600 dark:text-gray-400 peer-checked:text-primary-600 dark:peer-checked:text-primary-400" />
+												<circle cx="5" cy="12" r="1" fill="currentColor"
+													class="text-gray-600 dark:text-gray-400 peer-checked:text-primary-600 dark:peer-checked:text-primary-400" />
+											</svg>
+											<span
+												class="text-xs font-medium text-gray-700 dark:text-gray-300">Others</span>
+										</label>
+									</li>
+									<li>
+										<input type="radio" class="second-options sr-only peer" value="Cancellation"
+											name="request" id="requestCancellation">
+										<label for="requestCancellation"
+											class="flex flex-col items-center justify-center p-3 border border-gray-200 dark:border-dark-tertiary rounded-lg cursor-pointer transition-all duration-200 peer-checked:border-primary-500 dark:peer-checked:border-primary-400 peer-checked:bg-primary-50 dark:peer-checked:bg-primary-900/20 hover:border-primary-300 dark:hover:border-primary-600">
+											<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="mb-1.5">
+												<circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"
+													class="text-gray-600 dark:text-gray-400 peer-checked:text-primary-600 dark:peer-checked:text-primary-400" />
+												<path d="M15 9L9 15M9 9L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+													class="text-gray-600 dark:text-gray-400 peer-checked:text-primary-600 dark:peer-checked:text-primary-400" />
+											</svg>
+											<span
+												class="text-xs font-medium text-gray-700 dark:text-gray-300">Cancellation</span>
+										</label>
+									</li>
+								</ul>
+							</div>
+
+							<!-- Order ID Field -->
+							<div class="ordernumbers space-y-2">
+								<label for="ordernumbers"
+									class="block text-sm font-semibold text-gray-900 dark:text-gray-100">Order
+									ID</label>
+								<input type="text" name="title"
+									class="w-full px-4 py-2.5 border border-gray-300 dark:border-dark-tertiary rounded-lg bg-white dark:bg-dark-secondary text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-all duration-200"
+									id="ordernumbers"
+									placeholder="For multiple orders, please separate them using commas (example: 12345,12346)"
+									required aria-label="Order ID">
+							</div>
+
+							<!-- Message Field -->
+							<div class="message-block space-y-2">
+								<label for="message"
+									class="block text-sm font-semibold text-gray-900 dark:text-gray-100">Message</label>
+								<textarea name="msg" id="message" rows="7"
+									class="w-full px-4 py-2.5 border border-gray-300 dark:border-dark-tertiary rounded-lg bg-white dark:bg-dark-secondary text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-all duration-200 resize-y"
+									placeholder="Write Your Message Here.." required aria-label="Message"></textarea>
+							</div>
+
+							<!-- Submit Button -->
+							<div class="pt-2">
+								<input name="_csrf" value="{{csrftoken}}" type="hidden">
+								<input type="hidden" name="TicketForm[message]" id="alldata">
+								<button id="submit" type="submit"
+									class="w-full btn btn--primary flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 dark:from-primary-600 dark:to-primary-700 dark:hover:from-primary-700 dark:hover:to-primary-800 transition-all duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed">
+									<span class="btn-label">Submit Ticket</span>
+									<svg id="spinner" class="hidden h-5 w-5 animate-spin text-white"
+										xmlns="http://www.w3.org/2000/svg" fill="none" viewbox="0 0 24 24">
+										<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+											stroke-width="4"></circle>
+										<path class="opacity-75" fill="currentColor"
+											d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+									</svg>
+								</button>
+							</div>
+						</form>
+					</div>
+					<div data-tab-content="ticketHistory" id="ticketHistory" class="hidden">
+					<!-- Search Form -->
+					<div class="mb-6">
+						<form action="{{ page['url'] }}" method="get" id="history-search" class="{% if site['rtl'] %} rtl-search {% endif %}">
+							<div class="relative">
+								<input type="text"
+									class="w-full px-4 py-2.5 pl-10 border border-gray-300 dark:border-dark-tertiary rounded-lg bg-white dark:bg-dark-secondary text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-all duration-200"
+									value="{{ search }}" name="search"
+									placeholder="{{ lang('general.search.placeholder') }}">
+								<svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 dark:text-gray-500"
+									fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+								</svg>
+							</div>
+						</form>
+					</div>
+
+					{% if ticketList %}
+					<!-- Mobile Card View -->
+					<div class="tickets-history">
+						<div class="tickets-card-list grid gap-4 mb-6 md:hidden" role="list">
+							{% for ticket in ticketList %}
+							<a class="ticket-card ticket-card--{{ ticket['status']|lower|replace({' ': '-'}) }} block p-4 bg-white dark:bg-dark-secondary border border-gray-200 dark:border-dark-tertiary rounded-lg hover:shadow-md dark:hover:shadow-lg transition-all duration-200"
+								href="{{ page_url('viewticket') }}/{{ ticket['id'] }}" role="listitem">
+								<div class="ticket-card__header flex items-center justify-between mb-3">
+									<div class="ticket-card__id-group flex items-center gap-2">
+										<span class="ticket-card__id font-semibold text-gray-900 dark:text-gray-100">#{{ ticket['id'] }}</span>
+										{% if ticket['new'] == 1 %}
+											<span class="ticket-card__badge px-2 py-0.5 text-xs font-medium bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full">New</span>
+										{% endif %}
+									</div>
+									<span class="ticket-card__status ticket-status--{{ ticket['status']|lower|replace({' ': '-'}) }} px-2.5 py-1 text-xs font-medium rounded-full">{{ ticket['status'] }}</span>
+								</div>
+								<div class="ticket-card__subject mb-3">
+									{% if ticket['new'] == 1 %}
+										<strong class="text-gray-900 dark:text-gray-100 font-semibold">{{ ticket['theme'] }}</strong>
+									{% else %}
+										<span class="text-gray-700 dark:text-gray-300">{{ ticket['theme'] }}</span>
+									{% endif %}
+								</div>
+								<div class="ticket-card__meta flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
+									<span class="ticket-card__meta-label">{{ lang('tickets.updated') }}</span>
+									<span class="ticket-card__time">{{ ticket['time'] }}</span>
+								</div>
+								<span class="ticket-card__cta mt-3 inline-flex items-center text-sm font-medium text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300">
+								View ticket →
+								</span>
+							</a>
+							{% endfor %}
+						</div>
+
+						<!-- Desktop Table View -->
+						<div class="tickets-table-wrapper hidden md:block overflow-x-auto">
+							<table class="table w-full {% if site['rtl'] %} rtl-table {% endif %}" id="tickets-table">
+								<thead class="bg-gray-50 dark:bg-dark-tertiary">
+									<tr>
+										<th
+											class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+											{{ lang('tickets.id') }}</th>
+										<th
+											class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+											{{ lang('tickets.subject') }}</th>
+										<th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
+											{{ lang('tickets.status') }} 
+										</th>
+										<th
+											class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider whitespace-nowrap">
+											{{ lang('tickets.updated') }}</th>
+									</tr>
+								</thead>
+								<tbody
+									class="bg-white dark:bg-dark-secondary divide-y divide-gray-200 dark:divide-dark-tertiary">
+									{% for ticket in ticketList %}
+									<tr
+										class="ticket-row ticket-row--{{ ticket['status']|lower|replace({' ': '-'}) }} hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-150">
+										<td class="px-4 py-3 text-sm font-medium text-gray-900 dark:text-gray-100" data-label="ID">
+											{{ ticket['id'] }}
+										</td>
+										{% if ticket['new'] == 1 %}
+										<td class="px-4 py-3 text-sm" data-label="Subject">
+											<a href="{{ page_url('viewticket') }}/{{ ticket['id'] }}"
+												class="text-gray-900 dark:text-gray-100 hover:text-primary-600 dark:hover:text-primary-400 font-semibold break-words">
+												{{ ticket['theme'] }}
+											</a>
+										</td>
+										{% else %}
+										<td class="px-4 py-3 text-sm" data-label="Subject">
+											<a href="{{ page_url('viewticket') }}/{{ ticket['id'] }}"
+												class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 break-words">{{ticket['theme']}}</a>
+										</td>
+										{% endif %}
+										<td class="px-4 py-3 text-sm" data-label="Status">
+											<span class="ticket-status--{{ ticket['status']|lower|replace({' ': '-'}) }} px-2.5 py-1 text-xs font-medium rounded-full">{{ ticket['status'] }}</span>
+											{% if ticket['new'] == 1 %}
+												<span class="ticket-card__badge px-2 py-0.5 text-xs font-medium bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400 rounded-full">New</span>
+											{% endif %}
+										</td>
+										<td class="px-4 py-3 text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap"
+											data-label="Last update">
+											{{ ticket['time'] }}
+										</td>
+									</tr>
+									{% endfor %}
+								</tbody>
+							</table>
+						</div>
+					</div>
+					{% endif %}
+					{% if pagination['count'] > 50 %}
+					<div class="mt-6 flex justify-center">
+						<nav class="pagination" aria-label="Pagination">
+							<ul class="flex items-center gap-2 {% if site['rtl'] %} rtl-pagination {% endif %}">
+								{% if pagination['current'] != 1 %}
+								<li>
+									<a href="{{ page['url'] }}/{{ pagination['last'] }}"
+										class="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-dark-secondary border border-gray-300 dark:border-dark-tertiary rounded-lg hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200"
+										aria-label="Previous">
+										<span aria-hidden="true">&laquo;</span>
+									</a>
+								</li>
+								{% endif %}
+
+								{% set r, l = 3, 3 %}
+
+								{% if pagination['current'] == 1 %}
+								{% set r = 6 %}
+								{% endif %}
+
+								{% if pagination['current'] == 2 %}
+								{% set r = 5 %}
+								{% endif %}
+
+								{% if pagination['current'] >= pagination['pages'] %}
+								{% set l = 5 %}
+								{% endif %}
+
+								{% for i in 1..ceil(pagination['pages']) %}
+								{% if i >= (pagination['current']-l) and i <= (pagination['current']+r) %}
+								<li>
+									<a href="{{ page['url'] }}/{{i}}"
+										class="px-3 py-2 text-sm font-medium rounded-lg transition-colors duration-200 {% if i == pagination['current'] %} bg-primary-500 text-white dark:bg-primary-600 dark:text-white {% else %} text-gray-700 dark:text-gray-300 bg-white dark:bg-dark-secondary border border-gray-300 dark:border-dark-tertiary hover:bg-gray-50 dark:hover:bg-dark-tertiary {% endif %}">
+										{{i}}
+									</a>
+								</li>
+								{% endif %}
+								{% endfor %}
+
+								{% if pagination['current'] < pagination['pages'] %}
+								<li>
+									<a href="{{ page['url'] }}/{{ pagination['next'] }}"
+										class="px-3 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-dark-secondary border border-gray-300 dark:border-dark-tertiary rounded-lg hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200"
+										aria-label="Next">
+										<span aria-hidden="true">&raquo;</span>
+									</a>
+								</li>
+								{% endif %}
+							</ul>
+						</nav>
+					</div>
+					{% endif %}
+					</div>
+				</div>
+			</div>
+
+			<!-- Customer support instructions -->
+			<div class="dash_card min-w-[50%] lg:basis-1/2 bg-white dark:bg-dark-secondary rounded-xl shadow-sm border border-gray-200 dark:border-dark-tertiary transition-all duration-200 p-3">
+				<div class="info-block rounded-xl bg-blue-50 dark:bg-primary-900/20 p-6 text-sm leading-8 text-gray-700 dark:text-gray-300 border border-blue-100 dark:border-primary-900/30">
+					<h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Customer Support Instructions
+					</h3>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2">
+							<span class="text-green-500 dark:text-green-400 mt-0.5">✅</span>
+							<span>Customer support team is available 24/7 to serve you</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<span class="text-green-500 dark:text-green-400 mt-0.5">✅</span>
+							<span>Before sending a new ticket for you order, please read the average time for the selected
+								service</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<span class="text-green-500 dark:text-green-400 mt-0.5">✅</span>
+							<span>Notice to all users! Any misbehavior with our customer support will cause your account to
+								be limited and/or potentially suspended.</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<span class="text-green-500 dark:text-green-400 mt-0.5">✅</span>
+							<span>In order to proceed correctly, do not open more than one ticket for the same purpose or
+								for the same order</span>
+						</li>
+					</ul>
+				</div>
+				<div class="info-block mt-6 rounded-xl bg-red-50 dark:bg-red-900/20 p-6 text-sm leading-8 border border-red-100 dark:border-red-900/30">
+					<strong class="text-red-600 dark:text-red-400">Sometimes it can take up to 6 hours for us to respond, depending on the tickets overload.</strong>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+</div>
+</main>
+
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+		// Tab Switching Functionality
+		const tabs = document.querySelectorAll('.tab[data-tab]');
+		const tabContents = document.querySelectorAll('[data-tab-content]');
+		tabs.forEach(tab => {
+			tab.addEventListener('click', function(e) {
+				e.preventDefault();
+				const targetTab = this.getAttribute('data-tab');
+				// Remove active class from all tabs
+				tabs.forEach(t => {
+					t.classList.remove('active', 'bg-white', 'dark:bg-dark-secondary',
+						'text-primary-600', 'dark:text-primary-400', 'shadow-sm');
+					t.classList.add('text-gray-600', 'dark:text-gray-400');
+				});
+				// Add active class to clicked tab
+				this.classList.add('active', 'bg-white', 'dark:bg-dark-secondary',
+					'text-primary-600', 'dark:text-primary-400', 'shadow-sm');
+				this.classList.remove('text-gray-600', 'dark:text-gray-400');
+				// Hide all tab contents
+				tabContents.forEach(content => {
+					content.classList.add('hidden');
+					content.classList.remove('active');
+				});
+				// Show selected tab content
+				const selectedContent = document.querySelector(
+				`[data-tab-content="${targetTab}"]`);
+				if (selectedContent) {
+					selectedContent.classList.remove('hidden');
+					selectedContent.classList.add('active');
+				}
+			});
+		});
+		// Category Selection Functionality
+		var subjects = document.querySelectorAll('[name="TicketForm[subject]"]');
+		[...subjects].forEach(el => {
+			el.addEventListener('change', e => {
+				const requestSection = document.querySelector('.therequest');
+				const orderNumbersSection = document.querySelector('.ordernumbers');
+				const orderNumbersInput = document.getElementById('ordernumbers');
+				if (e.target.id !== 'subjectOrder') {
+					if (requestSection) requestSection.classList.add('hidden');
+					if (orderNumbersSection) orderNumbersSection.classList.add('hidden');
+					if (orderNumbersInput) orderNumbersInput.removeAttribute('required');
+				} else {
+					if (requestSection) requestSection.classList.remove('hidden');
+					if (orderNumbersSection) orderNumbersSection.classList.remove('hidden');
+					if (orderNumbersInput) orderNumbersInput.setAttribute('required', 'required');
+				}
+			});
+		});
+	});
+</script>
+
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", () => {
+		$(document).ready(function() {
+			$('#submit').click(function(e) {
+				e.preventDefault();
+				const form = $('#ticketsend')[0];
+				if (!form.checkValidity()) {
+					form.reportValidity();
+					return;
+				}
+				var $btn = $(this);
+				$btn.prop('disabled', true);
+				$('#spinner').removeClass('hidden');
+				$TheSubject = $('.subject:checked').val();
+				$TheRequest = $('.second-options:checked').val();
+				$FinalSubject = $('.subject:checked').val();
+				if ($TheSubject == 'Order') {
+					$final = "Order ID: " + $('#ordernumbers').val() + '\n' + 'Request: ' +
+						$TheRequest + '\n\n' + $('#message').val();
+				} else {
+					$final = $('#message').val();
+				}
+				$('#alldata').val($final);
+				$('.subject:checked').val($FinalSubject);
+				$('#ticketsend').submit();
+			});
+		});
+	});
+</script>

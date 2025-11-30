@@ -1,2 +1,354 @@
-{# Subscriptions template #}
+<main class="flex-1 shrink-0 grow{% if site['rtl'] %} rtl-content{% endif %}">
+  {% set subscriptionStatuses = [
+    { 'key': 'all', 'label': lang('subscriptions.status.all') },
+    { 'key': 'active', 'label': lang('subscriptions.status.active') },
+    { 'key': 'paused', 'label': lang('subscriptions.status.paused') },
+    { 'key': 'completed', 'label': lang('subscriptions.status.completed') },
+    { 'key': 'expired', 'label': lang('subscriptions.status.expired') },
+    { 'key': 'canceled', 'label': lang('subscriptions.status.canceled') }
+  ] %}
 
+  {% set subscriptionStatusColorMap = {
+    'active': 'active',
+    'processing': 'active',
+    'in-progress': 'active',
+    'paused': 'paused',
+    'completed': 'completed',
+    'complete': 'completed',
+    'expired': 'expired',
+    'canceled': 'canceled',
+    'cancelled': 'canceled'
+  } %}
+
+  <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+    <!-- Toolbar Section -->
+    <section class="rounded-xl border border-gray-200 bg-white p-4 sm:p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800/50">
+      <!-- Search Form -->
+      <form action="{{ page['url'] }}" method="get" id="history-search" class="mb-6" role="search">
+        <label class="sr-only" for="subscriptions-search">{{ lang('general.search.placeholder') }}</label>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <div class="relative flex-1">
+            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400 dark:text-gray-500" aria-hidden="true">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8"/>
+                <path d="m21 21-4.35-4.35"/>
+              </svg>
+            </div>
+            <input id="subscriptions-search" type="text" name="search" value="{{ search }}" class="block w-full pl-10 pr-10 py-2.5 border border-gray-300 rounded-lg bg-white text-sm text-gray-900 placeholder-gray-500 transition-all focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:border-cyan-400 dark:focus:ring-cyan-400/20" placeholder="{{ lang('general.search.placeholder') }}" autocomplete="off">
+            {% if search %}
+            <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 transition-colors" aria-label="{{ lang('general.search.clear')|default('Clear search') }}" title="{{ lang('general.search.clear')|default('Clear search') }}" onclick="document.getElementById('subscriptions-search').value=''; this.closest('form').submit();">
+              <svg class="h-4 w-4" fill="none" viewBox="0 0 14 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="3" y1="3" x2="11" y2="11"/>
+                <line x1="11" y1="3" x2="3" y2="11"/>
+              </svg>
+            </button>
+            {% endif %}
+          </div>
+          <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-teal-500 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:from-cyan-600 hover:to-teal-600 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m5 12 5 5L20 7"/>
+            </svg>
+            <span>Search</span>
+          </button>
+        </div>
+      </form>
+
+      <!-- Status Filters -->
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+        <!-- Desktop Status Pills -->
+        <div class="hidden md:flex flex-wrap gap-2" role="tablist" aria-label="Filter subscriptions by status">
+          {% set currentStatus = status|default('all') %}
+          {% for item in subscriptionStatuses %}
+            {% set baseUrl = item.key == 'all' ? page['url'] : page['url'] ~ '/' ~ item.key %}
+            {% set isActive = currentStatus == item.key %}
+            {% if item.key == 'all' %}
+              {% set activeClasses = 'border-cyan-500 bg-gradient-to-r from-cyan-500 to-teal-500 text-white shadow-md ring-cyan-500 dark:from-cyan-400 dark:to-teal-400 dark:ring-cyan-400' %}
+              {% set inactiveClasses = 'border-gray-300 bg-white text-gray-700 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-cyan-400 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300' %}
+              {% set dotColor = isActive ? 'bg-white' : 'bg-gray-400 dark:bg-gray-500' %}
+            {% elseif item.key == 'active' %}
+              {% set activeClasses = 'border-green-500 bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-md ring-green-500 dark:from-green-400 dark:to-emerald-400 dark:ring-green-400' %}
+              {% set inactiveClasses = 'border-gray-300 bg-white text-gray-700 hover:border-green-500 hover:bg-green-50 hover:text-green-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-green-400 dark:hover:bg-green-900/30 dark:hover:text-green-300' %}
+              {% set dotColor = isActive ? 'bg-white' : 'bg-green-400 dark:bg-green-500' %}
+            {% elseif item.key == 'paused' %}
+              {% set activeClasses = 'border-amber-500 bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-md ring-amber-500 dark:from-amber-400 dark:to-yellow-400 dark:ring-amber-400' %}
+              {% set inactiveClasses = 'border-gray-300 bg-white text-gray-700 hover:border-amber-500 hover:bg-amber-50 hover:text-amber-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-amber-400 dark:hover:bg-amber-900/30 dark:hover:text-amber-300' %}
+              {% set dotColor = isActive ? 'bg-white' : 'bg-amber-400 dark:bg-amber-500' %}
+            {% elseif item.key == 'completed' %}
+              {% set activeClasses = 'border-blue-500 bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md ring-blue-500 dark:from-blue-400 dark:to-indigo-400 dark:ring-blue-400' %}
+              {% set inactiveClasses = 'border-gray-300 bg-white text-gray-700 hover:border-blue-500 hover:bg-blue-50 hover:text-blue-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-blue-400 dark:hover:bg-blue-900/30 dark:hover:text-blue-300' %}
+              {% set dotColor = isActive ? 'bg-white' : 'bg-blue-400 dark:bg-blue-500' %}
+            {% elseif item.key == 'expired' %}
+              {% set activeClasses = 'border-red-500 bg-gradient-to-r from-red-500 to-rose-500 text-white shadow-md ring-red-500 dark:from-red-400 dark:to-rose-400 dark:ring-red-400' %}
+              {% set inactiveClasses = 'border-gray-300 bg-white text-gray-700 hover:border-red-500 hover:bg-red-50 hover:text-red-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-red-400 dark:hover:bg-red-900/30 dark:hover:text-red-300' %}
+              {% set dotColor = isActive ? 'bg-white' : 'bg-red-400 dark:bg-red-500' %}
+            {% elseif item.key == 'canceled' %}
+              {% set activeClasses = 'border-gray-500 bg-gradient-to-r from-gray-500 to-slate-500 text-white shadow-md ring-gray-500 dark:from-gray-400 dark:to-slate-400 dark:ring-gray-400' %}
+              {% set inactiveClasses = 'border-gray-300 bg-white text-gray-700 hover:border-gray-500 hover:bg-gray-50 hover:text-gray-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-gray-400 dark:hover:bg-gray-900/30 dark:hover:text-gray-300' %}
+              {% set dotColor = isActive ? 'bg-white' : 'bg-gray-400 dark:bg-gray-500' %}
+            {% else %}
+              {% set activeClasses = 'border-cyan-500 bg-gradient-to-r from-cyan-500 to-teal-500 text-white shadow-md ring-cyan-500 dark:from-cyan-400 dark:to-teal-400 dark:ring-cyan-400' %}
+              {% set inactiveClasses = 'border-gray-300 bg-white text-gray-700 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-cyan-400 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300' %}
+              {% set dotColor = isActive ? 'bg-white' : 'bg-gray-400 dark:bg-gray-500' %}
+            {% endif %}
+            <a href="{{ baseUrl }}{% if search %}?search={{ search|url_encode }}{% endif %}" class="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-all duration-200 {% if isActive %}{{ activeClasses }}{% else %}{{ inactiveClasses }}{% endif %}" data-status="{{ item.key }}" role="tab" aria-selected="{{ isActive ? 'true' : 'false' }}">
+              <span class="h-2 w-2 rounded-full {{ dotColor }}" aria-hidden="true"></span>
+              {{ item.label }}
+            </a>
+          {% endfor %}
+        </div>
+
+        <!-- Mobile Status Select -->
+        <div class="md:hidden">
+          <label for="status-select" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Filter by status</label>
+          <select id="status-select" name="subscription-status" class="block w-full rounded-lg border border-gray-300 bg-white px-3 py-2.5 text-sm text-gray-900 shadow-sm transition-all focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:focus:border-cyan-400 dark:focus:ring-cyan-400/20" data-base-url="{{ page['url'] }}">
+            {% set currentStatus = status|default('all') %}
+            {% for item in subscriptionStatuses %}
+              <option value="{{ item.key }}" {{ currentStatus == item.key ? 'selected' }}>{{ item.label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="space-y-6">
+      {% if orderList is empty %}
+        <div class="flex flex-col items-center justify-center py-12 px-4 text-center" role="status">
+          <div class="mb-6 text-cyan-500 dark:text-cyan-400">
+            <svg class="h-16 w-16 mx-auto" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M26 0C40.3594 0 52 11.6406 52 26C52 40.3594 40.3594 52 26 52C11.6406 52 0 40.3594 0 26C0 11.6406 11.6406 0 26 0ZM26 4C13.2157 4 4 13.2157 4 26C4 38.7843 13.2157 48 26 48C38.7843 48 48 38.7843 48 26C48 13.2157 38.7843 4 26 4ZM24 34H28V38H24V34ZM24 14H28V30H24V14Z" fill="currentColor"/>
+            </svg>
+          </div>
+          <p class="mb-6 max-w-md text-base text-gray-600 dark:text-gray-400">You don't have any subscriptions yet. Create your first subscription to start tracking performance in one place.</p>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="/" class="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-cyan-500 to-teal-500 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:from-cyan-600 hover:to-teal-600 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800">{{ lang('neworder.title')|default('New order') }}</a>
+            <a href="/services" class="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-medium text-gray-700 transition-all duration-200 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-cyan-400 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300">{{ lang('services.title')|default('Browse services') }}</a>
+          </div>
+        </div>
+      {% endif %}
+
+      {% if orderList %}
+        <!-- Desktop Table View -->
+        <div class="hidden lg:block overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800/50">
+          <div class="overflow-x-auto" role="region" aria-live="polite">
+            <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700" id="subscriptions-table">
+              <thead class="bg-gray-50 dark:bg-gray-900/50">
+                <tr>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('subscriptions.id') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('subscriptions.username') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('subscriptions.quantity') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('subscriptions.new_posts') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('subscriptions.old_posts') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('subscriptions.delay') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('subscriptions.service') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('subscriptions.status') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('subscriptions.created') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('subscriptions.updated') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('subscriptions.expiry') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-gray-800/50">
+                {% for order in orderList %}
+                  {% set normalizedStatus = order['status_name']|lower|replace({' ': '-', '_': '-'}) %}
+                  {% set badgeStatus = subscriptionStatusColorMap[normalizedStatus]|default(normalizedStatus) %}
+
+                  <tr class="transition-colors duration-150 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                    <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900 dark:text-gray-100">#{{ order['id'] }}</td>
+                    <td class="px-6 py-4 text-sm text-gray-900 dark:text-gray-100" title="{{ order['link'] }}">
+                      <div class="max-w-xs truncate">{{ order['link'] }}</div>
+                    </td>
+                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+                      {% if order['quantity_min'] == order['quantity_max'] %}
+                        {{ order['quantity_max'] }}
+                      {% else %}
+                        {{ order['quantity_min'] }}-{{ order['quantity_max'] }}
+                      {% endif %}
+                    </td>
+                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+                      {% if order['current_count'] %}
+                        <a href="{{ page_url('orders') }}?subscription={{ order['id'] }}&likes_spread=0" class="font-medium text-cyan-600 transition-colors hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300">{{ order['current_count'] }}</a>
+                      {% else %}
+                        {{ order['current_count'] }}
+                      {% endif %}
+                      <span class="text-gray-400 dark:text-gray-500">/</span>
+                      {{ order['quantity'] }}
+                    </td>
+                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+                      {% if order['current_old_posts'] %}
+                        <a href="{{ page_url('orders') }}?subscription={{ order['id'] }}&likes_spread=1" class="font-medium text-cyan-600 transition-colors hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300">{{ order['current_old_posts'] }}</a>
+                      {% else %}
+                        {{ order['current_old_posts'] }}
+                      {% endif %}
+                      <span class="text-gray-400 dark:text-gray-500">/</span>
+                      {{ order['old_posts'] }}
+                    </td>
+                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{{ order['delay'] }}</td>
+                    <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300" title="{{ order['service'] }}">
+                      <div class="max-w-xs truncate">{{ order['service'] }}</div>
+                    </td>
+                    <td class="whitespace-nowrap px-6 py-4 text-sm">
+                      <span class="subscription-status-badge inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-medium"{% if badgeStatus %} data-status="{{ badgeStatus }}"{% endif %}>{{ order['status_name'] }}</span>
+                    </td>
+                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{{ order['date_created'] }}</td>
+                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{{ order['date_updated'] }}</td>
+                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{{ order['date_expiry'] }}</td>
+                    <td class="whitespace-nowrap px-6 py-4 text-sm">
+                      <div class="flex flex-wrap gap-2">
+                        {% if order['status'] == 1 or order['status'] == 0 %}
+                          <a href="{{ page['url'] }}/stop/{{ order['id'] }}" class="inline-flex items-center rounded-md border border-red-300 bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 transition-all duration-200 hover:border-red-400 hover:bg-red-100 dark:border-red-700 dark:bg-red-900/30 dark:text-red-400 dark:hover:border-red-600 dark:hover:bg-red-900/50">{{ lang('subscriptions.button.cancel') }}</a>
+                        {% endif %}
+                        {% if order['status'] == 2 %}
+                          <a href="{{ page['url'] }}/resume/{{ order['id'] }}" class="inline-flex items-center rounded-md bg-gradient-to-r from-cyan-500 to-teal-500 px-3 py-1.5 text-xs font-medium text-white shadow-sm transition-all duration-200 hover:from-cyan-600 hover:to-teal-600 hover:shadow-md dark:from-cyan-400 dark:to-teal-400">{{ lang('subscriptions.button.unpause') }}</a>
+                        {% endif %}
+                        {% if order['status'] == 3 or order['status'] == 4 or order['status'] == 5 %}
+                          <a href="{{ page['url'] }}/reorder/{{ order['id'] }}" class="inline-flex items-center rounded-md bg-gradient-to-r from-cyan-500 to-teal-500 px-3 py-1.5 text-xs font-medium text-white shadow-sm transition-all duration-200 hover:from-cyan-600 hover:to-teal-600 hover:shadow-md dark:from-cyan-400 dark:to-teal-400">{{ lang('subscriptions.button.reorder') }}</a>
+                        {% endif %}
+                      </div>
+                    </td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Mobile Card View -->
+        <div class="lg:hidden space-y-4" aria-live="polite">
+          {% for order in orderList %}
+            {% set normalizedStatus = order['status_name']|lower|replace({' ': '-', '_': '-'}) %}
+            {% set badgeStatus = subscriptionStatusColorMap[normalizedStatus]|default(normalizedStatus) %}
+
+            <article class="rounded-xl border border-gray-200 bg-white shadow-sm transition-all duration-200 hover:shadow-md dark:border-gray-700 dark:bg-gray-800/50" data-subscription-id="{{ order['id'] }}">
+              <header class="flex items-center justify-between border-b border-gray-200 px-4 py-3 dark:border-gray-700">
+                <div class="flex items-center gap-2">
+                  <span class="text-xs font-medium text-gray-500 dark:text-gray-400">{{ lang('subscriptions.id') }}</span>
+                  <span class="text-sm font-semibold text-gray-900 dark:text-gray-100">#{{ order['id'] }}</span>
+                </div>
+                <span class="subscription-status-badge inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-medium"{% if badgeStatus %} data-status="{{ badgeStatus }}"{% endif %}>{{ order['status_name'] }}</span>
+              </header>
+
+              <div class="p-4 space-y-3">
+                <div class="flex items-start justify-between">
+                  <span class="text-xs font-medium text-gray-500 dark:text-gray-400">{{ lang('subscriptions.username') }}</span>
+                  <span class="max-w-[60%] truncate text-right text-sm text-gray-900 dark:text-gray-100" title="{{ order['link'] }}">{{ order['link'] }}</span>
+                </div>
+
+                <div class="flex items-start justify-between">
+                  <span class="text-xs font-medium text-gray-500 dark:text-gray-400">{{ lang('subscriptions.quantity') }}</span>
+                  <span class="text-sm text-gray-900 dark:text-gray-100">
+                    {% if order['quantity_min'] == order['quantity_max'] %}
+                      {{ order['quantity_max'] }}
+                    {% else %}
+                      {{ order['quantity_min'] }}-{{ order['quantity_max'] }}
+                    {% endif %}
+                  </span>
+                </div>
+
+                <div class="flex items-start justify-between">
+                  <span class="text-xs font-medium text-gray-500 dark:text-gray-400">{{ lang('subscriptions.new_posts') }}</span>
+                  <span class="text-sm text-gray-900 dark:text-gray-100">
+                    {% if order['current_count'] %}
+                      <a href="{{ page_url('orders') }}?subscription={{ order['id'] }}&likes_spread=0" class="font-medium text-cyan-600 transition-colors hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300">{{ order['current_count'] }}</a>
+                    {% else %}
+                      {{ order['current_count'] }}
+                    {% endif %}
+                    <span class="text-gray-400 dark:text-gray-500">/</span>
+                    {{ order['quantity'] }}
+                  </span>
+                </div>
+
+                <div class="flex items-start justify-between">
+                  <span class="text-xs font-medium text-gray-500 dark:text-gray-400">{{ lang('subscriptions.old_posts') }}</span>
+                  <span class="text-sm text-gray-900 dark:text-gray-100">
+                    {% if order['current_old_posts'] %}
+                      <a href="{{ page_url('orders') }}?subscription={{ order['id'] }}&likes_spread=1" class="font-medium text-cyan-600 transition-colors hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300">{{ order['current_old_posts'] }}</a>
+                    {% else %}
+                      {{ order['current_old_posts'] }}
+                    {% endif %}
+                    <span class="text-gray-400 dark:text-gray-500">/</span>
+                    {{ order['old_posts'] }}
+                  </span>
+                </div>
+
+                <div class="flex items-start justify-between">
+                  <span class="text-xs font-medium text-gray-500 dark:text-gray-400">{{ lang('subscriptions.delay') }}</span>
+                  <span class="text-sm text-gray-900 dark:text-gray-100">{{ order['delay'] }}</span>
+                </div>
+
+                <div class="flex items-start justify-between">
+                  <span class="text-xs font-medium text-gray-500 dark:text-gray-400">{{ lang('subscriptions.service') }}</span>
+                  <span class="max-w-[60%] truncate text-right text-sm text-gray-900 dark:text-gray-100">{{ order['service'] }}</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 border-t border-gray-200 dark:border-gray-700">
+                  <div>
+                    <span class="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">{{ lang('subscriptions.created') }}</span>
+                    <span class="text-sm text-gray-900 dark:text-gray-100">{{ order['date_created'] }}</span>
+                  </div>
+                  <div>
+                    <span class="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">{{ lang('subscriptions.updated') }}</span>
+                    <span class="text-sm text-gray-900 dark:text-gray-100">{{ order['date_updated'] }}</span>
+                  </div>
+                  <div>
+                    <span class="block text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">{{ lang('subscriptions.expiry') }}</span>
+                    <span class="text-sm text-gray-900 dark:text-gray-100">{{ order['date_expiry'] }}</span>
+                  </div>
+                </div>
+              </div>
+
+              <footer class="border-t border-gray-200 px-4 py-3 dark:border-gray-700">
+                <div class="flex flex-wrap gap-2">
+                  {% if order['status'] == 1 or order['status'] == 0 %}
+                    <a href="{{ page['url'] }}/stop/{{ order['id'] }}" class="inline-flex items-center justify-center rounded-md border border-red-300 bg-red-50 px-3 py-1.5 text-xs font-medium text-red-700 transition-all duration-200 hover:border-red-400 hover:bg-red-100 dark:border-red-700 dark:bg-red-900/30 dark:text-red-400 dark:hover:border-red-600 dark:hover:bg-red-900/50">{{ lang('subscriptions.button.cancel') }}</a>
+                  {% endif %}
+                  {% if order['status'] == 2 %}
+                    <a href="{{ page['url'] }}/resume/{{ order['id'] }}" class="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-cyan-500 to-teal-500 px-3 py-1.5 text-xs font-medium text-white shadow-sm transition-all duration-200 hover:from-cyan-600 hover:to-teal-600 hover:shadow-md dark:from-cyan-400 dark:to-teal-400">{{ lang('subscriptions.button.unpause') }}</a>
+                  {% endif %}
+                  {% if order['status'] == 3 or order['status'] == 4 or order['status'] == 5 %}
+                    <a href="{{ page['url'] }}/reorder/{{ order['id'] }}" class="inline-flex items-center justify-center rounded-md bg-gradient-to-r from-cyan-500 to-teal-500 px-3 py-1.5 text-xs font-medium text-white shadow-sm transition-all duration-200 hover:from-cyan-600 hover:to-teal-600 hover:shadow-md dark:from-cyan-400 dark:to-teal-400">{{ lang('subscriptions.button.reorder') }}</a>
+                  {% endif %}
+                </div>
+              </footer>
+            </article>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <!-- Pagination -->
+      {% if pagination['count'] > 100 %}
+        <nav class="flex flex-wrap items-center justify-center gap-2" aria-label="Pagination">
+          {% if pagination['current'] != 1 %}
+            <a href="{{ page['url'] }}/{{ status }}/{{ pagination['last'] }}{% if search %}?search={{ search|url_encode }}{% endif %}" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-gray-300 bg-white text-sm font-medium text-gray-700 transition-all duration-200 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-cyan-400 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300 dark:focus:ring-cyan-400" aria-label="Previous page">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          {% endif %}
+
+          {% set r, l = 3, 3 %}
+          {% if pagination['current'] == 1 %}
+            {% set r = 6 %}
+          {% endif %}
+          {% if pagination['current'] == 2 %}
+            {% set r = 5 %}
+          {% endif %}
+          {% if pagination['current'] >= pagination['pages'] %}
+            {% set l = 5 %}
+          {% endif %}
+
+          {% for i in 1..ceil(pagination['pages']) %}
+            {% if i >= (pagination['current'] - l) and i <= (pagination['current'] + r) %}
+              {% set pageUrl = page['url'] ~ '/' ~ status ~ '/' ~ i %}
+              <a href="{{ pageUrl }}{% if search %}?search={{ search|url_encode }}{% endif %}" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 {% if i == pagination['current'] %}border-cyan-500 bg-gradient-to-r from-cyan-500 to-teal-500 text-white shadow-md ring-cyan-500 dark:from-cyan-400 dark:to-teal-400 dark:ring-cyan-400{% else %}border-gray-300 bg-white text-gray-700 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-cyan-400 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300{% endif %}" aria-current="{{ i == pagination['current'] ? 'page' : 'false' }}">{{ i }}</a>
+            {% endif %}
+          {% endfor %}
+
+          {% if pagination['current'] < pagination['pages'] %}
+            <a href="{{ page['url'] }}/{{ status }}/{{ pagination['next'] }}{% if search %}?search={{ search|url_encode }}{% endif %}" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-gray-300 bg-white text-sm font-medium text-gray-700 transition-all duration-200 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-cyan-400 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300 dark:focus:ring-cyan-400" aria-label="Next page">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          {% endif %}
+        </nav>
+      {% endif %}
+    </section>
+  </div>
+</main>

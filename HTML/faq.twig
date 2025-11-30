@@ -1,2 +1,354 @@
-{# FAQ template #}
+<main class="min-h-screen bg-gray-50 dark:bg-dark transition-colors duration-300">
+  {% if user['auth'] %}
+  <!-- Auth Mode: Page Header -->
+  <div class="bg-white dark:bg-dark-secondary border-b border-gray-200 dark:border-dark-tertiary">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="flex items-center space-x-4">
+        <div class="p-3 rounded-lg bg-primary-100 dark:bg-primary-900/20">
+          <svg class="w-6 h-6 text-primary-500 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div>
+          <h1 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-slate-100">Frequently Asked Questions</h1>
+          <p class="text-sm text-gray-500 dark:text-slate-400 mt-1">Find answers to common questions</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
 
+  <section class="py-8 md:py-12 lg:py-16">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      {% if user['auth'] != true %}
+      <!-- Guest Mode: Intro Section -->
+      <div class="text-center mb-12 md:mb-16">
+        <div class="inline-flex items-center justify-center relative mb-6">
+          <span class="inline-flex items-center px-4 py-2 rounded-full bg-primary-500/10 text-primary-600 dark:text-primary-400 text-sm font-semibold">
+            F.A.Q
+          </span>
+          <img class="absolute -right-12 -top-6 w-12 h-12 opacity-30 dark:opacity-20" src="https://storage.perfectcdn.com/7gc9nb/53ejct8w8q9w7wx8.png" alt="" />
+        </div>
+        <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-6">
+          Unlocking the <span class="text-primary-500 dark:text-primary-400">Power of SMM Panels</span> with marketerum.com
+        </h2>
+        <p class="text-lg text-gray-600 dark:text-slate-300 max-w-3xl mx-auto leading-relaxed">
+          Curious minds often find themselves asking a series of questions when it comes to SMM panels. At marketerum.com, we're here to provide clear and insightful answers to demystify the world of social media marketing. Let's dive into the realm of SMM panels and uncover the possibilities they hold.
+        </p>
+      </div>
+      {% endif %}
+
+      <!-- FAQ Accordion -->
+      <div class="max-w-5xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-start">
+          <!-- FAQ Item 1 -->
+          <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
+            <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary" aria-expanded="false">
+              <span class="text-base md:text-lg font-semibold text-gray-900 dark:text-slate-100 pr-4">
+                What is an SMM Panel?
+              </span>
+              <svg class="faq-icon w-5 h-5 text-gray-500 dark:text-slate-400 flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </button>
+            <div class="faq-answer hidden overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+              <div class="p-6">
+                <p class="text-gray-700 dark:text-slate-300 leading-relaxed">
+                  An SMM (Social Media Marketing) panel is a digital hub that empowers individuals, businesses, and influencers to enhance their social media presence. At marketerum.com, our SMM panel serves as a gateway to a range of social media services, from followers and likes to comments and views, designed to amplify your influence on various platforms.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 2 -->
+          <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
+            <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary" aria-expanded="false">
+              <span class="text-base md:text-lg font-semibold text-gray-900 dark:text-slate-100 pr-4">
+                How Does an SMM Panel Work?
+              </span>
+              <svg class="faq-icon w-5 h-5 text-gray-500 dark:text-slate-400 flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </button>
+            <div class="faq-answer hidden overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+              <div class="p-6">
+                <p class="text-gray-700 dark:text-slate-300 leading-relaxed">
+                  Our SMM panel acts as a bridge between your digital ambitions and tangible results. You simply choose the social media service you desire, select the desired quantity, and our panel takes it from there. Through strategic partnerships and cutting-edge technology, we ensure the efficient delivery of the chosen services, elevating your presence in the digital landscape.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 3 -->
+          <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
+            <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary" aria-expanded="false">
+              <span class="text-base md:text-lg font-semibold text-gray-900 dark:text-slate-100 pr-4">
+                Are SMM Panel Services Genuine?
+              </span>
+              <svg class="faq-icon w-5 h-5 text-gray-500 dark:text-slate-400 flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </button>
+            <div class="faq-answer hidden overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+              <div class="p-6">
+                <p class="text-gray-700 dark:text-slate-300 leading-relaxed">
+                  Transparency and authenticity are at the core of marketerum.com. We take pride in offering high-quality services that cater to genuine engagement. Our focus lies in fostering organic growth, connecting you with real interactions, followers, and engagements that make a lasting impact.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 4 -->
+          <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
+            <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary" aria-expanded="false">
+              <span class="text-base md:text-lg font-semibold text-gray-900 dark:text-slate-100 pr-4">
+                Is Using an SMM Panel Safe?
+              </span>
+              <svg class="faq-icon w-5 h-5 text-gray-500 dark:text-slate-400 flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </button>
+            <div class="faq-answer hidden overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+              <div class="p-6">
+                <p class="text-gray-700 dark:text-slate-300 leading-relaxed">
+                  At marketerum.com, safety is paramount. We emphasize ethical practices that align with platform guidelines. By choosing a reputable SMM panel like ours, you ensure a secure and responsible approach to enhancing your social media presence. We prioritize your digital reputation as much as you do.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 5 -->
+          <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
+            <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary" aria-expanded="false">
+              <span class="text-base md:text-lg font-semibold text-gray-900 dark:text-slate-100 pr-4">
+                Which Social Media Platforms are Supported?
+              </span>
+              <svg class="faq-icon w-5 h-5 text-gray-500 dark:text-slate-400 flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </button>
+            <div class="faq-answer hidden overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+              <div class="p-6">
+                <p class="text-gray-700 dark:text-slate-300 leading-relaxed">
+                  Our services extend across an array of prominent social media platforms. From Instagram and Facebook to Twitter, TikTok, and YouTube, our SMM panel supports your journey on the platforms where you seek to shine.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 6 -->
+          <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
+            <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary" aria-expanded="false">
+              <span class="text-base md:text-lg font-semibold text-gray-900 dark:text-slate-100 pr-4">
+                Can SMM Panels Boost Engagement and Visibility?
+              </span>
+              <svg class="faq-icon w-5 h-5 text-gray-500 dark:text-slate-400 flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </button>
+            <div class="faq-answer hidden overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+              <div class="p-6">
+                <p class="text-gray-700 dark:text-slate-300 leading-relaxed">
+                  Absolutely. SMM panels are designed to optimize engagement and increase visibility. With our tailored services, you can leverage likes, followers, comments, and more to create a magnetic online presence that captivates audiences and attracts new followers.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 7 -->
+          <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
+            <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary" aria-expanded="false">
+              <span class="text-base md:text-lg font-semibold text-gray-900 dark:text-slate-100 pr-4">
+                Are SMM Panels Suitable for Businesses?
+              </span>
+              <svg class="faq-icon w-5 h-5 text-gray-500 dark:text-slate-400 flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </button>
+            <div class="faq-answer hidden overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+              <div class="p-6">
+                <p class="text-gray-700 dark:text-slate-300 leading-relaxed">
+                  Certainly. In the modern digital landscape, businesses of all sizes can benefit from SMM panels. Whether you're a startup, an established brand, or a local business, our panel's strategic offerings can bolster your online reputation, expand your audience, and drive growth.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 8 -->
+          <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
+            <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary" aria-expanded="false">
+              <span class="text-base md:text-lg font-semibold text-gray-900 dark:text-slate-100 pr-4">
+                Do SMM Panels Provide Targeted Services?
+              </span>
+              <svg class="faq-icon w-5 h-5 text-gray-500 dark:text-slate-400 flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </button>
+            <div class="faq-answer hidden overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+              <div class="p-6">
+                <p class="text-gray-700 dark:text-slate-300 leading-relaxed">
+                  Indeed. At marketerum.com, we understand the power of precision. Our SMM panel offers targeted services, allowing you to focus your efforts on specific demographics, locations, or niches, ensuring your efforts resonate with the right audience.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 9 -->
+          <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
+            <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary" aria-expanded="false">
+              <span class="text-base md:text-lg font-semibold text-gray-900 dark:text-slate-100 pr-4">
+                How Do I Choose a Reliable SMM Panel?
+              </span>
+              <svg class="faq-icon w-5 h-5 text-gray-500 dark:text-slate-400 flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </button>
+            <div class="faq-answer hidden overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+              <div class="p-6">
+                <p class="text-gray-700 dark:text-slate-300 leading-relaxed">
+                  Choosing the right SMM panel is crucial. Look for transparency in pricing, positive customer reviews, adherence to platform guidelines, and clear terms of service. At marketerum.com, our reputation speaks for itself, backed by a track record of delivering quality services. As you navigate the realm of SMM panels, remember that marketerum.com stands as a beacon of authenticity, transparency, and strategic growth. Your digital journey is our priority, and we're here to elevate your influence and engagement across the social media landscape.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ Item 10 -->
+          <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm hover:shadow-md transition-all duration-200 overflow-hidden">
+            <button class="faq-question w-full flex items-center justify-between p-5 md:p-6 text-left focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary" aria-expanded="false">
+              <span class="text-base md:text-lg font-semibold text-gray-900 dark:text-slate-100 pr-4">
+                What is an SMM reseller panel?
+              </span>
+              <svg class="faq-icon w-5 h-5 text-gray-500 dark:text-slate-400 flex-shrink-0 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </button>
+            <div class="faq-answer hidden overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0;">
+              <div class="p-6">
+                <p class="text-gray-700 dark:text-slate-300 leading-relaxed">
+                  An SMM reseller panel is an online platform that allows individuals or businesses to purchase social media marketing (SMM) services in bulk and at a discounted rate. These panels are used by resellers, often agencies or freelancers, to acquire SMM services such as likes, followers, comments, shares, and other engagement metrics on various social media platforms. Resellers can then offer these services to their clients, often at a higher price, and manage their orders and campaigns through the reseller panel.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {% if content %}
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class="max-w-4xl mx-auto">
+      <div class="bg-white dark:bg-dark-secondary rounded-xl p-6 md:p-8 shadow-sm border border-gray-200 dark:border-dark-tertiary {% if site['rtl'] %} rtl-content {% endif %}">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+</main>
+
+<script>
+(function() {
+  'use strict';
+  
+  function toggleFAQ(question) {
+    const faqItem = question.closest('.faq-item');
+    if (!faqItem) return;
+    
+    const answer = faqItem.querySelector('.faq-answer');
+    const icon = question.querySelector('.faq-icon');
+    
+    if (!answer || !icon) return;
+    
+    const isExpanded = question.getAttribute('aria-expanded') === 'true';
+    
+    // Close all other FAQ items
+    document.querySelectorAll('.faq-question').forEach(function(otherQuestion) {
+      if (otherQuestion !== question) {
+        const otherItem = otherQuestion.closest('.faq-item');
+        if (!otherItem) return;
+        
+        const otherAnswer = otherItem.querySelector('.faq-answer');
+        const otherIcon = otherQuestion.querySelector('.faq-icon');
+        
+        if (otherAnswer && otherIcon) {
+          otherAnswer.style.maxHeight = '0';
+          otherAnswer.classList.add('hidden');
+          setTimeout(function() {
+            otherAnswer.style.maxHeight = ''; // Reset inline style after transition
+          }, 300);
+          otherQuestion.setAttribute('aria-expanded', 'false');
+          otherIcon.style.transform = 'rotate(0deg)';
+        }
+      }
+    });
+    
+    // Toggle current FAQ item
+    if (isExpanded) {
+      // Close
+      answer.style.maxHeight = '0';
+      setTimeout(function() {
+        answer.classList.add('hidden');
+        answer.style.maxHeight = ''; // Reset inline style after transition
+      }, 300);
+      question.setAttribute('aria-expanded', 'false');
+      icon.style.transform = 'rotate(0deg)';
+    } else {
+      // Open
+      answer.classList.remove('hidden');
+      // Get the actual height
+      const content = answer.querySelector('div');
+      const height = content ? content.scrollHeight + 40 : 200;
+      answer.style.maxHeight = height + 'px';
+      question.setAttribute('aria-expanded', 'true');
+      icon.style.transform = 'rotate(45deg)';
+    }
+  }
+  
+  function initFAQAccordion() {
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    if (!faqQuestions || faqQuestions.length === 0) {
+      return;
+    }
+    
+    faqQuestions.forEach(function(question) {
+      // Remove any existing listeners
+      const newQuestion = question.cloneNode(true);
+      question.parentNode.replaceChild(newQuestion, question);
+      
+      newQuestion.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleFAQ(this);
+      });
+    });
+  }
+  
+  // Initialize - multiple strategies to ensure it works
+  function init() {
+    initFAQAccordion();
+    
+    // If jQuery exists, override its handler
+    if (typeof jQuery !== 'undefined' && typeof $ !== 'undefined') {
+      $(document).off('click', '.faq-question');
+      $(document).on('click', '.faq-question', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleFAQ(this);
+      });
+    }
+  }
+  
+  // Multiple initialization points
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+  
+  setTimeout(init, 100);
+  window.addEventListener('load', function() {
+    setTimeout(init, 200);
+  });
+})();
+</script>

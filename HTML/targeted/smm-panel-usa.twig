@@ -1,0 +1,449 @@
+<!-- Start : HERO-->
+<section class="hero px-5">
+  <div class="container mx-auto flex flex-col md:flex-row md:space-x-10">
+    <div class="hero_right flex flex-col items-start justify-center space-y-6 md:w-1/2 md:pr-7">
+      <span class="text__highlight bg-secondary-border text-sm">
+        <svg
+          width="24"
+          height="25"
+          viewBox="0 0 24 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.7416 14.2228L24 12.515L14.6816 10.927L17.2285 7.24157L13.6629 9.78839L11.985 0.5L10.397 9.84832L6.74157 7.24157L9.25843 10.927L0 12.515L9.25843 14.2228L6.74157 17.7584L10.397 15.2416L11.985 24.5L13.6929 15.3015L17.2285 17.7584L14.7416 14.2228Z"
+            fill="#00BFF3"
+          />
+        </svg>
+        World’s #1 SMM Panel & Provider
+      </span>
+      <h1 class="hero__heading text-5xl font-semibold">
+        <span class="heading--highlight">SMM Panel USA</span>: Transform Your Social Media Strategy
+      </h1>
+      <p class="hero__intro text-sm">
+       Ready to dominate social media in America? Marketerum delivers real results for US businesses tired of invisible posts and silent followers. We've helped over 18,000 companies turn their social channels into profit machines. From scrappy startups in Silicon Valley to Fortune 500s in Manhattan, smart marketers choose us because we understand what works in the American market. Stop wasting money on fake followers from overseas panels that get your accounts flagged. Our US-focused approach means authentic engagement, rapid growth, and campaigns that actually convert American customers into paying clients.
+      </p>
+    </div>
+    <div class="hero_left relative flex-col justify-center md:flex md:w-1/2 py-20">
+      <form class="signIn_form w-full space-y-7" method="post" action="{{ page['url'] }}">
+                                {% if error %}
+                                  <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    {{ errorMessage }}
+                                  </div>
+                                {% endif %}
+
+                                {% if success %}
+                                  <div class="alert alert-success alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    {{successMessage}}
+                                  </div>
+                                {% endif %}
+
+                                <div class="input-field">
+                                  <div class="rounded-md bg-primary-main p-3">
+                                    <svg width="20" height="20" viewbox="0 0 22 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M21.6693 28.332H0.335938V25.6654C0.335938 21.9835 3.32071 18.9987 7.0026 18.9987H15.0026C18.6845 18.9987 21.6693 21.9835 21.6693 25.6654V28.332ZM11.0026 16.332C6.58432 16.332 3.0026 12.7503 3.0026 8.33203C3.0026 3.91375 6.58432 0.332031 11.0026 0.332031C15.4209 0.332031 19.0026 3.91375 19.0026 8.33203C19.0026 12.7503 15.4209 16.332 11.0026 16.332Z" fill="white"/>
+                                    </svg>
+                                  </div>
+                                  <input type="text" placeholder="{{ lang('signup.username') }}" id="username" name="LoginForm[username]" aria-label="{{ lang('signup.username') }}" />
+                                </div>
+                                <div class="input-field">
+                                  <div class="rounded-md bg-primary-main p-3">
+                                    <svg width="20" height="20" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M9.75067 11.4226L20.3373 0.835938L23.1659 3.66436L21.2803 5.54998L24.1087 8.3784L19.3945 13.0925L16.5661 10.2641L12.5791 14.2511C13.8909 16.7643 13.4915 19.9383 11.3807 22.0491C8.77722 24.6526 4.55612 24.6526 1.95263 22.0491C-0.650877 19.4457 -0.650877 15.2246 1.95263 12.621C4.0634 10.5103 7.23746 10.1109 9.75067 11.4226ZM8.55228 19.2207C9.59374 18.1793 9.59374 16.4909 8.55228 15.4495C7.51088 14.4081 5.82246 14.4081 4.78106 15.4495C3.73966 16.4909 3.73966 18.1793 4.78106 19.2207C5.82246 20.2621 7.51088 20.2621 8.55228 19.2207Z" fill="white"/>
+                                    </svg>
+                                  </div>
+                                  <input type="password" placeholder="{{ lang('signup.password') }}" id="password" name="LoginForm[password]" aria-label="{{ lang('signup.password') }}" />
+                                </div>
+                                <div class="form-info flex content-between justify-between">
+                                  <div>
+                                    <input type="checkbox" name="LoginForm[remember]" value="1" id="remember"/>
+                                    <label for="remember">Remember me</label>
+                                  </div>
+                                  <a href="{{ page_url('resetpassword') }}" title="{{ lang('signin.reset_password') }}">Forgot password?</a>
+                                </div>
+                                <div class="my-4">
+                                  {% if captcha %}
+                                    {{ captchaCode }}
+                                  {% endif %}
+                                </div>
+                                <input type="hidden" name="_csrf" value="{{csrftoken}}">
+
+                                <div class="signin_btns">
+                                  <div class="form_btns grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-2">
+                                    <button type="submit" class="btn btn--primary" href="#">
+                                      <span>{{ lang('signin.button') }}</span>
+                                      <img loading="lazy" src="https://storage.perfectcdn.com/7gc9nb/terrzy6bnr147d9w.svg" alt="Join Marketerum Now!"/>
+                                    </button>
+                                  </div>
+                                  {% if googleSignIn %}
+                                    <div class="google-login-wrap">
+                                      <span class="google-login">
+                                        Login with
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="LgbsSe-Bz112c"><g><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path><path fill="none" d="M0 0h48v48H0z"></path></g></svg>
+                                      </span>
+                                      <div class="form-group google-btn">
+                                        <div id="g_id_onload" data-client_id="{{ googleClientId }}" data-login_uri="{{ googleSignInRedirectUrl }}" data-auto_prompt="false" data-_csrf="{{csrftoken}}"></div>
+                                        <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left"></div>
+                                      </div>
+                                    </div>
+                                  {% endif %}
+                                </div>
+                                <div class="have-acc">
+                                  Do not have an account?
+                                  <a class="font-semibold text-secondary-main" href="{{ page_url('signup') }}">
+                                    &nbsp&nbsp<span> {{ lang('signup.button') }}</span>
+                                  </a>
+                                        </div>
+
+                              </form>
+    </div>
+  </div>
+</section>
+<!-- end : HERO-->
+
+<!-- SECTION : STATS -->
+<section class="stats px-5">
+	<div class="container mx-auto flex flex-col flex-wrap items-center justify-between gap-x-10 gap-y-8 text-center">
+		<h2 class="stats__title text-2xl font-semibold md:basis-full lg:basis-auto">
+			Marketerum Achievements
+		</h2>
+		<div class="stats__grid w-full">
+		<div class="stats__item">
+			<div class="stats__icon">
+				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/4awu9w7452rb1eql.svg" alt="Total orders">
+			</div>
+			<div class="stats__data">
+                <div class="stats__number">
+                    {{ totals['ordersAll']|number_format(0, '.', ',') }}
+				</div>
+				<span>Orders Completed</span>
+			</div>
+		</div>
+		<div class="stats__item">
+			<div class="stats__icon">
+				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/67hc9ch7mk699ow1.png" alt="Our Happy customers">
+			</div>
+			<div class="stats__data">
+                <div class="stats__number">
+                    {{ totals['usersAll']|number_format(0, '.', ',') }}
+				</div>
+				<span>Satisfied Customers</span>
+			</div>
+		</div>
+		<div class="stats__item">
+			<div class="stats__icon">
+				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/l2d4lro3zhi6p334.png" alt="Our stable services">
+			</div>
+			<div class="stats__data">
+                <div class="stats__number">
+                    5,235+
+                </div>
+				<span>Active Services</span>
+			</div>
+		</div>
+		</div>
+	</div>
+</section>
+<!-- END : STATS -->
+
+<!-- SECTION : ABOUT US -->
+<section class="about px-5">
+  <div class="container mx-auto">
+    <div class="intro mx-auto space-y-5 md:w-10/12">
+      <span class="text__highlight">About Us</span>
+      <h2 class="heading--main">
+      America's Most Trusted <span class="p-color">SMM Growth Partner</span>
+      </h2>
+      <p class="text-sm text-justify">
+      Since 2019, we've cracked the code on American social media marketing. While other panels flood you with bot followers from random countries, we deliver what US businesses actually need: engaged Americans who become customers. Our secret? We study American social behavior patterns, peak activity times across US time zones, and cultural trends that make content go viral stateside.
+      </p>
+      <p class="text-sm text-justify">
+      Here's what separates us from those sketchy overseas panels: every follower, like, and comment comes from real profiles that pass platform algorithms. We've invested millions in proprietary technology that mimics natural growth patterns. Result? Your accounts stay safe while your engagement soars. Major US brands trust us because we deliver growth that looks 100% organic to Twitch, TikTok, YouTube, and Twitter.
+      </p>
+      <p class="text-sm text-justify">
+      Whether you're launching a startup in Austin, running a restaurant chain in Chicago, or managing influencer campaigns in Los Angeles, our panel adapts to your specific market. We offer geo-targeted services that help you dominate local markets or scale nationally. Plus, our team of former social media managers from companies like Nike, Apple, and Disney ensures you get insider strategies that actually work.
+      </p>
+      <p class="text-sm text-justify">
+      Stop throwing money at marketing that doesn't convert. Join thousands of successful US businesses who've discovered the power of authentic American engagement. Our clients typically see 300% better conversion rates compared to generic international panels. Ready to turn your social media into a revenue-generating machine?
+      </p>
+      <a href="https://marketerum.com/services" class="btn btn--primary" style="display: inline-block">View All Services</a>
+    </div>
+  </div>
+</section>
+<!-- END : ABOUT -->
+
+<!-- SECTION : WHY US -->
+<section class="whyus px-5">
+      <div class="container mx-auto space-y-12 py-20">
+        <div class="intro relative mx-auto space-y-12 md:w-10/12">
+          <span class="text__highlight relative"
+            >F.A.Q
+            
+          </span>
+          <h2 class="heading--main relative">
+            Why US Brands Choose Us <br class="hidden md:inline-block" />Over Generic SMM Panels ?
+
+            
+          </h2>
+          <p class="text-justify">
+            Tired of SMM panels that promise the world but deliver fake engagement from suspicious accounts? We built Marketerum specifically for American businesses who demand quality over quantity. Every service is designed around US consumer behavior, American social media trends, and platform algorithms that favor authentic engagement. We're not just another reseller of cheap overseas traffic – we're your strategic partner for sustainable social media growth that translates into real business results in the competitive US market.
+          </p>
+          <svg
+            class="absolute -top-40 left-0"
+            width="42"
+            height="46"
+            viewBox="0 0 42 46"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17 1.3094C19.4752 -0.119661 22.5248 -0.119661 25 1.3094L37.7846 8.6906C40.2598 10.1197 41.7846 12.7607 41.7846 15.6188V30.3812C41.7846 33.2393 40.2598 35.8803 37.7846 37.3094L25 44.6906C22.5248 46.1197 19.4752 46.1197 17 44.6906L4.21539 37.3094C1.74018 35.8803 0.215391 33.2393 0.215391 30.3812V15.6188C0.215391 12.7607 1.74018 10.1197 4.21539 8.6906L17 1.3094Z"
+              fill="#85E0F9"
+            />
+          </svg>
+
+        </div>
+      </div>
+    </section>
+<!-- END : WHY US -->
+
+<!-- SECTION : FAQ -->
+<section
+      class="faq px-5"
+    >
+      <div class="container mx-auto text-center">
+        <div class="intro mx-auto mb-12 space-y-8 md:w-8/12">
+          <span class="text__highlight relative">
+            F.A.Q
+            
+          </span>
+          <h2 class="heading--main">
+            Everything You Need to Know About <span>Professional SMM Services</span>
+          </h2>
+          <p class="text-justify">
+            Got questions about social media marketing services? We've helped thousands of US businesses grow their online presence. Here are the answers to the most common questions from entrepreneurs, marketers, and business owners across America.
+          </p>
+        </div>
+
+        <div class="faqs">
+          <div class="faqs__tab md:grid md:grid-cols-2 md:gap-8">
+            <div class="faq__col">
+              <div class="tab__item">
+                <a href="#" class="tab__label">
+                  <span>
+                    What makes your SMM panel different from others?
+                  </span>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                      stroke="#02030E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+                <p class="text-justify">
+                  Unlike overseas panels that deliver fake engagement, we focus exclusively on authentic American audiences. Our advanced technology ensures natural delivery patterns that keep your accounts safe while maximizing real engagement from users who actually convert into customers.
+                </p>
+              </div>
+
+              <div class="tab__item">
+                <a href="#" class="tab__label">
+                  <span>
+                    How quickly will I see results from your services?
+                  </span>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                      stroke="#02030E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+                <p class="text-justify">
+                  Most services begin delivery within 30 minutes to 2 hours. However, we prioritize quality over speed, using gradual delivery patterns that appear completely natural to platform algorithms. Rush delivery options are available for time-sensitive campaigns.
+                </p>
+              </div>
+
+              <div class="tab__item">
+                <a href="#" class="tab__label">
+                  <span>
+                    Is it safe to use SMM services for my business accounts?
+                  </span>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                      stroke="#02030E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+                <p class="text-justify">
+                  Absolutely, when done correctly. We've spent years perfecting delivery methods that comply with platform guidelines. Our services use real accounts, natural timing, and authentic interaction patterns that platforms view as organic growth.
+                </p>
+              </div>
+
+              <div class="tab__item">
+                <a href="#" class="tab__label">
+                  <span>
+                    Can I target specific US regions or demographics?
+                  </span>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                      stroke="#02030E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+                <p class="text-justify">
+                  Yes! We offer geo-targeting for major US cities, states, and regions. Perfect for local businesses, regional campaigns, or brands wanting to test new markets before national expansion.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq__col">
+              <div class="tab__item">
+                <a href="#" class="tab__label">
+                  <span>
+                    What kind of results can I expect for my business?
+                  </span>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                      stroke="#02030E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+                <p class="text-justify">
+                  Our clients typically see 200-400% increases in engagement, improved brand credibility, higher website traffic, and most importantly, more sales. Results vary by industry, but US-focused engagement consistently outperforms generic international traffic.
+                </p>
+              </div>
+
+              <div class="tab__item">
+                <a href="#" class="tab__label">
+                  <span>
+                    Do you offer refunds or guarantees?
+                  </span>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                      stroke="#02030E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+                <p class="text-justify">
+                  We guarantee delivery of all services as described. If we fail to deliver within the specified timeframe, you receive a full refund or free replacement. We also offer 30-day retention guarantees on followers and engagement services.
+                </p>
+              </div>
+
+              <div class="tab__item">
+                <a href="#" class="tab__label">
+                  <span>
+                    How do I get started with your SMM panel?
+                  </span>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                      stroke="#02030E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+                <p class="text-justify">
+                  Simply create an account, add funds using any major payment method, browse our service catalog, and place your first order. Our user-friendly dashboard makes it easy to manage campaigns, track progress, and reorder successful services.
+                </p>
+              </div>
+
+              <div class="tab__item">
+                <a href="#" class="tab__label">
+                  <span>
+                    Can I become a reseller and start my own SMM business?
+                  </span>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                      stroke="#02030E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+                <p class="text-justify">
+                  Our reseller program is perfect for entrepreneurs wanting to start their own SMM agency. You get wholesale pricing, white-label dashboard, API access, and dedicated support. Many of our resellers earn $5,000-$20,000+ monthly.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- END : FAQ -->

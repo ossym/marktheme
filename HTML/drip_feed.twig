@@ -1,2 +1,228 @@
-{# Drip feed template #}
+<main class="flex-1 shrink-0 grow{% if site['rtl'] %} rtl-content{% endif %}">
+  <div class="max-w-full mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
 
+    <!-- Toolbar Section -->
+    <section class="rounded-xl border border-gray-200 bg-white p-4 sm:p-6 shadow-sm dark:border-gray-700 dark:bg-gray-800/50">
+      <!-- Status Tabs -->
+      <div class="mb-6">
+        <div class="flex flex-wrap gap-2" role="tablist" aria-label="Filter drip feed orders by status">
+          <!-- All Tab -->
+          <a href="{{ page['url'] }}{% if search %}?search={{ search|url_encode }}{% endif %}" class="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-all duration-200 {% if 'all' == status %}border-cyan-500 bg-gradient-to-r from-cyan-500 to-teal-500 text-white shadow-md ring-cyan-500 dark:from-cyan-400 dark:to-teal-400 dark:ring-cyan-400{% else %}border-gray-300 bg-white text-gray-700 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-cyan-400 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300{% endif %}" role="tab" aria-selected="{{ 'all' == status ? 'true' : 'false' }}">
+            <img src="https://storage.perfectcdn.com/7gc9nb/6rdb9mf2eany41ra.png" alt="" class="w-5 h-5" />
+            <span>{{ lang('orders.all') }}</span>
+          </a>
+          <!-- Active Tab -->
+          <a href="{{ page['url'] }}/active{% if search %}?search={{ search|url_encode }}{% endif %}" class="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-all duration-200 {% if 'active' == status %}border-blue-500 bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-md ring-blue-500 dark:from-blue-400 dark:to-blue-500 dark:ring-blue-400{% else %}border-gray-300 bg-white text-gray-700 hover:border-blue-500 hover:bg-blue-50 hover:text-blue-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-blue-400 dark:hover:bg-blue-900/30 dark:hover:text-blue-300{% endif %}" role="tab" aria-selected="{{ 'active' == status ? 'true' : 'false' }}">
+            <img src="https://storage.perfectcdn.com/7gc9nb/5w24bj7gus5im0yk.png" alt="" class="w-5 h-5" />
+            <span>{{ lang('dripfeed.status.active') }}</span>
+          </a>
+          <!-- Completed Tab -->
+          <a href="{{ page['url'] }}/completed{% if search %}?search={{ search|url_encode }}{% endif %}" class="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-all duration-200 {% if 'completed' == status %}border-green-500 bg-gradient-to-r from-green-500 to-green-600 text-white shadow-md ring-green-500 dark:from-green-400 dark:to-green-500 dark:ring-green-400{% else %}border-gray-300 bg-white text-gray-700 hover:border-green-500 hover:bg-green-50 hover:text-green-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-green-400 dark:hover:bg-green-900/30 dark:hover:text-green-300{% endif %}" role="tab" aria-selected="{{ 'completed' == status ? 'true' : 'false' }}">
+            <img src="https://storage.perfectcdn.com/7gc9nb/r0w2y0kclflxuamm.png" alt="" class="w-5 h-5" />
+            <span>{{ lang('orders.status.completed') }}</span>
+          </a>
+          <!-- Canceled Tab -->
+          <a href="{{ page['url'] }}/canceled{% if search %}?search={{ search|url_encode }}{% endif %}" class="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-all duration-200 {% if 'canceled' == status %}border-red-500 bg-gradient-to-r from-red-500 to-red-600 text-white shadow-md ring-red-500 dark:from-red-400 dark:to-red-500 dark:ring-red-400{% else %}border-gray-300 bg-white text-gray-700 hover:border-red-500 hover:bg-red-50 hover:text-red-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-red-400 dark:hover:bg-red-900/30 dark:hover:text-red-300{% endif %}" role="tab" aria-selected="{{ 'canceled' == status ? 'true' : 'false' }}">
+            <img src="https://storage.perfectcdn.com/7gc9nb/m7tptgws0kz7ps4y.png" alt="" class="w-5 h-5" />
+            <span>{{ lang('orders.status.canceled') }}</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Search Form -->
+      <form action="{{ page['url'] }}" method="get" id="history-search" class="flex flex-col sm:flex-row gap-3" role="search">
+        <label for="drip-feed-search-input" class="sr-only">{{ lang('general.search.placeholder') }}</label>
+        <div class="relative flex-1">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400 dark:text-gray-500" aria-hidden="true">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="7" />
+              <path d="m20 20-3.5-3.5" />
+            </svg>
+          </div>
+          <input id="drip-feed-search-input" type="text" name="search" value="{{ search }}" placeholder="{{ lang('general.search.placeholder') }}" class="block w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg bg-white text-sm text-gray-900 placeholder-gray-500 transition-all focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:border-cyan-400 dark:focus:ring-cyan-400/20" autocomplete="off" />
+          {% if search %}
+          <button type="button" class="absolute inset-y-0 right-0 pr-3 flex items-center text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 transition-colors" aria-label="{{ lang('general.search.clear')|default('Clear search') }}" title="{{ lang('general.search.clear')|default('Clear search') }}" onclick="document.getElementById('drip-feed-search-input').value=''; this.closest('form').submit();">
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 14 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="3" x2="11" y2="11"/>
+              <line x1="11" y1="3" x2="3" y2="11"/>
+            </svg>
+          </button>
+          {% endif %}
+        </div>
+        <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-teal-500 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:from-cyan-600 hover:to-teal-600 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800">
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m5 12 5 5L20 7" />
+          </svg>
+          <span>Search</span>
+        </button>
+      </form>
+    </section>
+
+    <!-- Content Section -->
+    {% if dripFeedList is empty %}
+      <div class="flex flex-col items-center justify-center py-12 px-4 text-center" role="status">
+        <div class="mb-6 text-cyan-500 dark:text-cyan-400">
+          <svg class="h-16 w-16 mx-auto" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M26 0C40.3594 0 52 11.6406 52 26C52 40.3594 40.3594 52 26 52C11.6406 52 0 40.3594 0 26C0 11.6406 11.6406 0 26 0ZM26 4C13.2157 4 4 13.2157 4 26C4 38.7843 13.2157 48 26 48C38.7843 48 48 38.7843 48 26C48 13.2157 38.7843 4 26 4ZM24 34H28V38H24V34ZM24 14H28V30H24V14Z" fill="currentColor"/>
+          </svg>
+        </div>
+        <p class="mb-6 max-w-md text-base text-gray-600 dark:text-gray-400">You don't have any drip feed orders yet. Create your first drip feed order to start scheduling deliveries over time.</p>
+        <div class="flex flex-col sm:flex-row gap-3">
+          <a href="/" class="inline-flex items-center justify-center rounded-lg bg-gradient-to-r from-cyan-500 to-teal-500 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:from-cyan-600 hover:to-teal-600 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800">{{ lang('neworder.title')|default('New order') }}</a>
+          <a href="/services" class="inline-flex items-center justify-center rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-medium text-gray-700 transition-all duration-200 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-cyan-400 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300">{{ lang('services.title')|default('Browse services') }}</a>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if dripFeedList %}
+      <!-- Desktop Table View -->
+      <div class="hidden lg:block overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800/50">
+      <div class="overflow-x-auto" role="region" aria-live="polite">
+        <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700" id="drip-feed-table">
+              <thead class="bg-gray-50 dark:bg-gray-900/50">
+                <tr>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('dripfeed.id') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('dripfeed.date') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('dripfeed.link') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('dripfeed.total_charge') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('dripfeed.quantity') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('dripfeed.service') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('dripfeed.runs') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('dripfeed.interval') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('dripfeed.total_quantity') }}</th>
+                  <th scope="col" class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('dripfeed.status') }}</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-gray-800/50">
+                {% for dripFeed in dripFeedList %}
+                <tr class="transition-colors duration-150 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                  <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900 dark:text-gray-100">{{ dripFeed['id'] }}</td>
+                  <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{{ dripFeed['date'] }}</td>
+                  <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+                    <div class="max-w-xs truncate" title="{{ dripFeed['link'] }}">{{ dripFeed['link'] }}</div>
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900 dark:text-gray-100">{{ dripFeed['total_charges'] }}</td>
+                  <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{{ dripFeed['quantity'] }}</td>
+                  <td class="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+                    <div class="max-w-xs truncate" title="{{ dripFeed['service'] }}">{{ dripFeed['service'] }}</div>
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+                    {% if dripFeed['runs_current'] %}
+                    <a href="{{ page_url('orders') }}?drip-feed={{ dripFeed['id'] }}" class="font-medium text-cyan-600 transition-colors hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300">
+                      {{ dripFeed['runs_current'] }}
+                    </a>
+                    {% else %}
+                    {{ dripFeed['runs_current'] }}
+                    {% endif %}
+                    <span class="mx-1 opacity-50">/</span>
+                    {{ dripFeed['runs_all'] }}
+                  </td>
+                  <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{{ dripFeed['interval'] }}</td>
+                  <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{{ dripFeed['total_quantity'] }}</td>
+                  <td class="whitespace-nowrap px-6 py-4 text-sm">
+                    <span class="drip-feed-status-badge inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-medium" data-status="{{ dripFeed['status_name']|lower }}">{{ dripFeed['status_name'] }}</span>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Card View -->
+    <div class="lg:hidden space-y-4 p-4 sm:p-6" aria-live="polite">
+      {% for dripFeed in dripFeedList %}
+        <article class="rounded-xl border-l-4 border-gray-300 bg-white p-4 shadow-sm transition-all duration-200 hover:shadow-md dark:border-gray-600 dark:bg-gray-800/50 drip-feed-border-status--{{ dripFeed['status_name']|lower }}" data-drip-feed-id="{{ dripFeed['id'] }}">
+          <div class="flex items-center justify-between border-b border-gray-200 pb-3 mb-3 dark:border-gray-700">
+            <span class="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">{{ lang('dripfeed.id') }}</span>
+            <span class="font-medium text-gray-900 dark:text-gray-100">{{ dripFeed['id'] }}</span>
+          </div>
+          <div class="flex items-center justify-between border-b border-gray-200 pb-3 mb-3 dark:border-gray-700">
+            <span class="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">{{ lang('dripfeed.date') }}</span>
+            <span class="text-sm text-gray-900 dark:text-gray-100">{{ dripFeed['date'] }}</span>
+          </div>
+          <div class="flex items-center justify-between border-b border-gray-200 pb-3 mb-3 dark:border-gray-700">
+            <span class="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">{{ lang('dripfeed.link') }}</span>
+            <div class="max-w-xs truncate text-right text-sm text-gray-900 dark:text-gray-100" title="{{ dripFeed['link'] }}">{{ dripFeed['link'] }}</div>
+          </div>
+          <div class="flex items-center justify-between border-b border-gray-200 pb-3 mb-3 dark:border-gray-700">
+            <span class="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">{{ lang('dripfeed.total_charge') }}</span>
+            <span class="font-medium text-gray-900 dark:text-gray-100">{{ dripFeed['total_charges'] }}</span>
+          </div>
+          <div class="flex items-center justify-between border-b border-gray-200 pb-3 mb-3 dark:border-gray-700">
+            <span class="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">{{ lang('dripfeed.quantity') }}</span>
+            <span class="text-sm font-medium text-gray-900 dark:text-gray-100">{{ dripFeed['quantity'] }}</span>
+          </div>
+          <div class="flex items-center justify-between border-b border-gray-200 pb-3 mb-3 dark:border-gray-700">
+            <span class="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">{{ lang('dripfeed.service') }}</span>
+            <div class="max-w-xs truncate text-right text-sm text-gray-900 dark:text-gray-100" title="{{ dripFeed['service'] }}">{{ dripFeed['service'] }}</div>
+          </div>
+          <div class="flex items-center justify-between border-b border-gray-200 pb-3 mb-3 dark:border-gray-700">
+            <span class="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">{{ lang('dripfeed.runs') }}</span>
+            <span class="text-sm text-gray-900 dark:text-gray-100">
+              {% if dripFeed['runs_current'] %}
+              <a href="{{ page_url('orders') }}?drip-feed={{ dripFeed['id'] }}" class="font-medium text-cyan-600 transition-colors hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300">
+                {{ dripFeed['runs_current'] }}
+              </a>
+              {% else %}
+              {{ dripFeed['runs_current'] }}
+              {% endif %}
+              <span class="mx-1 opacity-50">/</span>
+              {{ dripFeed['runs_all'] }}
+            </span>
+          </div>
+          <div class="flex items-center justify-between border-b border-gray-200 pb-3 mb-3 dark:border-gray-700">
+            <span class="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">{{ lang('dripfeed.interval') }}</span>
+            <span class="text-sm text-gray-900 dark:text-gray-100">{{ dripFeed['interval'] }}</span>
+          </div>
+          <div class="flex items-center justify-between border-b border-gray-200 pb-3 mb-3 dark:border-gray-700">
+            <span class="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">{{ lang('dripfeed.total_quantity') }}</span>
+            <span class="text-sm text-gray-900 dark:text-gray-100">{{ dripFeed['total_quantity'] }}</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">{{ lang('dripfeed.status') }}</span>
+            <span class="drip-feed-status-badge inline-flex items-center rounded-md px-2.5 py-0.5 text-xs font-medium" data-status="{{ dripFeed['status_name']|lower }}">{{ dripFeed['status_name'] }}</span>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <!-- Pagination -->
+      {% if pagination['count'] > 100 %}
+      <nav class="flex flex-wrap items-center justify-center gap-2 {% if site['rtl'] %}rtl-pagination{% endif %}" aria-label="Pagination">
+        {% if pagination['current'] != 1 %}
+        <a href="{{ page['url'] }}/{{ status }}/{{ pagination['last'] }}{% if search %}?search={{ search|url_encode }}{% endif %}" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-gray-300 bg-white text-sm font-medium text-gray-700 transition-all duration-200 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-cyan-400 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300 dark:focus:ring-cyan-400" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+        {% endif %}
+
+        {% set r, l = 3, 3 %}
+        {% if pagination['current'] == 1 %}
+          {% set r = 6 %}
+        {% endif %}
+        {% if pagination['current'] == 2 %}
+          {% set r = 5 %}
+        {% endif %}
+        {% if pagination['current'] >= pagination['pages'] %}
+          {% set l = 5 %}
+        {% endif %}
+
+        {% for i in 1..ceil(pagination['pages']) %}
+          {% if i >= (pagination['current']-l) and i <= (pagination['current']+r) %}
+          <a href="{{ page['url'] }}/{{ status }}/{{i}}{% if search %}?search={{ search|url_encode }}{% endif %}" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 {% if i == pagination['current'] %}border-cyan-500 bg-gradient-to-r from-cyan-500 to-teal-500 text-white shadow-md ring-cyan-500 dark:from-cyan-400 dark:to-teal-400 dark:ring-cyan-400{% else %}border-gray-300 bg-white text-gray-700 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-cyan-400 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300 dark:focus:ring-cyan-400{% endif %}" aria-current="{{ i == pagination['current'] ? 'page' : 'false' }}">{{i}}</a>
+          {% endif %}
+        {% endfor %}
+
+        {% if pagination['current'] < pagination['pages'] %}
+        <a href="{{ page['url'] }}/{{ status }}/{{ pagination['next'] }}{% if search %}?search={{ search|url_encode }}{% endif %}" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-gray-300 bg-white text-sm font-medium text-gray-700 transition-all duration-200 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-cyan-400 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300 dark:focus:ring-cyan-400" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+        {% endif %}
+      </nav>
+      {% endif %}
+
+    </div>
+  </div>
+</main>

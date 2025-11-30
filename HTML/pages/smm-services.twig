@@ -1,0 +1,453 @@
+{% if user['auth'] %}
+	<main class="page-wrapper shrink grow bg-[#EEF0F3]">
+
+		<section class="dash_card platform-cards flex flex-wrap justify-between platforms">
+			<button data-platform="Facebook" class="platform">
+				<img src="https://storage.perfectcdn.com/7gc9nb/9zwlpmuubawjbomg.png" alt=""/>
+				Facebook
+			</button>
+			<button data-platform="Twitter" class="platform">
+				<img src="https://storage.perfectcdn.com/7gc9nb/1y7llo0cahebfn8a.png" alt=""/>
+				Twitter
+			</button>
+			<button data-platform="YouTube" class="platform">
+				<img src="https://storage.perfectcdn.com/7gc9nb/tnpzprd8ryli1gf9.png" alt=""/>
+				Youtube
+			</button>
+			<button data-platform="Tiktok" class="platform">
+				<img src="https://storage.perfectcdn.com/7gc9nb/4n5nah8e50y6n6ak.png" alt=""/>
+				Tiktok
+			</button>
+			<button data-platform="Spotify" class="platform">
+				<img src="https://storage.perfectcdn.com/7gc9nb/r5jp4p8lbqdtzb0l.png" alt=""/>
+				Spotify
+			</button>
+			<button data-platform="Snapchat" class="platform">
+				<img src="https://storage.perfectcdn.com/7gc9nb/yow2pt4o7qd5ajji.png" alt=""/>
+				Snapchat
+			</button>
+			<button data-platform="Telegram" class="platform">
+				<img src="https://storage.perfectcdn.com/7gc9nb/t9jl7y272h1zjkze.png" alt=""/>
+				Telegram
+			</button>
+			<button data-platform="Twitch" class="platform">
+				<img src="https://storage.perfectcdn.com/7gc9nb/1e06fu8wpabdti4p.png" alt=""/>
+				Twitch
+			</button>
+			<button data-platform="Discord" class="platform">
+				<img src="https://storage.perfectcdn.com/7gc9nb/h68kriwhg0at3ozp.png" alt=""/>
+				Discord
+			</button>
+			<button data-platform="Tumblr" class="platform">
+				<img src="https://storage.perfectcdn.com/7gc9nb/2hdrwn2fpwstustt.png" alt=""/>
+				Tumblr
+			</button>
+			<button data-platform="Kiwi" class="platform">
+				<img src="https://storage.perfectcdn.com/7gc9nb/dfunmrl26raomoqi.png" alt=""/>
+				Kiwi
+			</button>
+			<button data-platform="Reddit" class="platform">
+				<img src="https://storage.perfectcdn.com/7gc9nb/npo0u4mr7nfpzerf.png" alt=""/>
+				Reddit
+			</button>
+			<button data-platform="SoundCloud" class="platform">
+				<img src="https://storage.perfectcdn.com/7gc9nb/braihogqlizk3e3w.png" alt=""/>
+				Soundcloud
+			</button>
+			<button data-platform="Deezer" class="platform">
+				<img src="https://storage.perfectcdn.com/7gc9nb/awblsnnkig203rh3.png" alt=""/>
+				Deezer
+			</button>
+			<button data-platform="Clubhouse" class="platform">
+				<img src="https://storage.perfectcdn.com/7gc9nb/8eypjsqog3fjzg06.png" alt=""/>
+				Clubhouse
+			</button>
+			<button data-platform="Datpiff" class="platform">
+				<img src="https://storage.perfectcdn.com/7gc9nb/btop3hr8lg15icqo.png" alt=""/>
+				Datpiff
+			</button>
+			<button data-platform="Likee" class="platform">
+				<img src="https://storage.perfectcdn.com/7gc9nb/82ucds5oru27weh4.png" alt=""/>
+				Likee
+			</button>
+			<button data-platform="Linkedin" class="platform">
+				<img src="https://storage.perfectcdn.com/7gc9nb/awhn697phyn4tos2.png" alt=""/>
+				Linkedin
+			</button>
+			<button data-platform="Deezer" class="platform">
+				<img src="https://storage.perfectcdn.com/7gc9nb/fggs92ls0upo3kju.png" alt=""/>
+				Deezer
+			</button>
+		</section>
+
+		<section class="dash-search dash_card">
+			<input type="text" class="input search" name="query" id="filterServicesInput" placeholder="Search services.." data-search-service="#service-table">
+
+
+		</section>
+		<section>
+
+			{% for category in serviceCategoryList %}
+				<div class="dash_card category-card" data-category="{{ category.id }}" data-platform="{{ category['name']|split(' ')[0]}}">
+					<table id="service-table" cellspacing="0">
+						<thead>
+							<tr>
+								<td colspan="8">
+									<h2>
+										{% if category['icon'] %}
+											{% set categoryIcon = category['icon'] %}
+											{% if categoryIcon['icon_type'] == 'icon' %}
+												<span class="{{ categoryIcon['icon'] }}"></span>
+											{% elseif categoryIcon['icon_type'] == 'emoji' %}
+												<span>{{ categoryIcon['icon'] }}</span>
+											{% elseif categoryIcon['icon_type'] == 'image' %}
+												<img src="{{ categoryIcon['url'] }}" alt="{{ category['name'] }}" class="img-responsive btn-group-vertical" style="max-width: calc(1em + 6px); max-height: calc(1em + 6px);">
+											{% endif %}
+										{% endif %}
+										{{ category['name'] }}
+									</h2>
+								</td>
+							</tr>
+							<tr>
+								<th>Fav</th>
+								<th>ID</th>
+								<th>Service</th>
+								<th class=" ">Rate per 1000</th>
+								<th class=" ">Min order</th>
+								<th class=" ">Max order</th>
+
+								<th class="service-description__th" colspan="2"></th>
+							</tr>
+						</thead>
+						{% for service in category['services'] %}
+
+
+							<tbody class="table_body fliter1">
+								<tr class="app-block service-item">
+									<td class="fav">
+										{% if user.favorite_services %}
+											<div class="s-col s-col-sm s-col-fav">
+												<span role="button" {% if service.favorite %} class="favorite-active" {% endif %} data-favorite-service-id="{{ service.id }}">
+													<span data-favorite-icon class="{% if service.favorite %}fas fa-star{% else %}far fa-star{% endif %}"></span>
+												</span>
+											</div>
+										{% endif %}
+									</td>
+									<td>
+										<span data-filter-table-service-id="{{ service['id'] }}">{{ service['id'] }}</span>
+									</td>
+
+									<td title="Category: Instagram Morocco 🇲🇦 Verified *️⃣ - Followers" class="service-name">
+										{{ service['name'] }}
+									</td>
+									<td data-title="Price Per 1000" class="rate">
+										{% if converted %}
+											<span data-bs-toggle="tooltip" data-bs-placement="top" title="{{ service.original_rate }}">{{ service.rate }}</span>
+										{% else %}
+											{{ service.rate }}
+										{% endif %}
+									</td>
+									<td data-title="Min Order" class="min-order">
+										<span class="badge min-badge">{{ service['min'] }}</span>
+									</td>
+									<td data-title="Max" class="max-order">
+										<span class="badge max-badge">{{ service['max'] }}</span>
+									</td>
+									<td class="service-description" class="service-desc">
+
+										<button type="button" class="btn btn--primary" data-toggle="modal" data-bs-toggle="modal" data-bs-target="#servisDetay{{ service['id'] }}">
+											See Details
+										</button>
+
+										<div class="modal fade" id="servisDetay{{ service['id'] }}" tabindex="-1" aria-labelledby="servisDetay" aria-hidden="true">
+											<div class="modal-dialog">
+												<div
+													class="modal-content p-4">
+
+													<!-- Modal Header -->
+													<div class="modal-header s-header">
+														<h4 class="modal-title"><img src="https://storage.perfectcdn.com/7gc9nb/89ibyfq95nktxkj0.png"/></h4>
+														<button class="btn ahbtn bs-2 close" data-bs-dismiss="modal" aria-label="Close">
+															<svg width="14" height="18" viewbox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path d="M17 17L1 1M17 1L1 17" stroke="#3B5275" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+															</svg>
+
+														</button>
+													</div>
+
+													<!-- Modal body -->
+													<div class="modal-body">
+														<div class="service-id-box mb-3">
+															Service ID #{{ service['id'] }}
+														</div>
+														<p>{{ service['name'] }}</p>
+														<p>
+															{{service['description']}}
+														</p>
+
+														<div class="services-info">
+
+															<div class="d-flex justify-content-between">
+																<div class="si-item">
+																	<div class="si-circle">
+																		<svg width="20" height="39" viewbox="0 0 37 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+																			<path d="M7.77396 4.26855C3.75767 4.26855 0.490234 7.53599 0.490234 11.5523C0.490234 15.5686 3.75767 18.836 7.77396 18.836C11.7902 18.836 15.0577 15.5686 15.0577 11.5523C15.0577 7.53599 11.7906 4.26855 7.77396 4.26855ZM12.7393 11.5523C12.7393 14.29 10.5116 16.5176 7.77396 16.5176C5.03628 16.5176 2.80905 14.29 2.80905 11.5523C2.80905 8.8146 5.03667 6.58698 7.77435 6.58698C10.512 6.58698 12.7393 8.81422 12.7393 11.5523Z" fill="white"/>
+																			<path d="M28.7779 19.2227C24.7616 19.2227 21.4941 22.4905 21.4941 26.5064C21.4941 30.5223 24.7616 33.7901 28.7779 33.7901C32.7945 33.7901 36.062 30.5227 36.062 26.5064C36.062 22.4901 32.7942 19.2227 28.7779 19.2227ZM33.7432 26.5064C33.7432 29.2441 31.5155 31.4717 28.7775 31.4717C26.0398 31.4717 23.8122 29.2441 23.8122 26.5064C23.8122 23.7683 26.0398 21.5407 28.7775 21.5407C31.5159 21.5411 33.7432 23.7683 33.7432 26.5064Z" fill="white"/>
+																			<path d="M30.1426 2.04045L10.5519 33.3353L13.0211 34.881H13.0249L14.4005 35.7426L5.69482 38.9228L4.75586 29.7031L6.13146 30.5648L8.60445 32.1104L28.1952 0.823272C28.5352 0.282306 29.2423 0.120016 29.7794 0.456188C30.3165 0.796224 30.4827 1.50334 30.1426 2.04045Z" fill="white"/>
+																		</svg>
+
+																	</div>
+																	<small>{{ lang('services.rate') }}</small>
+																	<p>{{ service['rate'] }}</p>
+																</div>
+																<div class="si-item">
+																	<div class="si-circle">
+																		<svg width="20" height="44" viewbox="0 0 38 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+																			<path d="M4.58845 28.9487C5.73888 28.9487 6.82024 28.499 7.63548 27.6871C9.31311 26.0061 9.31311 23.2724 7.63379 21.5931C6.00669 19.9677 3.1719 19.9677 1.54143 21.5931C-0.136205 23.2724 -0.136205 26.0061 1.54143 27.6871C2.35666 28.499 3.43803 28.9487 4.58845 28.9487ZM2.73396 22.7839C3.22917 22.2887 3.88775 22.0175 4.58845 22.0175C5.28915 22.0175 5.94774 22.2887 6.44294 22.7839C7.46535 23.8063 7.46535 25.4739 6.44294 26.4963C5.45253 27.4867 3.72269 27.4867 2.73396 26.4963C1.71155 25.4722 1.71155 23.8063 2.73396 22.7839Z" fill="white"/>
+																			<path d="M19.6429 35.3917C19.6429 34.2396 19.1949 33.1599 18.3813 32.3446C16.7525 30.7159 13.9144 30.7159 12.2889 32.3446C11.4754 33.1565 11.0273 34.2379 11.0273 35.39C11.0273 36.5404 11.4754 37.6201 12.2889 38.4353C13.1025 39.2506 14.1855 39.6969 15.336 39.6969C16.4864 39.6969 17.5678 39.2489 18.3796 38.4353C19.1949 37.6235 19.6429 36.5421 19.6429 35.3917ZM17.1905 37.2445C16.6952 37.7397 16.0367 38.0125 15.336 38.0125C14.6336 38.0125 13.975 37.7397 13.4798 37.2445C12.9846 36.7493 12.7117 36.089 12.7117 35.39C12.7117 34.6893 12.9846 34.0307 13.4815 33.5355C13.9767 33.0386 14.6353 32.7657 15.336 32.7657C16.0367 32.7657 16.6952 33.0386 17.1921 33.5355C17.6873 34.0307 17.9619 34.691 17.9602 35.3917C17.9585 36.0907 17.6873 36.7493 17.1905 37.2445Z" fill="white"/>
+																			<path d="M36.9758 15.8161L25.9583 2.11376C24.6226 0.452967 22.1112 0.452967 20.7755 2.11376L9.75808 15.8161C8.77609 17.0406 8.98495 17.9637 9.19718 18.4067C9.40941 18.8497 9.99894 19.5925 11.5688 19.5925H15.4546V20.9501L16.1688 20.2359C16.4467 19.9597 16.7785 19.7643 17.139 19.6396V18.7503C17.139 18.2854 16.7617 17.9081 16.2968 17.9081H11.5688C10.9624 17.9081 10.7451 17.738 10.7165 17.679C10.6878 17.6201 10.6912 17.3438 11.0719 16.8722L22.0893 3.16986C22.7917 2.29398 23.9405 2.2923 24.6462 3.16986L35.6637 16.8722C36.0443 17.3438 36.0494 17.6201 36.0208 17.679C35.9921 17.738 35.7748 17.9081 35.1668 17.9081H30.4388C29.9739 17.9081 29.5966 18.2854 29.5966 18.7503V41.9811H17.139V41.0766C16.5983 41.2484 16.0374 41.3579 15.4546 41.3697V42.8233C15.4546 43.2882 15.8319 43.6655 16.2968 43.6655H30.4388C30.9036 43.6655 31.2809 43.2882 31.2809 42.8233V19.5925H35.1668C36.7383 19.5925 37.3278 18.8497 37.5401 18.4067C37.7523 17.9637 37.9612 17.039 36.9758 15.8161Z" fill="white"/>
+																			<path d="M18.5505 21.426C18.222 21.0976 17.6881 21.0976 17.3596 21.426L1.37329 37.4124C1.04484 37.7408 1.04484 38.2748 1.37329 38.6032C1.53836 38.7683 1.75396 38.8491 1.96956 38.8491C2.18516 38.8491 2.40076 38.7666 2.56583 38.6032L18.5522 22.6169C18.8806 22.2884 18.8806 21.7545 18.5505 21.426Z" fill="white"/>
+																		</svg>
+
+																	</div>
+																	<small>{{ lang('services.min') }}</small>
+																	<p>{{ service['min'] }}</p>
+																</div>
+																<div class="si-item">
+																	<div class="si-circle">
+																		<svg width="20" height="44" viewbox="0 0 38 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+																			<path d="M4.58555 29.5752C5.73773 29.5752 6.81747 29.1255 7.63276 28.3135C9.31049 26.6324 9.31049 23.8986 7.63276 22.2191C6.00387 20.5936 3.1706 20.5936 1.54003 22.2191C-0.136019 23.8986 -0.136019 26.6324 1.54171 28.3135C2.35363 29.1271 3.43506 29.5752 4.58555 29.5752ZM2.73095 23.4101C3.22787 22.9148 3.8865 22.6436 4.58723 22.6436C5.28797 22.6436 5.9466 22.9148 6.44352 23.4101C7.46431 24.4325 7.46431 26.1002 6.44352 27.1226C5.45305 28.1131 3.7231 28.1131 2.73432 27.1226C1.71016 26.1002 1.71016 24.4342 2.73095 23.4101Z" fill="white"/>
+																			<path d="M18.382 32.9697C16.7531 31.3408 13.9148 31.3408 12.2893 32.9697C11.4774 33.7816 11.0293 34.8631 11.0293 36.0152C11.0293 37.1657 11.4774 38.2455 12.2893 39.0608C13.1046 39.8744 14.1877 40.3224 15.3365 40.3224H15.3382C16.4887 40.3224 17.5701 39.8744 18.3837 39.0608C19.1956 38.2505 19.6454 37.1674 19.6454 36.0169C19.6454 34.8647 19.1956 33.7833 18.382 32.9697ZM17.1911 37.8682C16.6959 38.3634 16.0355 38.6363 15.3365 38.6363C14.6341 38.6363 13.9754 38.3634 13.4785 37.8682C12.9833 37.3729 12.7121 36.7126 12.7121 36.0135C12.7121 35.3128 12.9833 34.6542 13.4802 34.1589C13.9754 33.662 14.6341 33.3891 15.3348 33.3891C16.0355 33.3891 16.6942 33.662 17.1911 34.1589C17.688 34.6542 17.9609 35.3145 17.9592 36.0152C17.9592 36.716 17.688 37.3729 17.1911 37.8682Z" fill="white"/>
+																			<path d="M37.5402 26.1285C37.3296 25.6855 36.7367 24.9426 35.1684 24.9426H31.2824V1.7104C31.2824 1.24549 30.9067 0.868164 30.4401 0.868164H16.2973C15.8341 0.868164 15.4551 1.24549 15.4551 1.7104V21.5737L16.1693 20.8595C16.4472 20.5832 16.7808 20.3878 17.1395 20.2632V2.55263H29.5979V25.7848C29.5979 26.2498 29.9769 26.6271 30.4401 26.6271H35.1684C35.7765 26.6271 35.9938 26.7972 36.0208 26.8562C36.0511 26.9151 36.0477 27.1914 35.6654 27.663L24.6472 41.3662C23.9431 42.2421 22.7943 42.2421 22.0902 41.3662L20.3788 39.237C20.1446 39.5992 19.8819 39.9428 19.5702 40.2544C19.4709 40.3555 19.3529 40.4279 19.2485 40.5189L20.778 42.4224C21.4451 43.2528 22.39 43.7295 23.3704 43.7295C24.3474 43.7295 25.2924 43.2528 25.9594 42.4224L36.9776 28.7192C37.9613 27.4963 37.7541 26.5715 37.5402 26.1285Z" fill="white"/>
+																			<path d="M18.5479 22.052C18.2194 21.7235 17.6854 21.7235 17.357 22.052L1.37135 38.0393C1.04288 38.3678 1.04288 38.9018 1.37135 39.2302C1.53643 39.3953 1.75204 39.4762 1.96766 39.4762C2.18327 39.4762 2.39888 39.3936 2.56396 39.2302L18.5496 23.2429C18.8781 22.9128 18.8781 22.3805 18.5479 22.052Z" fill="white"/>
+																		</svg>
+
+																	</div>
+																	<small>{{ lang('services.max') }}</small>
+																	<p>{{ service['max'] }}</p>
+																</div>
+																{% if user['auth'] %}
+																	<div class="basis-full text-center">
+																		<a href="https://{{site['domain']}}/?select_service_id={{ service['id'] }}" class="btn btn--primary btn-block" style="color: #fff">Buy Now</a>
+																	</div>
+
+																{% endif %}
+															</div>
+
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</td>
+									{% if user['auth'] %}
+										<td class="buy-btn">
+											<a href="https://{{site['domain']}}/?select_service_id={{ service['id'] }}" class="btn badge max-badge">Buy Now</a>
+										</td>
+									{% endif %}
+								</tr>
+
+
+							{% endfor %}
+						</tbody>
+					</table>
+				</div>
+			{% endfor %}
+
+
+		</section>
+	</main>
+{% else %}
+<!-- Start : SERVICES -->
+<section class="flex flex-col lg:flex-row bg-gradient-to-br from-slate-50 via-primary-50/30 to-accent-50/20 dark:from-dark dark:via-dark-secondary dark:to-dark transition-all duration-300 hero overflow-hidden">
+    <!-- Left Section: Promotional Content -->
+    <div class="flex flex-1 items-center justify-center relative p-6 sm:p-8 lg:p-10 xl:p-12 order-2 lg:order-1">
+        <!-- Decorative Background Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-primary-200/20 dark:bg-primary-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-accent-200/20 dark:bg-accent-500/10 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-lg w-full space-y-5 sm:space-y-6 relative z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-white/90 dark:bg-dark-secondary/90 backdrop-blur-md border border-primary-200/50 dark:border-primary-500/30 rounded-full text-xs sm:text-sm font-medium text-primary-600 dark:text-primary-400 shadow-sm transition-all duration-300 hover:shadow-md">
+                Services
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-slate-100 leading-tight tracking-tight">
+                Transform Your Online Presence with <span class="text-primary-500 dark:text-primary-400">Our Services</span>
+            </h1>
+
+            <!-- Description -->
+            <p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                We're all about making your brand shine online. Our Social Media Marketing (SMM) services are like your brand's cheerleaders. They work hard to boost your presence on Facebook, Instagram, Twitter, and LinkedIn. We don't just post content; we tell stories that show your brand's personality. These stories connect with your audience. Think of us as your social media squad, here to make your online presence shine. We aim to turn likes and shares into real engagement. Our goal is to create a community around your brand that feels like family.
+            </p>
+        </div>
+    </div>
+
+    <!-- Right Section: Image -->
+    <div class="flex-1 flex items-center justify-center py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 xl:px-12 order-1 lg:order-2 transition-all duration-300 relative">
+        <!-- Decorative Background for Image Section -->
+        <div class="absolute inset-0 bg-gradient-to-br from-white/50 to-gray-50/50 dark:from-dark-secondary/50 dark:to-dark/50 pointer-events-none"></div>
+        <div class="max-w-lg w-full h-full relative z-10 flex items-center justify-center">
+            <img class="w-full h-auto object-contain" src="https://storage.perfectcdn.com/7gc9nb/u3cq08qwdecfjcnt.png" alt="SMM Services"/>
+        </div>
+    </div>
+</section>
+
+<main class="relative">
+	<section class="py-12 sm:py-16 lg:py-20 bg-white dark:bg-dark transition-colors duration-300">
+		<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="max-w-4xl mx-auto text-center">
+				<h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-6 leading-tight">
+					Our SMM Services
+				</h2>
+				<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+					We're all about making your brand shine online. Our Social Media Marketing (SMM) services are like your brand's cheerleaders. They work hard to boost your presence on Facebook, Instagram, Twitter, and LinkedIn. We don't just post content; we tell stories that show your brand's personality. These stories connect with your audience. Think of us as your social media squad, here to make your online presence shine. We aim to turn likes and shares into real engagement. Our goal is to create a community around your brand that feels like family.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-50/50 to-white dark:from-dark-secondary dark:to-dark transition-colors duration-300 relative">
+		<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+				<article class="flex flex-col items-center space-y-6 rounded-xl bg-white dark:bg-dark-secondary px-4 py-8 sm:py-12 text-center shadow-sm dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+					<h4 class="text-xl font-semibold text-gray-900 dark:text-slate-100">Facebook SMM Panel</h4>
+					<p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+						Unlock the power of social media with our Facebook SMM Panel! Elevate your online presence, engage your audience, and drive results with our comprehensive suite of social media marketing tools. Dominate your niche effortlessly.
+					</p>
+				</article>
+
+				<article class="flex flex-col items-center space-y-6 rounded-xl bg-white dark:bg-dark-secondary px-4 py-8 sm:py-12 text-center shadow-sm dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+					<h4 class="text-xl font-semibold text-gray-900 dark:text-slate-100">Instagram SMM Panel</h4>
+					<p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+						Take your Instagram to the next level with our SMM Panel! Boost engagement, grow your followers, and increase visibility easily. Our platform makes social media marketing simple and powerful.
+					</p>
+				</article>
+
+				<article class="flex flex-col items-center space-y-6 rounded-xl bg-white dark:bg-dark-secondary px-4 py-8 sm:py-12 text-center shadow-sm dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+					<h4 class="text-xl font-semibold text-gray-900 dark:text-slate-100">Twitter (X) SMM Panel</h4>
+					<p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+						Take your Twitter to the next level with our SMM Panel! Get more followers, increase engagement, and grow your brand's reach easily. We offer powerful analytics and strategic insights to help you succeed. Start elevating your social media presence now!
+					</p>
+				</article>
+
+				<article class="flex flex-col items-center space-y-6 rounded-xl bg-white dark:bg-dark-secondary px-4 py-8 sm:py-12 text-center shadow-sm dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+					<h4 class="text-xl font-semibold text-gray-900 dark:text-slate-100">Youtube SMM Panel</h4>
+					<p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+						Unlock your YouTube channel's full power with our SMM Panel! Boost engagement and increase visibility. Captivate your audience effortlessly. Elevate your content strategy. Dominate the platform like never before.
+					</p>
+				</article>
+
+				<article class="flex flex-col items-center space-y-6 rounded-xl bg-white dark:bg-dark-secondary px-4 py-8 sm:py-12 text-center shadow-sm dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+					<h4 class="text-xl font-semibold text-gray-900 dark:text-slate-100">Telegram SMM Panel</h4>
+					<p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+						Take your social media to the next level with our Telegram SMM Panel. Get followers, likes, and engagement easily. Our tools help you reach your audience and boost your online presence.
+					</p>
+				</article>
+
+				<article class="flex flex-col items-center space-y-6 rounded-xl bg-white dark:bg-dark-secondary px-4 py-8 sm:py-12 text-center shadow-sm dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+					<h4 class="text-xl font-semibold text-gray-900 dark:text-slate-100">Tiktok SMM Panel</h4>
+					<p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+						Boost your TikTok presence with our SMM Panel! It helps increase engagement and grow your audience. Unleash your content's full power with ease.
+					</p>
+				</article>
+
+				<article class="flex flex-col items-center space-y-6 rounded-xl bg-white dark:bg-dark-secondary px-4 py-8 sm:py-12 text-center shadow-sm dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+					<h4 class="text-xl font-semibold text-gray-900 dark:text-slate-100">Spotify SMM Panel</h4>
+					<p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+						Boost your Spotify presence with our SMM Panel! Reach more people, boost engagement, and make your music more visible. Take your tracks to new levels with our easy-to-use platform.
+					</p>
+				</article>
+
+				<article class="flex flex-col items-center space-y-6 rounded-xl bg-white dark:bg-dark-secondary px-4 py-8 sm:py-12 text-center shadow-sm dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+					<h4 class="text-xl font-semibold text-gray-900 dark:text-slate-100">Snapchat SMM Panel</h4>
+					<p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+						Our Snapchat SMM Panel gives you unmatched reach and engagement. It lets you boost your brand's visibility easily. You get powerful analytics, targeted ads, and creative tools to engage your audience like never before.
+					</p>
+				</article>
+
+				<article class="flex flex-col items-center space-y-6 rounded-xl bg-white dark:bg-dark-secondary px-4 py-8 sm:py-12 text-center shadow-sm dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+					<h4 class="text-xl font-semibold text-gray-900 dark:text-slate-100">Twitch SMM Panel</h4>
+					<p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+						If you want to grow your Twitch channel, think about using a Twitch SMM panel. It can help you get more live views and followers. It also boosts engagement on your streams. It's not just about live views. It also helps you gain followers for your channel. Plus, it increases comments during your broadcasts. This makes your streams more interactive.
+					</p>
+				</article>
+
+				<article class="flex flex-col items-center space-y-6 rounded-xl bg-white dark:bg-dark-secondary px-4 py-8 sm:py-12 text-center shadow-sm dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+					<h4 class="text-xl font-semibold text-gray-900 dark:text-slate-100">Discord SMM Panel</h4>
+					<p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+						If you want to grow your Discord server quickly, try using a Discord SMM panel. It helps you add members and boost engagement. It also makes managing your server easier. Whether you're new or experienced, it makes building a strong community simpler. This tool is great for anyone looking to grow their server.
+					</p>
+				</article>
+
+				<article class="flex flex-col items-center space-y-6 rounded-xl bg-white dark:bg-dark-secondary px-4 py-8 sm:py-12 text-center shadow-sm dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+					<h4 class="text-xl font-semibold text-gray-900 dark:text-slate-100">Soundcloud SMM Panel</h4>
+					<p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+						If you want to boost your SoundCloud tracks and get more listeners, try a SoundCloud SMM panel. It offers plays, followers, and likes for your music. Not just plays, but also followers for your profile and comments on your tracks.
+					</p>
+				</article>
+
+				<article class="flex flex-col items-center space-y-6 rounded-xl bg-white dark:bg-dark-secondary px-4 py-8 sm:py-12 text-center shadow-sm dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+					<h4 class="text-xl font-semibold text-gray-900 dark:text-slate-100">Audiomack SMM Panel</h4>
+					<p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+						If you want to grow your Audiomack profile, try using an Audiomack SMM panel. It helps you get more plays, followers, and likes on your tracks. It's not just about plays, but also followers for your profile and comments to boost your music's engagement.
+					</p>
+				</article>
+
+				<article class="flex flex-col items-center space-y-6 rounded-xl bg-white dark:bg-dark-secondary px-4 py-8 sm:py-12 text-center shadow-sm dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+					<h4 class="text-xl font-semibold text-gray-900 dark:text-slate-100">Clubhouse SMM Panel</h4>
+					<p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+						If you want to grow your Clubhouse presence, a Clubhouse SMM panel can help. It offers followers, room joins, and engagement for your discussions. This means not just followers, but also active participation in your rooms. It helps increase your reach and influence.
+					</p>
+				</article>
+
+				<article class="flex flex-col items-center space-y-6 rounded-xl bg-white dark:bg-dark-secondary px-4 py-8 sm:py-12 text-center shadow-sm dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+					<h4 class="text-xl font-semibold text-gray-900 dark:text-slate-100">Reddit SMM Panel</h4>
+					<p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+						If you want to boost your presence on Reddit, a Reddit SMM panel is the perfect tool. It helps you gain upvotes, followers, and comments on your posts. Not just upvotes, but also followers for your profile and interactions to enhance your visibility on the platform.
+					</p>
+				</article>
+
+				<article class="flex flex-col items-center space-y-6 rounded-xl bg-white dark:bg-dark-secondary px-4 py-8 sm:py-12 text-center shadow-sm dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+					<h4 class="text-xl font-semibold text-gray-900 dark:text-slate-100">Datpiff SMM Panel</h4>
+					<p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+						If you want to get your mixtapes noticed on DatPiff, consider using a DatPiff SMM panel. It helps you increase plays, gain followers, and get more downloads for your tracks. Not just plays, but also followers for your profile and comments to enhance your mixtape's reach.
+					</p>
+				</article>
+
+				<article class="flex flex-col items-center space-y-6 rounded-xl bg-white dark:bg-dark-secondary px-4 py-8 sm:py-12 text-center shadow-sm dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+					<h4 class="text-xl font-semibold text-gray-900 dark:text-slate-100">Deezer SMM Panel</h4>
+					<p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+						If you want to grow your Deezer audience, a Deezer SMM panel is a smart choice. It boosts your streams, followers, and playlist likes. It also helps get more followers for your profile and comments, making your music more visible.
+					</p>
+				</article>
+
+				<article class="flex flex-col items-center space-y-6 rounded-xl bg-white dark:bg-dark-secondary px-4 py-8 sm:py-12 text-center shadow-sm dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+					<h4 class="text-xl font-semibold text-gray-900 dark:text-slate-100">Kiwi SMM Panel</h4>
+					<p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+						If you want to grow your Kiwi profile and reach more people, try using a Kiwi SMM panel. It helps you gain followers, increase likes, and boost engagement on your posts. Not just likes, but also followers for your profile and comments to keep the conversation going.
+					</p>
+				</article>
+
+				<article class="flex flex-col items-center space-y-6 rounded-xl bg-white dark:bg-dark-secondary px-4 py-8 sm:py-12 text-center shadow-sm dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+					<h4 class="text-xl font-semibold text-gray-900 dark:text-slate-100">Tumblr SMM Panel</h4>
+					<p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+						If you're looking to increase your Tumblr presence, a Tumblr SMM panel can help. It offers reblogs, followers, and likes for your posts. Not just reblogs, but also followers for your blog and comments to enhance interaction.
+					</p>
+				</article>
+
+				<article class="flex flex-col items-center space-y-6 rounded-xl bg-white dark:bg-dark-secondary px-4 py-8 sm:py-12 text-center shadow-sm dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+					<h4 class="text-xl font-semibold text-gray-900 dark:text-slate-100">Likee SMM Panel</h4>
+					<p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+						If you want to grow your Likee profile and gain more attention, consider using a Likee SMM panel. It provides views, followers, and likes for your videos. Not only views, but also followers for your profile and comments to boost engagement.
+					</p>
+				</article>
+			</div>
+		</div>
+	</section>
+</main>
+<!-- End : SERVICES-->
+
+{% endif %}

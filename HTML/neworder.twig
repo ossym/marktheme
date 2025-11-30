@@ -582,30 +582,30 @@
 
 		<section class="grid lg:grid-cols-3 gap-8">
 			<div class="dash_card tabs__wrapper order-form-card space-y-6 lg:col-span-2 bg-white rounded-xl shadow-sm" style="overflow: visible">
-				<div class="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-2 xs:grid-cols-2 gap-2">
-					<button class="tab tab-btn btn-new active-tab flex-1 basis-1/2 md:basis-1/4 rounded-xl border border-gray-300 bg-blue-500 text-white text-sm font-semibold py-2" data-tab="neworder" data-term="new">
-						<svg width="26" height="26" viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<div class="flex gap-2 mb-6">
+					<button class="tab tab-btn btn-new active-tab flex items-center justify-center gap-2 rounded-lg border-2 border-primary-500 bg-primary-500 text-white text-sm font-semibold px-4 py-3 shadow-md transition-all" data-tab="neworder" data-term="new" style="border-color: #10c3f4; background: linear-gradient(135deg, #10c3f4 0%, #00acc1 100%);">
+						<svg width="20" height="20" viewbox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
 							<path d="M12 0.25L23.875 7.125V20.875L12 27.75L0.125 20.875V7.125L12 0.25ZM3.86735 7.84712L12.0001 12.5555L20.1327 7.84717L12 3.13875L3.86735 7.84712ZM2.625 10.0166V19.4336L10.7501 24.1376V14.7206L2.625 10.0166ZM13.2501 24.1375L21.375 19.4336V10.0167L13.2501 14.7206V24.1375Z" fill="white"/>
 						</svg>
-						New Order
+						<span>New Order</span>
 					</button>
-					<button class="tab btn-auto tab-btn flex-1 basis-1/2 md:basis-1/4 rounded-xl border border-gray-300 bg-gray-100 text-gray-600 text-sm font-semibold py-2" data-tab="auto" data-term="auto">
-						<svg width="26" height="26" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M13 2L3 14h7v8l10-12h-7V2z" fill="white"/>
+					<button class="tab btn-auto tab-btn flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white text-gray-600 text-sm font-semibold px-4 py-3 hover:bg-gray-50 hover:border-gray-400 transition-all" data-tab="auto" data-term="auto">
+						<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+							<path d="M13 2L3 14h7v8l10-12h-7V2z" fill="currentColor"/>
 						</svg>
-						Auto Order
+						<span>Auto Order</span>
 					</button>
-					<button class="tab tab-btn btn-fav flex-1 basis-1/2 md:basis-1/4 rounded-xl border border-gray-300 bg-gray-100 text-gray-600 text-sm font-semibold py-2" data-tab="fav" data-term="fav">
-						<svg width="26" height="26" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-							<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="white"/>
+					<button class="tab tab-btn btn-fav flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white text-gray-600 text-sm font-semibold px-4 py-3 hover:bg-gray-50 hover:border-gray-400 transition-all" data-tab="fav" data-term="fav">
+						<svg width="20" height="20" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+							<path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="currentColor"/>
 						</svg>
-						Favorites
+						<span>Favorites</span>
 					</button>
-					<button class="tab tab-btn btn-fav flex-1 basis-1/2 md:basis-1/4 rounded-xl border border-gray-300 bg-gray-100 text-gray-600 text-sm font-semibold py-2" data-tab="country" data-term="country">
-						<svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-globe" viewbox="0 0 16 16">
+					<button class="tab tab-btn btn-country flex items-center justify-center gap-2 rounded-lg border border-gray-300 bg-white text-gray-600 text-sm font-semibold px-4 py-3 hover:bg-gray-50 hover:border-gray-400 transition-all" data-tab="country" data-term="country">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewbox="0 0 16 16" class="flex-shrink-0">
 							<path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m7.5-6.923c-.67.204-1.335.82-1.887 1.855A8 8 0 0 0 5.145 4H7.5zM4.09 4a9.3 9.3 0 0 1 .64-1.539 7 7 0 0 1 .597-.933A7.03 7.03 0 0 0 2.255 4zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a7 7 0 0 0-.656 2.5zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5zM8.5 5v2.5h2.99a12.5 12.5 0 0 0-.337-2.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5zM5.145 12q.208.58.468 1.068c.552 1.035 1.218 1.65 1.887 1.855V12zm.182 2.472a7 7 0 0 1-.597-.933A9.3 9.3 0 0 1 4.09 12H2.255a7 7 0 0 0 3.072 2.472M3.82 11a13.7 13.7 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5zm6.853 3.472A7 7 0 0 0 13.745 12H11.91a9.3 9.3 0 0 1-.64 1.539 7 7 0 0 1-.597.933M8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855q.26-.487.468-1.068zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.7 13.7 0 0 1-.312 2.5m2.802-3.5a7 7 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7 7 0 0 0-3.072-2.472c.218.284.418.598.597.933M10.855 4a8 8 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4z"/>
 						</svg>
-						Countries
+						<span>Countries</span>
 					</button>
 				</div>
 
@@ -740,13 +740,15 @@
 									data-select-search="true" 
 									data-select-search-placeholder="{{ lang('general.search.placeholder') }}" {% if site['rtl'] %} data-select-dir="rtl" {% endif %}></select>
 									<div class="dropdown services-list relative">
-										<button class="form-control text-left first-btn w-full flex items-center justify-between px-4 py-2 border border-gray-300 rounded-lg bg-white shadow-sm" type="button" id="services-dropdown-btn" data-bs-toggle="dropdown" aria-expanded="false">
-											<span id="order-services" class="md:truncate block text-gray-900 font-semibold">
-												Services List
+										<button class="form-control text-left first-btn w-full flex items-center justify-between px-4 py-2.5 border border-gray-300 rounded-lg bg-white shadow-sm hover:border-gray-400 hover:shadow transition-all text-base" type="button" id="services-dropdown-btn" data-bs-toggle="dropdown" aria-expanded="false" style="min-height: 42px;">
+											<span id="order-services" class="flex-1 text-left flex items-center gap-2 text-gray-900">
+												<span class="text-gray-400">Select a service...</span>
 											</span>
-											<i class="fas fa-angle-down float-right ml-2 text-gray-500" aria-hidden="true"></i>
+											<svg class="w-5 h-5 text-gray-400 transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" id="services-dropdown-arrow" style="pointer-events: none;">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+											</svg>
 										</button>
-										<div id="services-dropdown-list" aria-labelledby="services-dropdown-btn" class="dropdown-menu hidden bg-white rounded-lg shadow w-full"></div>
+										<div id="services-dropdown-list" aria-labelledby="services-dropdown-btn" class="dropdown-menu hidden absolute z-50 w-full mt-1 bg-white rounded-lg shadow-lg border border-gray-200 max-h-96 overflow-y-auto" style="background-color: white !important; opacity: 1 !important; visibility: visible !important;"></div>
 									</div>
 								</div>
 
@@ -833,16 +835,43 @@
 		});
 		$('#services-dropdown-btn').on('click', function(e) {
 			e.stopPropagation();
-			$('#services-dropdown-list').toggleClass('hidden block');
+			const isExpanded = $(this).attr('aria-expanded') === 'true';
+			$(this).attr('aria-expanded', !isExpanded);
+			$('#services-dropdown-list').toggleClass('hidden');
 		});
-		$(document).on('click', function() {
-			$('#services-dropdown-list').addClass('hidden').removeClass('block');
+		// Initialize active tab styling on page load
+		$('.tab-btn.active-tab').each(function() {
+			$(this).find('svg path').attr('fill', 'white');
+		});
+		$('.tab-btn:not(.active-tab)').each(function() {
+			$(this).find('svg path').attr('fill', 'currentColor');
+		});
+
+		// Prevent dropdown from closing when clicking inside
+		$(document).on('click', '#services-dropdown-list', function(e) {
+			e.stopPropagation();
+		});
+
+		// Close dropdown when clicking outside
+		$(document).on('click', function(e) {
+			if (!$(e.target).closest('#services-dropdown-btn, #services-dropdown-list').length) {
+				$('#services-dropdown-list').addClass('hidden');
+				$('#services-dropdown-btn').attr('aria-expanded', 'false');
+			}
 		});
 		$('.tab-btn').on('click', function() {
 			const $tab = $(this);
-			$('.tab-btn').removeClass('active-tab bg-blue-500 text-white').addClass(
-				'bg-gray-100 text-gray-600');
-			$tab.addClass('active-tab bg-blue-500 text-white').removeClass('bg-gray-100 text-gray-600');
+			// Remove active state from all tabs
+			$('.tab-btn').removeClass('active-tab border-primary-500 bg-primary-500 text-white').addClass(
+				'border-gray-300 bg-white text-gray-600');
+			// Update SVG icons for inactive tabs
+			$('.tab-btn:not(.active-tab) svg path').each(function() {
+				$(this).attr('fill', 'currentColor');
+			});
+			// Add active state to clicked tab
+			$tab.addClass('active-tab border-primary-500 bg-primary-500 text-white').removeClass('border-gray-300 bg-white text-gray-600');
+			// Update SVG icon for active tab
+			$tab.find('svg path').attr('fill', 'white');
 			const term = $tab.data('term');
 			if (term === 'country') {
 				$('.nCountry').removeClass('hidden');
@@ -906,17 +935,42 @@
 			}
 			const ico = getIcon(serviceName);
 			const displayName = serviceName.replace(new RegExp(`^${serviceId}\\s*[-:|]*\\s*`), '').trim();
-			$dropdownMenu.append(`
-			<button type="button"
-                class="order-sItem w-full inline text-left px-4 py-3 hover:bg-gray-100 rounded-md text-sm items-center justify-between border-b last:border-0"
+			const isSelected = serviceId === currentSelected;
+			const selectedClass = isSelected ? 'selected' : '';
+			
+			// Build service item HTML
+			let serviceItem = `<button type="button"
+                class="service-item ${selectedClass} w-full text-left"
                 data-service-id="${serviceId}"
                 role="option"
-                aria-selected="${serviceId === currentSelected}"
-                onclick="selectOrder('${serviceId}')"
-            >
-               ${ico} <b class="bg-[#fb8b00] rounded-md px-2"> ${serviceId}</b> | ${displayName}
-            </button>
-        `);
+                aria-selected="${isSelected}"
+                onclick="event.stopPropagation(); selectOrder('${serviceId}'); return false;"
+            >`;
+			serviceItem += `<div class="flex items-center gap-2">`;
+			serviceItem += `<span class="service-item-icon">${ico}</span>`;
+			serviceItem += `<span class="service-item-badge">${serviceId}</span>`;
+			serviceItem += `<div class="service-item-content">`;
+			serviceItem += `<span class="service-item-name">${displayName}</span>`;
+			serviceItem += `<div class="service-item-badges">`;
+			
+			serviceItem += `</div>`;
+			serviceItem += `</div>`;
+			
+			if (service.time || service.charge) {
+				serviceItem += `<div class="service-item-price">`;
+				if (service.time) {
+					serviceItem += `<span>{${service.time}}</span>`;
+				}
+				if (service.charge) {
+					serviceItem += `<span> - $${parseFloat(service.charge).toFixed(2)} per 1000</span>`;
+				}
+				serviceItem += `</div>`;
+			}
+			
+			serviceItem += `</div>`;
+			serviceItem += `</button>`;
+			
+			$dropdownMenu.append(serviceItem);
 			added = true;
 		});
 		if (!added) {
@@ -966,15 +1020,39 @@
 		var selectedOption = $("#orderform-service option[value='" + val + "']");
 		if (selectedOption.length > 0) {
 			setDropDownButton(selectedOption.val(), selectedOption.text());
+			// Close dropdown after selection
+			$('#services-dropdown-list').addClass('hidden');
+			$('#services-dropdown-btn').attr('aria-expanded', 'false');
+			// Update selected state in dropdown
+			$('#services-dropdown-list .service-item').removeClass('selected');
+			$('#services-dropdown-list .service-item[data-service-id="' + val + '"]').addClass('selected');
 		} else {
 			console.error('Selected option not found.');
 		}
 	}
 
 	function setDropDownButton(service_id, service_name) {
+		const service = window.modules.siteOrder.services[service_id];
 		let icon = getIcon(service_name);
 		const displayName = service_name.replace(new RegExp(`^${service_id}\\s*[-:|]*\\s*`), '').trim();
-		$("#order-services").html(`${icon} <b class="bg-[#fb8b00] rounded-md px-2">${service_id}</b> | ${displayName}`);
+		
+		// Build service info HTML
+		let serviceInfo = `<div class="flex items-center gap-2 flex-wrap">`;
+		serviceInfo += `<span class="flex-shrink-0">${icon}</span>`;
+		serviceInfo += `<span class="bg-orange-500 text-white rounded px-2 py-0.5 text-xs font-bold flex-shrink-0">${service_id}</span>`;
+		serviceInfo += `<span class="font-medium">${displayName}</span>`;
+		
+		if (service) {
+			if (service.time) {
+				serviceInfo += `<span class="flex items-center gap-1 text-gray-600"><svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/></svg> {${service.time}}</span>`;
+			}
+			if (service.charge) {
+				serviceInfo += `<span class="text-primary-500 font-semibold">- $${parseFloat(service.charge).toFixed(2)} per 1000</span>`;
+			}
+		}
+		
+		serviceInfo += `</div>`;
+		$("#order-services").html(serviceInfo);
 	}
 
 	function filterCategories(term, country) {

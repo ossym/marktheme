@@ -1,0 +1,438 @@
+<!-- Start : HERO-->
+<section class="hero px-5">
+  <div class="container mx-auto flex flex-col md:flex-row md:space-x-10">
+    <div class="hero_right flex flex-col items-start justify-center space-y-6 md:w-1/2 md:pr-7">
+      <span class="text__highlight bg-secondary-border text-sm">
+        <svg
+          width="24"
+          height="25"
+          viewBox="0 0 24 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.7416 14.2228L24 12.515L14.6816 10.927L17.2285 7.24157L13.6629 9.78839L11.985 0.5L10.397 9.84832L6.74157 7.24157L9.25843 10.927L0 12.515L9.25843 14.2228L6.74157 17.7584L10.397 15.2416L11.985 24.5L13.6929 15.3015L17.2285 17.7584L14.7416 14.2228Z"
+            fill="#00BFF3"
+          />
+        </svg>
+        世界一流的SMM社交网络推广营销服务供应商
+      </span>
+      <h1 class="hero__heading text-5xl font-semibold">
+        惊爆价的<span>SMM社交网络营销服务</span>
+      </h1>
+      <p class="hero__intro text-sm">
+        Marketerum，您的一站式社交媒体营销解决方案提供商！我们致力于帮助您在数字时代脱颖而出，通过量身定制的社交媒体策略，提升个人或品牌知名度、增强用户互动，驱动业务增长，为包括Instagram、Facebook、TikTok、Twitter（X）和YouTube在内的全平台提供物美价廉的推广服务。选择Marketerum，就是选择与众不同的社交媒体营销体验。让我们用创新的思维和专业的执行，让您在喧嚣的数字世界中赢得真正的关注与影响力。
+      </p>
+    </div>
+    <div class="hero_left relative flex-col justify-center md:flex md:w-1/2 py-20">
+      <form class="signIn_form w-full space-y-7" method="post" action="{{ page['url'] }}">
+        {% if error %}
+          <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ errorMessage }}
+          </div>
+        {% endif %}
+
+        {% if success %}
+          <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            {{successMessage}}
+          </div>
+        {% endif %}
+
+        <div class="input-field">
+          <div class="rounded-md bg-primary-main p-3">
+            <svg width="20" height="20" viewbox="0 0 22 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21.6693 28.332H0.335938V25.6654C0.335938 21.9835 3.32071 18.9987 7.0026 18.9987H15.0026C18.6845 18.9987 21.6693 21.9835 21.6693 25.6654V28.332ZM11.0026 16.332C6.58432 16.332 3.0026 12.7503 3.0026 8.33203C3.0026 3.91375 6.58432 0.332031 11.0026 0.332031C15.4209 0.332031 19.0026 3.91375 19.0026 8.33203C19.0026 12.7503 15.4209 16.332 11.0026 16.332Z" fill="white"/>
+            </svg>
+          </div>
+          <input type="text" placeholder="{{ lang('signup.username') }}" id="username" name="LoginForm[username]" aria-label="{{ lang('signup.username') }}" />
+        </div>
+        <div class="input-field">
+          <div class="rounded-md bg-primary-main p-3">
+            <svg width="20" height="20" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.75067 11.4226L20.3373 0.835938L23.1659 3.66436L21.2803 5.54998L24.1087 8.3784L19.3945 13.0925L16.5661 10.2641L12.5791 14.2511C13.8909 16.7643 13.4915 19.9383 11.3807 22.0491C8.77722 24.6526 4.55612 24.6526 1.95263 22.0491C-0.650877 19.4457 -0.650877 15.2246 1.95263 12.621C4.0634 10.5103 7.23746 10.1109 9.75067 11.4226ZM8.55228 19.2207C9.59374 18.1793 9.59374 16.4909 8.55228 15.4495C7.51088 14.4081 5.82246 14.4081 4.78106 15.4495C3.73966 16.4909 3.73966 18.1793 4.78106 19.2207C5.82246 20.2621 7.51088 20.2621 8.55228 19.2207Z" fill="white"/>
+            </svg>
+          </div>
+          <input type="password" placeholder="{{ lang('signup.password') }}" id="password" name="LoginForm[password]" aria-label="{{ lang('signup.password') }}" />
+        </div>
+        <div class="form-info flex content-between justify-between">
+          <div>
+            <input type="checkbox" name="LoginForm[remember]" value="1" id="remember"/>
+            <label for="remember">Remember me</label>
+          </div>
+          <a href="{{ page_url('resetpassword') }}" title="{{ lang('signin.reset_password') }}">Forgot password?</a>
+        </div>
+        <div class="my-4">
+          {% if captcha %}
+            {{ captchaCode }}
+          {% endif %}
+        </div>
+        <input type="hidden" name="_csrf" value="{{csrftoken}}">
+
+        <div class="signin_btns">
+          <div class="form_btns grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-2">
+            <button type="submit" class="btn btn--primary" href="#">
+              <span>{{ lang('signin.button') }}</span>
+              <img loading="lazy" src="https://storage.perfectcdn.com/7gc9nb/terrzy6bnr147d9w.svg" alt="Join Marketerum Now!"/>
+            </button>
+          </div>
+          {% if googleSignIn %}
+            <div class="google-login-wrap">
+              <span class="google-login">
+                Login with
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="LgbsSe-Bz112c"><g><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path><path fill="none" d="M0 0h48v48H0z"></path></g></svg>
+              </span>
+              <div class="form-group google-btn">
+                <div id="g_id_onload" data-client_id="{{ googleClientId }}" data-login_uri="{{ googleSignInRedirectUrl }}" data-auto_prompt="false" data-_csrf="{{csrftoken}}"></div>
+                <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left"></div>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+        <div class="have-acc">
+          Do not have an account?
+          <a class="font-semibold text-secondary-main" href="{{ page_url('signup') }}">
+            &nbsp&nbsp<span> {{ lang('signup.button') }}</span>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<!-- end : HERO-->
+
+<!-- SECTION : STATS -->
+<section class="stats px-5">
+	<div class="container mx-auto flex flex-col flex-wrap items-center justify-between gap-x-10 gap-y-8 text-center">
+		<h2 class="stats__title text-2xl font-semibold md:basis-full lg:basis-auto">
+			Marketerum Achievements
+		</h2>
+		<div class="stats__grid w-full">
+		<div class="stats__item">
+			<div class="stats__icon">
+				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/4awu9w7452rb1eql.svg" alt="Total orders">
+			</div>
+			<div class="stats__data">
+                <div class="stats__number">
+                    {{ totals['ordersAll']|number_format(0, '.', ',') }}
+				</div>
+				<span>Orders Completed</span>
+			</div>
+		</div>
+		<div class="stats__item">
+			<div class="stats__icon">
+				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/67hc9ch7mk699ow1.png" alt="Our Happy customers">
+			</div>
+			<div class="stats__data">
+                <div class="stats__number">
+                    {{ totals['usersAll']|number_format(0, '.', ',') }}
+				</div>
+				<span>Satisfied Customers</span>
+			</div>
+		</div>
+		<div class="stats__item">
+			<div class="stats__icon">
+				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/l2d4lro3zhi6p334.png" alt="Our stable services">
+			</div>
+			<div class="stats__data">
+                <div class="stats__number">
+                    5,235+
+                </div>
+				<span>Active Services</span>
+			</div>
+		</div>
+		</div>
+	</div>
+</section>
+<!-- END : STATS -->
+
+<!-- SECTION : ABOUT US -->
+<section class="about px-5">
+  <div class="container mx-auto">
+    <div class="intro mx-auto space-y-5 md:w-10/12">
+      <span class="text__highlight">关于我们</span>
+      <h2 class="heading--main">
+      遥遥领先的社交媒体营销团队
+      </h2>
+      <p class="text-sm text-justify">
+      在Marketerum，我们不仅提供卓越的社交网络账号增长解决方案，还以物美价廉的服务标准赢得客户的信赖。我们结合前沿的增长策略与创新的方法，推出多样化的增长套餐，以满足不同需求和预算的客户，旨在为各种规模的企业品牌及个人打造强有力的账号影响力。
+      </p>
+      <p class="text-sm text-justify">
+      我们深知每一分钱的投资都应该带来最大价值。我们精心设计的高效且具成本效益的服务套餐，确保您在享受专业服务的同时，不必为高昂的费用而烦恼。我们的目标是通过精准的市场分析和量身定制的策略，为您的社交媒体账号带来显著的粉丝增长，同时优化投入产出比，提供无可比拟的服务体验。
+      </p>
+      <p class="text-sm text-justify">
+      无论从服务质量还是产品性价比的角度来看，无论您是一家希望大放异彩的初创公司，还是期许拓展的成熟企业，我们都承诺让每一位客户感受到物超所值的体验。您通往数字领域大获成功的康庄大道，将从Marketerum启程。
+      </p>
+
+      <a href="https://marketerum.com/services" class="btn btn--primary" style="display: inline-block">查看所有服务</a>
+    </div>
+  </div>
+</section>
+<!-- END : ABOUT -->
+
+<!-- SECTION : WHY US -->
+<section class="whyus px-5">
+      <div class="container mx-auto space-y-12 py-20">
+        <div class="intro relative mx-auto space-y-12 md:w-10/12">
+          <span class="text__highlight relative"
+            >常问问题
+          </span>
+          <h2 class="heading--main relative">
+           为什么选择 Marketerum?
+          </h2>
+          <p class="text-justify">
+            选择我们作为您的社交媒体营销服务供应商是您非常明智的决定，我们的全天候客户支持团队和顶尖的专业团队保证了无缝的服务体验和及时响应，帮助您的社交网络账号在竞争激烈的市场中快速脱颖而出。我们以用户为中心，帮助您最大程度吸引您的受众，让您得到超出期望的真实互动和账户价值。
+          </p>
+          <svg
+            class="absolute -top-40 left-0"
+            width="42"
+            height="46"
+            viewBox="0 0 42 46"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17 1.3094C19.4752 -0.119661 22.5248 -0.119661 25 1.3094L37.7846 8.6906C40.2598 10.1197 41.7846 12.7607 41.7846 15.6188V30.3812C41.7846 33.2393 40.2598 35.8803 37.7846 37.3094L25 44.6906C22.5248 46.1197 19.4752 46.1197 17 44.6906L4.21539 37.3094C1.74018 35.8803 0.215391 33.2393 0.215391 30.3812V15.6188C0.215391 12.7607 1.74018 10.1197 4.21539 8.6906L17 1.3094Z"
+              fill="#85E0F9"
+            />
+          </svg>
+
+          
+        </div>
+      </div>
+    </section>
+<!-- END : WHY US -->
+
+<!-- SECTION : FAQ -->
+<section class="faq1 px-5">
+  <div class="container mx-auto text-center">
+    <div class="intro mx-auto mb-12 space-y-8 md:w-8/12">
+      <span class="text__highlight relative">
+        常见问题
+      </span>
+      <h2 class="heading--main">
+        常见问题
+      </h2>
+      <p class="text-justify">
+        以下是关于本站的关键问题，包括功能、优势及使用中的注意事项等。
+      </p>
+    </div>
+
+    <div class="faqs">
+      <div class="faqs__tab md:grid md:grid-cols-2 md:gap-8">
+        <div class="tab__item">
+          <a href="#" class="tab__label">
+            <span>
+              什么是社交媒体推广服务？
+            </span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                stroke="#02030E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+          <p class="text-justify">
+            社交媒体推广服务是一个旨在社交媒体营销管理的工具，能够自动优化社交媒体营销活动，提供一个集中化处理界面以便用于运行广告活动、品牌表现和管理用户互动。
+          </p>
+        </div>
+
+        <div class="tab__item">
+          <a href="#" class="tab__label">
+            <span>
+              使用社交媒体推广服务的益处有哪些？
+            </span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                stroke="#02030E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+          <p class="text-justify">
+            主要优势集中在简化营销管理、自动化处理重复指令及任务、集中数据分析与提高多个广告等活动和用户请求处理的效率。
+          </p>
+        </div>
+
+        <div class="tab__item">
+          <a href="#" class="tab__label">
+            <span>
+              如何选择合适的服务套餐或单链？
+            </span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                stroke="#02030E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+          <p class="text-justify">
+            想要选择到心仪的产品服务，需要考虑功能范围、具体投放平台或频道、用户支持和预算成本，确保能满足您的具体需求并符合您的营销目标。
+          </p>
+        </div>
+
+        <div class="tab__item">
+          <a href="#" class="tab__label">
+            <span>
+              使用中会遇到哪些常见问题？
+            </span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                stroke="#02030E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+          <p class="text-justify">
+            包括但不限技术故障、与不同平台的兼容性问题以及设置和定制的复杂性，Marketerum专业团队将给予您贴心支持来应对这类问题。
+          </p>
+        </div>
+
+        <div class="tab__item">
+          <a href="#" class="tab__label">
+            <span>
+              使用推广营销方案安全吗？
+            </span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                stroke="#02030E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+          <p class="text-justify">
+            在Marketerum，账号安全是第一位的。我们的产品遵守平台准则，服务条款明确，选择像我们这样专业一流的资深服务商，能够确保您以绝对安全的方式提升您的社交媒体形象，我们和您一样重视您的数字声誉。
+          </p>
+        </div>
+
+        <div class="tab__item">
+          <a href="#" class="tab__label">
+            <span>
+              我们支持哪些社交媒体平台？
+            </span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                stroke="#02030E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+          <p class="text-justify">
+            我们的服务涵盖一系列知名流媒，从Instagram、Facebook到TikTok、Twitter和YouTube，乃至一系列小众领域均可为您提供技术支持。
+          </p>
+        </div>
+
+        <div class="tab__item">
+          <a href="#" class="tab__label">
+            <span>
+              我们的服务适合企业与品牌吗？
+            </span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                stroke="#02030E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+          <p class="text-justify">
+            当然适合。在全球数字化商业环境中，无论是初创企业还是成熟品牌，各种规模和类型的公司均能从Marketerum的服务中获益。我们的解决方案旨在提升您的网络影响力，扩展受众范围，并促进业绩增长。
+          </p>
+        </div>
+
+        <div class="tab__item">
+          <a href="#" class="tab__label">
+            <span>
+              购买所需的费用是多少？
+            </span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                stroke="#02030E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+          <p class="text-justify">
+            具体费用因服务内容和套餐类型而异。我们提供多种灵活的服务套餐，以适应不同客户的需求和预算。详细的费用信息和条款细节可在产品概述中查阅，以帮助您确认是否符合您的预期目标和预算。
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END : FAQ -->
+

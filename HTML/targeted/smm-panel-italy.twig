@@ -1,0 +1,443 @@
+<!-- Start : HERO-->
+<section class="hero px-5">
+        <div class="container mx-auto flex flex-col md:flex-row md:space-x-10">
+                <div class="hero_right flex flex-col items-start justify-center space-y-6 md:w-1/2 md:pr-7">
+                        <span class="text__highlight bg-secondary-border text-sm">
+                                <svg width="24" height="25" viewbox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M14.7416 14.2228L24 12.515L14.6816 10.927L17.2285 7.24157L13.6629 9.78839L11.985 0.5L10.397 9.84832L6.74157 7.24157L9.25843 10.927L0 12.515L9.25843 14.2228L6.74157 17.7584L10.397 15.2416L11.985 24.5L13.6929 15.3015L17.2285 17.7584L14.7416 14.2228Z" fill="#00BFF3"/>
+                                </svg>
+                                WIl fornitore di pannelli SMM numero 1 al mondo
+                        </span>
+
+                        <h1 class="hero__heading text-5xl font-semibold">
+                                <span>Pannello SMM</span> più economico
+                        </h1>
+
+                        <p class="hero__intro text-sm">
+                                Noi di Marketerum siamo orgogliosi di essere il miglior fornitore di pannelli SMM che offre i migliori e più economici servizi SMM. In qualità di pannello rivenditore SMM di fiducia per piattaforme popolari come Instagram, Facebook, Twitter, YouTube e TikTok, comprendiamo l'importanza del coinvolgimento reale. I nostri servizi sono progettati per catapultare la vostra presenza online, aiutandovi a ottenere follower e interazioni autentiche. Che si tratti di un individuo che desidera potenziare il proprio marchio personale o di un'azienda che vuole espandere la propria impronta digitale, la nostra gamma completa di servizi è a portata di mano. Con Marketerum, ottenere una crescita sociale notevole non è mai stato così accessibile e conveniente.
+                        </p>
+                </div>
+                <div class="hero_left relative flex-col justify-center md:flex md:w-1/2 py-20">
+                        <form class="signIn_form w-full space-y-7" method="post" action="{{ page['url'] }}">
+                                {% if error %}
+                                        <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+                                                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                                {{ errorMessage }}
+                                        </div>
+                                {% endif %}
+
+                                {% if success %}
+                                        <div class="alert alert-success alert-dismissible" role="alert">
+                                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                {{successMessage}}
+                                        </div>
+                                {% endif %}
+
+                                <div class="input-field">
+                                        <div class="rounded-md bg-primary-main p-3">
+                                                <svg width="20" height="20" viewbox="0 0 22 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M21.6693 28.332H0.335938V25.6654C0.335938 21.9835 3.32071 18.9987 7.0026 18.9987H15.0026C18.6845 18.9987 21.6693 21.9835 21.6693 25.6654V28.332ZM11.0026 16.332C6.58432 16.332 3.0026 12.7503 3.0026 8.33203C3.0026 3.91375 6.58432 0.332031 11.0026 0.332031C15.4209 0.332031 19.0026 3.91375 19.0026 8.33203C19.0026 12.7503 15.4209 16.332 11.0026 16.332Z" fill="white"/>
+                                                </svg>
+                                        </div>
+                                        <input type="text" placeholder="{{ lang('signup.username') }}" id="username" name="LoginForm[username]" aria-label="{{ lang('signup.username') }}"/>
+                                </div>
+                                <div class="input-field">
+                                        <div class="rounded-md bg-primary-main p-3">
+                                                <svg width="20" height="20" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M9.75067 11.4226L20.3373 0.835938L23.1659 3.66436L21.2803 5.54998L24.1087 8.3784L19.3945 13.0925L16.5661 10.2641L12.5791 14.2511C13.8909 16.7643 13.4915 19.9383 11.3807 22.0491C8.77722 24.6526 4.55612 24.6526 1.95263 22.0491C-0.650877 19.4457 -0.650877 15.2246 1.95263 12.621C4.0634 10.5103 7.23746 10.1109 9.75067 11.4226ZM8.55228 19.2207C9.59374 18.1793 9.59374 16.4909 8.55228 15.4495C7.51088 14.4081 5.82246 14.4081 4.78106 15.4495C3.73966 16.4909 3.73966 18.1793 4.78106 19.2207C5.82246 20.2621 7.51088 20.2621 8.55228 19.2207Z" fill="white"/>
+                                                </svg>
+                                        </div>
+                                        <input type="password" placeholder="{{ lang('signup.password') }}" id="password" name="LoginForm[password]" aria-label="{{ lang('signup.password') }}"/>
+                                </div>
+                                <div class="form-info flex content-between justify-between">
+                                        <div>
+                                                <input type="checkbox" name="LoginForm[remember]" value="1" id="remember"/>
+                                                <label for="remember">Remember me</label>
+                                        </div>
+                                        <a href="{{ page_url('resetpassword') }}" title="{{ lang('signin.reset_password') }}">Forgot password?</a>
+                                </div>
+                                <div class="my-4">
+                                        {% if captcha %}
+                                                {{ captchaCode }}
+                                        {% endif %}
+                                </div>
+                                <input type="hidden" name="_csrf" value="{{csrftoken}}">
+
+                                <div class="signin_btns">
+                                        <div class="form_btns grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-2">
+                                                <button type="submit" class="btn btn--primary" href="#">
+                                                        <span>{{ lang('signin.button') }}</span>
+                                                        <img loading="lazy" src="https://storage.perfectcdn.com/7gc9nb/terrzy6bnr147d9w.svg" alt="Join Marketerum Now!"/>
+                                                </button>
+                                        </div>
+                                        {% if googleSignIn %}
+                                                <div class="google-login-wrap">
+                                                        <span class="google-login">
+                                                                Login with
+                                                                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="LgbsSe-Bz112c"><g><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path><path fill="none" d="M0 0h48v48H0z"></path></g></svg>
+                                                        </span>
+                                                        <div class="form-group google-btn">
+                                                                <div id="g_id_onload" data-client_id="{{ googleClientId }}" data-login_uri="{{ googleSignInRedirectUrl }}" data-auto_prompt="false" data-_csrf="{{csrftoken}}"></div>
+                                                                <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left"></div>
+                                                        </div>
+                                                </div>
+                                        {% endif %}
+
+                                </div>
+                                <div class="have-acc">
+                                        Do not have an account?
+                                        <a class="font-semibold text-secondary-main" href="{{ page_url('signup') }}">
+                                                &nbsp&nbsp<span> {{ lang('signup.button') }}</span>
+                                        </a>
+                                </div>
+                        </form>
+                </div>
+        </div>
+</section>
+<!-- end : HERO-->
+
+<!-- SECTION : STATS -->
+<section class="stats px-5">
+	<div class="container mx-auto flex flex-col flex-wrap items-center justify-between gap-x-10 gap-y-8 text-center">
+		<h2 class="stats__title text-2xl font-semibold md:basis-full lg:basis-auto">
+			Marketerum Achievements
+		</h2>
+		<div class="stats__grid w-full">
+		<div class="stats__item">
+			<div class="stats__icon">
+				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/4awu9w7452rb1eql.svg" alt="Total orders">
+			</div>
+			<div class="stats__data">
+                <div class="stats__number">
+                    {{ totals['ordersAll']|number_format(0, '.', ',') }}
+				</div>
+				<span>Orders Completed</span>
+			</div>
+		</div>
+		<div class="stats__item">
+			<div class="stats__icon">
+				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/67hc9ch7mk699ow1.png" alt="Our Happy customers">
+			</div>
+			<div class="stats__data">
+                <div class="stats__number">
+                    {{ totals['usersAll']|number_format(0, '.', ',') }}
+				</div>
+				<span>Satisfied Customers</span>
+			</div>
+		</div>
+		<div class="stats__item">
+			<div class="stats__icon">
+				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/l2d4lro3zhi6p334.png" alt="Our stable services">
+			</div>
+			<div class="stats__data">
+                <div class="stats__number">
+                    5,235+
+                </div>
+				<span>Active Services</span>
+			</div>
+		</div>
+		</div>
+	</div>
+</section>
+<!-- END : STATS -->
+
+<!-- SECTION : ABOUT US -->
+<section class="about px-5">
+        <div class="container mx-auto">
+                <div class="intro mx-auto space-y-5 md:w-10/12">
+                        <span class="text__highlight">Chi siamo</span>
+                        <h2 class="heading--main">
+                                I migliori e più economici servizi di <span class="p-color">pannello SMM</span>
+                        </h2>
+                        <p class="text-sm text-justify">
+                                Noi di Marketerum stiamo ridefinendo il panorama del SMM con i nostri eccezionali e convenienti servizi di pannello SMM. Il nostro impegno per l'eccellenza traspare dai nostri pacchetti meticolosamente realizzati, progettati per dare alle aziende di tutte le dimensioni gli strumenti necessari per conquistare il regno digitale.
+                        </p>
+                        <p class="text-sm text-justify">
+                                Scatenate la potenza del social media marketing strategico senza sforare il vostro budget. I nostri migliori e più convenienti servizi di pannello SMM forniscono una porta d'accesso al coinvolgimento istantaneo, agli approfondimenti in tempo reale e a una crescita impressionante. Con le nostre campagne dinamiche, potrete sentire il polso del vostro pubblico e creare messaggi potenti che risuonano e convertono.
+                        </p>
+                        <p class="text-sm text-justify">
+                                Sfruttate l'esperienza dei nostri professionisti esperti e gli strumenti all'avanguardia per migliorare la presenza online del vostro marchio. Che siate una startup che vuole fare il botto o un'azienda consolidata che vuole espandersi, i nostri servizi SMM Panel garantiscono risultati importanti. Unitevi alla schiera di aziende che hanno visto un notevole ROI grazie alle nostre soluzioni convenienti. Abbracciate oggi il futuro del marketing digitale con Marketerum.
+                        </p>
+                        <p class="text-sm text-justify">
+                                Elevate la presenza online del vostro marchio con i servizi di pannello SMM di Marketerum, convenienti e di grande impatto. Sperimentate un coinvolgimento in tempo reale, campagne strategiche e una crescita innegabile che distinguerà la vostra azienda. Il vostro viaggio verso il successo digitale inizia qui.
+                        </p>
+                        <a href="https://marketerum.com/services" class="btn btn--primary" style="display: inline-block">Visualizza tutti i servizi</a>
+                </div>
+        </div>
+</section>
+<!-- END : ABOUT -->
+
+<!-- SECTION : WHY US -->
+<section class="whyus px-5">
+        <div class="container mx-auto space-y-12 py-20">
+                <div class="intro relative mx-auto space-y-12 md:w-10/12">
+          <span class="text__highlight relative"
+            >F.A.Q
+            
+          </span>
+          <h2 class="heading--main relative">
+            Perché scegliere il nostro <br class="hidden md:inline-block" />pannello SMM ?
+
+            
+          </h2>
+          <p class="text-justify">
+            Scegliere marketerum.com come fornitore di pannelli SMM è una decisione che promette vantaggi ineguagliabili e risultati eccezionali. La nostra piattaforma si distingue per l'impegno verso l'autenticità, la qualità e la convenienza, assicurando che il vostro viaggio sui social media sia efficace ed efficiente. Con marketerum.com, avrete accesso a un'ampia gamma di servizi mirati, progettati per rispondere al vostro pubblico e ai vostri obiettivi specifici. Il nostro approccio incentrato sull'utente, unito a pratiche trasparenti e a un'assistenza 24 ore su 24, 7 giorni su 7, garantisce un'esperienza senza soluzione di continuità che vi consente di far crescere la vostra presenza online, coinvolgere il vostro pubblico e raggiungere i vostri obiettivi sui social media. In qualità di leader del settore, ci impegniamo a fornire interazioni reali e un valore che supera le aspettative, rendendo marketerum.com la scelta definitiva per le vostre esigenze di SMM.
+          </p>
+          <svg
+            class="absolute -top-40 left-0"
+            width="42"
+            height="46"
+            viewBox="0 0 42 46"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17 1.3094C19.4752 -0.119661 22.5248 -0.119661 25 1.3094L37.7846 8.6906C40.2598 10.1197 41.7846 12.7607 41.7846 15.6188V30.3812C41.7846 33.2393 40.2598 35.8803 37.7846 37.3094L25 44.6906C22.5248 46.1197 19.4752 46.1197 17 44.6906L4.21539 37.3094C1.74018 35.8803 0.215391 33.2393 0.215391 30.3812V15.6188C0.215391 12.7607 1.74018 10.1197 4.21539 8.6906L17 1.3094Z"
+              fill="#85E0F9"
+            />
+          </svg>
+
+          
+        </div>
+      </div>
+    </section>
+<!-- END : WHY US -->
+
+<!-- SECTION : FAQ -->
+<section class="faq1 px-5">
+      <div class="container mx-auto text-center">
+        <div class="intro mx-auto mb-12 space-y-8 md:w-8/12">
+          <span class="text__highlight relative">
+            Domande Frequenti
+            
+          </span>
+          <h2 class="heading--main">
+            Scopri le <span>Domande Frequenti sul SMM Panel Italia</span>
+          </h2>
+          <p class="text-justify">
+            Esplora le risposte alle domande più comuni riguardanti il SMM Panel Italia, inclusi i suoi vantaggi e le modalità di utilizzo.
+          </p>
+        </div>
+
+        <div class="faqs">
+          <div class="faqs__tab md:grid md:grid-cols-2 md:gap-8">
+            <div class="faq__col">
+              <div class="tab__item">
+                <a href="#" class="tab__label">
+                  <span>
+                    Che cos'è un SMM Panel Italia?
+                  </span>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                      stroke="#02030E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+                <p class="text-justify">
+                  Un SMM Panel Italia è uno strumento di gestione per il marketing sui social media che consente di automatizzare e ottimizzare le campagne pubblicitarie. Fornisce una piattaforma centralizzata per monitorare le performance e gestire le interazioni con il pubblico.
+                </p>
+              </div>
+
+              <div class="tab__item">
+                <a href="#" class="tab__label">
+                  <span>
+                    Quali sono i benefici dell'uso di un SMM Panel Italia?
+                  </span>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                      stroke="#02030E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+                <p class="text-justify">
+                  I principali benefici dell'uso di un SMM Panel Italia includono la semplificazione della gestione del marketing, l'automazione delle attività ripetitive, la centralizzazione dell'analisi dei dati e l'aumento dell'efficienza nella gestione delle campagne e delle richieste degli utenti.
+                </p>
+              </div>
+
+              <div class="tab__item">
+                <a href="#" class="tab__label">
+                  <span>
+                    Come scegliere il SMM Panel Italia giusto?
+                  </span>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                      stroke="#02030E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+                <p class="text-justify">
+                  Quando scegli un SMM Panel Italia, considera l'ampiezza delle funzionalità, la facilità di integrazione, le opzioni di personalizzazione, il supporto clienti e il costo complessivo. Assicurati che soddisfi le tue esigenze specifiche e obiettivi di marketing.
+                </p>
+              </div>
+
+              <div class="tab__item">
+                <a href="#" class="tab__label">
+                  <span>
+                    Quali problemi comuni si possono incontrare con un SMM Panel Italia?
+                  </span>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                      stroke="#02030E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+                <p class="text-justify">
+                  I problemi comuni con un SMM Panel Italia possono includere malfunzionamenti tecnici, problemi di compatibilità con diverse piattaforme e complessità nella configurazione e personalizzazione. È importante scegliere un fornitore affidabile e avere accesso a un buon supporto tecnico.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq__col">
+              <div class="tab__item">
+                <a href="#" class="tab__label">
+                  <span>
+                    Come massimizzare l'efficacia di un SMM Panel Italia?
+                  </span>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                      stroke="#02030E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+                <p class="text-justify">
+                  Per massimizzare l'efficacia di un SMM Panel Italia, aggiorna regolarmente le strategie basate sui dati delle performance, utilizza tutte le funzionalità disponibili e assicurati di integrare bene il panel con le tue campagne di marketing. Mantieniti aggiornato su novità e migliori pratiche per ottimizzare i risultati.
+                </p>
+              </div>
+
+              <div class="tab__item">
+                <a href="#" class="tab__label">
+                  <span>
+                    Quali funzionalità sono importanti in un SMM Panel Italia?
+                  </span>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                      stroke="#02030E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+                <p class="text-justify">
+                  Quando scegli un SMM Panel Italia, cerca un'interfaccia utente intuitiva, strumenti di analisi e reportistica completi, funzionalità di automazione, opzioni di personalizzazione e supporto clienti affidabile.
+                </p>
+              </div>
+
+              <div class="tab__item">
+                <a href="#" class="tab__label">
+                  <span>
+                    Come ottenere supporto per un SMM Panel Italia?
+                  </span>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                      stroke="#02030E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+                <p class="text-justify">
+                  Il supporto per un SMM Panel Italia generalmente include l'accesso a documentazione, guide utente e canali di assistenza clienti diretti. Assicurati che il fornitore del panel offra un supporto reattivo e di alta qualità per risolvere eventuali problemi tecnici o domande.
+                </p>
+              </div>
+
+              <div class="tab__item">
+                <a href="#" class="tab__label">
+                  <span>
+                    Quanto costa utilizzare un SMM Panel Italia?
+                  </span>
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 18 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                      stroke="#02030E"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </a>
+                <p class="text-justify">
+                  Il costo di utilizzo di un SMM Panel Italia può variare in base alle funzionalità offerte, al piano scelto e alla durata del servizio. È consigliabile confrontare diverse opzioni e scegliere un panel che offre un buon equilibrio tra prezzo e funzionalità.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- SECTION : FAQ END -->
+

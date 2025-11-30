@@ -1,0 +1,497 @@
+<div {% if user['auth'] %}style="display: none;"{% endif %}>
+<!-- Start : HERO-->
+<section class="flex flex-col lg:flex-row bg-gradient-to-br from-slate-50 via-primary-50/30 to-accent-50/20 dark:from-dark dark:via-dark-secondary dark:to-dark transition-all duration-300 hero overflow-hidden">
+    <!-- Left Section: Promotional Content -->
+    <div class="flex flex-1 items-center justify-center relative p-6 sm:p-8 lg:p-10 xl:p-12 order-2 lg:order-1">
+        <!-- Decorative Background Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-primary-200/20 dark:bg-primary-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-accent-200/20 dark:bg-accent-500/10 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-lg w-full space-y-5 sm:space-y-6 relative z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-white/90 dark:bg-dark-secondary/90 backdrop-blur-md border border-primary-200/50 dark:border-primary-500/30 rounded-full text-xs sm:text-sm font-medium text-primary-600 dark:text-primary-400 shadow-sm transition-all duration-300 hover:shadow-md">
+                <svg class="w-3 h-3 sm:w-4 sm:h-4 mr-2" fill="currentColor" viewBox="0 0 24 25" aria-hidden="true">
+                    <path d="M14.7416 14.2228L24 12.515L14.6816 10.927L17.2285 7.24157L13.6629 9.78839L11.985 0.5L10.397 9.84832L6.74157 7.24157L9.25843 10.927L0 12.515L9.25843 14.2228L6.74157 17.7584L10.397 15.2416L11.985 24.5L13.6929 15.3015L17.2285 17.7584L14.7416 14.2228Z" fill="currentColor"/>
+                </svg>
+                World's #1 SMM Panel & Provider
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-slate-100 leading-tight tracking-tight">
+                Authentic & Affordable <span class="text-primary-500 dark:text-primary-400">Genuine SMM Panel</span>
+            </h1>
+
+            <!-- Description -->
+            <p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                Welcome to Marketerum, your top choice for real social media growth in Pakistan. Our <a href="/" class="text-primary-500 hover:text-primary-600 underline">SMM Panel</a> Pakistan is made to give you true engagement and lasting growth on key sites like Instagram, Facebook, Twitter, YouTube, and TikTok. If you're an influencer, a pro, or a brand wanting to grow online, we've got you covered. Our strategies are made to fit your needs and budget. With Marketerum, you get the best in social media marketing. See how our custom plans can help you shine online.
+            </p>
+        </div>
+    </div>
+
+    <!-- Right Section: Login Form -->
+    <div class="flex-1 flex items-center justify-center py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 xl:px-12 order-1 lg:order-2 transition-all duration-300 relative">
+        <!-- Decorative Background for Form Section -->
+        <div class="absolute inset-0 bg-gradient-to-br from-white/50 to-gray-50/50 dark:from-dark-secondary/50 dark:to-dark/50 pointer-events-none"></div>
+        <div class="max-w-lg w-full h-full space-y-5 sm:space-y-6 relative z-10">
+            <!-- Form Card -->
+            <div class="bg-white/95 dark:bg-dark-secondary/95 backdrop-blur-sm rounded-xl shadow-lg dark:shadow-2xl border border-gray-200/50 dark:border-dark-tertiary/50 p-6 sm:p-8 transition-all duration-300 hover:shadow-xl dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 {% if site['rtl'] %} rtl-form {% endif %}">
+                <form method="post" action="{{ page['url'] }}" class="space-y-6">
+                    <!-- Error Alert -->
+                    {% if error %}
+                    <div class="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg flex items-center justify-between {% if site['rtl'] %} rtl-alert {% endif %}" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                            </svg>
+                            <span>{{ errorMessage }}</span>
+                        </div>
+                        <button type="button" class="text-red-500 hover:text-red-700 focus:outline-none" onclick="this.parentElement.remove()" aria-label="Close error message">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                    {% endif %}
+
+                    <!-- Success Alert -->
+                    {% if success %}
+                    <div class="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg flex items-center justify-between" role="alert" aria-live="polite" aria-atomic="true">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>{{ successMessage }}</span>
+                        </div>
+                        <button type="button" class="text-green-500 hover:text-green-700 focus:outline-none" onclick="this.parentElement.remove()" aria-label="Close success message">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                    {% endif %}
+
+                    <!-- Username Field -->
+                    <div>
+                        <label for="username" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">
+                            {{ lang('signup.username') }}
+                        </label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none" aria-hidden="true">
+                                <svg class="h-5 w-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                            </div>
+                            <input 
+                                type="text" 
+                                id="username" 
+                                name="LoginForm[username]" 
+                                required
+                                autocomplete="username"
+                                aria-required="true"
+                                aria-describedby="username-description"
+                                class="appearance-none relative block w-full pl-10 pr-3 py-2 border border-primary-200 dark:border-primary-500/30 placeholder-gray-400 dark:placeholder-slate-500 text-gray-900 dark:text-slate-100 dark:bg-dark-tertiary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm transition-colors"
+                                placeholder="{{ lang('signup.username') }}"
+                            >
+                            <span id="username-description" class="sr-only">Enter your username</span>
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group__password">
+                        <div class="flex items-center justify-between mb-2">
+                            <label for="password" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+                                {{ lang('signup.password') }}
+                            </label>
+                            {% if site['resetPassword'] %}
+                            <a href="{{ page_url('resetpassword') }}" class="text-sm text-primary-500 hover:text-primary-600 transition-colors">
+                                {{ lang('signin.reset_password') }}
+                            </a>
+                            {% endif %}
+                        </div>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none" aria-hidden="true">
+                                <svg class="h-5 w-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                </svg>
+                            </div>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="LoginForm[password]" 
+                                required
+                                autocomplete="current-password"
+                                aria-required="true"
+                                aria-describedby="password-description"
+                                class="appearance-none relative block w-full pl-10 pr-3 py-2 border border-primary-200 dark:border-primary-500/30 placeholder-gray-400 dark:placeholder-slate-500 text-gray-900 dark:text-slate-100 dark:bg-dark-tertiary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm transition-colors"
+                                placeholder="{{ lang('signup.password') }}"
+                            >
+                            <span id="password-description" class="sr-only">Enter your password</span>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me Checkbox -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input 
+                                type="checkbox" 
+                                name="LoginForm[remember]" 
+                                value="1" 
+                                id="remember"
+                                aria-describedby="remember-description"
+                                class="h-4 w-4 text-primary-500 focus:ring-primary-500 border-gray-300 rounded"
+                            >
+                            <label for="remember" class="ml-2 block text-sm text-gray-700 dark:text-slate-300">
+                                Remember me
+                            </label>
+                            <span id="remember-description" class="sr-only">Keep me signed in on this device</span>
+                        </div>
+                    </div>
+
+                    <!-- Captcha -->
+                    {% if captcha %}
+                    <div>
+                        {{ captchaCode }}
+                    </div>
+                    {% endif %}
+
+                    <!-- CSRF Token -->
+                    <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+
+                    <!-- Submit Button & Google Sign In -->
+                    <div class="space-y-4">
+                        <button 
+                            type="submit" 
+                            class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all shadow-md hover:shadow-lg"
+                            aria-label="Sign in to your account"
+                        >
+                            {{ lang('signin.button')|default('Sign In') }}
+                        </button>
+
+                        {% if googleSignIn %}
+                        <div class="flex items-center justify-center">
+                            <div id="g_id_onload" data-client_id="{{ googleClientId }}" data-login_uri="{{ googleSignInRedirectUrl }}" data-auto_prompt="false" data-_csrf="{{ csrftoken }}"></div>
+                            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left"></div>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Sign Up Link -->
+                    <div class="text-center text-sm text-gray-600 dark:text-slate-400">
+                        Do not have an account? 
+                        <a href="{{ page_url('signup') }}" class="font-medium text-primary-500 dark:text-primary-400 hover:text-primary-600 dark:hover:text-primary-300 transition-colors">
+                            {{ lang('signup.button')|default('Sign up') }}
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End : HERO -->
+
+
+<!-- SECTION : STATS -->
+<section class="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-dark transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-slate-100 text-center mb-8 sm:mb-12">Marketerum Achievements</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+            <!-- Orders Completed Card -->
+            <div class="bg-white dark:bg-dark-secondary rounded-lg p-6 sm:p-8 shadow-md dark:shadow-xl hover:shadow-lg dark:hover:shadow-2xl transition-all duration-300 border border-transparent dark:border-dark-tertiary hover:border-primary-200 dark:hover:border-primary-500/30">
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-primary-500 rounded-full flex items-center justify-center">
+                            <img loading="lazy" width="32" height="32" src="https://storage.perfectcdn.com/7gc9nb/4awu9w7452rb1eql.svg" alt="Total orders" class="w-7 h-7 sm:w-8 sm:h-8">
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-500 mb-2">
+                            {{ totals['ordersAll']|number_format(0, '.', ',') }}
+                        </div>
+                        <div class="text-base sm:text-lg text-gray-600 dark:text-slate-400">Orders Completed</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Satisfied Customers Card -->
+            <div class="bg-white dark:bg-dark-secondary rounded-lg p-6 sm:p-8 shadow-md dark:shadow-xl hover:shadow-lg dark:hover:shadow-2xl transition-all duration-300 border border-transparent dark:border-dark-tertiary hover:border-primary-200 dark:hover:border-primary-500/30">
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-primary-500 rounded-full flex items-center justify-center">
+                            <img loading="lazy" width="32" height="32" src="https://storage.perfectcdn.com/7gc9nb/67hc9ch7mk699ow1.png" alt="Our Happy customers" class="w-7 h-7 sm:w-8 sm:h-8">
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-500 mb-2">
+                            {{ totals['usersAll']|number_format(0, '.', ',') }}
+                        </div>
+                        <div class="text-base sm:text-lg text-gray-600 dark:text-slate-400">Satisfied Customers</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Active Services Card -->
+            <div class="bg-white dark:bg-dark-secondary rounded-lg p-6 sm:p-8 shadow-md dark:shadow-xl hover:shadow-lg dark:hover:shadow-2xl transition-all duration-300 border border-transparent dark:border-dark-tertiary hover:border-primary-200 dark:hover:border-primary-500/30">
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-primary-500 rounded-full flex items-center justify-center">
+                            <img loading="lazy" width="32" height="32" src="https://storage.perfectcdn.com/7gc9nb/l2d4lro3zhi6p334.png" alt="Our stable services" class="w-7 h-7 sm:w-8 sm:h-8">
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-500 mb-2">
+                            5,235+
+                        </div>
+                        <div class="text-base sm:text-lg text-gray-600 dark:text-slate-400">Active Services</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END : STATS -->
+
+<!-- SECTION : ABOUT US -->
+<section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-primary-50 to-white dark:from-dark-secondary dark:to-dark transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white dark:bg-dark-secondary rounded-2xl border border-primary-200 dark:border-primary-500/30 shadow-lg dark:shadow-xl overflow-hidden transition-all duration-300">
+            <!-- Gradient Top -->
+            <div class="bg-gradient-to-b from-primary-50 to-white dark:from-primary-900/20 dark:to-dark-secondary h-32 sm:h-40"></div>
+            
+            <!-- Content -->
+            <div class="px-6 sm:px-8 lg:px-12 pb-8 sm:pb-12 lg:pb-16 -mt-20 sm:-mt-24 relative">
+                <!-- About Us Badge -->
+                <div class="inline-flex items-center px-4 py-2 bg-primary-100 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-500/30 rounded-full text-sm font-medium text-gray-700 dark:text-slate-300 mb-6">
+                    About Us
+                </div>
+
+                <!-- Main Title -->
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-6 sm:mb-8 leading-tight">
+                    Your Premier <span class="text-primary-500 dark:text-primary-400">Genuine SMM Panel</span>
+                </h2>
+
+                <!-- Body Text -->
+                <div class="space-y-4 sm:space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                    <p>
+                        Take your online presence to the next level with Marketerum's targeted solutions. They are made to boost your digital marketing and social media game. Our wide range of services meets the specific needs of brands and influencers, making your digital footprint more powerful.
+                    </p>
+                    <p>
+                        Boost your social media game with our digital marketing strategies. We offer tools like engagement boosters, detailed analytics, and targeted campaigns. These help you connect deeply with your audience, building loyalty and engagement.
+                    </p>
+                    <p>
+                        Use Marketerum's expertise and cutting-edge tech to build a strong online presence. Our services help all kinds of businesses, from startups to big brands, improve their social media game. With Marketerum, you'll see better ROI and real results from our competitive services.
+                    </p>
+                    <p>
+                        Start your strategic social media marketing journey with Marketerum and see your brand grow. Our tailored services keep you ahead in the digital world. You'll reach your audience effectively and make a lasting impact.
+                    </p>
+                </div>
+
+                <!-- Call to Action Button -->
+                <div class="mt-8 sm:mt-10">
+                    <a href="https://marketerum.com/services" class="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white bg-primary-500 rounded-lg hover:bg-primary-600 transition-all shadow-md hover:shadow-lg">
+                        View All Services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END : ABOUT -->
+
+
+<!-- SECTION : WHY US -->
+<section class="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-dark transition-colors duration-300">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Decorative Hexagon Icon -->
+        <div class="flex justify-start mb-6">
+            <div class="relative">
+                <svg class="w-16 h-16 sm:w-20 sm:h-20 text-primary-300 transform rotate-12" fill="currentColor" viewBox="0 0 42 46" aria-hidden="true">
+                    <path d="M17 1.3094C19.4752 -0.119661 22.5248 -0.119661 25 1.3094L37.7846 8.6906C40.2598 10.1197 41.7846 12.7607 41.7846 15.6188V30.3812C41.7846 33.2393 40.2598 35.8803 37.7846 37.3094L25 44.6906C22.5248 46.1197 19.4752 46.1197 17 44.6906L4.21539 37.3094C1.74018 35.8803 0.215391 33.2393 0.215391 30.3812V15.6188C0.215391 12.7607 1.74018 10.1197 4.21539 8.6906L17 1.3094Z" fill="currentColor" opacity="0.3"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Why Choose Us Badge -->
+        <div class="mb-6">
+            <div class="inline-flex items-center px-4 py-2 bg-primary-100 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-500/30 rounded-full text-sm font-medium text-gray-700 dark:text-slate-300 shadow-sm">
+                Why Choose Us
+            </div>
+        </div>
+
+        <!-- Main Heading -->
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-6 sm:mb-8 leading-tight">
+            Why choose our <br class="hidden sm:block" />Genuine SMM Panel?
+        </h2>
+
+        <!-- Body Text -->
+        <div class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed space-y-4">
+            <p>
+                Choose our platform for top-notch advantages in your social media growth. We focus on quality, affordability, and ease of use. This ensures a successful and enriching experience for you. Our services cover major platforms, with targeted strategies for your digital goals. We're dedicated to genuine engagement, continuous support, and real growth. We're your perfect partner for boosting your online presence and reaching your goals.
+            </p>
+        </div>
+    </div>
+</section>
+<!-- END : WHY US -->
+
+<!-- SECTION : FAQ -->
+<section class="py-12 sm:py-16 lg:py-20 bg-white dark:bg-dark-secondary transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- FAQ Badge -->
+        <div class="text-center mb-6">
+            <div class="inline-flex items-center px-4 py-2 bg-primary-100 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-500/30 rounded-full text-sm font-medium text-gray-700 dark:text-slate-300 shadow-sm">
+                F.A.Q
+            </div>
+        </div>
+
+        <!-- Main Heading -->
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-100 text-center mb-6">
+            Enhance Your Strategy with a <span class="text-primary-500 dark:text-primary-400">Genuine SMM Panel</span> at marketerum.com
+        </h2>
+
+        <!-- Introductory Text -->
+        <p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 text-center max-w-3xl mx-auto mb-10 sm:mb-12 leading-relaxed">
+            Discover how a Genuine SMM Panel can boost your digital marketing. At marketerum.com, we provide tools and insights. They help manage your online presence well.
+        </p>
+
+        <!-- FAQ Accordion -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6" role="region" aria-label="Frequently Asked Questions">
+            <!-- Left Column -->
+            <div class="space-y-4 sm:space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border-2 border-primary-200 dark:border-primary-500/30 shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="1" aria-expanded="true" aria-controls="faq-answer-1" id="faq-question-1">
+                        <span class="font-semibold text-gray-900 dark:text-slate-100 text-base sm:text-lg pr-4">What is a Genuine SMM Panel?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-primary-500 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-1" class="faq-answer p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-1">
+                        <p>
+                            A Genuine SMM Panel is a trusted platform that provides reliable and authentic social media marketing services. It ensures quality and effectiveness in managing and optimizing your online presence.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="2" aria-expanded="false" aria-controls="faq-answer-2" id="faq-question-2">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">How Does a Genuine SMM Panel Work?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-2" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-2">
+                        <p>
+                            A Genuine SMM Panel operates by offering a range of tools and services to enhance your social media marketing efforts. It provides features for managing campaigns, tracking performance, and optimizing results.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="3" aria-expanded="false" aria-controls="faq-answer-3" id="faq-question-3">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">What Makes a SMM Panel Genuine?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-3" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-3">
+                        <p>
+                            A genuine SMM panel is characterized by transparency, reliable services, and effective tools. It follows industry best practices and offers consistent results without any misleading claims.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="4" aria-expanded="false" aria-controls="faq-answer-4" id="faq-question-4">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">Are Genuine SMM Panels Safe to Use?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-4" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-4">
+                        <p>
+                            Yes, genuine SMM panels are safe to use. They prioritize data protection and follow security protocols to ensure that your information and marketing activities remain secure.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="space-y-4 sm:space-y-6">
+                <!-- FAQ Item 5 -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="5" aria-expanded="false" aria-controls="faq-answer-5" id="faq-question-5">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">How Can a Genuine SMM Panel Benefit My Business?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-5" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-5">
+                        <p>
+                            A genuine SMM panel can enhance your business by providing effective tools for managing social media strategies, tracking performance, and achieving better online engagement. It helps streamline marketing efforts and improve results.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="6" aria-expanded="false" aria-controls="faq-answer-6" id="faq-question-6">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">What Features Should I Look for in a Genuine SMM Panel?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-6" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-6">
+                        <p>
+                            When choosing a genuine SMM panel, look for features such as reliable analytics, comprehensive management tools, responsive customer support, and transparent pricing. These elements ensure a high-quality and effective experience.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7 -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="7" aria-expanded="false" aria-controls="faq-answer-7" id="faq-question-7">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">How Do I Evaluate the Quality of a SMM Panel?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-7" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-7">
+                        <p>
+                            To evaluate the quality of a SMM panel, review user feedback, assess the range of features offered, and check for transparent communication from the provider. Reliable performance and positive testimonials are also good indicators.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 8 -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="8" aria-expanded="false" aria-controls="faq-answer-8" id="faq-question-8">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">What Is the Difference Between a Genuine SMM Panel and a Fake One?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-8" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-8">
+                        <p>
+                            Genuine SMM panels offer real, reliable services and maintain transparency in their operations. Fake panels may promise unrealistic results and lack transparency, often leading to poor performance and security issues.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END : FAQ -->
+
+
+</div>
+
+
+
+
+
+
+
+</div>

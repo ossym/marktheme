@@ -1,0 +1,277 @@
+{% set networks = [
+    {
+        name: 'TikTok',
+        slug: 'tiktok',
+        color: '#FE2C55',
+        soft_color: 'rgba(254, 44, 85, 0.12)',
+        icon: 'fa-video',
+        icon_type: 'solid',
+        description: 'Our TikTok AI tools help you create fun and engaging content. Get video ideas, catchy scripts, perfect hashtags, and more to grow your audience easily. Make your TikToks stand out in no time!',
+        tools: [
+            {
+                title: 'TikTok Username Generator',
+                url: 'https://marketerum.com/tiktok-username-generator',
+                description: 'Find the perfect username for your TikTok profile. Stand out with unique, creative name suggestions generated just for you.'
+            },
+            {
+                title: 'TikTok Script Writer',
+                url: 'https://marketerum.com/tiktok-script-writer',
+                description: 'Create catchy TikTok scripts effortlessly. Generate ideas that resonate with your audience and boost your chances of going viral.'
+            },
+            {
+                title: 'TikTok Hook Generator',
+                url: 'https://marketerum.com/tiktok-hook-generator',
+                description: 'Grab attention with powerful TikTok hooks. Generate opening lines that captivate viewers and encourage engagement.'
+            },
+            {
+                title: 'TikTok Hashtag Generator',
+                url: 'https://marketerum.com/tiktok-hashtag-generator',
+                description: 'Find trending hashtags for your TikTok videos. Boost discoverability and engagement with AI-recommended hashtags.'
+            },
+            {
+                title: 'TikTok Video Ideas Generator',
+                url: 'https://marketerum.com/tiktok-video-ideas-generator',
+                description: 'Never run out of TikTok ideas again. Generate creative video concepts tailored to your niche and audience.'
+            }
+        ]
+    },
+    {
+        name: 'Instagram',
+        slug: 'instagram',
+        color: '#C13584',
+        soft_color: 'rgba(193, 53, 132, 0.12)',
+        icon: 'fa-instagram',
+        description: 'Our Instagram AI tools help you create eye-catching posts and boost engagement effortlessly. Generate captions, hashtags, and script ideas to elevate your social media game. Stand out on Instagram with ease!',
+        tools: [
+            {
+                title: 'Instagram Reel Script Writer',
+                url: 'https://marketerum.com/instagram-reel-script-writer',
+                description: 'Create engaging Instagram Reel scripts effortlessly. Generate ideas that capture attention and keep your audience hooked from start to finish.'
+            },
+            {
+                title: 'Instagram Hashtag Generator',
+                url: 'https://marketerum.com/instagram-hashtag-generator',
+                description: 'Find the best hashtags for your Instagram posts to increase visibility and grow your reach. Boost engagement with AI-powered suggestions.'
+            },
+            {
+                title: 'Instagram Caption Generator',
+                url: 'https://marketerum.com/instagram-caption-generator',
+                description: 'Generate creative captions for your Instagram posts in seconds. Make every post stand out with unique, AI-generated ideas.'
+            }
+        ]
+    },
+    {
+        name: 'YouTube',
+        slug: 'youtube',
+        color: '#FF0000',
+        soft_color: 'rgba(255, 0, 0, 0.12)',
+        icon: 'fa-youtube',
+        description: 'Our YouTube AI tools help you create compelling content and grow your channel effortlessly. Generate optimized titles, descriptions, scripts, and more to maximize engagement and reach your audience effectively.',
+        tools: [
+            {
+                title: 'YouTube Outline Generator',
+                url: 'https://marketerum.com/youtube-outline-generator',
+                description: 'Plan your YouTube videos with ease. Generate detailed outlines to keep your content organized and engaging.'
+            },
+            {
+                title: 'YouTube Ideas Generator',
+                url: 'https://marketerum.com/youtube-ideas-generator',
+                description: 'Find fresh, engaging video ideas for your YouTube channel. Get inspired with AI-generated concepts tailored to your audience.'
+            },
+            {
+                title: 'YouTube Tag Generator',
+                url: 'https://marketerum.com/youtube-tag-generator',
+                description: 'Discover the best tags for your YouTube videos to improve SEO and visibility. Optimize your content with AI-suggested keywords.'
+            },
+            {
+                title: 'YouTube SEO Title Generator',
+                url: 'https://marketerum.com/youtube-seo-title-generator',
+                description: 'Create SEO-optimized titles for your YouTube videos. Maximize views and engagement with catchy, AI-crafted titles.'
+            },
+            {
+                title: 'YouTube SEO Description Generator',
+                url: 'https://marketerum.com/youtube-seo-description-generator',
+                description: 'Write SEO-friendly descriptions for your YouTube videos effortlessly. Enhance discoverability with AI-generated suggestions.'
+            },
+            {
+                title: 'YouTube Script Writer',
+                url: 'https://marketerum.com/youtube-script-writer',
+                description: 'Craft engaging YouTube scripts with ease. Generate content that keeps viewers hooked and drives more subscriptions.'
+            },
+            {
+                title: 'YouTube Intro Generator',
+                url: 'https://marketerum.com/youtube-intro-generator',
+                description: 'Make a great first impression with captivating YouTube intros. Generate engaging opening ideas tailored to your content.'
+            },
+            {
+                title: 'YouTube Hook Generator',
+                url: 'https://marketerum.com/youtube-hook-generator',
+                description: 'Capture your audience\'s attention with compelling YouTube hooks. Create opening lines that keep viewers watching.'
+            },
+            {
+                title: 'YouTube Hashtag Generator',
+                url: 'https://marketerum.com/youtube-hashtag-generator',
+                description: 'Find the best hashtags for your YouTube videos. Boost discoverability and engagement with optimized hashtags.'
+            }
+        ]
+    },
+    {
+        name: 'Twitter',
+        slug: 'twitter',
+        color: '#1DA1F2',
+        soft_color: 'rgba(29, 161, 242, 0.12)',
+        icon: 'fa-twitter',
+        description: 'Our Twitter AI tools help you craft engaging tweets and build your online presence effortlessly. Generate creative tweets, discover trending hashtags, and write eye-catching bios to grow your audience and stand out on Twitter.',
+        tools: [
+            {
+                title: 'Twitter Tweet Generator',
+                url: 'https://marketerum.com/twitter-tweet-generator',
+                description: 'Generate creative and engaging tweets with ease. Our tool helps you craft content that resonates with your audience.'
+            },
+            {
+                title: 'Twitter Hashtag Generator',
+                url: 'https://marketerum.com/twitter-hashtag-generator',
+                description: 'Discover trending hashtags for your tweets. Boost engagement and visibility with optimized hashtag suggestions.'
+            },
+            {
+                title: 'Twitter Bio Generator',
+                url: 'https://marketerum.com/twitter-bio-generator',
+                description: 'Write a professional and eye-catching Twitter bio. Stand out and attract followers with AI-generated ideas.'
+            }
+        ]
+    },
+    {
+        name: 'LinkedIn',
+        slug: 'linkedin',
+        color: '#0072b1',
+        soft_color: 'rgba(0, 114, 177, 0.12)',
+        icon: 'fa-linkedin-in',
+        description: 'Our LinkedIn AI tools help you create professional posts, engaging hooks, and find trending hashtags to grow your network effortlessly. Enhance your LinkedIn presence and connect with your audience more effectively.',
+        tools: [
+            {
+                title: 'LinkedIn Post Generator',
+                url: 'https://marketerum.com/linkedin-post-generator',
+                description: 'Create professional LinkedIn posts effortlessly. Generate content that drives engagement and grows your network.'
+            },
+            {
+                title: 'LinkedIn Hook Generator',
+                url: 'https://marketerum.com/linkedin-hook-generator',
+                description: 'Craft compelling LinkedIn post openings. Generate hooks that grab attention and spark meaningful conversations.'
+            },
+            {
+                title: 'LinkedIn Hashtag Generator',
+                url: 'https://marketerum.com/linkedin-hashtag-generator',
+                description: 'Find the best hashtags for your LinkedIn posts. Increase visibility and engagement with AI-powered suggestions.'
+            }
+        ]
+    }
+] %}
+
+<section class="p-0 ai-tools">
+  <div class="ai-tools__hero page-title">
+    <div class="ai-tools__hero-backdrop" aria-hidden="true"></div>
+    <div class="container mx-auto ai-tools__hero-inner">
+      <div class="ai-tools__hero-content">
+        <span class="ai-tools__hero-kicker">AI Tools</span>
+        <h1 class="ai-tools__hero-title">
+          AI Tools to Boost Your Social Media Effortlessly
+        </h1>
+        <p class="ai-tools__hero-description">
+          Discover ready-to-use workflows that turn your ideas into on-brand captions, scripts, and hashtags in seconds.
+          Our AI assistant keeps your content calendar full so you can focus on building genuine connections.
+        </p>
+        <div class="ai-tools__hero-actions">
+          <a class="ai-tools__cta" href="#ai-tools-library">
+            <span>Browse the library</span>
+            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          </a>
+          <p class="ai-tools__hero-note">No prompts needed — start creating in seconds.</p>
+        </div>
+        <ul class="ai-tools__hero-highlights" aria-label="Highlights of the AI tools collection">
+          <li>
+            <i class="fas fa-magic" aria-hidden="true"></i>
+            <span>Templates tailored to every social network</span>
+          </li>
+          <li>
+            <i class="fas fa-bolt" aria-hidden="true"></i>
+            <span>AI suggestions optimized for reach and engagement</span>
+          </li>
+          <li>
+            <i class="fas fa-clock" aria-hidden="true"></i>
+            <span>Save hours each week with automated ideation</span>
+          </li>
+        </ul>
+      </div>
+      <div class="ai-tools__hero-visual" aria-hidden="true">
+        <figure class="ai-tools__hero-figure">
+          <img
+            src="https://storage.perfectcdn.com/7gc9nb/u3cq08qwdecfjcnt.png"
+            alt="Illustration of an AI assistant creating social media content"
+            loading="lazy"
+          />
+        </figure>
+      </div>
+    </div>
+    <svg
+      class="ai-tools__hero-shape"
+      width="488"
+      height="306"
+      viewBox="0 0 488 306"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        opacity="0.34"
+        d="M-158.855 18.8875C-117.176 -5.17616 -65.8243 -5.17616 -24.1448 18.8875L420.083 275.362C461.762 299.426 487.438 343.898 487.438 392.025V904.975C487.438 953.102 461.762 997.574 420.083 1021.64L-24.1448 1278.11C-65.8243 1302.18 -117.176 1302.18 -158.855 1278.11L-603.083 1021.64C-644.762 997.574 -670.438 953.102 -670.438 904.975V392.025C-670.438 343.898 -644.762 299.426 -603.083 275.362L-158.855 18.8875Z"
+        fill="url(#paint0_linear_6163_12011)"
+      />
+      <defs>
+        <linearGradient
+          id="paint0_linear_6163_12011"
+          x1="397.5"
+          y1="-111"
+          x2="-6.50001"
+          y2="541.5"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stop-color="#D4EDFF" />
+          <stop offset="1" stop-color="#8CC9FF" />
+        </linearGradient>
+      </defs>
+    </svg>
+  </div>
+
+  <main class="relative">
+    <div class="bg-[url('./assets/imgs/service-bg.jpg')] bg-cover dark:!bg-[#0D0D0D] dark:bg-none"></div>
+
+    <section class="ai-tools__section" id="ai-tools-library">
+      {% for network in networks %}
+        <section class="ai-tools__category" style="--accent-color: {{ network.color }}; --accent-color-soft: {{ network.soft_color }};">
+          <div class="container mx-auto">
+            <h2 class="home-title ai-tools__section-title">{{ network.name }} <span>AI Tools</span></h2>
+            <p class="home-p ai-tools__section-description">
+              {{ network.description }}
+            </p>
+          </div>
+
+          <div class="container relative mx-auto ai-tools__grid">
+            {% for tool in network.tools %}
+              <article class="ai-tools__card">
+                <div class="ai-tools__icon">
+                  <i class="{% if network.icon_type == 'solid' %}fas{% else %}fab{% endif %} {{ network.icon }}" aria-hidden="true"></i>
+                  <span class="sr-only">{{ network.name }}</span>
+                </div>
+                <h4 class="ai-tools__card-title">
+                  <a class="ai-tools__tool-link" href="{{ tool.url }}"><span>{{ tool.title }}</span></a>
+                </h4>
+                <p class="ai-tools__card-description">
+                  {{ tool.description }}
+                </p>
+              </article>
+            {% endfor %}
+          </div>
+        </section>
+      {% endfor %}
+    </section>
+  </main>
+</section>

@@ -1,0 +1,447 @@
+<!-- Start : HERO-->
+<section class="hero px-5">
+  <div class="container mx-auto flex flex-col md:flex-row md:space-x-10">
+    <div class="hero_right flex flex-col items-start justify-center space-y-6 md:w-1/2 md:pr-7">
+      <span class="text__highlight bg-secondary-border text-sm">
+        <svg
+          width="24"
+          height="25"
+          viewBox="0 0 24 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.7416 14.2228L24 12.515L14.6816 10.927L17.2285 7.24157L13.6629 9.78839L11.985 0.5L10.397 9.84832L6.74157 7.24157L9.25843 10.927L0 12.515L9.25843 14.2228L6.74157 17.7584L10.397 15.2416L11.985 24.5L13.6929 15.3015L17.2285 17.7584L14.7416 14.2228Z"
+            fill="#00BFF3"
+          />
+        </svg>
+        Das weltweit wichtigste SMM-Panel
+      </span>
+      <h1 class="hero__heading text-5xl font-semibold">
+        <span>Billigstes</span> SMM-Panel
+      </h1>
+      <p class="hero__intro text-sm">
+        Wir bei Marketerum sind stolz darauf, der beste SMM-Panel-Anbieter zu sein, der die besten und günstigsten SMM-Dienste anbietet. Als ein vertrauenswürdiges SMM-Reseller-Panel für beliebte Plattformen wie Instagram, Facebook, Twitter, YouTube und TikTok verstehen wir die Bedeutung von echtem Engagement. Unsere Dienstleistungen sind darauf ausgerichtet, Ihre Online-Präsenz zu verbessern und Ihnen zu helfen, authentische Follower und Interaktionen zu gewinnen. Ganz gleich, ob Sie als Privatperson Ihre persönliche Marke stärken oder als Unternehmen Ihren digitalen Fußabdruck vergrößern möchten, unser umfassendes Serviceangebot deckt Sie ab. Mit Marketerum war es noch nie so einfach und erschwinglich, ein bemerkenswertes soziales Wachstum zu erzielen.
+      </p>
+
+    </div>
+    <div class="hero_left relative flex-col justify-center md:flex md:w-1/2 py-20">
+      <form class="signIn_form w-full space-y-7" method="post" action="{{ page['url'] }}">
+      				{% if error %}
+      					<div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+      						<button type="button" class="close" data-dismiss="alert">&times;</button>
+      						{{ errorMessage }}
+      					</div>
+      				{% endif %}
+
+      				{% if success %}
+      					<div class="alert alert-success alert-dismissible" role="alert">
+      						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      							<span aria-hidden="true">&times;</span>
+      						</button>
+      						{{successMessage}}
+      					</div>
+      				{% endif %}
+
+      				<div class="input-field">
+      					<div class="rounded-md bg-primary-main p-3">
+      						<svg width="20" height="20" viewbox="0 0 22 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+      							<path d="M21.6693 28.332H0.335938V25.6654C0.335938 21.9835 3.32071 18.9987 7.0026 18.9987H15.0026C18.6845 18.9987 21.6693 21.9835 21.6693 25.6654V28.332ZM11.0026 16.332C6.58432 16.332 3.0026 12.7503 3.0026 8.33203C3.0026 3.91375 6.58432 0.332031 11.0026 0.332031C15.4209 0.332031 19.0026 3.91375 19.0026 8.33203C19.0026 12.7503 15.4209 16.332 11.0026 16.332Z" fill="white"/>
+      						</svg>
+      					</div>
+      					<input type="text" placeholder="{{ lang('signup.username') }}" id="username" name="LoginForm[username]" aria-label="{{ lang('signup.username') }}" />
+      				</div>
+      				<div class="input-field">
+      					<div class="rounded-md bg-primary-main p-3">
+      						<svg width="20" height="20" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      							<path d="M9.75067 11.4226L20.3373 0.835938L23.1659 3.66436L21.2803 5.54998L24.1087 8.3784L19.3945 13.0925L16.5661 10.2641L12.5791 14.2511C13.8909 16.7643 13.4915 19.9383 11.3807 22.0491C8.77722 24.6526 4.55612 24.6526 1.95263 22.0491C-0.650877 19.4457 -0.650877 15.2246 1.95263 12.621C4.0634 10.5103 7.23746 10.1109 9.75067 11.4226ZM8.55228 19.2207C9.59374 18.1793 9.59374 16.4909 8.55228 15.4495C7.51088 14.4081 5.82246 14.4081 4.78106 15.4495C3.73966 16.4909 3.73966 18.1793 4.78106 19.2207C5.82246 20.2621 7.51088 20.2621 8.55228 19.2207Z" fill="white"/>
+      						</svg>
+      					</div>
+      					<input type="password" placeholder="{{ lang('signup.password') }}" id="password" name="LoginForm[password]" aria-label="{{ lang('signup.password') }}" />
+      				</div>
+      				<div class="form-info flex content-between justify-between">
+      					<div>
+      						<input type="checkbox" name="LoginForm[remember]" value="1" id="remember"/>
+      						<label for="remember">Remember me</label>
+      					</div>
+      					<a href="{{ page_url('resetpassword') }}" title="{{ lang('signin.reset_password') }}">Forgot password?</a>
+      				</div>
+      				<div class="my-4">
+      					{% if captcha %}
+      						{{ captchaCode }}
+      					{% endif %}
+      				</div>
+      				<input type="hidden" name="_csrf" value="{{csrftoken}}">
+
+      				<div class="signin_btns">
+      					<div class="form_btns grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-2">
+      						<button type="submit" class="btn btn--primary" href="#">
+      							<span>{{ lang('signin.button') }}</span>
+      							<img loading="lazy" src="https://storage.perfectcdn.com/7gc9nb/terrzy6bnr147d9w.svg" alt="Join Marketerum Now!"/>
+      						</button>
+      					</div>
+      					{% if googleSignIn %}
+      						<div class="google-login-wrap">
+      							<span class="google-login">
+      								Login with 
+      								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="LgbsSe-Bz112c"><g><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path><path fill="none" d="M0 0h48v48H0z"></path></g></svg>
+      							</span>
+      							<div class="form-group google-btn">
+      								<div id="g_id_onload" data-client_id="{{ googleClientId }}" data-login_uri="{{ googleSignInRedirectUrl }}" data-auto_prompt="false" data-_csrf="{{csrftoken}}"></div>
+      								<div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left"></div>
+      							</div>
+      						</div>
+      					{% endif %}
+      				</div>
+      				<div class="have-acc">
+      					Do not have an account?
+      					<a class="font-semibold text-secondary-main" href="{{ page_url('signup') }}">
+      						&nbsp&nbsp<span> {{ lang('signup.button') }}</span>
+      					</a>
+                    	</div>
+
+      			</form>
+    </div>
+  </div>
+</section>
+<!-- end : HERO-->
+
+<!-- SECTION : STATS -->
+<section class="stats px-5">
+	<div class="container mx-auto flex flex-col flex-wrap items-center justify-between gap-x-10 gap-y-8 text-center">
+		<h2 class="stats__title text-2xl font-semibold md:basis-full lg:basis-auto">
+			Marketerum Achievements
+		</h2>
+		<div class="stats__grid w-full">
+		<div class="stats__item">
+			<div class="stats__icon">
+				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/4awu9w7452rb1eql.svg" alt="Total orders">
+			</div>
+			<div class="stats__data">
+                <div class="stats__number">
+                    {{ totals['ordersAll']|number_format(0, '.', ',') }}
+				</div>
+				<span>Orders Completed</span>
+			</div>
+		</div>
+		<div class="stats__item">
+			<div class="stats__icon">
+				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/67hc9ch7mk699ow1.png" alt="Our Happy customers">
+			</div>
+			<div class="stats__data">
+                <div class="stats__number">
+                    {{ totals['usersAll']|number_format(0, '.', ',') }}
+				</div>
+				<span>Satisfied Customers</span>
+			</div>
+		</div>
+		<div class="stats__item">
+			<div class="stats__icon">
+				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/l2d4lro3zhi6p334.png" alt="Our stable services">
+			</div>
+			<div class="stats__data">
+                <div class="stats__number">
+                    5,235+
+                </div>
+				<span>Active Services</span>
+			</div>
+		</div>
+		</div>
+	</div>
+</section>
+<!-- END : STATS -->
+
+<!-- SECTION : ABOUT US -->
+<section class="about px-5">
+  <div class="container mx-auto">
+    <div class="intro mx-auto space-y-5 md:w-10/12">
+      <span class="text__highlight">Über uns</span>
+      <h2 class="heading--main">
+        Beste und günstigste <span class="p-color">SMM-Panel-Dienste</span>
+      </h2>
+      <p class="text-sm text-justify">
+        Wir von Marketerum definieren die SMM-Landschaft mit unseren außergewöhnlichen und erschwinglichen <b>SMM-Panel-Diensten</b> neu. Unser Engagement für Exzellenz zeigt sich in unseren sorgfältig zusammengestellten Paketen, die Unternehmen jeder Größe die Werkzeuge an die Hand geben, die sie brauchen, um die digitale Welt zu erobern.
+      </p>
+      <p class="text-sm text-justify">
+        Entfesseln Sie die Kraft des strategischen Social Media Marketing, ohne Ihr Budget zu sprengen. Unsere besten und erschwinglichsten SMM-Panel-Services bieten ein Tor zu sofortigem Engagement, Echtzeit-Einblicken und beeindruckendem Wachstum. Mit unseren dynamischen Kampagnen treffen Sie den Puls Ihres Publikums und entwickeln wirkungsvolle Botschaften, die ankommen und konvertieren.
+      </p>
+      <p class="text-sm text-justify">
+        UNutzen Sie das Fachwissen unserer erfahrenen Experten und modernste Tools, um die Online-Präsenz Ihrer Marke zu verbessern. Ganz gleich, ob Sie ein Start-up-Unternehmen sind, das groß rauskommen will, oder ein etabliertes Unternehmen, das expandieren möchte - unsere SMM-Panel-Services garantieren Ergebnisse, die zählen. Schließen Sie sich den Unternehmen an, die mit unseren kosteneffektiven Lösungen einen bemerkenswerten ROI erzielt haben. Nutzen Sie die Zukunft des digitalen Marketings noch heute mit Marketerum.
+      </p>
+      <p class="text-sm text-justify">
+        Steigern Sie die Online-Präsenz Ihrer Marke mit den kosteneffizienten, wirkungsvollen SMM-Panel-Services von Marketerum. Erleben Sie Echtzeit-Engagement, strategische Kampagnen und unbestreitbares Wachstum, das Ihr Unternehmen von der Konkurrenz abhebt. Ihre Reise zum digitalen Erfolg beginnt hier.
+      </p>
+      <a href="https://marketerum.com/services" class="btn btn--primary" style="display: inline-block">Alle Services anzeigen</a>
+    </div>
+  </div>
+</section>
+<!-- END : ABOUT -->
+
+<!-- SECTION : WHY US -->
+<section class="whyus px-5">
+      <div class="container mx-auto space-y-12 py-20">
+        <div class="intro relative mx-auto space-y-12 md:w-10/12">
+          <span class="text__highlight relative"
+            >F.A.Q
+            
+          </span>
+          <h2 class="heading--main relative">
+            Warum sollten Sie unser <br class="hidden md:inline-block" />SMM-Panel wählen ?
+
+            
+          </h2>
+          <p class="text-justify">
+            Die Entscheidung für marketerum.com als Ihr <b>SMM-Panel-Anbieter</b> ist eine Entscheidung, die unvergleichliche Vorteile und außergewöhnliche Ergebnisse verspricht. Unsere Plattform zeichnet sich durch ihr Engagement für Authentizität, Qualität und Erschwinglichkeit aus und stellt sicher, dass Ihre Social Media Reise sowohl effektiv als auch effizient ist. Mit marketerum.com erhalten Sie Zugang zu einem breiten Spektrum an zielgerichteten Dienstleistungen, die auf Ihr spezifisches Publikum und Ihre Ziele abgestimmt sind. Unser nutzerorientierter Ansatz, gepaart mit transparenten Praktiken und einem 24/7-Support, sorgt für eine nahtlose Erfahrung, die es Ihnen ermöglicht, Ihre Online-Präsenz auszubauen, Ihr Publikum einzubinden und Ihre Social-Media-Ziele zu erreichen. Als Branchenführer haben wir uns verpflichtet, echte Interaktionen und einen Wert zu liefern, der die Erwartungen übertrifft. Das macht marketerum.com zur ersten Wahl für Ihre SMM-Anforderungen.
+          </p>
+          <svg
+            class="absolute -top-40 left-0"
+            width="42"
+            height="46"
+            viewBox="0 0 42 46"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17 1.3094C19.4752 -0.119661 22.5248 -0.119661 25 1.3094L37.7846 8.6906C40.2598 10.1197 41.7846 12.7607 41.7846 15.6188V30.3812C41.7846 33.2393 40.2598 35.8803 37.7846 37.3094L25 44.6906C22.5248 46.1197 19.4752 46.1197 17 44.6906L4.21539 37.3094C1.74018 35.8803 0.215391 33.2393 0.215391 30.3812V15.6188C0.215391 12.7607 1.74018 10.1197 4.21539 8.6906L17 1.3094Z"
+              fill="#85E0F9"
+            />
+          </svg>
+
+          
+        </div>
+      </div>
+    </section>
+<!-- END : WHY US -->
+
+<!-- SECTION : FAQ -->
+<section class="faq1 px-5">
+      <div class="container mx-auto text-center">
+        <div class="intro mx-auto mb-12 space-y-8 md:w-8/12">
+          <span class="text__highlight relative">
+            Häufige Fragen
+            
+          </span>
+          <h2 class="heading--main">
+            Wichtige Fragen zu <span>SMM Panel Deutschland</span>
+          </h2>
+          <p class="text-justify">
+            Erfahren Sie mehr über wichtige Fragen zu SMM Panel Deutschland, einschließlich Funktionen, Vorteilen und Nutzungshinweisen.
+          </p>
+        </div>
+
+        <div class="faqs">
+          <div class="faqs__tab md:grid md:grid-cols-2 md:gap-8">
+            <div class="tab__item">
+              <a href="#" class="tab__label">
+                <span>
+                  Was ist ein SMM Panel Deutschland?
+                </span>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                    stroke="#02030E"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <p class="text-justify">
+                Ein SMM Panel Deutschland ist ein Werkzeug zur Verwaltung und Optimierung von Social-Media-Marketing-Kampagnen. Es bietet eine zentrale Plattform zur Automatisierung von Aufgaben, Überwachung von Leistungskennzahlen und Verwaltung von Nutzerinteraktionen.
+              </p>
+            </div>
+
+            <div class="tab__item">
+              <a href="#" class="tab__label">
+                <span>
+                  Welche Vorteile bietet ein SMM Panel Deutschland?
+                </span>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                    stroke="#02030E"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <p class="text-justify">
+                Die Hauptvorteile eines SMM Panels Deutschland sind die Vereinfachung der Marketingverwaltung, die Automatisierung wiederkehrender Aufgaben, die zentrale Datenanalyse und die Verbesserung der Effizienz bei der Verwaltung mehrerer Kampagnen und Nutzeranfragen.
+              </p>
+            </div>
+
+            <div class="tab__item">
+              <a href="#" class="tab__label">
+                <span>
+                  Wie wählt man das passende SMM Panel Deutschland aus?
+                </span>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                    stroke="#02030E"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <p class="text-justify">
+                Bei der Auswahl des passenden SMM Panels Deutschland sollten Sie auf den Funktionsumfang, die Benutzerfreundlichkeit, Anpassungsoptionen, den Kundenservice und die Gesamtkosten achten. Stellen Sie sicher, dass es Ihre spezifischen Anforderungen erfüllt und Ihre Marketingziele unterstützt.
+              </p>
+            </div>
+
+            <div class="tab__item">
+              <a href="#" class="tab__label">
+                <span>
+                  Welche häufigen Probleme können bei der Nutzung eines SMM Panels Deutschland auftreten?
+                </span>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                    stroke="#02030E"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <p class="text-justify">
+                Häufige Probleme bei der Nutzung eines SMM Panels Deutschland können technische Störungen, Komplikationen bei der Integration mit verschiedenen Plattformen und Herausforderungen bei der Konfiguration und Anpassung sein. Achten Sie darauf, dass der Anbieter zuverlässige Unterstützung bietet, um diese Probleme zu lösen.
+              </p>
+            </div>
+
+            <div class="tab__item">
+              <a href="#" class="tab__label">
+                <span>
+                  Wie kann man die Effektivität eines SMM Panels Deutschland maximieren?
+                </span>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                    stroke="#02030E"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <p class="text-justify">
+                Um die Effektivität eines SMM Panels Deutschland zu maximieren, sollten Sie regelmäßig Ihre Strategien basierend auf Leistungsdaten anpassen, alle Funktionen des Panels nutzen und sicherstellen, dass es gut in Ihre Marketingaktivitäten integriert ist. Halten Sie sich auch über Updates und Best Practices informiert.
+              </p>
+            </div>
+
+            <div class="tab__item">
+              <a href="#" class="tab__label">
+                <span>
+                  Welche Funktionen sollte ein SMM Panel Deutschland bieten?
+                </span>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                    stroke="#02030E"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <p class="text-justify">
+                Wichtige Funktionen eines SMM Panels Deutschland umfassen eine benutzerfreundliche Oberfläche, umfassende Analyse- und Berichtswerkzeuge, Automatisierungsfunktionen, Anpassungsoptionen und zuverlässigen Kundenservice.
+              </p>
+            </div>
+
+            <div class="tab__item">
+              <a href="#" class="tab__label">
+                <span>
+                  Wie erhält man Unterstützung für ein SMM Panel Deutschland?
+                </span>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                    stroke="#02030E"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <p class="text-justify">
+                Unterstützung für ein SMM Panel Deutschland wird normalerweise durch Zugriff auf Dokumentationen, Benutzerhandbücher und direkte Kundenservice-Kanäle bereitgestellt. Stellen Sie sicher, dass der Anbieter eine zuverlässige und reaktionsschnelle Unterstützung bietet, um technische Probleme oder Fragen zu klären.
+              </p>
+            </div>
+
+            <div class="tab__item">
+              <a href="#" class="tab__label">
+                <span>
+                  Was kostet die Nutzung eines SMM Panels Deutschland?
+                </span>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                    stroke="#02030E"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <p class="text-justify">
+                Die Kosten für die Nutzung eines SMM Panels Deutschland können je nach den angebotenen Funktionen, dem Support-Niveau und etwaigen zusätzlichen Anpassungswünschen variieren. Überprüfen Sie die Preisstruktur, um sicherzustellen, dass sie innerhalb Ihres Budgets liegt und Ihren Erwartungen entspricht.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- END : FAQ -->
+
+

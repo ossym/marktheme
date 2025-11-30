@@ -1,2 +1,202 @@
-{# API template #}
+<main class="shrink grow">
+  <div class="mx-auto w-full max-w-6xl space-y-6 px-4 py-6 sm:px-6 lg:px-8">
+    <section class="rounded-2xl border border-gray-200 bg-white p-4 shadow-sm transition-all duration-300 dark:border-gray-700 dark:bg-gray-800 sm:p-6">
+      <div class="flex items-center gap-3">
+        <a href="#" class="inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-cyan-500 to-teal-500 px-5 py-3 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:from-cyan-600 hover:to-teal-600 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 dark:from-cyan-400 dark:to-teal-400 dark:hover:from-cyan-500 dark:hover:to-teal-500">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 22 22"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="flex-shrink-0"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M13.0939 5.36463H8.90648C8.89418 5.36495 8.88248 5.37003 8.87378 5.37882C8.86508 5.3876 8.86005 5.39943 8.85973 5.41186V9.64293C8.86005 9.65536 8.86508 9.66718 8.87378 9.67597C8.88248 9.68475 8.89418 9.68984 8.90648 9.69016H13.0939C13.1062 9.68984 13.1179 9.68475 13.1266 9.67597C13.1353 9.66718 13.1403 9.65536 13.1406 9.64293V5.41186C13.1403 5.39943 13.1353 5.3876 13.1266 5.37882C13.1179 5.37003 13.1062 5.36495 13.0939 5.36463ZM6.8202 4.1341H15.1802C15.731 4.1341 16.1284 4.53481 16.1284 5.0893V9.9761C16.1273 10.1159 16.0901 10.2529 16.0203 10.3667L11.8653 17.1732C11.5692 17.6374 11.1401 17.8648 10.6852 17.8648C10.2303 17.8648 9.80112 17.6374 9.50494 17.1732L5.34996 10.3654C5.28277 10.2529 5.24555 10.1159 5.24449 9.9761V5.08794C5.24449 4.53481 5.64292 4.1341 6.19372 4.1341H6.8202ZM7.01769 5.40141H14.9834C14.9958 5.40141 15.0075 5.4065 15.0162 5.41528C15.0249 5.42406 15.0299 5.43589 15.0302 5.44832V9.61259C15.0299 9.62502 15.0249 9.63684 15.0162 9.64563C15.0075 9.65441 14.9958 9.65949 14.9834 9.65981H7.01769C7.00539 9.65949 6.99369 9.65441 6.98499 9.64563C6.97629 9.63684 6.97126 9.62502 6.97094 9.61259V5.44696C6.97126 5.43453 6.97629 5.4227 6.98499 5.41392C6.99369 5.40514 7.00539 5.40006 7.01769 5.39974V5.40141ZM8.41978 10.8909C8.44716 10.8903 8.47454 10.8944 8.50011 10.9033C8.52568 10.9122 8.54883 10.9258 8.56811 10.9432C8.58739 10.9606 8.60238 10.9812 8.61212 11.004C8.62185 11.0267 8.62609 11.0509 8.62458 11.075C8.62348 11.1366 8.6271 11.198 8.63537 11.2588C8.66628 11.7011 8.80499 12.13 9.03495 12.5086C9.2649 12.8871 9.57864 13.2054 9.95145 13.4378C10.3243 13.6702 10.7453 13.8099 11.1801 13.8456C11.3698 13.8586 11.5611 13.8491 11.7489 13.8171C11.7967 13.8099 11.8456 13.8208 11.8852 13.8481C11.9248 13.8755 11.9523 13.9172 11.9615 13.9644C11.9707 14.0116 11.9607 14.0603 11.9334 14.1001C11.906 14.1398 11.8631 14.1676 11.8142 14.1782C11.5964 14.2173 11.3756 14.2376 11.1545 14.2388C10.6227 14.2398 10.0987 14.1156 9.61716 13.8753C9.13565 13.6349 8.70809 13.2837 8.36182 12.8451C8.01555 12.4064 7.75891 11.8918 7.61038 11.3377C7.46186 10.7836 7.42551 10.2032 7.50376 9.63384C7.51109 9.58559 7.53665 9.54102 7.57589 9.51093C7.61514 9.48085 7.66526 9.46765 7.71477 9.47401C7.76428 9.48036 7.80875 9.50561 7.83941 9.54407C7.87007 9.58252 7.88452 9.63148 7.87997 9.68052C7.83659 10.015 7.84507 10.3558 7.905 10.6886C7.9098 10.7161 7.91006 10.7442 7.90578 10.7718C7.9015 10.7994 7.89277 10.8262 7.88001 10.8511C7.86725 10.8761 7.85066 10.8987 7.83095 10.918C7.81123 10.9372 7.78867 10.9529 7.76397 10.9642C7.73928 10.9756 7.71284 10.9822 7.68574 10.9838C7.65863 10.9853 7.63144 10.9819 7.60563 10.9737C7.57983 10.9655 7.55588 10.9527 7.53517 10.9358C7.51445 10.919 7.4974 10.8984 7.48485 10.8752C7.4723 10.852 7.46444 10.8266 7.46171 10.8005C7.44173 10.6502 7.43513 10.4984 7.44199 10.347C7.4471 10.2377 7.45622 10.1288 7.46932 10.0204C7.47545 9.9715 7.49867 9.92626 7.5354 9.89557C7.57212 9.86487 7.61914 9.85091 7.66662 9.8569C7.7141 9.8629 7.75804 9.88834 7.78855 9.92728C7.81905 9.96622 7.83334 10.0152 7.82989 10.0642L7.81931 10.2089C7.81588 10.2564 7.81815 10.3042 7.82606 10.3511C7.83398 10.3979 7.84745 10.4435 7.86607 10.4867C7.88469 10.5299 7.90825 10.5702 7.93616 10.6064C7.96407 10.6427 7.99596 10.6745 8.03122 10.701C8.06647 10.7276 8.10468 10.7484 8.1448 10.7626C8.18492 10.7768 8.22649 10.7844 8.2685 10.7851H8.41978ZM9.69146 6.60189H12.3095C12.349 6.60426 12.3868 6.6233 12.4139 6.65428C12.441 6.68525 12.4553 6.72573 12.453 6.76655L12.3811 8.04079C12.3741 8.1588 12.3256 8.26916 12.2456 8.35169C12.1656 8.43421 12.0583 8.48341 11.9453 8.49076H10.0551C9.94215 8.48338 9.83477 8.43416 9.75471 8.3516C9.67465 8.26905 9.62616 8.15875 9.61923 8.04079L9.54729 6.76655C9.54495 6.72573 9.55924 6.68525 9.58638 6.65428C9.61351 6.6233 9.65125 6.60426 9.69077 6.60189H9.69146ZM18.1227 9.93435C18.1227 9.60763 18.2057 9.45645 18.4201 9.32855C18.6338 9.20109 19.2317 9.00742 19.6132 8.92032C19.744 8.89032 19.8751 8.86265 20.0074 8.83732C20.288 8.78515 20.5722 8.76147 20.8566 8.76664C20.9047 8.76947 20.9502 8.791 20.9825 8.82658C21.0148 8.86216 21.0318 8.90898 21.0318 8.95744L21.0407 13.6981C21.0368 14.0432 20.9383 14.3815 20.7552 14.676C20.4276 15.198 18.8477 17.0405 17.6885 18.2508C17.5299 18.4259 17.3651 18.5952 17.1944 18.7584C16.9585 18.9787 16.6977 19.169 16.4186 19.325C15.5946 19.7541 14.689 19.9751 13.7725 19.9697C13.6076 19.9694 13.4432 19.9597 13.2797 19.9406C13.2296 19.9337 13.1847 19.9085 13.1541 19.8703C13.1234 19.8321 13.109 19.7837 13.114 19.7357C13.1173 19.6955 13.1335 19.657 13.1603 19.6259C13.1871 19.5948 13.2231 19.5726 13.2624 19.5626C14.2139 19.338 15.0277 18.6863 15.8067 17.7643C16.0192 17.5077 16.244 17.2645 16.4806 17.036C17.0261 16.492 17.9074 15.4975 18.3869 14.8425C18.5363 14.63 18.6121 14.3683 18.6023 14.1022L18.594 9.93435H18.1227Z"
+              fill="currentColor"
+            />
+          </svg>
+          <span>API</span>
+        </a>
+      </div>
+    </section>
 
+    <section class="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 dark:border-gray-700 dark:bg-gray-800 sm:p-8">
+      <div class="space-y-8">
+        <div class="space-y-4">
+          <span class="inline-flex items-center gap-2 self-start rounded-full border border-cyan-200 bg-cyan-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-700 dark:border-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-300">Developer hub</span>
+          <div class="space-y-3">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-gray-100 md:text-4xl">API documentation</h2>
+            <p class="text-base leading-relaxed text-gray-600 dark:text-gray-300 md:max-w-3xl">
+              Connect Marketerum with your favourite tools using our REST API. Review the endpoint details, supported parameters, and sample responses to integrate in minutes.
+            </p>
+          </div>
+        </div>
+
+        <div class="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800">
+          <div class="overflow-x-auto">
+            <table class="min-w-full text-left text-sm">
+              <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                <tr class="transition-colors duration-150 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                  <th scope="row" class="whitespace-nowrap px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">HTTP Method</th>
+                  <td class="px-6 py-4 text-gray-700 dark:text-gray-300">
+                    <span class="inline-flex items-center rounded-md bg-green-100 px-2.5 py-0.5 text-xs font-medium text-green-800 dark:bg-green-900/30 dark:text-green-300">POST</span>
+                  </td>
+                </tr>
+                <tr class="transition-colors duration-150 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                  <th scope="row" class="whitespace-nowrap px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">API URL</th>
+                  <td class="px-6 py-4 font-mono text-sm text-gray-700 dark:text-gray-300">{{site['protocol']}}://{{site['domain']}}/api/v2</td>
+                </tr>
+                {% if user['auth'] %}
+                  <tr class="transition-colors duration-150 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                    <th scope="row" class="whitespace-nowrap px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">API Key</th>
+                    <td class="px-6 py-4 text-gray-700 dark:text-gray-300">
+                      Get an API key on the 
+                      <a href="{{site['protocol']}}://{{site['domain']}}/account" class="font-semibold text-cyan-600 underline-offset-2 transition-colors duration-200 hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300">Account</a> 
+                      page
+                    </td>
+                  </tr>
+                {% endif %}
+                <tr class="transition-colors duration-150 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                  <th scope="row" class="whitespace-nowrap px-6 py-4 font-semibold text-gray-900 dark:text-gray-100">Response format</th>
+                  <td class="px-6 py-4 text-gray-700 dark:text-gray-300">
+                    <span class="inline-flex items-center rounded-md bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900/30 dark:text-blue-300">JSON</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          {% for method,methodDetails in methods %}
+            <article class="space-y-5 rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-300 hover:shadow-md dark:border-gray-700 dark:bg-gray-800">
+              <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">{{methodDetails['title']}}</h3>
+                {% if 'add' == method and methodDetails['types']|length > 1 %}
+                  <div class="w-full md:w-auto md:min-w-[260px]">
+                    <label class="mb-2 block text-xs font-semibold uppercase tracking-wide text-gray-700 dark:text-gray-300" for="service_type_{{loop.index}}">Service type</label>
+                    <select class="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm font-medium text-gray-900 shadow-sm transition-all duration-200 focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/30 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:focus:border-cyan-400 dark:focus:ring-cyan-400/30" id="service_type_{{loop.index}}">
+                      {% for type,label in methodDetails['types'] %}
+                        <option value="{{type}}">{{label}}</option>
+                      {% endfor %}
+                    </select>
+                  </div>
+                {% endif %}
+              </div>
+
+              {% if 'add' == method %}
+                {% for type,parameters in methodDetails['parameters'] %}
+                  <div id="type_{{type}}_{{loop.parent.loop.index}}" class="api-parameters space-y-4" style="{% if loop.first %}display:block;{% else %}display:none;{% endif %}">
+                    <div class="overflow-hidden rounded-2xl border border-gray-200 bg-cyan-50/50 dark:border-gray-700 dark:bg-cyan-900/10">
+                      <div class="overflow-x-auto">
+                        <table class="min-w-full text-left text-sm">
+                          <thead class="bg-cyan-100/50 dark:bg-cyan-900/20">
+                            <tr>
+                              <th scope="col" class="px-6 py-3 font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">Parameters</th>
+                              <th scope="col" class="px-6 py-3 font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                            {% for parameter,label in parameters %}
+                              <tr class="transition-colors duration-150 hover:bg-white/50 dark:hover:bg-gray-800/50">
+                                <td class="px-6 py-3 font-mono text-sm font-medium text-gray-900 dark:text-gray-100" data-label="Parameter">
+                                  <code class="rounded bg-gray-100 px-2 py-0.5 text-xs dark:bg-gray-700 dark:text-gray-300">{{parameter}}</code>
+                                </td>
+                                <td class="px-6 py-3 text-gray-700 dark:text-gray-300" data-label="Description">
+                                  {{label}}
+                                </td>
+                              </tr>
+                            {% endfor %}
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              {% else %}
+                <div class="overflow-hidden rounded-2xl border border-gray-200 bg-cyan-50/50 dark:border-gray-700 dark:bg-cyan-900/10">
+                  <div class="overflow-x-auto">
+                    <table class="min-w-full text-left text-sm">
+                      <thead class="bg-cyan-100/50 dark:bg-cyan-900/20">
+                        <tr>
+                          <th scope="col" class="px-6 py-3 font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">Parameters</th>
+                          <th scope="col" class="px-6 py-3 font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">Description</th>
+                        </tr>
+                      </thead>
+                      <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+                        {% for parameter,label in methodDetails['parameters'] %}
+                          <tr class="transition-colors duration-150 hover:bg-white/50 dark:hover:bg-gray-800/50">
+                            <td class="px-6 py-3 font-mono text-sm font-medium text-gray-900 dark:text-gray-100" data-label="Parameter">
+                              <code class="rounded bg-gray-100 px-2 py-0.5 text-xs dark:bg-gray-700 dark:text-gray-300">{{parameter}}</code>
+                            </td>
+                            <td class="px-6 py-3 text-gray-700 dark:text-gray-300" data-label="Description">
+                              {{label}}
+                            </td>
+                          </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              {% endif %}
+
+              <div class="space-y-2">
+                <p class="text-xs font-semibold uppercase tracking-wide text-gray-700 dark:text-gray-300">Example response</p>
+                <div class="overflow-x-auto rounded-2xl border border-gray-200 bg-gray-50 p-4 font-mono text-sm shadow-inner dark:border-gray-700 dark:bg-gray-900">
+                  <pre class="text-gray-800 dark:text-gray-200 whitespace-pre-wrap break-words">{{methodDetails['examples']}}</pre>
+                </div>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+
+        <div class="flex flex-wrap items-center justify-between gap-4 rounded-xl border border-gray-200 bg-gradient-to-r from-cyan-50 to-teal-50 p-6 dark:border-gray-700 dark:from-cyan-900/20 dark:to-teal-900/20">
+          <p class="text-sm text-gray-700 dark:text-gray-300">Need a quick start? Download our ready-to-use PHP example.</p>
+          <a
+            href="/example.txt"
+            class="inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-cyan-600 to-teal-600 px-5 py-3 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:from-cyan-700 hover:to-teal-700 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 dark:from-cyan-500 dark:to-teal-500 dark:hover:from-cyan-600 dark:hover:to-teal-600"
+            target="_blank"
+            rel="noopener"
+          >
+            <svg class="mr-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+            Example of PHP code
+          </a>
+        </div>
+      </div>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          // Handle all service type selects
+          document.querySelectorAll('[id^="service_type_"]').forEach(function(typeSelect) {
+            var methodCard = typeSelect.closest('article');
+            if (!methodCard) {
+              return;
+            }
+
+            var parameterGroups = methodCard.querySelectorAll('.api-parameters');
+            var selectIndex = typeSelect.id.replace('service_type_', '');
+
+            var toggleParameters = function () {
+              parameterGroups.forEach(function (group) {
+                group.style.display = 'none';
+              });
+
+              var activeGroup = methodCard.querySelector('#type_' + typeSelect.value + '_' + selectIndex);
+              if (activeGroup) {
+                activeGroup.style.display = 'block';
+              }
+            };
+
+            toggleParameters();
+            typeSelect.addEventListener('change', toggleParameters);
+          });
+        });
+      </script>
+    </section>
+  </div>
+</main>

@@ -1,0 +1,504 @@
+<div {% if user['auth'] %}style="display: none;"{% endif %}>
+<!-- Start : HERO-->
+<section class="flex flex-col lg:flex-row bg-gradient-to-br from-slate-50 via-primary-50/30 to-accent-50/20 dark:from-dark dark:via-dark-secondary dark:to-dark transition-all duration-300 hero overflow-hidden">
+    <!-- Left Section: Promotional Content -->
+    <div class="flex flex-1 items-center justify-center relative p-6 sm:p-8 lg:p-10 xl:p-12 order-2 lg:order-1">
+        <!-- Decorative Background Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-primary-200/20 dark:bg-primary-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-accent-200/20 dark:bg-accent-500/10 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-lg w-full space-y-5 sm:space-y-6 relative z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-white/90 dark:bg-dark-secondary/90 backdrop-blur-md border border-primary-200/50 dark:border-primary-500/30 rounded-full text-xs sm:text-sm font-medium text-primary-600 dark:text-primary-400 shadow-sm transition-all duration-300 hover:shadow-md">
+                <svg class="w-3 h-3 sm:w-4 sm:h-4 mr-2" fill="currentColor" viewBox="0 0 24 25" aria-hidden="true">
+                    <path d="M14.7416 14.2228L24 12.515L14.6816 10.927L17.2285 7.24157L13.6629 9.78839L11.985 0.5L10.397 9.84832L6.74157 7.24157L9.25843 10.927L0 12.515L9.25843 14.2228L6.74157 17.7584L10.397 15.2416L11.985 24.5L13.6929 15.3015L17.2285 17.7584L14.7416 14.2228Z" fill="currentColor"/>
+                </svg>
+                World's #1 SMM Panel & Provider
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-slate-100 leading-tight tracking-tight">
+                Effortless SMM Panel Launch with Our <span class="text-primary-500 dark:text-primary-400">SMM Panel Script</span>
+            </h1>
+
+            <!-- Description -->
+            <p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                Start your own SMM panel with Marketerum's Reseller Program. It's perfect for entrepreneurs and businesses looking to make their mark in social media marketing. You don't need to worry about the tech side of things. Our program makes it easy to offer a variety of social media services. You can help clients grow their Instagram or boost YouTube views, all under your brand. It's a chance to boost your digital presence and earn money with our help. With Marketerum, you're not just starting an SMM panel. You're setting yourself up for success in the fast-paced world of social media. Our support, customizable panels, and scalable solutions are here to help you succeed.
+            </p>
+        </div>
+    </div>
+
+    <!-- Right Section: Login Form -->
+    <div class="flex-1 flex items-center justify-center py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 xl:px-12 order-1 lg:order-2 transition-all duration-300 relative">
+        <!-- Decorative Background for Form Section -->
+        <div class="absolute inset-0 bg-gradient-to-br from-white/50 to-gray-50/50 dark:from-dark-secondary/50 dark:to-dark/50 pointer-events-none"></div>
+        <div class="max-w-lg w-full h-full space-y-5 sm:space-y-6 relative z-10">
+            <!-- Form Card -->
+            <div class="bg-white/95 dark:bg-dark-secondary/95 backdrop-blur-sm rounded-xl shadow-lg dark:shadow-2xl border border-gray-200/50 dark:border-dark-tertiary/50 p-6 sm:p-8 transition-all duration-300 hover:shadow-xl dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 {% if site['rtl'] %} rtl-form {% endif %}">
+                <form method="post" action="{{ page['url'] }}" class="space-y-6">
+                    <!-- Error Alert -->
+                    {% if error %}
+                    <div class="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg flex items-center justify-between {% if site['rtl'] %} rtl-alert {% endif %}" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                            </svg>
+                            <span>{{ errorMessage }}</span>
+                        </div>
+                        <button type="button" class="text-red-500 hover:text-red-700 focus:outline-none" onclick="this.parentElement.remove()" aria-label="Close error message">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                    {% endif %}
+
+                    <!-- Success Alert -->
+                    {% if success %}
+                    <div class="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg flex items-center justify-between" role="alert" aria-live="polite" aria-atomic="true">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>{{ successMessage }}</span>
+                        </div>
+                        <button type="button" class="text-green-500 hover:text-green-700 focus:outline-none" onclick="this.parentElement.remove()" aria-label="Close success message">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                    {% endif %}
+
+                    <!-- Username Field -->
+                    <div>
+                        <label for="username" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">
+                            {{ lang('signup.username') }}
+                        </label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none" aria-hidden="true">
+                                <svg class="h-5 w-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                            </div>
+                            <input 
+                                type="text" 
+                                id="username" 
+                                name="LoginForm[username]" 
+                                required
+                                autocomplete="username"
+                                aria-required="true"
+                                aria-describedby="username-description"
+                                class="appearance-none relative block w-full pl-10 pr-3 py-2 border border-primary-200 dark:border-primary-500/30 placeholder-gray-400 dark:placeholder-slate-500 text-gray-900 dark:text-slate-100 dark:bg-dark-tertiary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm transition-colors"
+                                placeholder="{{ lang('signup.username') }}"
+                            >
+                            <span id="username-description" class="sr-only">Enter your username</span>
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group__password">
+                        <div class="flex items-center justify-between mb-2">
+                            <label for="password" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+                                {{ lang('signup.password') }}
+                            </label>
+                            {% if site['resetPassword'] %}
+                            <a href="{{ page_url('resetpassword') }}" class="text-sm text-primary-500 hover:text-primary-600 transition-colors">
+                                {{ lang('signin.reset_password') }}
+                            </a>
+                            {% endif %}
+                        </div>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none" aria-hidden="true">
+                                <svg class="h-5 w-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                </svg>
+                            </div>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="LoginForm[password]" 
+                                required
+                                autocomplete="current-password"
+                                aria-required="true"
+                                aria-describedby="password-description"
+                                class="appearance-none relative block w-full pl-10 pr-3 py-2 border border-primary-200 dark:border-primary-500/30 placeholder-gray-400 dark:placeholder-slate-500 text-gray-900 dark:text-slate-100 dark:bg-dark-tertiary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm transition-colors"
+                                placeholder="{{ lang('signup.password') }}"
+                            >
+                            <span id="password-description" class="sr-only">Enter your password</span>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me Checkbox -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input 
+                                type="checkbox" 
+                                name="LoginForm[remember]" 
+                                value="1" 
+                                id="remember"
+                                aria-describedby="remember-description"
+                                class="h-4 w-4 text-primary-500 focus:ring-primary-500 border-gray-300 rounded"
+                            >
+                            <label for="remember" class="ml-2 block text-sm text-gray-700 dark:text-slate-300">
+                                Remember me
+                            </label>
+                            <span id="remember-description" class="sr-only">Keep me signed in on this device</span>
+                        </div>
+                    </div>
+
+                    <!-- Captcha -->
+                    {% if captcha %}
+                    <div>
+                        {{ captchaCode }}
+                    </div>
+                    {% endif %}
+
+                    <!-- CSRF Token -->
+                    <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+
+                    <!-- Submit Button & Google Sign In -->
+                    <div class="space-y-4">
+                        <button 
+                            type="submit" 
+                            class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all shadow-md hover:shadow-lg"
+                            aria-label="Sign in to your account"
+                        >
+                            {{ lang('signin.button')|default('Sign In') }}
+                        </button>
+
+                        {% if googleSignIn %}
+                        <div class="flex items-center justify-center">
+                            <div id="g_id_onload" data-client_id="{{ googleClientId }}" data-login_uri="{{ googleSignInRedirectUrl }}" data-auto_prompt="false" data-_csrf="{{ csrftoken }}"></div>
+                            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left"></div>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Sign Up Link -->
+                    <div class="text-center text-sm text-gray-600 dark:text-slate-400">
+                        Do not have an account? 
+                        <a href="{{ page_url('signup') }}" class="font-medium text-primary-500 dark:text-primary-400 hover:text-primary-600 dark:hover:text-primary-300 transition-colors">
+                            {{ lang('signup.button')|default('Sign up') }}
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end : HERO-->
+<!-- SECTION : STATS -->
+<section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50/50 dark:from-dark dark:to-dark-secondary transition-colors duration-300">
+	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="text-center mb-10 sm:mb-12 lg:mb-16">
+			<h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-slate-100 mb-4">
+				Marketerum Achievements
+			</h2>
+		</div>
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-6xl mx-auto">
+			<!-- Stat Item 1 -->
+			<div class="bg-white dark:bg-dark-secondary rounded-xl shadow-md dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 p-6 sm:p-8 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+				<div class="flex flex-col items-center text-center space-y-4">
+					<div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-500/20 dark:to-primary-600/20 flex items-center justify-center mb-2 transition-transform duration-300 hover:scale-110">
+						<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/4awu9w7452rb1eql.svg" alt="Total orders" class="w-10 h-10 sm:w-12 sm:h-12">
+					</div>
+					<div class="space-y-2">
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-600 dark:text-primary-400">
+							{{ totals['ordersAll']|number_format(0, '.', ',') }}
+						</div>
+						<span class="block text-sm sm:text-base text-gray-600 dark:text-slate-400 font-medium">Orders Completed</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- Stat Item 2 -->
+			<div class="bg-white dark:bg-dark-secondary rounded-xl shadow-md dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 p-6 sm:p-8 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+				<div class="flex flex-col items-center text-center space-y-4">
+					<div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-accent-100 to-accent-200 dark:from-accent-500/20 dark:to-accent-600/20 flex items-center justify-center mb-2 transition-transform duration-300 hover:scale-110">
+						<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/67hc9ch7mk699ow1.png" alt="Our Happy customers" class="w-10 h-10 sm:w-12 sm:h-12">
+					</div>
+					<div class="space-y-2">
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-accent-600 dark:text-accent-400">
+							{{ totals['usersAll']|number_format(0, '.', ',') }}
+						</div>
+						<span class="block text-sm sm:text-base text-gray-600 dark:text-slate-400 font-medium">Satisfied Customers</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- Stat Item 3 -->
+			<div class="bg-white dark:bg-dark-secondary rounded-xl shadow-md dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 p-6 sm:p-8 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1 sm:col-span-2 lg:col-span-1">
+				<div class="flex flex-col items-center text-center space-y-4">
+					<div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-500/20 dark:to-accent-500/20 flex items-center justify-center mb-2 transition-transform duration-300 hover:scale-110">
+						<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/l2d4lro3zhi6p334.png" alt="Our stable services" class="w-10 h-10 sm:w-12 sm:h-12">
+					</div>
+					<div class="space-y-2">
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-600 dark:text-primary-400">
+							5,235+
+						</div>
+						<span class="block text-sm sm:text-base text-gray-600 dark:text-slate-400 font-medium">Active Services</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END : STATS -->
+
+<!-- SECTION : ABOUT US -->
+<section class="py-12 sm:py-16 lg:py-20 bg-white dark:bg-dark transition-colors duration-300">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <!-- Badge -->
+      <div class="flex justify-center mb-6">
+        <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500/10 to-accent-500/10 dark:from-primary-500/20 dark:to-accent-500/20 border border-primary-200/50 dark:border-primary-500/30 rounded-full text-sm font-medium text-primary-600 dark:text-primary-400">
+          About Us
+        </div>
+      </div>
+
+      <!-- Heading -->
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-gray-900 dark:text-slate-100 mb-6 leading-tight">
+        Effortless Launch of Your SMM Panel <span class="text-primary-500 dark:text-primary-400">with Our Reseller Program</span>
+      </h2>
+
+      <!-- Content -->
+      <div class="space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+        <p class="text-justify">
+          Step into the world of social media marketing by effortlessly launching your <a href="/" class="text-primary-500 dark:text-primary-400 hover:text-primary-600 dark:hover:text-primary-300 underline transition-colors">SMM Panel</a> with Marketerum's Reseller Program. Tailored for entrepreneurs and digital marketers, our program is designed to simplify the path to owning and operating your own SMM panel without the technical complexities.
+        </p>
+        <p class="text-justify">
+          Take your business to new heights with a wide range of services for your clients. These include growing followers, boosting engagement, and providing analytics insights. Our platform is designed to support your goals with a customizable, brandable solution that matches your business needs.
+        </p>
+        <p class="text-justify">
+          Use our knowledge and tech to boost your SMM services. We help both startups and big brands. Our program is designed to give you real results, improve your return on investment, and build a strong online presence for your clients.
+        </p>
+        <p class="text-justify">
+          Join Marketerum and start your digital journey. Our reseller program makes it easy to launch and manage your SMM panel. It sets you up for success in the competitive social media world.
+        </p>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="flex justify-center mt-8">
+        <a href="/services" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+          See All Services
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END : ABOUT -->
+
+<!-- SECTION : WHY US -->
+<section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-50/50 to-white dark:from-dark-secondary dark:to-dark transition-colors duration-300">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto relative">
+      <!-- Decorative Hexagon -->
+      <div class="absolute -top-20 -left-10 opacity-20 dark:opacity-10 pointer-events-none hidden lg:block">
+        <svg width="42" height="46" viewBox="0 0 42 46" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M17 1.3094C19.4752 -0.119661 22.5248 -0.119661 25 1.3094L37.7846 8.6906C40.2598 10.1197 41.7846 12.7607 41.7846 15.6188V30.3812C41.7846 33.2393 40.2598 35.8803 37.7846 37.3094L25 44.6906C22.5248 46.1197 19.4752 46.1197 17 44.6906L4.21539 37.3094C1.74018 35.8803 0.215391 33.2393 0.215391 30.3812V15.6188C0.215391 12.7607 1.74018 10.1197 4.21539 8.6906L17 1.3094Z" fill="#85E0F9"/>
+        </svg>
+      </div>
+
+      <div class="text-center space-y-6">
+        <!-- Badge -->
+        <div class="flex justify-center">
+          <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500/10 to-accent-500/10 dark:from-primary-500/20 dark:to-accent-500/20 border border-primary-200/50 dark:border-primary-500/30 rounded-full text-sm font-medium text-primary-600 dark:text-primary-400">
+            Why Choose Us
+          </div>
+        </div>
+
+        <!-- Heading -->
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-100 leading-tight">
+          Why choose our <br class="hidden md:inline-block" /><span class="text-primary-500 dark:text-primary-400">SMM Panel Script</span>?
+        </h2>
+
+        <!-- Description -->
+        <p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed max-w-3xl mx-auto text-justify">
+          Choose Marketerum's SMM Panel Reseller Program for many benefits. We are dedicated to your success. Our support is thorough, our solutions are customizable, and we empower your business with the latest social media tools.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END : WHY US -->
+
+<!-- SECTION : FAQ -->
+<section class="py-12 sm:py-16 lg:py-20 bg-white dark:bg-dark transition-colors duration-300">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-10 sm:mb-12 lg:mb-16 max-w-3xl mx-auto">
+      <div class="flex justify-center mb-6">
+        <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500/10 to-accent-500/10 dark:from-primary-500/20 dark:to-accent-500/20 border border-primary-200/50 dark:border-primary-500/30 rounded-full text-sm font-medium text-primary-600 dark:text-primary-400">
+          F.A.Q
+        </div>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-4 leading-tight">
+        Key Insights into the <span class="text-primary-500 dark:text-primary-400">SMM Panel Script</span>
+      </h2>
+      <p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed text-justify">
+        Discover the key features of SMM Panel Scripts. They have important functions and benefits. Also, there are things to think about for the best results.
+      </p>
+    </div>
+
+    <!-- FAQ Grid -->
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+        <!-- FAQ Item 1 -->
+        <div class="bg-white dark:bg-dark-secondary rounded-xl border border-gray-200/50 dark:border-dark-tertiary/50 shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300 overflow-hidden">
+          <details class="group">
+            <summary class="flex items-center justify-between p-4 sm:p-6 cursor-pointer list-none hover:bg-gray-50/50 dark:hover:bg-dark-tertiary/30 transition-colors">
+              <span class="text-base sm:text-lg font-semibold text-gray-900 dark:text-slate-100 pr-4">
+                What Is an SMM Panel Script?
+              </span>
+              <svg class="w-5 h-5 text-gray-500 dark:text-slate-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </summary>
+            <div class="px-4 sm:px-6 pb-4 sm:pb-6">
+              <p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed text-justify">
+                An SMM Panel Script is a software solution that automates and manages various aspects of social media marketing. It provides functionalities for running campaigns, tracking performance
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="bg-white dark:bg-dark-secondary rounded-xl border border-gray-200/50 dark:border-dark-tertiary/50 shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300 overflow-hidden">
+          <details class="group">
+            <summary class="flex items-center justify-between p-4 sm:p-6 cursor-pointer list-none hover:bg-gray-50/50 dark:hover:bg-dark-tertiary/30 transition-colors">
+              <span class="text-base sm:text-lg font-semibold text-gray-900 dark:text-slate-100 pr-4">
+                What Are the Benefits of Using an SMM Panel Script?
+              </span>
+              <svg class="w-5 h-5 text-gray-500 dark:text-slate-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </summary>
+            <div class="px-4 sm:px-6 pb-4 sm:pb-6">
+              <p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed text-justify">
+                The benefits of using an SMM Panel Script include streamlined management of marketing activities, automation of repetitive tasks, centralized data analysis, and improved efficiency in
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="bg-white dark:bg-dark-secondary rounded-xl border border-gray-200/50 dark:border-dark-tertiary/50 shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300 overflow-hidden">
+          <details class="group">
+            <summary class="flex items-center justify-between p-4 sm:p-6 cursor-pointer list-none hover:bg-gray-50/50 dark:hover:bg-dark-tertiary/30 transition-colors">
+              <span class="text-base sm:text-lg font-semibold text-gray-900 dark:text-slate-100 pr-4">
+                How Do I Choose the Right SMM Panel Script?
+              </span>
+              <svg class="w-5 h-5 text-gray-500 dark:text-slate-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </summary>
+            <div class="px-4 sm:px-6 pb-4 sm:pb-6">
+              <p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed text-justify">
+                When selecting an SMM Panel Script, consider factors such as the range of features, ease of integration, customization options, user support, and overall cost. Ensure it meets your specific
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="bg-white dark:bg-dark-secondary rounded-xl border border-gray-200/50 dark:border-dark-tertiary/50 shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300 overflow-hidden">
+          <details class="group">
+            <summary class="flex items-center justify-between p-4 sm:p-6 cursor-pointer list-none hover:bg-gray-50/50 dark:hover:bg-dark-tertiary/30 transition-colors">
+              <span class="text-base sm:text-lg font-semibold text-gray-900 dark:text-slate-100 pr-4">
+                Are There Any Common Challenges with SMM Panel Scripts?
+              </span>
+              <svg class="w-5 h-5 text-gray-500 dark:text-slate-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </summary>
+            <div class="px-4 sm:px-6 pb-4 sm:pb-6">
+              <p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed text-justify">
+                Common challenges with SMM Panel Scripts may include technical issues, compatibility with different platforms, and the complexity of setup and customization. Ensuring that the script is well-supported helps mitigate these concerns.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="bg-white dark:bg-dark-secondary rounded-xl border border-gray-200/50 dark:border-dark-tertiary/50 shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300 overflow-hidden">
+          <details class="group">
+            <summary class="flex items-center justify-between p-4 sm:p-6 cursor-pointer list-none hover:bg-gray-50/50 dark:hover:bg-dark-tertiary/30 transition-colors">
+              <span class="text-base sm:text-lg font-semibold text-gray-900 dark:text-slate-100 pr-4">
+                How Can I Maximize the Effectiveness of My SMM Panel Script?
+              </span>
+              <svg class="w-5 h-5 text-gray-500 dark:text-slate-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </summary>
+            <div class="px-4 sm:px-6 pb-4 sm:pb-6">
+              <p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed text-justify">
+                To maximize the effectiveness of your SMM Panel Script, regularly update your strategies based on performance data, leverage the full range of features provided, and ensure proper integration with other tools.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <!-- FAQ Item 6 -->
+        <div class="bg-white dark:bg-dark-secondary rounded-xl border border-gray-200/50 dark:border-dark-tertiary/50 shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300 overflow-hidden">
+          <details class="group">
+            <summary class="flex items-center justify-between p-4 sm:p-6 cursor-pointer list-none hover:bg-gray-50/50 dark:hover:bg-dark-tertiary/30 transition-colors">
+              <span class="text-base sm:text-lg font-semibold text-gray-900 dark:text-slate-100 pr-4">
+                What Features Should I Look for in an SMM Panel Script?
+              </span>
+              <svg class="w-5 h-5 text-gray-500 dark:text-slate-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </summary>
+            <div class="px-4 sm:px-6 pb-4 sm:pb-6">
+              <p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed text-justify">
+                Essential features to look for in an SMM Panel Script include a user-friendly interface, comprehensive analytics and reporting tools, automation capabilities, customization options, and reliable customer support.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <!-- FAQ Item 7 -->
+        <div class="bg-white dark:bg-dark-secondary rounded-xl border border-gray-200/50 dark:border-dark-tertiary/50 shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300 overflow-hidden">
+          <details class="group">
+            <summary class="flex items-center justify-between p-4 sm:p-6 cursor-pointer list-none hover:bg-gray-50/50 dark:hover:bg-dark-tertiary/30 transition-colors">
+              <span class="text-base sm:text-lg font-semibold text-gray-900 dark:text-slate-100 pr-4">
+                How Can I Get Support for My SMM Panel Script?
+              </span>
+              <svg class="w-5 h-5 text-gray-500 dark:text-slate-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </summary>
+            <div class="px-4 sm:px-6 pb-4 sm:pb-6">
+              <p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed text-justify">
+                Support for an SMM Panel Script typically includes access to documentation, user guides, and direct customer support channels. Ensure that the script provider offers reliable and responsive assistance.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <!-- FAQ Item 8 -->
+        <div class="bg-white dark:bg-dark-secondary rounded-xl border border-gray-200/50 dark:border-dark-tertiary/50 shadow-sm hover:shadow-md dark:hover:shadow-xl transition-all duration-300 overflow-hidden">
+          <details class="group">
+            <summary class="flex items-center justify-between p-4 sm:p-6 cursor-pointer list-none hover:bg-gray-50/50 dark:hover:bg-dark-tertiary/30 transition-colors">
+              <span class="text-base sm:text-lg font-semibold text-gray-900 dark:text-slate-100 pr-4">
+                What Are the Costs Involved with an SMM Panel Script?
+              </span>
+              <svg class="w-5 h-5 text-gray-500 dark:text-slate-400 flex-shrink-0 transition-transform duration-300 group-open:rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+              </svg>
+            </summary>
+            <div class="px-4 sm:px-6 pb-4 sm:pb-6">
+              <p class="text-sm sm:text-base text-gray-700 dark:text-slate-300 leading-relaxed text-justify">
+                The costs associated with an SMM Panel Script can vary based on the features offered, the level of support provided, and any additional customization needs. It is important to evaluate these factors to ensure the solution fits your budget.
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END : FAQ -->
+</div>

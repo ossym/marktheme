@@ -1,0 +1,1313 @@
+<div {% if user['auth'] %} style="display: none;" {% endif %} dir="rtl">
+<!-- Start : HERO-->
+<section class="flex flex-col lg:flex-row bg-gradient-to-br from-slate-50 via-primary-50/30 to-accent-50/20 dark:from-dark dark:via-dark-secondary dark:to-dark transition-all duration-300 hero overflow-hidden">
+    <!-- Left Section: Promotional Content -->
+    <div class="flex flex-1 items-center justify-center relative p-6 sm:p-8 lg:p-10 xl:p-12 order-2 lg:order-2">
+        <!-- Decorative Background Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 left-0 w-96 h-96 bg-primary-200/20 dark:bg-primary-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-accent-200/20 dark:bg-accent-500/10 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-lg w-full space-y-5 sm:space-y-6 relative z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-white/90 dark:bg-dark-secondary/90 backdrop-blur-md border border-primary-200/50 dark:border-primary-500/30 rounded-full text-xs sm:text-sm font-medium text-primary-600 dark:text-primary-400 shadow-sm transition-all duration-300 hover:shadow-md">
+                <svg class="w-3 h-3 sm:w-4 sm:h-4 ml-2" fill="currentColor" viewBox="0 0 24 25" aria-hidden="true">
+                    <path d="M14.7416 14.2228L24 12.515L14.6816 10.927L17.2285 7.24157L13.6629 9.78839L11.985 0.5L10.397 9.84832L6.74157 7.24157L9.25843 10.927L0 12.515L9.25843 14.2228L6.74157 17.7584L10.397 15.2416L11.985 24.5L13.6929 15.3015L17.2285 17.7584L14.7416 14.2228Z" fill="currentColor"/>
+                </svg>
+                سيرفر SMM رقم 1 في العالم
+            </div>
+
+            <!-- Main Heading -->
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-slate-100 leading-tight tracking-tight">
+                أفضل وأرخص <span class="text-primary-500 dark:text-primary-400">سيرفر SMM</span>
+            </h1>
+
+            <!-- Description -->
+            <p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed text-justify">
+                بلا شك يمكنك اختيار Marketerum، فهو من أفضل سيرفرات SMM التي تقدم خدمات بأسعار مناسبة على أي موقع تواصل اجتماعي. نستخدم تفاعلات حقيقية لتعزيز وجودك على الإنترنت من خلال منحك متابعين حقيقيين. نقدم خدمات للأشخاص الذين يرغبون في زيادة علاماتهم الشخصية وأيضًا للشركات التي تسعى لتوسيع أعمالها في الفضاء الرقمي.
+            </p>
+        </div>
+    </div>
+
+    <!-- Right Section: Login Form -->
+    <div class="flex-1 flex items-center justify-center py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 xl:px-12 order-1 lg:order-1 transition-all duration-300 relative">
+        <!-- Decorative Background for Form Section -->
+        <div class="absolute inset-0 bg-gradient-to-br from-white/50 to-gray-50/50 dark:from-dark-secondary/50 dark:to-dark/50 pointer-events-none"></div>
+        <div class="max-w-lg w-full h-full space-y-5 sm:space-y-6 relative z-10">
+            <!-- Form Card -->
+            <div class="bg-white/95 dark:bg-dark-secondary/95 backdrop-blur-sm rounded-xl shadow-lg dark:shadow-2xl border border-gray-200/50 dark:border-dark-tertiary/50 p-6 sm:p-8 transition-all duration-300 hover:shadow-xl dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 rtl-form">
+                <form method="post" action="{{ page['url'] }}" class="space-y-6">
+                    <!-- Error Alert -->
+                    {% if error %}
+                    <div class="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg flex items-center justify-between rtl-alert" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                            </svg>
+                            <span>{{ errorMessage }}</span>
+                        </div>
+                        <button type="button" class="text-red-500 hover:text-red-700 focus:outline-none" onclick="this.parentElement.remove()" aria-label="Close error message">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                    {% endif %}
+
+                    <!-- Success Alert -->
+                    {% if success %}
+                    <div class="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg flex items-center justify-between rtl-alert" role="alert" aria-live="polite" aria-atomic="true">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                            </svg>
+                            <span>{{ successMessage }}</span>
+                        </div>
+                        <button type="button" class="text-green-500 hover:text-green-700 focus:outline-none" onclick="this.parentElement.remove()" aria-label="Close success message">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                    {% endif %}
+
+                    <!-- Username Field -->
+                    <div>
+                        <label for="username" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">
+                            {{ lang('signup.username') }}
+                        </label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none" aria-hidden="true">
+                                <svg class="h-5 w-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                </svg>
+                            </div>
+                            <input 
+                                type="text" 
+                                id="username" 
+                                name="LoginForm[username]" 
+                                required
+                                autocomplete="username"
+                                aria-required="true"
+                                aria-describedby="username-description"
+                                class="appearance-none relative block w-full pr-10 pl-3 py-2 border border-primary-200 dark:border-primary-500/30 placeholder-gray-400 dark:placeholder-slate-500 text-gray-900 dark:text-slate-100 dark:bg-dark-tertiary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm transition-colors text-right"
+                                placeholder="{{ lang('signup.username') }}"
+                            >
+                            <span id="username-description" class="sr-only">Enter your username</span>
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="form-group__password">
+                        <div class="flex items-center justify-between mb-2">
+                            <label for="password" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+                                {{ lang('signup.password') }}
+                            </label>
+                            {% if site['resetPassword'] %}
+                            <a href="{{ page_url('resetpassword') }}" class="text-sm text-primary-500 hover:text-primary-600 transition-colors">
+                                {{ lang('signin.reset_password') }}
+                            </a>
+                            {% endif %}
+                        </div>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none" aria-hidden="true">
+                                <svg class="h-5 w-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                </svg>
+                            </div>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="LoginForm[password]" 
+                                required
+                                autocomplete="current-password"
+                                aria-required="true"
+                                aria-describedby="password-description"
+                                class="appearance-none relative block w-full pr-10 pl-3 py-2 border border-primary-200 dark:border-primary-500/30 placeholder-gray-400 dark:placeholder-slate-500 text-gray-900 dark:text-slate-100 dark:bg-dark-tertiary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm transition-colors text-right"
+                                placeholder="{{ lang('signup.password') }}"
+                            >
+                            <span id="password-description" class="sr-only">Enter your password</span>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me Checkbox -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input 
+                                type="checkbox" 
+                                name="LoginForm[remember]" 
+                                value="1" 
+                                id="remember"
+                                aria-describedby="remember-description"
+                                class="h-4 w-4 text-primary-500 focus:ring-primary-500 border-gray-300 rounded"
+                            >
+                            <label for="remember" class="mr-2 block text-sm text-gray-700 dark:text-slate-300">
+                                Remember me
+                            </label>
+                            <span id="remember-description" class="sr-only">Keep me signed in on this device</span>
+                        </div>
+                    </div>
+
+                    <!-- Captcha -->
+                    {% if captcha %}
+                    <div>
+                        {{ captchaCode }}
+                    </div>
+                    {% endif %}
+
+                    <!-- CSRF Token -->
+                    <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+
+                    <!-- Submit Button & Google Sign In -->
+                    <div class="space-y-4">
+                        <button 
+                            type="submit" 
+                            class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all shadow-md hover:shadow-lg"
+                            aria-label="Sign in to your account"
+                        >
+                            {{ lang('signin.button')|default('Sign In') }}
+                        </button>
+
+                        {% if googleSignIn %}
+                        <div class="flex items-center justify-center">
+                            <div id="g_id_onload" data-client_id="{{ googleClientId }}" data-login_uri="{{ googleSignInRedirectUrl }}" data-auto_prompt="false" data-_csrf="{{ csrftoken }}"></div>
+                            <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left"></div>
+                        </div>
+                        {% endif %}
+                    </div>
+
+                    <!-- Sign Up Link -->
+                    <div class="text-center text-sm text-gray-600 dark:text-slate-400">
+                        Do not have an account? 
+                        <a href="{{ page_url('signup') }}" class="font-medium text-primary-500 dark:text-primary-400 hover:text-primary-600 dark:hover:text-primary-300 transition-colors">
+                            {{ lang('signup.button')|default('Sign up') }}
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- end : HERO-->
+<!-- SECTION : STATS -->
+<section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white to-gray-50/50 dark:from-dark dark:to-dark-secondary transition-colors duration-300">
+	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="text-center mb-10 sm:mb-12 lg:mb-16">
+			<h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-slate-100 mb-4">
+				إنجازات Marketerum
+			</h2>
+		</div>
+		<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 max-w-6xl mx-auto">
+			<!-- Stat Item 1 -->
+			<div class="bg-white dark:bg-dark-secondary rounded-xl shadow-md dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 p-6 sm:p-8 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+				<div class="flex flex-col items-center text-center space-y-4">
+					<div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-primary-100 to-primary-200 dark:from-primary-500/20 dark:to-primary-600/20 flex items-center justify-center mb-2 transition-transform duration-300 hover:scale-110">
+						<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/4awu9w7452rb1eql.svg" alt="إجمالي الطلبات" class="w-10 h-10 sm:w-12 sm:h-12">
+					</div>
+					<div class="space-y-2">
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-600 dark:text-primary-400">
+							{{ totals['ordersAll']|number_format(0, '.', ',') }}
+						</div>
+						<span class="block text-sm sm:text-base text-gray-600 dark:text-slate-400 font-medium">الطلبات المكتملة</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- Stat Item 2 -->
+			<div class="bg-white dark:bg-dark-secondary rounded-xl shadow-md dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 p-6 sm:p-8 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1">
+				<div class="flex flex-col items-center text-center space-y-4">
+					<div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-accent-100 to-accent-200 dark:from-accent-500/20 dark:to-accent-600/20 flex items-center justify-center mb-2 transition-transform duration-300 hover:scale-110">
+						<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/67hc9ch7mk699ow1.png" alt="عملاؤنا السعداء" class="w-10 h-10 sm:w-12 sm:h-12">
+					</div>
+					<div class="space-y-2">
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-accent-600 dark:text-accent-400">
+							{{ totals['usersAll']|number_format(0, '.', ',') }}
+						</div>
+						<span class="block text-sm sm:text-base text-gray-600 dark:text-slate-400 font-medium">العملاء الراضون</span>
+					</div>
+				</div>
+			</div>
+
+			<!-- Stat Item 3 -->
+			<div class="bg-white dark:bg-dark-secondary rounded-xl shadow-md dark:shadow-xl border border-gray-200/50 dark:border-dark-tertiary/50 p-6 sm:p-8 transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 hover:-translate-y-1 sm:col-span-2 lg:col-span-1">
+				<div class="flex flex-col items-center text-center space-y-4">
+					<div class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-500/20 dark:to-accent-500/20 flex items-center justify-center mb-2 transition-transform duration-300 hover:scale-110">
+						<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/l2d4lro3zhi6p334.png" alt="خدماتنا المستقرة" class="w-10 h-10 sm:w-12 sm:h-12">
+					</div>
+					<div class="space-y-2">
+						<div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-600 dark:text-primary-400">
+							5,235+
+						</div>
+						<span class="block text-sm sm:text-base text-gray-600 dark:text-slate-400 font-medium">الخدمات النشطة</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- END : STATS -->
+
+<!-- SECTION : ABOUT US -->
+<section class="py-12 sm:py-16 lg:py-20 bg-white dark:bg-dark transition-colors duration-300">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      <!-- Badge -->
+      <div class="flex justify-center mb-6">
+        <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500/10 to-accent-500/10 dark:from-primary-500/20 dark:to-accent-500/20 border border-primary-200/50 dark:border-primary-500/30 rounded-full text-sm font-medium text-primary-600 dark:text-primary-400">
+          من نحن
+        </div>
+      </div>
+
+      <!-- Heading -->
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-center text-gray-900 dark:text-slate-100 mb-6 leading-tight">
+        خدمات <span class="text-primary-500 dark:text-primary-400">سيرفر SMM</span> بسهولة
+      </h2>
+
+      <!-- Content -->
+      <div class="space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+        <p class="text-right">
+          Marketerum أعادت نفسها في سوق سيرفرات SMM بتقديم حلول متكاملة لتحسين أداء المؤسسات وتسويقها. نحن نتفوق في فهم احتياجات الأعمال وتقديم خدمات متكاملة لتعزيز الأداء التسويقي.
+        </p>
+        <p class="text-right">
+          بنقرة واحدة، استغل قوة التسويق عبر وسائل التواصل. خدمات سيرفر SMM الخاصة بنا توفر لك تفاعلات فورية وتحليلات دقيقة لتحقيق نتائج مذهلة بسرعة.
+        </p>
+        <p class="text-right">
+          استثمر في خدمات سيرفر SMM لدينا لترقية عملك سواء كنت مبتدئًا أو شركة ترغب في النمو. انضم إلى الشركات التي استفادت من حلولنا الاقتصادية.
+        </p>
+        <p class="text-right">
+          Marketerum تضمن فعالية التكاليف والعائد على الاستثمار من خلال حملات تفاعلية حقيقية تؤدي إلى نمو حقيقي وتفوقك على المنافسين.
+        </p>
+      </div>
+
+      <!-- CTA Button -->
+      <div class="flex justify-center mt-8">
+        <a href="/services" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500">
+          عرض جميع الخدمات
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END : ABOUT -->
+
+<!-- SECTION : WHY US -->
+<section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-50/50 to-white dark:from-dark-secondary dark:to-dark transition-colors duration-300">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto relative">
+      <!-- Decorative Hexagon -->
+      <div class="absolute -top-20 -right-10 opacity-20 dark:opacity-10 pointer-events-none hidden lg:block">
+        <svg width="42" height="46" viewBox="0 0 42 46" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M17 1.3094C19.4752 -0.119661 22.5248 -0.119661 25 1.3094L37.7846 8.6906C40.2598 10.1197 41.7846 12.7607 41.7846 15.6188V30.3812C41.7846 33.2393 40.2598 35.8803 37.7846 37.3094L25 44.6906C22.5248 46.1197 19.4752 46.1197 17 44.6906L4.21539 37.3094C1.74018 35.8803 0.215391 33.2393 0.215391 30.3812V15.6188C0.215391 12.7607 1.74018 10.1197 4.21539 8.6906L17 1.3094Z" fill="#85E0F9"/>
+        </svg>
+      </div>
+
+      <div class="text-center space-y-6">
+        <!-- Badge -->
+        <div class="flex justify-center">
+          <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500/10 to-accent-500/10 dark:from-primary-500/20 dark:to-accent-500/20 border border-primary-200/50 dark:border-primary-500/30 rounded-full text-sm font-medium text-primary-600 dark:text-primary-400">
+            لماذا تختارنا
+          </div>
+        </div>
+
+        <!-- Heading -->
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-100 leading-tight">
+          لماذا تختار <span class="text-primary-500 dark:text-primary-400">سيرفر SMM</span> الخاص بنا؟
+        </h2>
+
+        <!-- Description -->
+        <p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed max-w-3xl mx-auto text-right">
+          اختيارك لـ marketerum.com كسيرفر SMM يمنحك فوائد لا مثيل لها. المنصة معروفة بأصالتها وجودة خدماتها وأسعارها المناسبة. باستخدامك لـ marketerum.com، ستحصل على خيارات متعددة لخدمات ترويج مخصصة لجذب جمهورك المستهدف. نحن نركز على العملاء ونوفر لهم دعمًا على مدار الساعة مع أساليب شفافة لحمايتك وتطوير مهاراتك التسويقية. بصفتنا قادة في مجال SMM، نضمن لك تفاعلات حقيقية وتحقيق أهدافك على وسائل التواصل الاجتماعي.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END : WHY US -->
+
+<!-- SECTION : FAQ -->
+<section class="py-12 sm:py-16 lg:py-20 bg-white dark:bg-dark transition-colors duration-300">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-10 sm:mb-12 lg:mb-16 max-w-3xl mx-auto">
+      <div class="flex justify-center mb-6">
+        <div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500/10 to-accent-500/10 dark:from-primary-500/20 dark:to-accent-500/20 border border-primary-200/50 dark:border-primary-500/30 rounded-full text-sm font-medium text-primary-600 dark:text-primary-400">
+          الأسئلة الشائعة
+        </div>
+      </div>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-4 leading-tight">
+        الأسئلة الشائعة حول سيرفرات SMM وكيفية الاستفادة منها مع <span class="text-primary-500 dark:text-primary-400">marketerum.com</span>
+      </h2>
+      <p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed text-justify">
+        غالبًا ما يتساءل الناس عن سيرفرات SMM. في marketerum.com، لدينا الحلول الفعالة للإجابة عن جميع الأسئلة المتعلقة بشرح التسويق عبر وسائل التواصل. لنلقِ نظرة على عالم سيرفرات SMM وما يمكننا تحقيقه معها.
+      </p>
+    </div>
+
+    <!-- FAQ Grid -->
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+        <!-- FAQ Item 1 -->
+        <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border-2 border-primary-200 dark:border-primary-500/30 shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+          <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="1" aria-expanded="true" aria-controls="faq-answer-1" id="faq-question-1">
+            <span class="font-semibold text-gray-900 dark:text-slate-100 text-base sm:text-lg pl-4">ما هو سيرفر SMM؟</span>
+            <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-primary-500 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <div id="faq-answer-1" class="faq-answer p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-1">
+            <p>
+              سيرفر SMM هو تطبيق عبر الإنترنت يساعد الأشخاص والمؤسسات والمشاهير على زيادة نشاطهم على صفحات التواصل الاجتماعي. في marketerum.com، سيرفر SMM هو بداية سلسلة طويلة من الخدمات التي تساعدك في الحصول على متابعين وإعجابات وتعليقات وزيادة تأثيرك.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 2 -->
+        <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+          <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="2" aria-expanded="false" aria-controls="faq-answer-2" id="faq-question-2">
+            <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pl-4">كيف يعمل سيرفر SMM؟</span>
+            <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+          </button>
+          <div id="faq-answer-2" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-2">
+            <p>
+              سيرفر SMM هو الوسيط بين طموحاتك والنتائج. كل ما عليك هو اختيار الخدمة التي تحتاجها، وتحديد العدد المطلوب، والباقي يتم تلقائيًا. بفضل شراكاتنا مع مطوري التكنولوجيا، نقدم خدمات سريعة وفعالة لتحسين تواجدك الرقمي.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 3 -->
+        <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+          <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="3" aria-expanded="false" aria-controls="faq-answer-3" id="faq-question-3">
+            <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pl-4">هل خدمات سيرفر SMM حقيقية؟</span>
+            <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+          </button>
+          <div id="faq-answer-3" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-3">
+            <p>
+              في marketerum.com، نلتزم بالنزاهة والصدق. نقدم لعملائنا خدمات تفاعل حقيقية لمساعدتهم على تحقيق أهدافهم وزيادة التفاعل الحقيقي والفعال.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 4 -->
+        <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+          <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="4" aria-expanded="false" aria-controls="faq-answer-4" id="faq-question-4">
+            <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pl-4">هل يمكنني الوثوق بخدمات سيرفر SMM؟</span>
+            <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+          </button>
+          <div id="faq-answer-4" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-4">
+            <p>
+              في marketerum.com، نضع الأمان كأولوية. نتبع استراتيجيات تسويقية تلتزم بقوانين المنصات لحماية سمعتك الرقمية وتحقيق الأمان الكامل.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 5 -->
+        <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+          <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="5" aria-expanded="false" aria-controls="faq-answer-5" id="faq-question-5">
+            <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pl-4">ما هي المنصات التي يدعمها سيرفر SMM؟</span>
+            <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+          </button>
+          <div id="faq-answer-5" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-5">
+            <p>
+              خدماتنا تغطي عدة منصات تواصل اجتماعي. يدعم سيرفر SMM لدينا منصات مثل إنستجرام، فيسبوك، تويتر، تيك توك ويوتيوب.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 6 -->
+        <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+          <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="6" aria-expanded="false" aria-controls="faq-answer-6" id="faq-question-6">
+            <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pl-4">هل يمكن لسيرفر SMM زيادة التفاعل والرؤية؟</span>
+            <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+          </button>
+          <div id="faq-answer-6" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-6">
+            <p>
+              بالتأكيد. سيرفرات SMM مصممة لزيادة التفاعل والرؤية. يمكنك استخدام خدمات مثل الإعجابات والمتابعين لتعزيز وجودك على الإنترنت وجذب جمهور جديد.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 7 -->
+        <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+          <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="7" aria-expanded="false" aria-controls="faq-answer-7" id="faq-question-7">
+            <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pl-4">هل سيرفرات SMM مناسبة للشركات؟</span>
+            <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+          </button>
+          <div id="faq-answer-7" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-7">
+            <p>
+              بالطبع. سيرفرات SMM مفيدة للشركات بمختلف أحجامها. يمكنها تعزيز مكانة علامتك التجارية، وزيادة جمهورك، وتطوير أعمالك بشكل ملحوظ.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 8 -->
+        <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+          <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="8" aria-expanded="false" aria-controls="faq-answer-8" id="faq-question-8">
+            <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pl-4">هل توفر سيرفرات SMM خدمات مستهدفة؟</span>
+            <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+          </button>
+          <div id="faq-answer-8" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-8">
+            <p>
+              نعم، تقدم سيرفرات SMM خدمات استهداف متقدمة، مما يسمح لك باستهداف مجموعات أو مواقع أو صناعات محددة لتحقيق أكبر تأثير.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 9 -->
+        <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+          <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="9" aria-expanded="false" aria-controls="faq-answer-9" id="faq-question-9">
+            <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pl-4">كيف أختار سيرفر SMM موثوقًا؟</span>
+            <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+          </button>
+          <div id="faq-answer-9" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-9">
+            <p>
+              عند اختيار سيرفر SMM، تحقق من الأسعار والتقييمات وآراء العملاء والشروط والأحكام. Marketerum.com يوفر الجودة والشفافية والثقة لنجاحك الرقمي.
+            </p>
+          </div>
+        </div>
+
+        <!-- FAQ Item 10 -->
+        <div class="faq-item bg-white dark:bg-dark-secondary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+          <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="10" aria-expanded="false" aria-controls="faq-answer-10" id="faq-question-10">
+            <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pl-4">ما هو سيرفر SMM للموزعين؟</span>
+            <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+            </svg>
+          </button>
+          <div id="faq-answer-10" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-10">
+            <p>
+              سيرفر SMM للموزعين هو موقع يتيح للأشخاص أو الشركات شراء خدمات SMM بالجملة بأسعار مخفضة. يستخدمه الموزعون لشراء الإعجابات والمتابعين وبيعها لعملائهم مقابل ربح.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END : FAQ -->
+
+<!-- SECTION : SERVICE -->
+<section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-gray-50/50 to-white dark:from-dark-secondary dark:to-dark transition-colors duration-300">
+	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
+		<!-- Header -->
+		<div class="text-center mb-10 sm:mb-12 lg:mb-16 max-w-3xl mx-auto">
+			<div class="flex justify-center mb-6">
+				<div class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-primary-500/10 to-accent-500/10 dark:from-primary-500/20 dark:to-accent-500/20 border border-primary-200/50 dark:border-primary-500/30 rounded-full text-sm font-medium text-primary-600 dark:text-primary-400">
+					الخدمات
+				</div>
+			</div>
+			<h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-4 leading-tight">
+				<span class="text-primary-500 dark:text-primary-400">SMM Panel</span> Services
+			</h2>
+		</div>
+
+		<!-- Tabs Navigation -->
+		<div class="max-w-6xl mx-auto">
+			<div class="tabs__wrapper my-10 space-y-16">
+				<nav class="flex flex-wrap justify-center gap-2 sm:gap-3 border-b-2 border-primary-200 dark:border-primary-500/30 pb-6 text-sm sm:text-base" role="tablist" aria-label="Service tabs">
+						<a href="#" class="active px-4 py-2 rounded-t-lg bg-primary-500 text-white font-medium transition-all duration-200 hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700 shadow-sm" data-tab="panel" role="tab" aria-selected="true" aria-controls="tab-panel">
+							جميع اللوحات
+						</a>
+						<a href="#" class="px-4 py-2 rounded-t-lg text-gray-700 dark:text-slate-300 font-medium transition-all duration-200 hover:bg-gray-100 dark:hover:bg-dark-tertiary hover:text-primary-600 dark:hover:text-primary-400" data-tab="facebook" role="tab" aria-selected="false" aria-controls="tab-facebook">
+							فيسبوك
+						</a>
+						<a href="#" class="px-4 py-2 rounded-t-lg text-gray-700 dark:text-slate-300 font-medium transition-all duration-200 hover:bg-gray-100 dark:hover:bg-dark-tertiary hover:text-primary-600 dark:hover:text-primary-400" data-tab="twitter" role="tab" aria-selected="false" aria-controls="tab-twitter">
+							تويتر
+						</a>
+						<a href="#" class="px-4 py-2 rounded-t-lg text-gray-700 dark:text-slate-300 font-medium transition-all duration-200 hover:bg-gray-100 dark:hover:bg-dark-tertiary hover:text-primary-600 dark:hover:text-primary-400" data-tab="instagram" role="tab" aria-selected="false" aria-controls="tab-instagram">
+							انستغرام
+						</a>
+						<a href="#" class="px-4 py-2 rounded-t-lg text-gray-700 dark:text-slate-300 font-medium transition-all duration-200 hover:bg-gray-100 dark:hover:bg-dark-tertiary hover:text-primary-600 dark:hover:text-primary-400" data-tab="youtube" role="tab" aria-selected="false" aria-controls="tab-youtube">
+							يوتيوب
+						</a>
+						<a href="#" class="px-4 py-2 rounded-t-lg text-gray-700 dark:text-slate-300 font-medium transition-all duration-200 hover:bg-gray-100 dark:hover:bg-dark-tertiary hover:text-primary-600 dark:hover:text-primary-400" data-tab="tiktok" role="tab" aria-selected="false" aria-controls="tab-tiktok">
+							تيك توك
+						</a>
+						<a href="#" class="px-4 py-2 rounded-t-lg text-gray-700 dark:text-slate-300 font-medium transition-all duration-200 hover:bg-gray-100 dark:hover:bg-dark-tertiary hover:text-primary-600 dark:hover:text-primary-400" data-tab="spotify" role="tab" aria-selected="false" aria-controls="tab-spotify">
+							سبوتيفاي
+						</a>
+					</nav>
+
+					<!-- SMM World Panel -->
+					<div data-tab-content="panel" id="tab-panel" class="service-tabs__item p-6 sm:p-8 bg-white dark:bg-dark-secondary rounded-xl border border-gray-200/50 dark:border-dark-tertiary/50 shadow-sm dark:shadow-lg transition-all duration-300" role="tabpanel" aria-labelledby="tab-panel">
+						<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-slate-100 mb-4 text-right">
+							جميع اللوحات
+						</h2>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed text-right">
+							نحن فخورون بأن نكون من رواد تقديم خدمات سيرفر SMM عالميًا، بغض النظر عن الشبكة الاجتماعية. سواء كنت ترغب في زيادة التفاعل على منصات مثل تيليجرام، تويتش، ديسكورد، تمبلر، كيواي، ريديت، ساوند كلاود، ديزر، كلوب هاوس، وغيرها، نظامنا سيساعدك في ذلك. نضمن لك جذب جمهورك أينما كانوا، مع تحسين أدائك والتفاعل عبر وسائل التواصل الاجتماعي لتحقيق أقصى استفادة من هذه المصادر.
+						</p>
+					</div>
+
+					<!-- Facebook -->
+					<div data-tab-content="facebook" id="tab-facebook" class="service-tabs__item hidden p-6 sm:p-8 bg-white dark:bg-dark-secondary rounded-xl border border-gray-200/50 dark:border-dark-tertiary/50 shadow-sm dark:shadow-lg transition-all duration-300" role="tabpanel" aria-labelledby="tab-facebook">
+						<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-slate-100 mb-4 text-right">سيرفر SMM لفيسبوك</h2>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							من المهم إنشاء وجود قوي على فيسبوك في هذا العصر الرقمي. سواء كنت منشئ محتوى، شركة، أو مؤثر، فإن
+							وجود جمهور واسع يساعدك في تعزيز نشاطك عبر الإنترنت. مع سيرفر SMM من Marketerum.com، يمكنك تحسين
+							ملفك الشخصي وزيادة التفاعل وجذب المعجبين بسهولة وفعالية.
+						</p>
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء متابعين فيسبوك</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							إذا كنت تريد تعزيز وجودك الاجتماعي، فإن زيادة عدد المتابعين على فيسبوك ليس فقط لتوسيع نطاق
+							جمهورك، بل أيضًا لزيادة مصداقيتك وشعور الجمهور بأهميتك. كلما زاد عدد المتابعين، زادت فرص جذب
+							المزيد بشكل طبيعي. في سيرفر SMM الخاص بنا، يمكنك بسهولة شراء متابعين لفيسبوك لزيادة جمهورك بشكل
+							سريع وفعال.
+						</p>
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء إعجابات فيسبوك</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							من الضروري إضافة وحصد الإعجابات على المحتوى الذي تنشره على صفحتك. الإعجابات تزيد من فرص ملاحظة
+							منشوراتك وتعزز من تفاعل الجمهور معها. باستخدام سيرفر SMM الخاص بنا، يمكنك زيادة عدد الإعجابات
+							على منشوراتك لتحسين سمعتها وزيادة مدى تأثيرها.
+						</p>
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء تعليقات فيسبوك</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							التفاعل على وسائل التواصل لا يقتصر على الإعجابات فقط، بل يتطلب التفاعل بالتعليقات أيضًا. سيرفر
+							SMM الخاص بنا يتيح لك شراء تعليقات حقيقية لزيادة تفاعل الجمهور مع منشوراتك وتحفيز المحادثات
+							حولها.
+						</p>
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء مشاركات فيسبوك</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							عندما يتم إعادة نشر محتواك على فيسبوك، يزيد من فرص التفاعل والوصول لجمهور جديد. مع سيرفر SMM
+							الخاص بنا، يمكنك شراء مشاركات لزيادة انتشار منشوراتك وجذب المزيد من المتابعين.
+						</p>
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء مشاهدات فيديو فيسبوك</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							عدد مشاهدات الفيديو يؤثر بشكل كبير على مدى انتشار المحتوى. باستخدام سيرفر SMM الخاص بنا، يمكنك
+							شراء مشاهدات للفيديوهات الخاصة بك لزيادة عدد المتابعين وزيادة تفاعل الجمهور مع المحتوى الذي
+							تقدمه.
+						</p>
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء إعجابات صفحة فيسبوك</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							كل صفحة ناجحة على فيسبوك تحتاج إلى عدد كبير من المتابعين. يمكنك طلب إعجابات لصفحتك عبر سيرفر
+							SMM الخاص بنا لتعزيز نمو صفحتك وزيادة فرص جذب متابعين جدد بشكل طبيعي.
+						</p>
+
+					</div>
+
+					<!-- Twitter -->
+					<div data-tab-content="twitter" id="tab-twitter" class="service-tabs__item hidden p-6 sm:p-8 bg-white dark:bg-dark-secondary rounded-xl border border-gray-200/50 dark:border-dark-tertiary/50 shadow-sm dark:shadow-lg transition-all duration-300" role="tabpanel" aria-labelledby="tab-twitter">
+						<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-slate-100 mb-4 text-right">سيرفر SMM لتويتر</h2>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							نحن ندرك أهمية توسيع عدد متابعيك على تويتر لزيادة وعي العلامة التجارية الخاصة بك. سواء كنت
+							مؤثرًا، مجموعة، أو منشئ محتوى، فإن إدارة حساب تويتر بشكل جيد يساعدك في التواصل مع جمهورك بشكل
+							أفضل. مع سيرفر SMM من Marketerum.com، يمكنك زيادة عدد المتابعين، رفع مستوى التفاعل وجذب
+							الانتباه إلى منشوراتك.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء متابعين تويتر</h3>
+
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							وجود عدد كبير من المتابعين على تويتر يزيد من مصداقية حسابك. كلما زاد عدد المتابعين، زادت فرص
+							جذب المزيد بشكل طبيعي. سواء كنت مؤثرًا أو شركة، زيادة عدد المتابعين سيمنحك جمهورًا أوسع ويسمح
+							لك بالتواصل بشكل أفضل على تويتر.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء إعجابات تويتر</h3>
+
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							من المهم الحصول على إعجابات لتغريداتك لزيادة الرؤية على تويتر. كلما زاد عدد الإعجابات، زادت
+							فرصة إعادة تغريداتك. يمكنك شراء إعجابات لتغريداتك من سيرفر SMM لدينا لزيادة التفاعل مع المحتوى
+							الخاص بك.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء إعادة تغريدات تويتر</h3>
+
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							إعادة التغريد هي واحدة من أفضل الطرق لنشر رسالتك على تويتر. عندما يعيد المستخدمون تغريد
+							منشوراتك، فإنهم يوسعون نطاق جمهورك. مع سيرفر SMM الخاص بنا، يمكنك شراء إعادة تغريدات لزيادة
+							تأثيرك والوصول إلى جمهور أوسع.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء تعليقات تويتر</h3>
+
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							التعليقات على تويتر تزيد من تفاعل المستخدمين مع المحتوى الخاص بك. يمكنك شراء تعليقات لتشجيع
+							المزيد من التفاعل مع منشوراتك وبناء قاعدة جمهور متفاعلة.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء مشاهدات فيديو تويتر</h3>
+
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							الفيديوهات هي واحدة من أكثر أنواع المحتوى جاذبية على تويتر. يمكنك شراء مشاهدات فيديو لزيادة
+							التفاعل مع محتواك وجذب جمهور أكبر لمشاهدة الفيديوهات الخاصة بك.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء أصوات استطلاعات تويتر</h3>
+
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							الاستطلاعات على تويتر أداة فعالة لجذب التفاعل من المتابعين. يمكنك شراء أصوات لزيادة التفاعل مع
+							استطلاعاتك وجعلها أكثر جاذبية للجمهور. هذا يساعد في تعزيز التفاعل وزيادة نشاط الصفحة.
+						</p>
+
+					</div>
+
+					<!-- Instagram -->
+					<div data-tab-content="instagram" id="tab-instagram" class="service-tabs__item hidden p-6 sm:p-8 bg-white dark:bg-dark-secondary rounded-xl border border-gray-200/50 dark:border-dark-tertiary/50 shadow-sm dark:shadow-lg transition-all duration-300" role="tabpanel" aria-labelledby="tab-instagram">
+						<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-slate-100 mb-4 text-right">سيرفر SMM لإنستغرام</h2>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							يساعد إنستغرام الأفراد والمؤثرين والشركات على الوصول لجمهور أكبر. بناء حضور قوي على إنستغرام
+							يزيد التفاعل مع جمهورك ويفتح قنوات جديدة للنمو. إذا كنت بحاجة إلى تنمية حسابك بسرعة، لدينا
+							سيرفر SMM في Marketerum.com يقدم عدة خيارات مخصصة لنمو إنستغرام. سواء كنت تحتاج المزيد من
+							المتابعين أو الإعجابات أو التفاعل على المنشورات، أدواتنا تساعد في جعل حسابك مميزًا وجذب متابعين
+							مخلصين.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء متابعين إنستغرام</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							زيادة عدد المتابعين على إنستغرام يساعد في تعزيز ملفك الشخصي. شراء متابعين حقيقيين من خلال سيرفر
+							SMM الخاص بنا يمكن أن يعزز تواجدك بسرعة ويجذب المزيد من المتابعين الطبيعيين.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء إعجابات إنستغرام</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							الإعجابات ضرورية لزيادة ظهور منشوراتك على إنستغرام. كلما زاد عدد الإعجابات، زادت فرص ظهور
+							منشوراتك في صفحة الاستكشاف. يمكنك شراء إعجابات لتعزيز تفاعل الجمهور مع محتواك.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء تعليقات إنستغرام</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							التعليقات تزيد من مستوى التفاعل على منشوراتك وتجعل المحتوى أكثر جذبًا للمناقشة. شراء تعليقات من
+							خلال سيرفر SMM يمكن أن يساعد في زيادة التفاعل وتشجيع المحادثات حول المحتوى.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء مشاهدات قصص إنستغرام</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							القصص هي وسيلة فعالة للتفاعل مع المتابعين على إنستغرام. إذا لم تُشاهد قصصك بالشكل الكافي، يمكنك
+							شراء مشاهدات القصص لزيادة التفاعل وتحفيز جمهورك على المشاركة.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء مشاهدات فيديو إنستغرام</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							الفيديوهات على إنستغرام تجذب الانتباه، وزيادة عدد المشاهدات يمكن أن يعزز من تواجد محتواك في
+							صفحة الاستكشاف. شراء مشاهدات الفيديوهات يساعد على جذب جمهور أكبر.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء حفظات منشورات إنستغرام</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							عندما يحفظ المستخدمون منشوراتك، يزيد ذلك من فرص ظهورها في صفحات المستخدمين الأخرى. شراء حفظات
+							المنشورات يمكن أن يعزز جودة المحتوى ويزيد من تفاعل المشاهدين معه.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء مشاهدات ريلز إنستغرام</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							الريلز هي طريقة فعالة لنشر الفيديوهات القصيرة وجذب الجمهور. شراء مشاهدات الريلز من خلال سيرفر
+							SMM يساعد في زيادة عدد المشاهدات والظهور في صفحة الاستكشاف.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء مشاركات منشورات إنستغرام</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							كلما تمت مشاركة منشوراتك أكثر، زادت فرص الوصول إلى جمهور جديد. يمكنك شراء مشاركات منشوراتك من
+							سيرفر SMM لتعزيز انتشار المحتوى الخاص بك وزيادة المتابعين.
+						</p>
+					</div>
+
+					<!-- YouTube -->
+					<div data-tab-content="youtube" id="tab-youtube" class="service-tabs__item hidden p-6 sm:p-8 bg-white dark:bg-dark-secondary rounded-xl border border-gray-200/50 dark:border-dark-tertiary/50 shadow-sm dark:shadow-lg transition-all duration-300" role="tabpanel" aria-labelledby="tab-youtube">
+						<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-slate-100 mb-4 text-right">سيرفر SMM ليوتيوب</h2>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							بناء حضور قوي على يوتيوب أمر ضروري لمنشئي المحتوى، المؤثرين، والشركات الذين يرغبون في الوصول
+							لجمهور أكبر. سواء كنت تنشر دروسًا، مراجعات، أو مقاطع فيديو ترويجية، يمكن أن يساعد تعزيز قناتك
+							على يوتيوب في زيادة الظهور وجذب جمهور أكبر وبناء المصداقية. يوفر سيرفر SMM من Marketerum.com
+							استراتيجيات فعالة لزيادة المشتركين والمشاهدات والإعجابات على قناتك.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء مشتركين يوتيوب</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							زيادة عدد المشتركين في قناتك يساعد في جذب المزيد من المشاهدين وتوسيع نطاق جمهورك. شراء مشتركين
+							من خلال سيرفر SMM يساعد في تنمية قناتك بشكل سريع وزيادة مصداقيتها.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء مشاهدات يوتيوب</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							عدد المشاهدات هو مقياس النجاح على يوتيوب. زيادة المشاهدات تعزز من ترتيب الفيديو وتجعل من السهل
+							العثور عليه. يمكنك شراء مشاهدات لتعزيز أداء فيديوهاتك وجذب المزيد من المشاهدين.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء إعجابات يوتيوب</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							الإعجابات مهمة للجمهور ولخوارزميات يوتيوب، فهي تزيد من ظهور المحتوى وتساعد في جذب مشاهدين جدد.
+							زيادة الإعجابات تعزز جودة الفيديو وتجعله أكثر جذبًا للمشاهدين.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء تعليقات يوتيوب</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							التعليقات تشجع على النقاش وزيادة التفاعل مع الفيديوهات. شراء تعليقات يساعد في خلق محادثات ويجعل
+							المحتوى أكثر جاذبية للمشاهدين.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء وقت المشاهدة على يوتيوب</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							وقت المشاهدة هو أحد العوامل الرئيسية التي تؤثر على ترتيب الفيديوهات في يوتيوب. شراء وقت مشاهدة
+							يساعد في تحسين ترتيب الفيديو ويزيد من فرص نجاحه.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء مشاركات يوتيوب</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							مشاركة الفيديوهات تزيد من انتشارها وتجذب جمهورًا جديدًا. شراء مشاركات عبر سيرفر SMM يساعد في
+							تعزيز انتشار الفيديوهات وجذب مشاهدين جدد.
+						</p>
+					</div>
+
+					<!-- TikTok -->
+					<div data-tab-content="tiktok" id="tab-tiktok" class="service-tabs__item hidden p-6 sm:p-8 bg-white dark:bg-dark-secondary rounded-xl border border-gray-200/50 dark:border-dark-tertiary/50 shadow-sm dark:shadow-lg transition-all duration-300" role="tabpanel" aria-labelledby="tab-tiktok">
+						<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-slate-100 mb-4 text-right">سيرفر SMM لتيك توك</h2>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							مع وجود أكثر من 800 مليون مستخدم نشط، يعتبر تيك توك من أشهر المنصات اليوم لإنشاء ومشاركة
+							الفيديوهات. سواء كنت مؤثرًا، شركة، أو منشئ محتوى، يجب عليك استغلال قدرات التسويق على تيك توك
+							للوصول إلى جمهور أوسع. يوفر لك Marketerum.com كل الأدوات الضرورية لتطوير حسابك وزيادة عدد
+							المتابعين، المشاهدات والإعجابات، وتعزيز التفاعل مع المحتوى.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء متابعين تيك توك</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							المتابعون مهمون جدًا في تعزيز تأثيرك على الجمهور. شراء متابعين تيك توك يزيد من جمهورك ويعزز من
+							ظهور حسابك ومحتواك.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء إعجابات تيك توك</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							الإعجابات تعتبر من أهم المقاييس لنجاح فيديوهاتك على تيك توك. شراء الإعجابات يساعد في جعل
+							المحتوى يظهر في قسم "لك" وجذب مشاهدات إضافية وتفاعل أكبر.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء مشاهدات تيك توك</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							كلما زادت عدد المشاهدات، زاد التفاعل على فيديوهاتك. شراء مشاهدات تيك توك يساعد في زيادة فرص
+							انتشار الفيديو وجذب جمهور أكبر.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء تعليقات تيك توك</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							التعليقات تساعد في زيادة التفاعل مع منشوراتك على تيك توك. شراء التعليقات يعزز التواصل مع جمهورك
+							ويساعد في جذب المزيد من المتابعين.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء مشاركات تيك توك</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							مشاركة الفيديوهات توسع نطاق وصولها لجمهور جديد. شراء مشاركات تيك توك يساعد في زيادة انتشار
+							محتواك وزيادة عدد المتابعين.
+						</p>
+					</div>
+
+					<!-- Spotify -->
+					<div data-tab-content="spotify" id="tab-spotify" class="service-tabs__item hidden p-6 sm:p-8 bg-white dark:bg-dark-secondary rounded-xl border border-gray-200/50 dark:border-dark-tertiary/50 shadow-sm dark:shadow-lg transition-all duration-300" role="tabpanel" aria-labelledby="tab-spotify">
+						<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-slate-100 mb-4 text-right">سيرفر SMM لسبوتيفاي</h2>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							يعد سبوتيفاي من أفضل المنصات لاكتشاف الموسيقى والبودكاست، مما يجعله مهمًا للفنانين وصناع
+							المحتوى للوصول إلى جمهورهم المستهدف. سواء كنت فنانًا أو صانع بودكاست، فإن الترويج لنفسك على
+							سبوتيفاي سيساعدك على الوصول إلى المزيد من الناس. يوفر سيرفر SMM من Marketerum.com خدمات ترويجية
+							تهدف إلى تحسين ملفك الشخصي وزيادة عدد الاستماع وتطوير جمهورك.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء متابعين سبوتيفاي</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							زيادة عدد المتابعين على سبوتيفاي أمر مهم لزيادة الطلب على موسيقاك أو بودكاستك. شراء متابعين
+							يساعد في تعزيز ملفك الشخصي وجذب مستمعين جدد.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء تشغيلات سبوتيفاي</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							عدد التشغيلات هو مقياس رئيسي على سبوتيفاي لمدى شعبية مقاطعك. شراء تشغيلات يساعد في زيادة عدد
+							المستمعين ويجعل المحتوى أكثر جاذبية للمستمعين والخوارزميات.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء مستمعين شهريين على سبوتيفاي</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							المستمعون الشهريون يظهرون مدى نشاط جمهورك على المنصة. شراء مستمعين شهريين يعزز من أداء ملفك
+							الشخصي ويجذب جماهير جديدة.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء إضافات لقوائم تشغيل سبوتيفاي</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							إضافة مقاطعك إلى قوائم التشغيل يعزز من رؤية المحتوى الخاص بك ويزيد من فرص وصوله إلى جمهور أوسع.
+							هذه الخدمة مثالية للفنانين الذين يرغبون في الترويج لأغانيهم.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء تشغيلات بودكاست سبوتيفاي</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							عدد تشغيلات البودكاست يساعد في زيادة رؤية الحلقات الخاصة بك. شراء تشغيلات للبودكاست يزيد من فرص
+							ظهوره في نتائج البحث وجذب مستمعين جدد.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء مشاهدات الملف الشخصي للفنان على سبوتيفاي</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							مشاهدات الملف الشخصي للفنان تساعد في زيادة التفاعل مع موسيقاك. شراء مشاهدات يزيد من عدد الزوار
+							لملفك الشخصي ويعزز من فرص اكتشاف المحتوى الخاص بك.
+						</p>
+					</div>
+
+					<!-- Telegram -->
+					<div data-tab-content="telegram" id="tab-telegram" class="service-tabs__item hidden p-6 sm:p-8 bg-white dark:bg-dark-secondary rounded-xl border border-gray-200/50 dark:border-dark-tertiary/50 shadow-sm dark:shadow-lg transition-all duration-300" role="tabpanel" aria-labelledby="tab-telegram">
+						<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-slate-100 mb-4 text-right">سيرفر SMM لتليجرام</h2>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							أصبح تليجرام وسيلة ممتازة للتواصل بين المجتمعات والشركات والمؤثرين وجمهورهم. سواء كنت تدير
+							مجموعة أو قناة على تليجرام، فإن زيادة عدد المتابعين والتفاعل مهم لتعزيز وجودك وسلطتك في المجال.
+							يوفر سيرفر SMM من Marketerum.com خدمات متنوعة تساعدك على تنمية قناتك وزيادة التفاعل وتوسيع
+							نشاطاتك.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء مشتركين قناة تليجرام</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							زيادة عدد المشتركين في قناتك أمر ضروري لزيادة تفاعلك ومصداقيتك. المزيد من المشتركين يعني وصول
+							المعلومات إلى عدد أكبر من الناس بسرعة.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء أعضاء مجموعة تليجرام</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							زيادة عدد الأعضاء في مجموعتك يزيد من التفاعل والمناقشات داخل المجموعة، مما يجعلها أكثر نشاطًا
+							ويجذب المزيد من الأعضاء الجدد.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء مشاهدات منشورات تليجرام</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							كلما زادت مشاهدات منشوراتك، زادت فرص تفاعل المستخدمين معها. شراء مشاهدات المنشورات يساعد في
+							تحسين موقعك وزيادة تفاعلك.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء ردود فعل تليجرام</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							الردود الفعّالة على تليجرام تضيف نوعًا من التفاعل إلى المحتوى المنشور. شراء ردود الفعل يساعد في
+							جعل المحتوى أكثر جاذبية للمشتركين.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء إعادة توجيه محتوى تليجرام</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							إعادة توجيه المحتوى توسع من نطاق وصوله لجمهور جديد. شراء إعادة التوجيه يساعد في جذب المزيد من
+							المشاهدات وزيادة التفاعل مع المحتوى.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء أصوات استطلاعات تليجرام</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							استطلاعات الرأي تساعد في إشراك الجمهور، لكن لا فائدة منها إذا لم يصوت أحد. شراء أصوات
+							الاستطلاعات يساعد في جعلها أكثر جاذبية وزيادة التفاعل معها.
+						</p>
+					</div>
+
+					<!-- Deezer -->
+					<div data-tab-content="deezer" id="tab-deezer" class="service-tabs__item hidden p-6 sm:p-8 bg-white dark:bg-dark-secondary rounded-xl border border-gray-200/50 dark:border-dark-tertiary/50 shadow-sm dark:shadow-lg transition-all duration-300" role="tabpanel" aria-labelledby="tab-deezer">
+						<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-slate-100 mb-4 text-right">سيرفر SMM لديزر</h2>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							يعتبر ديزر من التطبيقات الشهيرة لبث الموسيقى والبودكاست، مما يجعله منصة هامة للفنانين وصناع
+							المحتوى للوصول لجمهور عالمي. سواء كنت فنانًا مستقلًا، فرقة موسيقية، أو صانع بودكاست، فإن تنمية
+							وجودك على ديزر ضروري لزيادة عدد الاستماع والوصول لجمهور أكبر. يوفر سيرفر SMM من Marketerum.com
+							وحدات تسويقية جاهزة تساعدك على زيادة عدد المتابعين وتحسين ملفك الشخصي على ديزر.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء متابعين ديزر</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							التفاعل مع الجمهور على ديزر وبناء قاعدة جماهيرية مخلصة أمر ضروري لزيادة مصداقيتك وتعزيز تواجدك.
+							شراء متابعين يساعد في زيادة التفاعل مع مقاطعك الموسيقية والبودكاست.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء تشغيلات ديزر</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							عدد التشغيلات على ديزر يعكس شعبية مقاطعك الموسيقية أو البودكاست. شراء تشغيلات يزيد من عدد
+							الاستماع ويجعل المحتوى أكثر جاذبية للمستمعين والخوارزميات.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء متابعين قوائم التشغيل في ديزر</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							قوائم التشغيل تساهم في زيادة عدد الاستماع لأغانيك. شراء متابعين قوائم التشغيل يساعد في الترويج
+							لموسيقاك وجذب جمهور أكبر.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء تشغيلات ألبومات ديزر</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							إصدار الألبومات خطوة مهمة لكل فنان، وزيادة عدد تشغيلات الألبوم تساعد في جذب المزيد من المستمعين
+							وتوسيع قاعدة جمهورك.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء تشغيلات بودكاست ديزر</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							البودكاستات تزداد شعبيتها على ديزر، وزيادة عدد التشغيلات يساعد في تحسين ترتيب البودكاست وجذب
+							جمهور أوسع.
+						</p>
+					</div>
+
+					<!-- Snapchat -->
+					<div data-tab-content="snapchat" id="tab-snapchat" class="service-tabs__item hidden p-6 sm:p-8 bg-white dark:bg-dark-secondary rounded-xl border border-gray-200/50 dark:border-dark-tertiary/50 shadow-sm dark:shadow-lg transition-all duration-300" role="tabpanel" aria-labelledby="tab-snapchat">
+						<h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-slate-100 mb-4 text-right">سيرفر SMM لسناب شات</h2>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							سناب شات هو منصة فريدة تتيح للمستخدمين التفاعل بسرعة مع المتابعين والمؤثرين والمبدعين من خلال
+							محتوى قصير. سواء كنت تبني علامة تجارية أو تأثيرًا شخصيًا، فإن زيادة وجودك على سناب شات سيساعدك
+							على الوصول لجمهور أكبر وزيادة التفاعل. سيرفر SMM من Marketing.ua يركز على تعزيز حسابك من خلال
+							تقديم خدمات لزيادة المتابعين والمشاهدات والتفاعلات.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء متابعين سناب شات</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							زيادة عدد المتابعين على سناب شات تعزز من تأثيرك وتجذب جمهورًا أوسع، مما يزيد من التفاعل
+							والرؤية.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء مشاهدات القصص على سناب شات</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							مشاهدات القصص تعد من أهم المقاييس على سناب شات. شراء مشاهدات القصص يساعد في جعل المحتوى الخاص
+							بك مرئيًا لعدد أكبر من الناس وزيادة التفاعل.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء ردود على قصص سناب شات</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							الردود على القصص تزيد من التفاعل وتجعل المحتوى أكثر جاذبية للمشاهدين. شراء الردود يساعد في خلق
+							محادثات وتحفيز الجمهور.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء مشاركات قصص سناب شات</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							مشاركة القصص توسع من نطاق وصولها لجمهور أكبر. شراء مشاركات القصص يزيد من انتشار المحتوى
+							والتفاعل معه.
+						</p>
+
+						<h3 class="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-slate-100 mb-3 mt-6 text-right">شراء لقطات شاشة لقصص سناب شات</h3>
+						<p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed mb-4 text-right">
+							لقطات الشاشة تعني أن المحتوى جذب اهتمام المشاهدين. شراء لقطات الشاشة يزيد من قيمة المحتوى ويحفز
+							الجمهور على التفاعل.
+						</p>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+<!-- END : SERVICES -->
+
+<!-- SECTION : Best and Cheapest -->
+<section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-slate-50 via-primary-50/30 to-accent-50/20 dark:from-dark dark:via-dark-secondary dark:to-dark transition-all duration-300 relative overflow-hidden">
+	<!-- Decorative Background Elements -->
+	<div class="absolute inset-0 overflow-hidden pointer-events-none">
+		<div class="absolute top-0 right-0 w-96 h-96 bg-white/10 dark:bg-white/5 rounded-full blur-3xl"></div>
+		<div class="absolute bottom-0 left-0 w-96 h-96 bg-white/10 dark:bg-white/5 rounded-full blur-3xl"></div>
+	</div>
+	<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+		<!-- Header -->
+		<div class="text-center mb-10 sm:mb-12 lg:mb-16 max-w-4xl mx-auto">
+			<div class="flex justify-center mb-6">
+				<div class="inline-flex items-center px-4 py-2 text-white bg-primary-500 rounded-lg hover:bg-primary-600 transition-colors dark:bg-white/10 backdrop-blur-md border border-white/30 rounded-full text-sm font-medium text-white">
+					الأفضل والأرخص
+				</div>
+			</div>
+			<h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold dark:text-slate-100 mb-4 leading-tight">
+				الأسئلة الأكثر شيوعًا حول سيرفرات SMM في الدول العربية
+			</h2>
+			<p class="text-base sm:text-lg dark:text-slate-300 leading-relaxed text-right">
+				في عالم التسويق عبر وسائل التواصل الاجتماعي، يبرز marketerum.com كأفضل سيرفر يقدم جودة وسعرًا مثاليين،
+				ويخدم الأسواق العالمية مثل
+				<a href="https://marketerum.com/arab-smm-panel">سيرفر SMM العربي</a>
+				و<a href="https://marketerum.com/african-smm-panel">سيرفر SMM الأفريقي</a>. يُعرف باسم
+				<a href="https://marketerum.com/no-1-smm-panel">سيرفر SMM رقم 1</a>
+				ويقدم تفاعلًا حقيقيًا بأسعار معقولة للأفراد والشركات والمؤثرين، مما يساعدهم على تحسين حضورهم الإلكتروني
+				بوسائل موثوقة وأخلاقية.
+			</p>
+		</div>
+		<!-- FAQ Grid -->
+		<div class="max-w-6xl mx-auto">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+				<!-- FAQ Item 1 -->
+					<!-- FAQ Item 1 -->
+					<div class="faq-item bg-white/95 dark:bg-dark-secondary/95 backdrop-blur-sm rounded-xl border border-white/20 dark:border-dark-tertiary/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+						<button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-white/10 dark:hover:bg-dark-tertiary/30 transition-colors duration-200" data-faq="best-1" aria-expanded="false" aria-controls="faq-answer-best-1" id="faq-question-best-1">
+							<span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pl-4">كيف أزيد متابعين إنستقرام بسرعة وبسعر مناسب؟</span>
+							<svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+							</svg>
+						</button>
+						<div id="faq-answer-best-1" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-best-1">
+							<div class="space-y-3">
+								<p>
+									الكثير من المستخدمين في الدول العربية مثل السعودية ومصر والإمارات يبحثون عن طرق فعالة وآمنة لـ <a href="https://marketerum.com/ar-instagram-followers" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>زيادة متابعين انستقرام</strong></a> دون الاعتماد على المتابعين الوهميين. الحل الأمثل هو الاستعانة بـ <strong>سيرفر SMM عربي موثوق</strong> يقدم متابعين انستقرام حقيقيين من جمهور عربي مستهدف. هذا النوع من المتابعين يساعد على تحسين التفاعل بشكل كبير، سواء من خلال الإعجابات أو التعليقات أو المشاهدات، مما يجعل الحساب يبدو أكثر مصداقية أمام المتابعين الجدد.
+								</p>
+								<p>
+									إلى جانب ذلك، يمكن دمج خدمة <a href="https://marketerum.com/ar-instagram-likes" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>لايكات انستقرام</strong></a> و <a href="https://marketerum.com/ar-instagram-views" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>مشاهدات ريلز</strong></a> مع خدمة المتابعين لزيادة معدل النمو. بهذه الطريقة، لا يقتصر الأمر فقط على زيادة الأعداد بل يتعدى ذلك إلى رفع معدل التفاعل العام، مما يساهم في ظهور الحساب بشكل أكبر في خانة الاستكشاف. عندما يتم بناء الحساب بطريقة مدروسة باستخدام خدمات <a href="https://marketerum.com/ar-instagram-followers" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>زيادة متابعين انستقرام</strong></a> حقيقية، يصبح الحساب جذابًا للعلامات التجارية وفرصة أكبر للتعاون أو الربح من المنصة.
+								</p>
+								<p class="mt-2"><a href="https://marketerum.com/ar-instagram-services" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">اطّلع على جميع خدمات انستقرام</a></p>
+								<p class="mt-1 text-sm">روابط سريعة: <a href="https://marketerum.com/ar-instagram-10k-followers" class="text-primary-600 dark:text-primary-400 hover:underline">10k متابعين انستقرام</a> — <a href="https://marketerum.com/ar-instagram-comments" class="text-primary-600 dark:text-primary-400 hover:underline">تعليقات انستقرام</a></p>
+							</div>
+						</div>
+					</div>
+
+					<!-- FAQ Item 2 -->
+					<div class="faq-item bg-white/95 dark:bg-dark-secondary/95 backdrop-blur-sm rounded-xl border border-white/20 dark:border-dark-tertiary/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+						<button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-white/10 dark:hover:bg-dark-tertiary/30 transition-colors duration-200" data-faq="best-2" aria-expanded="false" aria-controls="faq-answer-best-2" id="faq-question-best-2">
+							<span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pl-4">ما هو أفضل سيرفر لشراء متابعين تيكتوك في الدول العربية؟</span>
+							<svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+							</svg>
+						</button>
+						<div id="faq-answer-best-2" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-best-2">
+							<div class="space-y-3">
+								<p>
+									تطبيق تيكتوك من أكثر التطبيقات نموًا في العالم العربي، ولهذا يبحث المستخدمون في السعودية والمغرب ومصر عن أفضل الطرق للحصول على متابعين تيكتوك حقيقيين. استخدام <strong>سيرفر SMM عربي</strong> يقدم خدمة شراء <a href="https://marketerum.com/ar-tiktok-followers" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>متابعين تيكتوك</strong></a> عرب يعد الحل المثالي. المتابعون العرب يساعدون الفيديوهات على الانتشار بشكل أكبر بين الجمهور المحلي، مما يزيد فرص ظهور المحتوى على صفحة "لك".
+								</p>
+								<p>
+									إضافة إلى ذلك، يمكن تعزيز الحساب أكثر عبر شراء <a href="https://marketerum.com/ar-tiktok-likes" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>لايكات تيكتوك</strong></a> و <a href="https://marketerum.com/ar-tiktok-views" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>مشاهدات تيكتوك</strong></a>، مما يمنح الفيديوهات دفعة قوية ويجعلها أكثر جاذبية للمستخدمين الجدد. تواجد متابعين عرب حقيقيين يساهم في بناء قاعدة جماهيرية مستهدفة، مما يسهل على صاحب الحساب تحقيق أهدافه سواء كانت تسويقية أو شخصية. وبهذا يصبح الحساب أكثر احترافية وأكثر قدرة على المنافسة في السوق العربي.
+								</p>
+								<p class="mt-2"><a href="https://marketerum.com/ar-tiktok-services" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">اطّلع على جميع خدمات تيكتوك</a></p>
+								<p class="mt-1 text-sm">روابط سريعة: <a href="https://marketerum.com/ar-tiktok-10k-followers" class="text-primary-600 dark:text-primary-400 hover:underline">10k متابعين تيكتوك</a> — <a href="https://marketerum.com/ar-tiktok-comments" class="text-primary-600 dark:text-primary-400 hover:underline">تعليقات تيكتوك</a> — <a href="https://marketerum.com/ar-tiktok-live-views" class="text-primary-600 dark:text-primary-400 hover:underline">مشاهدات تيكتوك لايف</a></p>
+							</div>
+						</div>
+					</div>
+
+					<!-- FAQ Item 3 -->
+					<div class="faq-item bg-white/95 dark:bg-dark-secondary/95 backdrop-blur-sm rounded-xl border border-white/20 dark:border-dark-tertiary/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+						<button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-white/10 dark:hover:bg-dark-tertiary/30 transition-colors duration-200" data-faq="best-3" aria-expanded="false" aria-controls="faq-answer-best-3" id="faq-question-best-3">
+							<span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pl-4">هل يمكنني الحصول على متابعين تويتر عرب حقيقيين؟</span>
+							<svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+							</svg>
+						</button>
+						<div id="faq-answer-best-3" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-best-3">
+							<div class="space-y-3">
+								<p>
+									بكل تأكيد، الكثير من الأفراد والشركات في الخليج مثل السعودية والإمارات والكويت يعتمدون على خدمات متابعين تويتر عرب لتعزيز حضورهم على تويتر. شراء <a href="https://marketerum.com/ar-twitter-followers" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>متابعين تويتر عرب</strong></a> حقيقيين من سيرفرات SMM موثوقة يساعد على جعل الحساب أكثر نشاطًا وزيادة المصداقية أمام الجمهور المستهدف. هذه الخدمة لا تقتصر على المتابعين فقط بل يمكن دمجها مع <a href="https://marketerum.com/ar-twitter-likes" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>لايكات تويتر</strong></a> و <strong>ريتويت تويتر</strong> لزيادة التفاعل على التغريدات بشكل أكبر.
+								</p>
+								<p>
+									الفائدة الأساسية من هذه الخدمات هي أنها تمنح الحساب قوة إضافية للظهور في الترند العربي وزيادة وصول التغريدات لعدد أكبر من المستخدمين. عندما يكون الحساب مدعومًا بـ متابعين تويتر حقيقيين وتفاعل عربي مستمر، يصبح أكثر جاذبية للعلامات التجارية والمؤسسات الإعلامية التي تبحث دائمًا عن حسابات ذات مصداقية وقاعدة جماهيرية حقيقية.
+								</p>
+								<p class="mt-2"><a href="https://marketerum.com/ar-twitter-services" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">اطّلع على جميع خدمات تويتر</a></p>
+								<p class="mt-1 text-sm">روابط سريعة: <a href="https://marketerum.com/ar-twitter-10k-followers" class="text-primary-600 dark:text-primary-400 hover:underline">10k متابعين تويتر</a> — <a href="https://marketerum.com/ar-twitter-views" class="text-primary-600 dark:text-primary-400 hover:underline">مشاهدات تويتر</a></p>
+							</div>
+						</div>
+					</div>
+
+					<!-- FAQ Item 4 -->
+					<div class="faq-item bg-white/95 dark:bg-dark-secondary/95 backdrop-blur-sm rounded-xl border border-white/20 dark:border-dark-tertiary/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+						<button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-white/10 dark:hover:bg-dark-tertiary/30 transition-colors duration-200" data-faq="best-4" aria-expanded="false" aria-controls="faq-answer-best-4" id="faq-question-best-4">
+							<span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pl-4">كيف أزيد مشاهدات يوتيوب لقناتي بسرعة؟</span>
+							<svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+							</svg>
+						</button>
+						<div id="faq-answer-best-4" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-best-4">
+							<div class="space-y-3">
+								<p>
+									الكثير من صناع المحتوى العرب يسعون لزيادة <a href="https://marketerum.com/ar-youtube-views" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>مشاهدات يوتيوب</strong></a> بشكل أسرع، خاصة في دول مثل الأردن والعراق ولبنان. أفضل طريقة هي شراء مشاهدات يوتيوب حقيقية من سيرفر SMM يقدم جمهورًا عربيًا مستهدفًا. هذا يضمن أن المشاهدات ليست مجرد أرقام بل تفاعل حقيقي يعزز من مصداقية القناة. إضافة <a href="https://marketerum.com/ar-youtube-likes" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>لايكات يوتيوب</strong></a> وتعليقات عربية يزيد من ثقة الجمهور بالمحتوى ويرفع ترتيب الفيديوهات في نتائج البحث.
+								</p>
+								<p>
+									عندما يجتمع عنصر <a href="https://marketerum.com/ar-youtube-views" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>مشاهدات يوتيوب</strong></a> عربية مع عناصر مثل <a href="https://marketerum.com/ar-youtube-likes" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>لايكات يوتيوب</strong></a> و <a href="https://marketerum.com/ar-youtube-subscribers" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>مشتركين يوتيوب</strong></a>، تصبح القناة أكثر جاذبية لمتابعين جدد وتفتح أبوابًا أكبر للانتشار. هذه الطريقة تساعد المبدعين على بناء قنواتهم بشكل أسرع وبطريقة آمنة بعيدًا عن الأساليب غير الموثوقة. وبالتالي، تزداد فرص نجاحهم في الوصول إلى مرحلة تحقيق الدخل وجذب الرعاة والمعلنين.
+								</p>
+								<p class="mt-2"><a href="https://marketerum.com/ar-youtube-services" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">اطّلع على جميع خدمات يوتيوب</a></p>
+								<p class="mt-1 text-sm"><a href="https://marketerum.com/ar-youtube-watch-views" class="text-primary-600 dark:text-primary-400 hover:underline">ساعات المشاهدة على يوتيوب</a></p>
+							</div>
+						</div>
+					</div>
+
+					<!-- FAQ Item 5 -->
+					<div class="faq-item bg-white/95 dark:bg-dark-secondary/95 backdrop-blur-sm rounded-xl border border-white/20 dark:border-dark-tertiary/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+						<button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-white/10 dark:hover:bg-dark-tertiary/30 transition-colors duration-200" data-faq="best-5" aria-expanded="false" aria-controls="faq-answer-best-5" id="faq-question-best-5">
+							<span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pl-4">ما هو أفضل موقع يقدم لايكات انستقرام في الدول العربية؟</span>
+							<svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+							</svg>
+						</button>
+						<div id="faq-answer-best-5" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-best-5">
+							<div class="space-y-3">
+								<p>
+									الحصول على لايكات <strong>انستقرام عربية</strong> حقيقية يعتبر من أهم الخطوات لزيادة التفاعل على المنصة. أفضل المواقع العربية تقدم خدمة شراء لايكات انستقرام بأسعار تنافسية مع تسليم فوري. هذه الخدمة تتيح لأصحاب الحسابات في السعودية وقطر ومصر أن يجعلوا منشوراتهم أكثر جذبًا للمتابعين الجدد. وعندما تظهر المنشورات بعدد كبير من الإعجابات، يزداد احتمال وصولها لصفحة الاستكشاف.
+								</p>
+								<p>
+									إضافة إلى ذلك، يمكن دمج هذه الخدمة مع <a href="https://marketerum.com/ar-instagram-followers" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>زيادة متابعين انستقرام</strong></a> و <a href="https://marketerum.com/ar-instagram-views" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>مشاهدات انستقرام</strong></a> لتحقيق أقصى فائدة. بهذه الطريقة لا يقتصر الأمر على الأرقام فقط بل يتم بناء حساب قوي وموثوق. كما أن تواجد لايكات حقيقية يساعد على بناء الثقة مع المتابعين الحاليين ويجذب تفاعلًا أكبر بشكل طبيعي.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- FAQ Item 6 -->
+					<div class="faq-item bg-white/95 dark:bg-dark-secondary/95 backdrop-blur-sm rounded-xl border border-white/20 dark:border-dark-tertiary/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+						<button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-white/10 dark:hover:bg-dark-tertiary/30 transition-colors duration-200" data-faq="best-6" aria-expanded="false" aria-controls="faq-answer-best-6" id="faq-question-best-6">
+							<span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pl-4">كيف أشتري لايكات تيكتوك بأسعار رخيصة؟</span>
+							<svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+							</svg>
+						</button>
+						<div id="faq-answer-best-6" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-best-6">
+							<div class="space-y-3">
+								<p>
+									الفيديوهات على تيكتوك تعتمد بشكل كبير على التفاعل، ولهذا فإن <strong>لايكات تيكتوك</strong> تعتبر عاملًا أساسيًا لانتشار الفيديو. شراء لايكات تيكتوك من سيرفرات SMM عربية بأسعار رخيصة يتيح لأصحاب الحسابات أن يجعلوا محتواهم أكثر جاذبية ويزيد فرص ظهوره على صفحة "لك". هذه الخدمة مطلوبة بشدة في دول مثل المغرب ومصر والسعودية.
+								</p>
+								<p>
+									إلى جانب ذلك، يمكن تعزيز الحساب عبر شراء <strong>مشاهدات تيكتوك</strong> و <strong>متابعين تيكتوك</strong> عرب لزيادة معدل التفاعل. كلما ارتفعت نسبة التفاعل على الفيديوهات، زادت فرص ظهور الحساب أمام جمهور جديد. الجمع بين هذه الخدمات يساعد أصحاب الحسابات على بناء حضور قوي ومستدام على المنصة، بعيدًا عن الحلول قصيرة المدى.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- FAQ Item 7 -->
+					<div class="faq-item bg-white/95 dark:bg-dark-secondary/95 backdrop-blur-sm rounded-xl border border-white/20 dark:border-dark-tertiary/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+						<button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-white/10 dark:hover:bg-dark-tertiary/30 transition-colors duration-200" data-faq="best-7" aria-expanded="false" aria-controls="faq-answer-best-7" id="faq-question-best-7">
+							<span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pl-4">هل توجد خدمة شراء لايكات يوتيوب عربية؟</span>
+							<svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+							</svg>
+						</button>
+						<div id="faq-answer-best-7" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-best-7">
+							<div class="space-y-3">
+								<p>
+									نعم، هناك العديد من سيرفرات SMM التي تقدم خدمة <strong>لايكات يوتيوب عربية</strong> من مستخدمين حقيقيين. هذه الخدمة مهمة بشكل خاص للمحتوى الموجه للجمهور العربي، حيث تجعل الفيديوهات أكثر موثوقية أمام المشاهدين. إضافة لايكات يوتيوب عربية بجانب <strong>مشاهدات يوتيوب</strong> وتعليقات عربية يساعد على رفع ترتيب الفيديوهات في نتائج البحث وزيادة فرص الوصول لجمهور أوسع.
+								</p>
+								<p>
+									كما أن هذه الخدمة مطلوبة بشكل خاص في دول الخليج مثل السعودية والإمارات، حيث يولي المستخدمون أهمية كبيرة للمحتوى الذي يحظى بتفاعل قوي. الاعتماد على <strong>لايكات يوتيوب</strong> حقيقية يعزز من صورة القناة ويمنحها فرصًا أكبر للنمو المستدام.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- FAQ Item 8 -->
+					<div class="faq-item bg-white/95 dark:bg-dark-secondary/95 backdrop-blur-sm rounded-xl border border-white/20 dark:border-dark-tertiary/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+						<button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-white/10 dark:hover:bg-dark-tertiary/30 transition-colors duration-200" data-faq="best-8" aria-expanded="false" aria-controls="faq-answer-best-8" id="faq-question-best-8">
+							<span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pl-4">كيف أحصل على مشاهدات تيكتوك حقيقية في الدول العربية؟</span>
+							<svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+							</svg>
+						</button>
+						<div id="faq-answer-best-8" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-best-8">
+							<div class="space-y-3">
+								<p>
+									أفضل طريقة للحصول على <a href="https://marketerum.com/ar-tiktok-views" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>مشاهدات تيكتوك</strong></a> حقيقية في الدول العربية هي استخدام سيرفر SMM موثوق يقدم مشاهدات من جمهور عربي مستهدف. هذه الخدمة ترفع من قيمة الفيديوهات وتجعلها أكثر انتشارًا بين المستخدمين العرب. عند دمج المشاهدات مع <a href="https://marketerum.com/ar-tiktok-likes" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>لايكات تيكتوك</strong></a> و <a href="https://marketerum.com/ar-tiktok-followers" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>متابعين تيكتوك عرب</strong></a>، يتحول الحساب إلى منصة قوية قادرة على المنافسة.
+								</p>
+								<p>
+									هذه الاستراتيجية مطلوبة بشدة من صناع المحتوى الذين يرغبون في تعزيز وجودهم على تيكتوك في أسواق مثل السعودية ومصر. الحصول على <strong>مشاهدات تيكتوك حقيقية</strong> يعني أن الحساب سيجذب اهتمامًا أكبر من العلامات التجارية الباحثة عن مؤثرين محليين للتعاون معهم.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- FAQ Item 9 -->
+					<div class="faq-item bg-white/95 dark:bg-dark-secondary/95 backdrop-blur-sm rounded-xl border border-white/20 dark:border-dark-tertiary/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+						<button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-white/10 dark:hover:bg-dark-tertiary/30 transition-colors duration-200" data-faq="best-9" aria-expanded="false" aria-controls="faq-answer-best-9" id="faq-question-best-9">
+							<span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pl-4">هل يمكنني شراء سنابشات لايكات؟</span>
+							<svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+							</svg>
+						</button>
+						<div id="faq-answer-best-9" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-best-9">
+							<div class="space-y-3">
+								<p>
+									بالتأكيد، خدمات <a href="https://marketerum.com/ar-snapchat-likes" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>سنابشات لايكات</strong></a> أصبحت مطلوبة بشدة في الدول العربية خاصة في السعودية والجزائر. شراء لايكات سنابشات يساعد على رفع التفاعل مع المنشورات وجعل الحساب يبدو أكثر نشاطًا أمام المتابعين. هذه الخدمة يمكن دمجها مع <a href="https://marketerum.com/ar-snapchat-followers" class="text-primary-600 dark:text-primary-400 hover:underline"><strong>متابعين سناب شات</strong></a> لبناء قاعدة جماهيرية أكبر.
+								</p>
+								<p class="mt-2"><a href="https://marketerum.com/ar-snapchat-services" target="_blank" class="text-primary-600 dark:text-primary-400 hover:underline">اطّلع على جميع خدمات سناب شات</a></p>
+								<p class="mt-1 text-sm"><a href="https://marketerum.com/ar-snapchat-views" class="text-primary-600 dark:text-primary-400 hover:underline">مشاهدات سناب شات</a></p>
+								<p>
+									الفائدة من هذه الخدمات أنها تجعل الحساب أكثر جاذبية للمستخدمين الجدد، وتساعد في نشر المحتوى بشكل أوسع داخل المجتمع العربي. ومع مرور الوقت، يصبح الحساب أكثر موثوقية ويجذب متابعين حقيقيين بشكل طبيعي إلى جانب الخدمات المدفوعة.
+								</p>
+							</div>
+						</div>
+					</div>
+
+					<!-- FAQ Item 10 -->
+					<div class="faq-item bg-white/95 dark:bg-dark-secondary/95 backdrop-blur-sm rounded-xl border border-white/20 dark:border-dark-tertiary/50 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+						<button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-right hover:bg-white/10 dark:hover:bg-dark-tertiary/30 transition-colors duration-200" data-faq="best-10" aria-expanded="false" aria-controls="faq-answer-best-10" id="faq-question-best-10">
+							<span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pl-4">ما هو أفضل سيرفر SMM عربي شامل لكل الخدمات؟</span>
+							<svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+							</svg>
+						</button>
+						<div id="faq-answer-best-10" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed text-right" role="region" aria-labelledby="faq-question-best-10">
+							<div class="space-y-3">
+								<p>
+									أفضل <strong>سيرفر SMM عربي</strong> هو الذي يقدم حزمة متكاملة تشمل جميع الخدمات مثل <strong><a href="https://marketerum.com/ar-instagram-followers" class="text-primary-600 dark:text-primary-400 hover:underline">زيادة متابعين انستقرام</a>، <a href="https://marketerum.com/ar-tiktok-followers" class="text-primary-600 dark:text-primary-400 hover:underline">متابعين تيكتوك</a>، <a href="https://marketerum.com/ar-twitter-followers" class="text-primary-600 dark:text-primary-400 hover:underline">متابعين تويتر عرب</a>، <a href="https://marketerum.com/ar-youtube-views" class="text-primary-600 dark:text-primary-400 hover:underline">مشاهدات يوتيوب</a>، <a href="https://marketerum.com/ar-instagram-likes" class="text-primary-600 dark:text-primary-400 hover:underline">لايكات انستقرام</a>، <a href="https://marketerum.com/ar-tiktok-likes" class="text-primary-600 dark:text-primary-400 hover:underline">لايكات تيكتوك</a>، <a href="https://marketerum.com/ar-youtube-likes" class="text-primary-600 dark:text-primary-400 hover:underline">لايكات يوتيوب</a>، <a href="https://marketerum.com/ar-snapchat-likes" class="text-primary-600 dark:text-primary-400 hover:underline">سنابشات لايكات</a>، <a href="https://marketerum.com/ar-tiktok-views" class="text-primary-600 dark:text-primary-400 hover:underline">تيكتوك مشاهدات</a></strong> بجودة عالية وسرعة تسليم. هذه السيرفرات تعتبر الخيار المثالي للشركات والمؤثرين الذين يرغبون في بناء حضور قوي على جميع المنصات الاجتماعية.
+								</p>
+								<p>
+									وجود خدمات متكاملة من مكان واحد يساعد على تحقيق نتائج متوازنة، حيث لا يقتصر الأمر على منصة واحدة بل يتم دعم الحسابات على جميع المنصات العربية الأكثر استخدامًا. هذا يجعل الحسابات أكثر جاذبية للمتابعين الجدد ويمنحها فرصًا أكبر للانتشار والنجاح على المدى الطويل.
+								</p>
+							</div>
+						</div>
+					</div>
+
+			</div>
+		</div>
+
+	</div>
+</section>
+<!-- END : Best and Cheapest -->
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+	// Service Tabs Navigation
+	const tabLinks = document.querySelectorAll('[data-tab]');
+	const tabContents = document.querySelectorAll('[data-tab-content]');
+
+	tabLinks.forEach(link => {
+		link.addEventListener('click', function(e) {
+			e.preventDefault();
+			const targetTab = this.getAttribute('data-tab');
+
+			// Remove active class from all tabs
+			tabLinks.forEach(l => {
+				l.classList.remove('active', 'bg-primary-500', 'text-white', 'shadow-sm');
+				l.classList.add('text-gray-700', 'dark:text-slate-300');
+				l.setAttribute('aria-selected', 'false');
+			});
+
+			// Add active class to clicked tab
+			this.classList.add('active', 'bg-primary-500', 'text-white', 'shadow-sm');
+			this.classList.remove('text-gray-700', 'dark:text-slate-300');
+			this.setAttribute('aria-selected', 'true');
+
+			// Hide all tab contents
+			tabContents.forEach(content => {
+				content.classList.add('hidden');
+				content.classList.remove('active');
+			});
+
+			// Show target tab content with smooth transition
+			const targetContent = document.querySelector(`[data-tab-content="${targetTab}"]`);
+			if (targetContent) {
+				setTimeout(() => {
+					targetContent.classList.remove('hidden');
+					targetContent.classList.add('active');
+				}, 50);
+			}
+		});
+	});
+
+	// FAQ Accordion Functionality
+	const faqQuestions = document.querySelectorAll('.faq-question');
+	
+	faqQuestions.forEach(question => {
+		question.addEventListener('click', function() {
+			const faqId = this.getAttribute('data-faq');
+			const answer = document.getElementById(`faq-answer-${faqId}`);
+			const icon = this.querySelector('.faq-icon');
+			const isExpanded = this.getAttribute('aria-expanded') === 'true';
+
+			// Toggle current FAQ
+			if (isExpanded) {
+				// Close
+				answer.classList.add('hidden');
+				this.setAttribute('aria-expanded', 'false');
+				icon.classList.remove('rotate-45');
+				icon.classList.add('rotate-0');
+				this.querySelector('span').classList.remove('font-semibold', 'text-gray-900', 'dark:text-slate-100');
+				this.querySelector('span').classList.add('font-medium', 'text-gray-700', 'dark:text-slate-300');
+				icon.classList.remove('text-primary-500');
+				icon.classList.add('text-gray-400');
+			} else {
+				// Open
+				answer.classList.remove('hidden');
+				this.setAttribute('aria-expanded', 'true');
+				icon.classList.remove('rotate-0');
+				icon.classList.add('rotate-45');
+				this.querySelector('span').classList.remove('font-medium', 'text-gray-700', 'dark:text-slate-300');
+				this.querySelector('span').classList.add('font-semibold', 'text-gray-900', 'dark:text-slate-100');
+				icon.classList.remove('text-gray-400');
+				icon.classList.add('text-primary-500');
+			}
+		});
+	});
+});
+</script>

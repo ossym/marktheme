@@ -1,2 +1,124 @@
-{# View ticket template #}
+<main class="page-wrapper shrink grow bg-gray-50 dark:bg-dark transition-colors duration-200">
+  <section class="container mx-auto px-4 py-6 lg:py-8">
+    <div class="dash_card space-y-8 bg-white dark:bg-dark-secondary rounded-xl shadow-sm border border-gray-200 dark:border-dark-tertiary p-6 lg:p-8 {% if site['rtl'] %} rtl-content {% endif %}">
+      <header class="space-y-2 pb-4 border-b border-gray-200 dark:border-dark-tertiary">
+        <p class="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400 font-medium">Ticket details</p>
+        <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">{{ ticket['thema'] }}</h3>
+      </header>
 
+      <div class="ticket-conversation space-y-4" role="log" aria-live="polite" aria-relevant="additions text">
+        <ol class="ticket-thread space-y-6" role="list">
+        {% if messageList %}
+          {% for message in messageList %}
+            {% set isUserMessage = message['support'] == 0 %}
+            <li class="ticket-thread__item">
+              <article class="ticket-message-block flex {% if isUserMessage %}justify-end{% else %}justify-start{% endif %}">
+                <div class="ticket-message-block__inner flex gap-3 max-w-3xl {% if isUserMessage %}flex-row-reverse{% endif %} {% if site['rtl'] %}rtl{% endif %}">
+                  <div class="ticket-avatar flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold text-white {% if isUserMessage %}bg-primary-500 dark:bg-primary-600{% else %}bg-gray-500 dark:bg-gray-600{% endif %}" aria-hidden="true">
+                    <span class="avatar-initials">{{ message['author']|slice(0, 1)|upper }}</span>
+                  </div>
+                  <div class="ticket-message__body flex-1 {% if isUserMessage %}text-right{% endif %}">
+                    <header class="ticket-message__meta flex items-center gap-2 mb-2 {% if isUserMessage %}justify-end{% endif %}">
+                      <span class="ticket-message__author text-sm font-semibold text-gray-900 dark:text-gray-100">{{ message['author'] }}</span>
+                      <span class="ticket-message__timestamp text-xs text-gray-500 dark:text-gray-400">{{ message['time'] }}</span>
+                    </header>
+                    <div class="ticket-message__bubble inline-block px-4 py-3 rounded-lg {% if isUserMessage %}bg-primary-500 dark:bg-primary-600 text-white{% else %}bg-gray-100 dark:bg-dark-tertiary text-gray-900 dark:text-gray-100{% endif %}">
+                      <div class="message text-sm leading-relaxed whitespace-pre-wrap">{{ message['message'] }}</div>
+                      {% if message['files'] %}
+                        <div class="ticket-attachments mt-3 pt-3 border-t {% if isUserMessage %}border-primary-400 dark:border-primary-500{% else %}border-gray-200 dark:border-dark-tertiary{% endif %}" aria-label="Attachments">
+                          <p class="ticket-attachments__title text-xs font-semibold mb-2 {% if isUserMessage %}text-primary-100{% else %}text-gray-600 dark:text-gray-400{% endif %}">Attachments</p>
+                          <ul class="ticket-attachments__list space-y-1" role="list">
+                            {% for file in message['files'] %}
+                              <li>
+                                <a
+                                  href="{{ file['url'] }}"
+                                  title="{{ file['name'] }}"
+                                  target="_blank"
+                                  rel="noopener noreferrer nofollow"
+                                  class="attachment-link inline-flex items-center gap-2 text-sm hover:underline {% if isUserMessage %}text-primary-100 hover:text-white{% else %}text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300{% endif %}"
+                                >
+                                  <span class="attachment-icon" aria-hidden="true">📎</span>
+                                  <span class="attachment-label">{{ sliceUrl(file['name']) }}</span>
+                                </a>
+                              </li>
+                            {% endfor %}
+                          </ul>
+                        </div>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </li>
+          {% endfor %}
+        {% endif %}
+        {% if not messageList %}
+          <li class="ticket-thread__item">
+            <div class="empty-state flex flex-col items-center justify-center py-12 text-center" role="status">
+              <span class="empty-state__icon text-6xl mb-4" aria-hidden="true">💬</span>
+              <p class="empty-state__title text-lg font-semibold text-gray-900 dark:text-gray-100 mb-2">No messages yet</p>
+              <p class="empty-state__subtitle text-sm text-gray-500 dark:text-gray-400">Start the conversation by sending a message below.</p>
+            </div>
+          </li>
+        {% endif %}
+        </ol>
+      </div>
+
+      {% if canAddMessage %}
+        <div class="ticket-reply pt-6 border-t border-gray-200 dark:border-dark-tertiary">
+          <h4 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4">Add a reply</h4>
+          <form {% if site['rtl'] %} class="rtl-form"{% endif %} method="post" action="" novalidate>
+            {% if error %}
+              <div class="alert alert-dismissible alert-danger mb-4 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-900/30 rounded-lg text-red-700 dark:text-red-400 {% if site['rtl'] %} rtl-alert {% endif %}" role="alert">
+                <button type="button" class="close float-right text-red-500 hover:text-red-700 dark:hover:text-red-300" data-dismiss="alert" aria-label="{{ lang('tickets.button.close')|default('Close') }}">&times;</button>
+                {{ errorMessage }}
+              </div>
+            {% endif %}
+            <div class="ticket-reply__fieldset mb-4">
+              <label for="message" class="ticket-reply__label block text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2">{{ lang('tickets.message') }}</label>
+              <textarea
+                id="message"
+                rows="6"
+                class="ticket-reply__input w-full px-4 py-2.5 border border-gray-300 dark:border-dark-tertiary rounded-lg bg-white dark:bg-dark-secondary text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-all duration-200 resize-y"
+                name="TicketMessageForm[message]"
+                placeholder="Type your message here..."
+                required
+                aria-required="true"
+              ></textarea>
+            </div>
+            <div class="ticket-reply__fieldset mb-4">
+              <label class="ticket-reply__label block text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2">{{ lang('tickets.button.attach') }}</label>
+              <div
+                class="tickets-uploader border-2 border-dashed border-gray-300 dark:border-dark-tertiary rounded-lg p-6 text-center hover:border-primary-400 dark:hover:border-primary-600 transition-colors duration-200 cursor-pointer"
+                data-rtl="{% if site['rtl'] %}true{% else %}false{% endif %}"
+                data-lang-button-attach="{{ lang('tickets.button.attach') }}"
+                data-lang-file-format-incorrect="{{ lang('tickets.error.file_format.incorrect') }}"
+                data-lang-file-size-incorrect="{{ lang('tickets.error.file_size.incorrect') }}"
+              >
+                <div class="tickets-uploader__icon mb-2 text-gray-400 dark:text-gray-500" aria-hidden="true">
+                  <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                  </svg>
+                </div>
+                <p class="tickets-uploader__title text-sm text-gray-600 dark:text-gray-400">
+                  {{ lang('tickets.attach.drop_or')|default('Drag and drop or') }}
+                  <span class="tickets-uploader__action text-primary-600 dark:text-primary-400 font-medium hover:underline">{{ lang('tickets.attach.browse')|default('browse') }}</span>
+                </p>
+              </div>
+            </div>
+            <input type="hidden" name="_csrf" value="{{csrftoken}}">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pt-4">
+              <p class="text-xs text-gray-500 dark:text-gray-400">You can attach relevant files to help us resolve the issue faster.</p>
+              <button type="submit" class="btn btn--primary px-6 py-2.5 rounded-lg font-medium text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 dark:from-primary-600 dark:to-primary-700 dark:hover:from-primary-700 dark:hover:to-primary-800 transition-all duration-200 shadow-md hover:shadow-lg w-full sm:w-auto">{{ lang('tickets.button.reply') }}</button>
+            </div>
+          </form>
+        </div>
+      {% else %}
+        <div class="ticket-locked flex flex-col items-center justify-center py-12 text-center border-t border-gray-200 dark:border-dark-tertiary" role="status">
+          <span class="ticket-locked__icon text-6xl mb-4" aria-hidden="true">🔒</span>
+          <p class="text-lg font-semibold text-gray-900 dark:text-gray-100">This ticket is closed and no longer accepts new replies.</p>
+        </div>
+      {% endif %}
+    </div>
+  </section>
+</main>

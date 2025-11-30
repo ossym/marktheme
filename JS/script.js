@@ -144,7 +144,7 @@ $(document).ready(function () {
         $('[data-toggle="tooltip"]').tooltip();
     }
 
-    // FAQ Accordion
+    // FAQ Accordion - Dark Mode Compatible
     $('.faq-question').on('click', function() {
         const faqItem = $(this).closest('.faq-item');
         const faqAnswer = faqItem.find('.faq-answer');
@@ -155,23 +155,24 @@ $(document).ready(function () {
         // Close all other FAQ items
         $('.faq-item').not(faqItem).each(function() {
             $(this).find('.faq-answer').addClass('hidden');
-            $(this).find('.faq-question').removeClass('font-semibold text-gray-900').addClass('font-medium text-gray-700').attr('aria-expanded', 'false');
-            $(this).removeClass('border-2 border-primary-200').addClass('border border-gray-200');
-            $(this).find('.faq-icon').html('<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />');
+            $(this).find('.faq-question').attr('aria-expanded', 'false');
+            $(this).removeClass('active');
+            const icon = $(this).find('.faq-icon');
+            icon.html('<path d="M9 17V9M9 9V1M9 9H17M9 9H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>');
         });
 
         if (isOpen) {
             // Close current item
             faqAnswer.addClass('hidden');
-            $(this).removeClass('font-semibold text-gray-900').addClass('font-medium text-gray-700').attr('aria-expanded', 'false');
-            faqItem.removeClass('border-2 border-primary-200').addClass('border border-gray-200');
-            faqIcon.html('<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />');
+            $(this).attr('aria-expanded', 'false');
+            faqItem.removeClass('active');
+            faqIcon.html('<path d="M9 17V9M9 9V1M9 9H17M9 9H1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>');
         } else {
             // Open current item
             faqAnswer.removeClass('hidden');
-            $(this).removeClass('font-medium text-gray-700').addClass('font-semibold text-gray-900').attr('aria-expanded', 'true');
-            faqItem.removeClass('border border-gray-200').addClass('border-2 border-primary-200');
-            faqIcon.html('<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />');
+            $(this).attr('aria-expanded', 'true');
+            faqItem.addClass('active');
+            faqIcon.html('<path d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>');
         }
     });
 
@@ -274,5 +275,95 @@ $(document).ready(function () {
             $('#service_description_sidebar').removeClass('hidden');
         }
     }
+
+    // Copy to Clipboard Functionality
+    $(document).on('click', '[data-copy-text]', function(e) {
+        e.preventDefault();
+        const button = $(this);
+        const textToCopy = button.data('copy-text');
+        const feedbackTarget = button.data('feedback-target');
+        const feedbackText = button.data('feedback-text') || 'Copied!';
+        
+        // Try to copy to clipboard
+        if (navigator.clipboard && window.isSecureContext) {
+            // Use modern Clipboard API
+            navigator.clipboard.writeText(textToCopy).then(function() {
+                showCopyFeedback(feedbackTarget, feedbackText, button);
+            }).catch(function(err) {
+                console.error('Failed to copy text: ', err);
+                fallbackCopyTextToClipboard(textToCopy, feedbackTarget, feedbackText, button);
+            });
+        } else {
+            // Fallback for older browsers
+            fallbackCopyTextToClipboard(textToCopy, feedbackTarget, feedbackText, button);
+        }
+    });
+
+    // Fallback copy function for older browsers
+    function fallbackCopyTextToClipboard(text, feedbackTarget, feedbackText, button) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+            const successful = document.execCommand('copy');
+            if (successful) {
+                showCopyFeedback(feedbackTarget, feedbackText, button);
+            } else {
+                console.error('Fallback: Copy command was unsuccessful');
+            }
+        } catch (err) {
+            console.error('Fallback: Unable to copy', err);
+        }
+        
+        document.body.removeChild(textArea);
+    }
+
+    // Show feedback message
+    function showCopyFeedback(feedbackTarget, feedbackText, button) {
+        if (feedbackTarget) {
+            const feedbackElement = $(feedbackTarget);
+            if (feedbackElement.length) {
+                feedbackElement.text(feedbackText).removeClass('opacity-0').addClass('opacity-100');
+                
+                // Hide feedback after 3 seconds
+                setTimeout(function() {
+                    feedbackElement.addClass('opacity-0').removeClass('opacity-100');
+                    setTimeout(function() {
+                        feedbackElement.text('');
+                    }, 300);
+                }, 3000);
+            }
+        }
+        
+        // Visual feedback on button
+        button.addClass('scale-95');
+        setTimeout(function() {
+            button.removeClass('scale-95');
+        }, 200);
+    }
+
+    // Subscriptions Status Select Dropdown Handler
+    $('#status-select').on('change', function() {
+        const selectedStatus = $(this).val();
+        const baseUrl = $(this).data('base-url');
+        const searchQuery = $('#subscriptions-search').val();
+        
+        let url = baseUrl;
+        if (selectedStatus !== 'all') {
+            url = baseUrl + '/' + selectedStatus;
+        }
+        
+        if (searchQuery) {
+            url += '?search=' + encodeURIComponent(searchQuery);
+        }
+        
+        window.location.href = url;
+    });
 });
 const COUNTRIES=["Afghanistan","Albania","Algeria","Andorra","Angola","Antigua and Barbuda","Argentina","Armenia","Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bhutan","Bolivia","Bosnia and Herzegovina","Botswana","Brazil","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Canada","Cape Verde","Central African Republic","Chad","Chile","China","Colombia","Comoros","Congo (Brazzaville)","Congo (Kinshasa)","Costa Rica","Croatia","Cuba","Cyprus","Czech Republic","Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Eritrea","Estonia","Eswatini","Ethiopia","Fiji","Finland","France","Gabon","Gambia","Georgia","Germany","Ghana","Greece","Grenada","Guatemala","Guinea","Guinea-Bissau","Guyana","Haiti","Honduras","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland","Israel","Italy","Jamaica","Japan","Jordan","Kazakhstan","Kenya","Kiribati","Korea, North","Korea, South","Kuwait","Kyrgyzstan","Laos","Latvia","Lebanon","Lesotho","Liberia","Libya","Liechtenstein","Lithuania","Luxembourg","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Marshall Islands","Mauritania","Mauritius","Mexico","Micronesia","Moldova","Monaco","Mongolia","Montenegro","Morocco","Mozambique","Myanmar (Burma)","Namibia","Nauru","Nepal","Netherlands","New Zealand","Nicaragua","Niger","Nigeria","North Macedonia","Norway","Oman","Pakistan","Palau","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland","Portugal","Qatar","Romania","Russia","Rwanda","Saint Kitts and Nevis","Saint Lucia","Saint Vincent and the Grenadines","Samoa","San Marino","Sao Tome and Principe","Saudi Arabia","Senegal","Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","Solomon Islands","Somalia","South Africa","South Sudan","Spain","Sri Lanka","Sudan","Suriname","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Togo","Tonga","Trinidad and Tobago","Tunisia","Turkey","Turkmenistan","Tuvalu","Uganda","Ukraine","United Arab Emirates","United Kingdom","United States","Uruguay","Uzbekistan","Vanuatu","Vatican City","Venezuela","Vietnam","Yemen","Zambia","Zimbabwe"];

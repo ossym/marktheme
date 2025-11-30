@@ -1,2 +1,219 @@
-{# Mass order template #}
+<!-- DONE -->
 
+{% set instructionsTitle = lang('massorder.instructions.title') %}
+{% if instructionsTitle == 'massorder.instructions.title' %}
+  {% set instructionsTitle = 'How mass orders work' %}
+{% endif %}
+{% set instructionsDescription = lang('massorder.instructions.description') %}
+{% if instructionsDescription == 'massorder.instructions.description' %}
+  {% set instructionsDescription = 'Submit multiple orders in a single request to save time. Follow the format guidelines so every entry is processed correctly.' %}
+{% endif %}
+{% set formHint = lang('massorder.instructions.hint') %}
+{% if formHint == 'massorder.instructions.hint' %}
+  {% set formHint = 'Use the format service_id | link | quantity for each order. Add additional parameters after the quantity if the service requires them.' %}
+{% endif %}
+{% set formatLabel = lang('massorder.instructions.format_label') %}
+{% if formatLabel == 'massorder.instructions.format_label' %}
+  {% set formatLabel = 'Order format' %}
+{% endif %}
+{% set exampleLabel = lang('massorder.instructions.example_label') %}
+{% if exampleLabel == 'massorder.instructions.example_label' %}
+  {% set exampleLabel = 'Sample entries' %}
+{% endif %}
+{% set exampleValue = lang('massorder.instructions.example_value') %}
+{% if exampleValue == 'massorder.instructions.example_value' %}
+  {% set exampleValue = "123|https://instagram.com/example|1000\n456|https://youtube.com/watch?v=abcd|250" %}
+{% endif %}
+{% set stepOneTitle = lang('massorder.instructions.step1.title') %}
+{% if stepOneTitle == 'massorder.instructions.step1.title' %}
+  {% set stepOneTitle = 'Collect the correct service IDs' %}
+{% endif %}
+{% set stepOneCopy = lang('massorder.instructions.step1.copy') %}
+{% if stepOneCopy == 'massorder.instructions.step1.copy' %}
+  {% set stepOneCopy = 'Copy the service ID directly from the Services page so you are ordering from the correct package.' %}
+{% endif %}
+{% set stepTwoTitle = lang('massorder.instructions.step2.title') %}
+{% if stepTwoTitle == 'massorder.instructions.step2.title' %}
+  {% set stepTwoTitle = 'Build each order line' %}
+{% endif %}
+{% set stepTwoCopy = lang('massorder.instructions.step2.copy') %}
+{% if stepTwoCopy == 'massorder.instructions.step2.copy' %}
+  {% set stepTwoCopy = 'Combine the service ID, target link, and quantity separated by the | character. Include any required extras in the same order as the single order form.' %}
+{% endif %}
+{% set stepThreeTitle = lang('massorder.instructions.step3.title') %}
+{% if stepThreeTitle == 'massorder.instructions.step3.title' %}
+  {% set stepThreeTitle = 'Keep entries separated' %}
+{% endif %}
+{% set stepThreeCopy = lang('massorder.instructions.step3.copy') %}
+{% if stepThreeCopy == 'massorder.instructions.step3.copy' %}
+  {% set stepThreeCopy = 'Place each order on its own line. Double-check quantities to stay within service limits before submitting.' %}
+{% endif %}
+
+<main class="page-wrapper shrink grow bg-gray-50 dark:bg-dark transition-colors duration-300">
+  <div class="mx-auto w-full max-w-full space-y-6 px-4 py-6 sm:px-6 lg:px-8">
+    <div class="grid gap-6 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)]">
+      <section class="dash_card tabs__wrapper order-form-card space-y-6 p-6 bg-white dark:bg-dark-secondary rounded-xl shadow-md dark:shadow-xl border border-gray-200 dark:border-dark-tertiary transition-all duration-300 hover:shadow-lg dark:hover:shadow-2xl">
+        <div class="tabs" role="tablist">
+          <a
+            href="#massOrder"
+            class="tab active flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300"
+            data-tab="massOrder"
+            role="tab"
+            aria-controls="massOrder"
+            aria-selected="true"
+          >
+            <svg width="24" height="24" viewbox="0 0 28 27" fill="none" xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0">
+              <path d="M5.00643 6.02028L0.953125 1.96698L2.72089 0.199219L6.77419 4.25252H25.8263C26.5167 4.25252 27.0763 4.81217 27.0763 5.50252C27.0763 5.62417 27.0586 5.74518 27.0237 5.86171L24.0237 15.8617C23.8651 16.3905 23.3783 16.7526 22.8263 16.7526H7.50643V19.2526H21.2565V21.7526H6.25643C5.56606 21.7526 5.00643 21.1928 5.00643 20.5026V6.02028ZM7.50643 6.75252V14.2526H21.8963L24.1463 6.75252H7.50643ZM6.88143 26.7526C5.84589 26.7526 5.00643 25.9131 5.00643 24.8776C5.00643 23.842 5.84589 23.0026 6.88143 23.0026C7.91696 23.0026 8.75643 23.842 8.75643 24.8776C8.75643 25.9131 7.91696 26.7526 6.88143 26.7526ZM21.8815 26.7526C20.8458 26.7526 20.0065 25.9131 20.0065 24.8776C20.0065 23.842 20.8458 23.0026 21.8815 23.0026C22.917 23.0026 23.7565 23.842 23.7565 24.8776C23.7565 25.9131 22.917 26.7526 21.8815 26.7526Z" fill="currentColor"/>
+            </svg>
+            <span>Mass Order</span>
+          </a>
+        </div>
+        <section class="tab__content-wrapper">
+          <div class="active space-y-6" data-tab-content="massOrder" id="massOrder" role="tabpanel">
+            <form method="post" class="space-y-6" action="{{ page['url'] }}">
+              {% if 1 == success %}
+                <div class="alert alert-success alert-dismissible bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 text-green-800 dark:text-green-300 rounded-lg p-4 flex items-start justify-between gap-4" role="alert">
+                  <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-2">
+                      <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                      </svg>
+                      <h4 class="font-semibold">{{ lang('massorder.message.success') }}</h4>
+                    </div>
+                    <div class="text-sm space-y-1">
+                      <p><span class="font-medium">{{ lang('massorder.orders') }}:</span> {{ order['success'] }}</p>
+                      <p><span class="font-medium">{{ lang('massorder.errors') }}:</span> {{ order['error'] }}</p>
+                      <a href="{{ order['link'] }}" target="_blank" class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium underline transition-colors">{{ lang('massorder.button.details') }}</a>
+                    </div>
+                  </div>
+                  <button type="button" class="close text-green-600 dark:text-green-400 hover:text-green-800 dark:hover:text-green-200 transition-colors flex-shrink-0" data-dismiss="alert" aria-label="Close">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                  </button>
+                </div>
+              {% endif %}
+              {% if error %}
+                <div class="alert alert-dismissible alert-danger bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-700 text-red-800 dark:text-red-300 rounded-lg p-4 flex items-start justify-between gap-4 {% if site['rtl'] %} rtl-alert {% endif %}">
+                  <div class="flex-1">
+                    {% if order['link'] %}
+                      <div class="flex items-center gap-2 mb-2">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                        </svg>
+                        <h4 class="font-semibold">{{ errorText }}</h4>
+                      </div>
+                      <div class="text-sm space-y-1">
+                        <p><span class="font-medium">{{ lang('massorder.orders') }}:</span> {{ order['success'] }}</p>
+                        <p><span class="font-medium">{{ lang('massorder.errors') }}:</span> {{ order['error'] }}</p>
+                        <a href="{{ order['link'] }}" target="_blank" class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium underline transition-colors">{{ lang('massorder.button.details') }}</a>
+                      </div>
+                    {% else %}
+                      <div class="flex items-center gap-2">
+                        <svg class="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                        </svg>
+                        <p>{{ errorText }}</p>
+                      </div>
+                    {% endif %}
+                  </div>
+                  <button type="button" class="close text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-200 transition-colors flex-shrink-0" data-dismiss="alert">&times;</button>
+                </div>
+              {% endif %}
+
+              <div class="space-y-3">
+                <label for="links" class="form-label font-semibold text-gray-900 dark:text-slate-100 text-base flex items-center gap-2">
+                  <svg class="w-5 h-5 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  {{ lang('massorder.label') }}
+                </label>
+                <textarea
+                  class="form-control min-h-[260px] resize-y w-full px-4 py-3 border border-gray-300 dark:border-dark-tertiary rounded-lg bg-white dark:bg-dark-tertiary text-gray-900 dark:text-slate-100 placeholder-gray-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-all duration-200 font-mono text-sm"
+                  name="MassOrderForm[orders]"
+                  rows="15"
+                  id="links"
+                  placeholder="{{ lang('massorder.placeholder') }}"
+                ></textarea>
+                <p class="text-sm text-gray-600 dark:text-slate-400 flex items-start gap-2">
+                  <svg class="w-4 h-4 text-primary-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span>{{ formHint }}</span>
+                </p>
+              </div>
+
+              <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+              <button type="submit" class="btn btn--primary !inline-flex items-center justify-center gap-2 w-full sm:w-auto px-6 py-3 text-base font-semibold text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-0.5">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                </svg>
+                {{ lang('massorder.button') }}
+              </button>
+            </form>
+          </div>
+        </section>
+      </section>
+
+      <aside class="dash_card order-desc-card space-y-6 p-6 bg-white dark:bg-dark-secondary rounded-xl shadow-md dark:shadow-xl border border-gray-200 dark:border-dark-tertiary transition-all duration-300">
+        <div class="flex items-center gap-3 pb-4 border-b border-gray-200 dark:border-dark-tertiary">
+          <div class="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center">
+            <svg class="w-6 h-6 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </div>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-slate-100">{{ instructionsTitle }}</h2>
+        </div>
+        <p class="text-sm text-gray-700 dark:text-slate-300 leading-relaxed">{{ instructionsDescription }}</p>
+
+        <div class="space-y-5">
+          <div class="space-y-3">
+            <h3 class="text-sm font-semibold text-gray-900 dark:text-slate-100 flex items-center gap-2">
+              <svg class="w-4 h-4 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+              </svg>
+              {{ formatLabel }}
+            </h3>
+            <p class="text-sm text-gray-600 dark:text-slate-400">{{ formHint }}</p>
+            <div class="rounded-xl border border-primary-200 dark:border-primary-500/30 bg-primary-50 dark:bg-primary-900/20 p-4 transition-all duration-300 hover:border-primary-300 dark:hover:border-primary-500/50">
+              <p class="text-xs font-semibold uppercase tracking-wide text-primary-700 dark:text-primary-300 mb-3">{{ exampleLabel }}</p>
+              <pre class="mt-2 overflow-x-auto whitespace-pre-wrap text-sm font-mono text-gray-800 dark:text-slate-200 bg-white dark:bg-dark-tertiary p-3 rounded-lg border border-gray-200 dark:border-dark-tertiary">{{ exampleValue }}</pre>
+            </div>
+          </div>
+
+          <div class="space-y-4">
+            <h3 class="text-sm font-semibold text-gray-900 dark:text-slate-100 flex items-center gap-2">
+              <svg class="w-4 h-4 text-primary-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+              </svg>
+              Steps to Follow
+            </h3>
+            <ul class="space-y-4 text-sm">
+              <li class="flex gap-4 group">
+                <span class="mt-0.5 flex h-9 w-9 flex-none items-center justify-center rounded-full bg-primary-100 dark:bg-primary-900/30 text-sm font-bold text-primary-700 dark:text-primary-300 group-hover:bg-primary-200 dark:group-hover:bg-primary-900/50 transition-colors duration-200 shadow-sm">1</span>
+                <div class="space-y-1 flex-1">
+                  <p class="font-semibold text-gray-900 dark:text-slate-100">{{ stepOneTitle }}</p>
+                  <p class="text-gray-600 dark:text-slate-400 leading-relaxed">{{ stepOneCopy }}</p>
+                </div>
+              </li>
+              <li class="flex gap-4 group">
+                <span class="mt-0.5 flex h-9 w-9 flex-none items-center justify-center rounded-full bg-primary-100 dark:bg-primary-900/30 text-sm font-bold text-primary-700 dark:text-primary-300 group-hover:bg-primary-200 dark:group-hover:bg-primary-900/50 transition-colors duration-200 shadow-sm">2</span>
+                <div class="space-y-1 flex-1">
+                  <p class="font-semibold text-gray-900 dark:text-slate-100">{{ stepTwoTitle }}</p>
+                  <p class="text-gray-600 dark:text-slate-400 leading-relaxed">{{ stepTwoCopy }}</p>
+                </div>
+              </li>
+              <li class="flex gap-4 group">
+                <span class="mt-0.5 flex h-9 w-9 flex-none items-center justify-center rounded-full bg-primary-100 dark:bg-primary-900/30 text-sm font-bold text-primary-700 dark:text-primary-300 group-hover:bg-primary-200 dark:group-hover:bg-primary-900/50 transition-colors duration-200 shadow-sm">3</span>
+                <div class="space-y-1 flex-1">
+                  <p class="font-semibold text-gray-900 dark:text-slate-100">{{ stepThreeTitle }}</p>
+                  <p class="text-gray-600 dark:text-slate-400 leading-relaxed">{{ stepThreeCopy }}</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</main>

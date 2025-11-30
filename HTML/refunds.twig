@@ -1,2 +1,169 @@
-{# Refunds template #}
+<main class="page-wrapper shrink grow">
+  <section class="">
+    <div class="max-w-6xl w-full mx-auto px-4 lg:px-6 py-6 space-y-6">
 
+      <!-- Alert Notice -->
+      <div class="relative flex items-start gap-4 rounded-xl border border-blue-200 bg-blue-50 p-4 dark:border-blue-800/50 dark:bg-blue-900/20" role="alert">
+        <div class="flex-shrink-0 mt-0.5 text-blue-600 dark:text-blue-400" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 9v4" />
+            <path d="M12 17h.01" />
+            <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg>
+        </div>
+        <p class="flex-1 text-sm text-blue-800 dark:text-blue-200">{{ lang('orders.refunds.alert') }}</p>
+        <button type="button" class="flex-shrink-0 rounded-lg p-1 text-blue-600 transition-colors hover:bg-blue-100 dark:text-blue-400 dark:hover:bg-blue-800/50" data-bs-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true" class="text-xl leading-none">&times;</span>
+        </button>
+      </div>
+
+      <!-- Tabs and Search Card -->
+      <div class="rounded-xl border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800/50 space-y-6">
+        <!-- Tabs -->
+        <div class="flex flex-wrap gap-2" role="tablist">
+          <!-- All Tab - Neutral/Cyan Color -->
+          <a href="{{ page['url'] }}{% if search %}?search={{ search }}{% endif %}" class="inline-flex items-center justify-center rounded-lg border px-4 py-2 text-sm font-medium transition-all duration-200 {% if 'all' == order_status %}border-cyan-500 bg-gradient-to-r from-cyan-500 to-teal-500 text-white shadow-md ring-cyan-500 dark:from-cyan-400 dark:to-teal-400 dark:ring-cyan-400{% else %}border-gray-300 bg-white text-gray-700 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-cyan-400 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300{% endif %}">
+            {{ lang('orders.refunds.all') }}
+          </a>
+          <!-- Canceled Tab - Red Color -->
+          <a href="{{ page['url'] }}?order_status=canceled{% if search %}&search={{ search }}{% endif %}" class="inline-flex items-center justify-center rounded-lg border px-4 py-2 text-sm font-medium transition-all duration-200 {% if 'canceled' == order_status %}border-red-500 bg-gradient-to-r from-red-500 to-red-600 text-white shadow-md ring-red-500 dark:from-red-400 dark:to-red-500 dark:ring-red-400{% else %}border-gray-300 bg-white text-gray-700 hover:border-red-500 hover:bg-red-50 hover:text-red-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-red-400 dark:hover:bg-red-900/30 dark:hover:text-red-300{% endif %}">
+            {{ lang('orders.refunds.canceled') }}
+          </a>
+          <!-- Partial Tab - Amber/Yellow Color -->
+          <a href="{{ page['url'] }}?order_status=partial{% if search %}&search={{ search }}{% endif %}" class="inline-flex items-center justify-center rounded-lg border px-4 py-2 text-sm font-medium transition-all duration-200 {% if 'partial' == order_status %}border-amber-500 bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-md ring-amber-500 dark:from-amber-400 dark:to-amber-500 dark:ring-amber-400{% else %}border-gray-300 bg-white text-gray-700 hover:border-amber-500 hover:bg-amber-50 hover:text-amber-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-amber-400 dark:hover:bg-amber-900/30 dark:hover:text-amber-300{% endif %}">
+            {{ lang('orders.refunds.partial') }}
+          </a>
+        </div>
+
+        <!-- Search Form -->
+        <form action="{{ page['url'] }}" method="get" id="history-search" class="relative flex items-center gap-2" role="search">
+          <label for="refund-search" class="sr-only">{{ lang('general.search.placeholder') }}</label>
+          <div class="absolute left-3 z-10 text-gray-400 dark:text-gray-500" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="7" />
+              <path d="m20 20-3.5-3.5" />
+            </svg>
+          </div>
+          <input id="refund-search" type="text" name="search" value="{{ search }}" placeholder="{{ lang('general.search.placeholder') }}" class="flex-1 rounded-lg border border-gray-300 bg-white pl-10 pr-4 py-2.5 text-sm text-gray-900 placeholder-gray-500 transition-all focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-500/20 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 dark:placeholder-gray-400 dark:focus:border-cyan-400 dark:focus:ring-cyan-400/20" />
+          <input type="hidden" name="order_status" value="{{ order_status }}">
+          <button type="submit" class="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-teal-500 px-4 py-2.5 text-sm font-medium text-white shadow-sm transition-all duration-200 hover:from-cyan-600 hover:to-teal-600 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m5 12 5 5L20 7" />
+            </svg>
+            <span>Search</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Desktop Table -->
+      <div class="hidden md:block">
+        <div class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-gray-800/50">
+          <div class="overflow-x-auto">
+            <table id="service-table" cellspacing="0" class="min-w-full divide-y divide-gray-200 dark:divide-gray-700 {% if site['rtl'] %}rtl-table{% endif %}">
+              <thead class="bg-gray-50 dark:bg-gray-900/50">
+                <tr>
+                  <th class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('orders.refunds.id') }}</th>
+                  <th class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('orders.refunds.amount') }}</th>
+                  <th class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('orders.refunds.status') }}</th>
+                  <th class="px-6 py-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-900 dark:text-gray-100">{{ lang('orders.refunds.date') }}</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-gray-800/50">
+                {% for refund in refundList %}
+                  {% set status_slug = refund['order_status']|lower %}
+                  {% if status_slug is empty %}
+                    {% set status_slug = 'unknown' %}
+                  {% endif %}
+                  <tr class="transition-colors duration-150 hover:bg-gray-50 dark:hover:bg-gray-700/50">
+                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-900 dark:text-gray-100">
+                      <a href="{{ page_url('orders') }}?search={{ refund['order_id'] }}" class="font-medium text-cyan-600 transition-colors hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300">{{ refund['order_id'] }}</a>
+                    </td>
+                    <td class="whitespace-nowrap px-6 py-4 text-sm font-medium text-gray-900 dark:text-gray-100">{{ refund['amount'] }}</td>
+                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
+                      <span class="refund-status-badge refund-status--{{ refund['order_status_name']|lower }}">{{ refund['order_status_name'] }}</span>
+                    </td>
+                    <td class="whitespace-nowrap px-6 py-4 text-sm text-gray-700 dark:text-gray-300">{{ refund['date'] }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Cards -->
+      <div class="md:hidden space-y-4">
+        {% for refund in refundList %}
+          {% set raw_status = refund['order_status'] is defined and refund['order_status'] ? refund['order_status'] : refund['order_status_name'] %}
+          {% set status_slug = raw_status|lower|replace({' ':'-','_':'-','/':'-','(':'',')':'', '[':'',']':'', ',':'', '.':'', '&':'and'})|replace({'--':'-'})|trim('-') %}
+          {% if status_slug is empty %}
+            {% set status_slug = 'unknown' %}
+          {% endif %}
+          <article class="rounded-xl border-l-4 border-gray-300 bg-white p-4 shadow-sm transition-all duration-200 hover:shadow-md dark:border-gray-600 dark:bg-gray-800/50 refund-border-status--{{ refund['order_status_name']|lower }}">
+            <div class="flex items-center justify-between border-b border-gray-200 pb-3 mb-3 dark:border-gray-700">
+              <span class="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">{{ lang('orders.refunds.id') }}</span>
+              <a href="{{ page_url('orders') }}?search={{ refund['order_id'] }}" class="font-medium text-cyan-600 transition-colors hover:text-cyan-700 dark:text-cyan-400 dark:hover:text-cyan-300">{{ refund['order_id'] }}</a>
+            </div>
+            <div class="flex items-center justify-between border-b border-gray-200 pb-3 mb-3 dark:border-gray-700">
+              <span class="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">{{ lang('orders.refunds.amount') }}</span>
+              <span class="font-medium text-gray-900 dark:text-gray-100">{{ refund['amount'] }}</span>
+            </div>
+            <div class="flex items-center justify-between border-b border-gray-200 pb-3 mb-3 dark:border-gray-700">
+              <span class="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">{{ lang('orders.refunds.status') }}</span>
+              <span class="refund-status-badge refund-status--{{ refund['order_status_name']|lower }}">{{ refund['order_status_name'] }}</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-semibold uppercase tracking-wide text-gray-600 dark:text-gray-400">{{ lang('orders.refunds.date') }}</span>
+              <span class="text-sm text-gray-900 dark:text-gray-100">{{ refund['date'] }}</span>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+
+      <!-- Pagination -->
+      {% if pagination['count'] > 100 %}
+        {% if searchList %}
+          {% set params = {} %}
+          {% for search in searchList %}
+            {% set params = params | merge([search['name'] ~ '=' ~ search['value']]) %}
+          {% endfor %}
+          {% set params = '?' ~ params|join('&') %}
+        {% endif %}
+        <nav class="flex flex-wrap items-center justify-center gap-2 {% if site['rtl'] %}rtl-pagination{% endif %}" aria-label="Pagination">
+          {% if pagination['current'] != 1 %}
+            <a href="{{ page['url'] }}?order_status={{ order_status }}&page={{ pagination['last'] }}{% if search %}&search={{search }}{% endif %}" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-gray-300 bg-white text-sm font-medium text-gray-700 transition-all duration-200 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-cyan-400 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300 dark:focus:ring-cyan-400" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          {% endif %}
+
+          {% set r, l = 3, 3 %}
+
+          {% if pagination['current'] == 1 %}
+            {% set r = 6 %}
+          {% endif %}
+
+          {% if pagination['current'] == 2 %}
+            {% set r = 5 %}
+          {% endif %}
+
+          {% if pagination['current'] >= pagination['pages'] %}
+            {% set l = 5 %}
+          {% endif %}
+
+          {% for i in 1..ceil(pagination['pages']) %}
+            {% if i >= (pagination['current']-l) and i <= (pagination['current']+r) %}
+              <a href="{{ page['url'] }}?order_status={{ order_status }}&page={{ i }}{% if search %}&search={{ search }}{% endif %}" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border text-sm font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 {% if i == pagination['current'] %}border-cyan-500 bg-gradient-to-r from-cyan-500 to-teal-500 text-white shadow-md ring-cyan-500 dark:from-cyan-400 dark:to-teal-400 dark:ring-cyan-400{% else %}border-gray-300 bg-white text-gray-700 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-cyan-400 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300 dark:focus:ring-cyan-400{% endif %}">{{ i }}</a>
+            {% endif %}
+          {% endfor %}
+
+          {% if pagination['current'] < pagination['pages'] %}
+            <a href="{{ page['url'] }}?order_status={{ order_status }}&page={{ pagination['next'] }}{% if search %}&search={{search }}{% endif %}" class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-gray-300 bg-white text-sm font-medium text-gray-700 transition-all duration-200 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:ring-offset-2 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-cyan-400 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300 dark:focus:ring-cyan-400" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          {% endif %}
+        </nav>
+      {% endif %}
+
+    </div>
+  </section>
+</main>

@@ -1,0 +1,453 @@
+<!-- Start : HERO-->
+<section class="hero px-5">
+  <div class="container mx-auto flex flex-col md:flex-row md:space-x-10">
+    <div class="hero_right flex flex-col items-start justify-center space-y-6 md:w-1/2 md:pr-7">
+      <span class="text__highlight bg-secondary-border text-sm">
+        <svg
+          width="24"
+          height="25"
+          viewBox="0 0 24 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.7416 14.2228L24 12.515L14.6816 10.927L17.2285 7.24157L13.6629 9.78839L11.985 0.5L10.397 9.84832L6.74157 7.24157L9.25843 10.927L0 12.515L9.25843 14.2228L6.74157 17.7584L10.397 15.2416L11.985 24.5L13.6929 15.3015L17.2285 17.7584L14.7416 14.2228Z"
+            fill="#00BFF3"
+          />
+        </svg>
+        World's #1 SMM Panel & Provider
+      </span>
+      <h1 class="hero__heading text-5xl font-semibold">
+        <span class="heading--highlight">SMM Panel Kenya</span>: Elevate Your Social Media Presence
+      </h1>
+      <p class="hero__intro text-sm">
+        Welcome to Marketerum, the top choice for SMM Panel Kenya. We offer top-notch social media marketing services for Kenyans. Our affordable and effective solutions help increase your social media presence on Instagram, Facebook, Twitter, YouTube, and TikTok.
+
+        Whether you're a new startup or a big company, we can help. Our services improve your online presence through real interactions and growth. With Marketerum, learning social media marketing is easy.
+
+        Begin your digital journey with us today. Let's take your social media strategy to the next level.
+      </p>
+    </div>
+    <div class="hero_left relative flex-col justify-center md:flex md:w-1/2 py-20">
+      <form class="signIn_form w-full space-y-7" method="post" action="{{ page['url'] }}">
+        {% if error %}
+          <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{ errorMessage }}
+          </div>
+        {% endif %}
+
+        {% if success %}
+          <div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            {{successMessage}}
+          </div>
+        {% endif %}
+
+        <div class="input-field">
+          <div class="rounded-md bg-primary-main p-3">
+            <svg width="20" height="20" viewbox="0 0 22 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M21.6693 28.332H0.335938V25.6654C0.335938 21.9835 3.32071 18.9987 7.0026 18.9987H15.0026C18.6845 18.9987 21.6693 21.9835 21.6693 25.6654V28.332ZM11.0026 16.332C6.58432 16.332 3.0026 12.7503 3.0026 8.33203C3.0026 3.91375 6.58432 0.332031 11.0026 0.332031C15.4209 0.332031 19.0026 3.91375 19.0026 8.33203C19.0026 12.7503 15.4209 16.332 11.0026 16.332Z" fill="white"/>
+            </svg>
+          </div>
+          <input type="text" placeholder="{{ lang('signup.username') }}" id="username" name="LoginForm[username]" aria-label="{{ lang('signup.username') }}" />
+        </div>
+        <div class="input-field">
+          <div class="rounded-md bg-primary-main p-3">
+            <svg width="20" height="20" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.75067 11.4226L20.3373 0.835938L23.1659 3.66436L21.2803 5.54998L24.1087 8.3784L19.3945 13.0925L16.5661 10.2641L12.5791 14.2511C13.8909 16.7643 13.4915 19.9383 11.3807 22.0491C8.77722 24.6526 4.55612 24.6526 1.95263 22.0491C-0.650877 19.4457 -0.650877 15.2246 1.95263 12.621C4.0634 10.5103 7.23746 10.1109 9.75067 11.4226ZM8.55228 19.2207C9.59374 18.1793 9.59374 16.4909 8.55228 15.4495C7.51088 14.4081 5.82246 14.4081 4.78106 15.4495C3.73966 16.4909 3.73966 18.1793 4.78106 19.2207C5.82246 20.2621 7.51088 20.2621 8.55228 19.2207Z" fill="white"/>
+            </svg>
+          </div>
+          <input type="password" placeholder="{{ lang('signup.password') }}" id="password" name="LoginForm[password]" aria-label="{{ lang('signup.password') }}" />
+        </div>
+        <div class="form-info flex content-between justify-between">
+          <div>
+            <input type="checkbox" name="LoginForm[remember]" value="1" id="remember"/>
+            <label for="remember">Remember me</label>
+          </div>
+          <a href="{{ page_url('resetpassword') }}" title="{{ lang('signin.reset_password') }}">Forgot password?</a>
+        </div>
+        <div class="my-4">
+          {% if captcha %}
+            {{ captchaCode }}
+          {% endif %}
+        </div>
+        <input type="hidden" name="_csrf" value="{{csrftoken}}">
+
+        <div class="signin_btns">
+          <div class="form_btns grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-2">
+            <button type="submit" class="btn btn--primary" href="#">
+              <span>{{ lang('signin.button') }}</span>
+              <img loading="lazy" src="https://storage.perfectcdn.com/7gc9nb/terrzy6bnr147d9w.svg" alt="Join Marketerum Now!"/>
+            </button>
+          </div>
+          {% if googleSignIn %}
+            <div class="google-login-wrap">
+              <span class="google-login">
+                Login with
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="LgbsSe-Bz112c"><g><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path><path fill="none" d="M0 0h48v48H0z"></path></g></svg>
+              </span>
+              <div class="form-group google-btn">
+                <div id="g_id_onload" data-client_id="{{ googleClientId }}" data-login_uri="{{ googleSignInRedirectUrl }}" data-auto_prompt="false" data-_csrf="{{csrftoken}}"></div>
+                <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left"></div>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+        <div class="have-acc">
+          Do not have an account?
+          <a class="font-semibold text-secondary-main" href="{{ page_url('signup') }}">
+            &nbsp&nbsp<span> {{ lang('signup.button') }}</span>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+<!-- end : HERO-->
+
+<!-- SECTION : STATS -->
+<section class="stats px-5">
+	<div class="container mx-auto flex flex-col flex-wrap items-center justify-between gap-x-10 gap-y-8 text-center">
+		<h2 class="stats__title text-2xl font-semibold md:basis-full lg:basis-auto">
+			Marketerum Achievements
+		</h2>
+		<div class="stats__grid w-full">
+		<div class="stats__item">
+			<div class="stats__icon">
+				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/4awu9w7452rb1eql.svg" alt="Total orders">
+			</div>
+			<div class="stats__data">
+                <div class="stats__number">
+                    {{ totals['ordersAll']|number_format(0, '.', ',') }}
+				</div>
+				<span>Orders Completed</span>
+			</div>
+		</div>
+		<div class="stats__item">
+			<div class="stats__icon">
+				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/67hc9ch7mk699ow1.png" alt="Our Happy customers">
+			</div>
+			<div class="stats__data">
+                <div class="stats__number">
+                    {{ totals['usersAll']|number_format(0, '.', ',') }}
+				</div>
+				<span>Satisfied Customers</span>
+			</div>
+		</div>
+		<div class="stats__item">
+			<div class="stats__icon">
+				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/l2d4lro3zhi6p334.png" alt="Our stable services">
+			</div>
+			<div class="stats__data">
+                <div class="stats__number">
+                    5,235+
+                </div>
+				<span>Active Services</span>
+			</div>
+		</div>
+		</div>
+	</div>
+</section>
+<!-- END : STATS -->
+
+<!-- SECTION : ABOUT US -->
+<section class="about px-5">
+  <div class="container mx-auto">
+    <div class="intro mx-auto space-y-5 md:w-10/12">
+      <span class="text__highlight">About Us</span>
+      <h2 class="heading--main">
+      Leading <span class="p-color">SMM Panel in Kenya</span>
+      </h2>
+      <p class="text-sm text-justify">
+      Marketerum revolutionizes social media marketing in Kenya through our premier <a href="/">SMM Panel</a> services, designed for cost-efficiency without compromising quality. Our commitment to helping Kenyan businesses thrive online makes us a trusted partner in enhancing your digital presence.
+      </p>
+      <p class="text-sm text-justify">
+      With our SMM Panel services, you can leverage the benefits of strategic social media marketing at competitive rates. We provide immediate engagement, comprehensive analytics, and significant growth, ensuring that your campaigns resonate with your Kenyan audience and drive meaningful conversions.
+      </p>
+      <p class="text-sm text-justify">
+      Our team of skilled professionals utilizes advanced technology to elevate your brand's visibility. Whether you are a budding startup or an established corporation, our SMM Panel services are tailored to achieve remarkable results. Many businesses are already experiencing excellent returns on investment thanks to our economical solutions.
+      </p>
+      <p class="text-sm text-justify">
+      Expand your reach in the digital landscape with Marketerum's reliable SMM Panel services. Enjoy real-time engagement, impactful marketing strategies, and unparalleled growth that set your business apart from the competition. Start your journey toward digital success with us today and watch your online presence flourish.
+      </p>
+      <a href="https://marketerum.com/services" class="btn btn--primary" style="display: inline-block">View All Services</a>
+    </div>
+  </div>
+</section>
+<!-- END : ABOUT -->
+
+<!-- SECTION : WHY US -->
+<section class="whyus px-5">
+      <div class="container mx-auto space-y-12 py-20">
+        <div class="intro relative mx-auto space-y-12 md:w-10/12">
+          <span class="text__highlight relative"
+            >F.A.Q
+          </span>
+          <h2 class="heading--main relative">
+            Why choose our <br class="hidden md:inline-block" />SMM Panel for Kenya?
+          </h2>
+          <p class="text-justify">
+            Take your social media game to the next level with marketerum.com, your go-to SMM Panel in Kenya. We're all about real growth and understanding the Kenyan market. Plus, our services are affordable.
+
+We offer a wide range of services designed to connect with Kenyan audiences. This means your social media efforts will be both powerful and efficient. Our deep local knowledge, clear practices, and 24/7 customer support will help you shine online.
+
+Boost your online presence, connect better with your followers, and hit your marketing targets. With marketerum.com, you'll strengthen your bond with your Kenyan audience.
+          </p>
+          <svg
+            class="absolute -top-40 left-0"
+            width="42"
+            height="46"
+            viewBox="0 0 42 46"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17 1.3094C19.4752 -0.119661 22.5248 -0.119661 25 1.3094L37.7846 8.6906C40.2598 10.1197 41.7846 12.7607 41.7846 15.6188V30.3812C41.7846 33.2393 40.2598 35.8803 37.7846 37.3094L25 44.6906C22.5248 46.1197 19.4752 46.1197 17 44.6906L4.21539 37.3094C1.74018 35.8803 0.215391 33.2393 0.215391 30.3812V15.6188C0.215391 12.7607 1.74018 10.1197 4.21539 8.6906L17 1.3094Z"
+              fill="#85E0F9"
+            />
+          </svg>
+
+          
+        </div>
+      </div>
+    </section>
+<!-- END : WHY US -->
+
+<!-- SECTION : FAQ -->
+<section
+  class="faq1 px-5"
+>
+  <div class="container mx-auto text-center">
+    <div class="intro mx-auto mb-12 space-y-8 md:w-8/12">
+      <span class="text__highlight relative">
+        F.A.Q
+        
+      </span>
+      <h2 class="heading--main">
+        Unlocking the Potential of <span>SMM Panel Kenya</span> with marketerum.com
+      </h2>
+      <p class="text-justify">
+        Find out how SMM Panel Kenya can help you at marketerum.com. Our platform offers customized solutions for boosting your online presence. See how our services can aid your digital marketing objectives in Kenya.
+      </p>
+    </div>
+
+    <div class="faqs">
+      <div class="faqs__tab md:grid md:grid-cols-2 md:gap-8">
+        <div class="tab__item">
+          <a href="#" class="tab__label">
+            <span>
+              What is an SMM Panel Kenya?
+            </span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                stroke="#02030E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+          <p class="text-justify">
+            An SMM Panel Kenya is a digital tool designed to streamline and enhance your online marketing efforts. It provides a range of services to boost engagement and improve your online visibility, tailored specifically for the Kenyan market.
+          </p>
+        </div>
+
+        <div class="tab__item">
+          <a href="#" class="tab__label">
+            <span>
+              How Does SMM Panel Kenya Work?
+            </span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                stroke="#02030E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+          <p class="text-justify">
+            SMM Panel Kenya simplifies your marketing strategy by allowing you to select and manage various services. You can customize your campaign by choosing specific features to enhance your online presence and engagement efficiently.
+          </p>
+        </div>
+
+        <div class="tab__item">
+          <a href="#" class="tab__label">
+            <span>
+              Are SMM Panel Kenya Services Reliable?
+            </span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                stroke="#02030E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+          <p class="text-justify">
+            Yes, services provided by SMM Panel Kenya are designed to ensure authentic interactions and sustainable growth. Our approach focuses on delivering real results by connecting you with genuine engagement opportunities.
+          </p>
+        </div>
+
+        <div class="tab__item">
+          <a href="#" class="tab__label">
+            <span>
+              Is Using SMM Panel Kenya Secure?
+            </span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                stroke="#02030E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+          <p class="text-justify">
+            Our SMM Panel Kenya adheres to strict security measures to protect your data and ensure compliance with digital marketing standards. We prioritize ethical practices to guarantee a secure user experience.
+          </p>
+        </div>
+
+        <div class="tab__item">
+          <a href="#" class="tab__label">
+            <span>
+              Can SMM Panel Kenya Improve My Online Presence?
+            </span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                stroke="#02030E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+          <p class="text-justify">
+            Absolutely. SMM Panel Kenya is designed to enhance your online visibility and engagement. By utilizing our services, you can increase your reach, attract a wider audience, and strengthen your digital presence.
+          </p>
+        </div>
+
+        <div class="tab__item">
+          <a href="#" class="tab__label">
+            <span>
+              Are SMM Panels Suitable for Businesses in Kenya?
+            </span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                stroke="#02030E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+          <p class="text-justify">
+            Yes, SMM Panels are ideal for businesses of all sizes in Kenya. They offer targeted solutions to help businesses build their online reputation, reach their audience more effectively, and achieve their marketing goals.
+          </p>
+        </div>
+
+        <div class="tab__item">
+          <a href="#" class="tab__label">
+            <span>
+              How Do I Select the Right SMM Panel Kenya?
+            </span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                stroke="#02030E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+          <p class="text-justify">
+            To choose a reliable SMM Panel Kenya, look for a provider with a solid reputation, transparent services, and positive reviews. Ensure they offer comprehensive support and adhere to ethical standards to guarantee effective and secure marketing solutions.
+          </p>
+        </div>
+
+        <div class="tab__item">
+          <a href="#" class="tab__label">
+            <span>
+              What is an SMM Reseller Panel?
+            </span>
+            <svg
+              width="18"
+              height="18"
+              viewBox="0 0 18 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                stroke="#02030E"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </a>
+          <p class="text-justify">
+            An SMM Reseller Panel is designed for those who want to offer social media marketing services to their clients at a profit. It allows you to purchase services in bulk and resell them, providing a cost-effective way to enter the social media marketing industry.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- END : FAQ -->
+
+
+

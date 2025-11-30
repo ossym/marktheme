@@ -1,2 +1,499 @@
-{# Account template #}
+<main class="page-wrapper shrink grow bg-gray-50 dark:bg-dark transition-colors duration-200">
+  <div class="container mx-auto px-4 py-6 lg:py-8 max-w-7xl">
+    <!-- Navigation Tabs -->
+    <div class="mb-8">
+      <nav class="flex space-x-1 bg-white dark:bg-gray-800 rounded-lg p-1 shadow-sm border border-gray-200 dark:border-gray-700">
+        <a 
+          href="{{ page_url('account') }}" 
+          class="flex-1 px-4 py-2.5 text-sm font-medium text-center rounded-md transition-all duration-200 bg-primary-600 text-white shadow-sm"
+        >
+          {{ lang('account.tab.general') }}
+        </a>
+        <a 
+          href="{{ page_url('notifications') }}" 
+          class="flex-1 px-4 py-2.5 text-sm font-medium text-center rounded-md transition-all duration-200 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+        >
+          {{ lang('account.tab.notifications') }}
+        </a>
+      </nav>
+    </div>
 
+    <!-- Success Messages -->
+    {% if success %}
+      <div class="mb-6 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 p-4 flex items-start justify-between {% if site['rtl'] %} rtl-alert {% endif %}" role="alert">
+        <div class="flex items-start gap-3 flex-1">
+          <svg class="w-5 h-5 text-green-500 dark:text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <p class="text-sm font-medium text-green-800 dark:text-green-200">{{ successText }}</p>
+        </div>
+        <button type="button" class="text-green-500 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 transition-colors" data-dismiss="alert" aria-label="Close">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+    {% endif %}
+    {% if twofactorauth.success %}
+      <div class="mb-6 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 p-4 flex items-start justify-between {% if site['rtl'] %} rtl-alert {% endif %}" role="alert">
+        <div class="flex items-start gap-3 flex-1">
+          <svg class="w-5 h-5 text-green-500 dark:text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <p class="text-sm font-medium text-green-800 dark:text-green-200">{{ twofactorauth.success }}</p>
+        </div>
+        <button type="button" class="text-green-500 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 transition-colors" aria-label="Close">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+    {% endif %}
+
+    <!-- Account Information Card -->
+    <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-sm border border-gray-200 dark:border-dark-tertiary transition-all duration-300 hover:border-primary-500/50 dark:hover:border-primary-400/50 p-6 mb-6">
+      <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200 dark:border-dark-tertiary">
+        <div class="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+          </svg>
+        </div>
+        <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ lang('account.username') }}</h2>
+      </div>
+
+      {% if successChangeEmail %}
+        <div class="mb-4 rounded-lg bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 p-4 flex items-start justify-between {% if site['rtl'] %} rtl-alert {% endif %}" role="alert">
+          <div class="flex items-start gap-3 flex-1">
+            <svg class="w-5 h-5 text-green-500 dark:text-green-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            </svg>
+            <p class="text-sm font-medium text-green-800 dark:text-green-200">{{ successChangeEmailMessage }}</p>
+          </div>
+          <button type="button" class="text-green-500 hover:text-green-700 dark:text-green-400 dark:hover:text-green-300 transition-colors" data-dismiss="alert" aria-label="Close">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+      {% endif %}
+      {% if errorChangeEmail %}
+        <div class="mb-4 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-4 flex items-start justify-between {% if site['rtl'] %} rtl-alert {% endif %}" role="alert">
+          <div class="flex items-start gap-3 flex-1">
+            <svg class="w-5 h-5 text-red-500 dark:text-red-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+            </svg>
+            <p class="text-sm font-medium text-red-800 dark:text-red-200">{{ errorChangeEmailMessage }}</p>
+          </div>
+          <button type="button" class="text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 transition-colors" data-dismiss="alert" aria-label="Close">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+            </svg>
+          </button>
+        </div>
+      {% endif %}
+
+      <div class="space-y-5">
+        <div>
+          <label for="username" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">{{ lang('account.username') }}</label>
+          <div class="relative">
+            <input type="text" 
+                   id="username" 
+                   value="{{ user['username'] }}" 
+                   readonly 
+                   class="w-full px-4 py-3 bg-gray-50 dark:bg-dark-tertiary border border-gray-200 dark:border-dark-tertiary rounded-lg text-gray-700 dark:text-gray-300 font-medium cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:focus:ring-primary-400/20 transition-colors">
+          </div>
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">{{ lang('account.email') }}</label>
+          <div class="relative">
+            <input type="text" 
+                   id="email" 
+                   value="{{ user['email'] }}" 
+                   readonly 
+                   class="w-full px-4 py-3 bg-gray-50 dark:bg-dark-tertiary border border-gray-200 dark:border-dark-tertiary rounded-lg text-gray-700 dark:text-gray-300 font-medium cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:focus:ring-primary-400/20 transition-colors">
+          </div>
+        </div>
+        <button class="w-full px-4 py-3 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary" id="changeEmailLink">
+          <span class="flex items-center justify-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            {{ lang('confirmemail.button.change') }}
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Change Password Card -->
+    <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-sm border border-gray-200 dark:border-dark-tertiary transition-all duration-300 hover:border-primary-500/50 dark:hover:border-primary-400/50 p-6 mb-6">
+      <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200 dark:border-dark-tertiary">
+        <div class="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+        </div>
+        <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ lang('account.password.current') }}</h2>
+      </div>
+
+      <form {% if site['rtl'] %}class="rtl-form"{% endif %} method="post" action="" class="space-y-5">
+        {% if error %}
+          <div class="rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-4 flex items-start justify-between {% if site['rtl'] %} rtl-alert {% endif %}" role="alert">
+            <div class="flex items-start gap-3 flex-1">
+              <svg class="w-5 h-5 text-red-500 dark:text-red-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+              </svg>
+              <p class="text-sm font-medium text-red-800 dark:text-red-200">{{ errorText }}</p>
+            </div>
+            <button type="button" class="text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 transition-colors" aria-label="Close">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+              </svg>
+            </button>
+          </div>
+        {% endif %}
+        <div>
+          <label for="current" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">{{ lang('account.password.current') }}</label>
+          <input type="password" 
+                 id="current" 
+                 name="SettingsFrom[current_password]" 
+                 class="w-full px-4 py-3 bg-white dark:bg-dark-tertiary border border-gray-300 dark:border-dark-tertiary rounded-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-colors">
+        </div>
+        <div>
+          <label for="new" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">{{ lang('account.password.new') }}</label>
+          <input type="password" 
+                 id="new" 
+                 name="SettingsFrom[password]" 
+                 class="w-full px-4 py-3 bg-white dark:bg-dark-tertiary border border-gray-300 dark:border-dark-tertiary rounded-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-colors">
+        </div>
+        <div>
+          <label for="confirm" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">{{ lang('account.password.confirm') }}</label>
+          <input type="password" 
+                 id="confirm" 
+                 name="SettingsFrom[confirm_password]" 
+                 class="w-full px-4 py-3 bg-white dark:bg-dark-tertiary border border-gray-300 dark:border-dark-tertiary rounded-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-colors">
+        </div>
+
+        <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+        <button type="submit" class="w-full px-4 py-3 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary">
+          <span class="flex items-center justify-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+            </svg>
+            {{ lang('account.password.button') }}
+          </span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Two-Factor Authentication Card -->
+    <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-sm border border-gray-200 dark:border-dark-tertiary transition-all duration-300 hover:border-primary-500/50 dark:hover:border-primary-400/50 p-6 mb-6">
+      <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200 dark:border-dark-tertiary">
+        <div class="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+        </div>
+        <div class="flex-1">
+          <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ lang('2fa.title') }}</h2>
+          {% if not twofactorauth.activated %}
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">{{ lang('account.2fa.enabled') }}</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <div id="2fa-approve-error-block"
+           class="{% if twofactorauth.error %} block {% else %} hidden {% endif %} mb-4 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-4 flex items-start justify-between {% if site['rtl'] %} rtl-alert {% endif %}" 
+           role="alert">
+        <div class="flex items-start gap-3 flex-1">
+          <svg class="w-5 h-5 text-red-500 dark:text-red-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+          </svg>
+          <p class="text-sm font-medium text-red-800 dark:text-red-200" id="2fa-error-text">{{ twofactorauth.error }}</p>
+        </div>
+        <button type="button" class="text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 transition-colors" aria-label="Close">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- 2FA Form generate code -->
+      <form id="2fa-generate-form"
+            method="post" 
+            {% if site['rtl'] %}class="rtl-form"{% endif %}
+            action="{{ twofactorauth.url.generate }}"
+            class="{% if twofactorauth.active_code %} hidden {% else %} block {% endif %} space-y-5">
+        <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{{ lang('account.2fa.description') }}</p>
+        <input type="hidden" name="enabled" value="{{ twofactorauth.activated }}">
+        <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+        <button id="2fa-generate" type="submit" class="w-full px-4 py-3 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary">
+          <span class="flex items-center justify-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            {% if twofactorauth.activated %}
+              {{ lang('account.2fa.enable') }}
+            {% else %}
+              {{ lang('account.2fa.disable') }}
+            {% endif %}
+          </span>
+        </button>
+      </form>
+
+      <!-- 2FA Form approve code -->
+      <form id="2fa-approve-form" 
+            method="post" 
+            {% if site['rtl'] %}class="rtl-form"{% endif %}
+            action="{{ twofactorauth.url.approve }}"
+            class="{% if twofactorauth.active_code %} block {% else %} hidden {% endif %} space-y-5">
+        <div class="rounded-lg bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 p-4">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-blue-500 dark:text-blue-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+            </svg>
+            <p class="text-sm font-medium text-blue-800 dark:text-blue-200">{{ lang('2fa.sent') }}</p>
+          </div>
+        </div>
+        <div>
+          <label for="code" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">{{ lang('2fa.code') }}</label>
+          <input type="text" 
+                 id="code" 
+                 name="code" 
+                 autocomplete="one-time-code"
+                 inputmode="numeric"
+                 maxlength="6"
+                 class="w-full px-4 py-3 bg-white dark:bg-dark-tertiary border border-gray-300 dark:border-dark-tertiary rounded-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 text-center text-2xl tracking-widest font-mono focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-colors">
+        </div>
+        <input type="hidden" name="enabled" value="{{ twofactorauth.activated }}">
+        <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+        <button id="2fa-approve" type="submit" class="w-full px-4 py-3 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary">
+          <span class="flex items-center justify-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            {% if twofactorauth.activated %}
+              {{ lang('account.2fa.enable') }}
+            {% else %}
+              {{ lang('account.2fa.disable') }}
+            {% endif %}
+          </span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Language Selection Card -->
+    {% if site['languages']|length > 1 %}
+      <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-sm border border-gray-200 dark:border-dark-tertiary transition-all duration-300 hover:border-primary-500/50 dark:hover:border-primary-400/50 p-6 mb-6">
+        <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200 dark:border-dark-tertiary">
+          <div class="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+            </svg>
+          </div>
+          <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ lang('account.language') }}</h2>
+        </div>
+        <form {% if site['rtl'] %}class="rtl-form"{% endif %} method="post" action="" class="space-y-5">
+          <div>
+            <label for="language" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">{{ lang('account.language') }}</label>
+            <select id="language" 
+                    name="SettingsFrom[lang]" 
+                    class="w-full px-4 py-3 bg-white dark:bg-dark-tertiary border border-gray-300 dark:border-dark-tertiary rounded-lg text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-colors cursor-pointer appearance-none bg-[url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 20 20\'%3e%3cpath stroke=\'%236b7280\' stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'M6 8l4 4 4-4\'/%3e%3c/svg%3e')] bg-[length:1.25em_1.25em] bg-[right_0.75rem_center] bg-no-repeat pr-10">
+              {% for language in site['languages'] %}
+                <option value="{{ language['code'] }}"
+                        {% if language['code'] == user['lang'] %}selected{% endif %}>{{ language['name'] }}</option>
+              {% endfor %}
+            </select>
+          </div>
+          <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+          <button type="submit" class="w-full px-4 py-3 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary">
+            <span class="flex items-center justify-center gap-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              {{ lang('account.save') }}
+            </span>
+          </button>
+        </form>
+      </div>
+    {% endif %}
+
+    <!-- Timezone Selection Card -->
+    <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-sm border border-gray-200 dark:border-dark-tertiary transition-all duration-300 hover:border-primary-500/50 dark:hover:border-primary-400/50 p-6 mb-6">
+      <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200 dark:border-dark-tertiary">
+        <div class="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ lang('account.timezone') }}</h2>
+      </div>
+      <form {% if site['rtl'] %}class="rtl-form"{% endif %} action="" method="post" class="space-y-5">
+        <div>
+          <label for="timezone" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">{{ lang('account.timezone') }}</label>
+          <select name="SettingsFrom[timezone]" 
+                  id="timezone" 
+                  class="w-full px-4 py-3 bg-white dark:bg-dark-tertiary border border-gray-300 dark:border-dark-tertiary rounded-lg text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-colors cursor-pointer appearance-none bg-[url('data:image/svg+xml,%3csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 20 20\'%3e%3cpath stroke=\'%236b7280\' stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'1.5\' d=\'M6 8l4 4 4-4\'/%3e%3c/svg%3e')] bg-[length:1.25em_1.25em] bg-[right_0.75rem_center] bg-no-repeat pr-10">
+            {% for timezone,label in timezones %}
+              <option value="{{ timezone }}"
+                      {% if timezone == user['timezone'] %}selected{% endif %}>{{ label }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+        <button type="submit" class="w-full px-4 py-3 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary">
+          <span class="flex items-center justify-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            {{ lang('account.save') }}
+          </span>
+        </button>
+      </form>
+    </div>
+
+    <!-- API Key Card -->
+    <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-sm border border-gray-200 dark:border-dark-tertiary transition-all duration-300 hover:border-primary-500/50 dark:hover:border-primary-400/50 p-6 mb-6">
+      <div class="flex items-center gap-3 mb-6 pb-4 border-b border-gray-200 dark:border-dark-tertiary">
+        <div class="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center flex-shrink-0">
+          <svg class="w-5 h-5 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+          </svg>
+        </div>
+        <h2 class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ lang('account.api_key') }}</h2>
+      </div>
+
+      <div class="{% if apiKey.errorMessage %} block {% else %} hidden {% endif %} mb-4 rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-4 flex items-start justify-between {% if site['rtl'] %} rtl-alert {% endif %}" role="alert">
+        <div class="flex items-start gap-3 flex-1">
+          <svg class="w-5 h-5 text-red-500 dark:text-red-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+          </svg>
+          <p class="text-sm font-medium text-red-800 dark:text-red-200">{{ apiKey.errorMessage }}</p>
+        </div>
+        <button type="button" class="text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 transition-colors" aria-label="Close">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
+      </div>
+
+      <form {% if site['rtl'] %}class="rtl-form"{% endif %} action="{{ page['url'] }}/newkey" method="post" class="space-y-5">
+        <div>
+          <label for="api_key" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">{{ lang('account.api_key') }}</label>
+          {% if user['is_generated_apikey'] %}
+            <div class="relative">
+              <input type="text" 
+                     id="api_key" 
+                     value="{{ user['apikey'] }}" 
+                     readonly 
+                     class="w-full px-4 py-3 pr-20 bg-gray-50 dark:bg-dark-tertiary border border-gray-200 dark:border-dark-tertiary rounded-lg text-gray-700 dark:text-gray-300 font-mono text-sm cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-primary-500/20 dark:focus:ring-primary-400/20 transition-colors">
+              <button type="button" 
+                      onclick="navigator.clipboard.writeText('{{ user['apikey'] }}'); this.innerHTML='<svg class=\'w-5 h-5\' fill=\'currentColor\' viewBox=\'0 0 20 20\'><path fill-rule=\'evenodd\' d=\'M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z\' clip-rule=\'evenodd\'/></svg>Copied!'; setTimeout(() => { this.innerHTML='<svg class=\'w-5 h-5\' fill=\'none\' stroke=\'currentColor\' viewBox=\'0 0 24 24\'><path stroke-linecap=\'round\' stroke-linejoin=\'round\' stroke-width=\'2\' d=\'M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z\'/></svg>'; }, 2000);" 
+                      class="absolute right-2 top-1/2 -translate-y-1/2 p-2 text-gray-500 hover:text-primary-600 dark:hover:text-primary-400 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-dark-tertiary"
+                      title="Copy API Key"
+                      aria-label="Copy API Key">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                </svg>
+              </button>
+            </div>
+            <p class="mt-2 text-xs text-gray-500 dark:text-gray-400">{{ lang('account.api_key.date') }} {{ user['apikey_created'] }}</p>
+          {% else %}
+            <p class="text-sm text-gray-600 dark:text-gray-400 italic">No API key generated yet.</p>
+          {% endif %}
+        </div>
+        <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+        <button type="submit" class="w-full px-4 py-3 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary">
+          <span class="flex items-center justify-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+            </svg>
+            {{ lang('account.generate_key') }}
+          </span>
+        </button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<!-- Change Email Modal -->
+<div id="changeEmailModal" 
+     class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/50 dark:bg-black/70 backdrop-blur-sm"
+     role="dialog"
+     aria-labelledby="changeEmailModalTitle"
+     aria-modal="true"
+     data-backdrop="static">
+  <div class="relative w-full max-w-md bg-white dark:bg-dark-secondary rounded-xl shadow-2xl transform transition-all">
+    <form id="changeEmailForm" {% if site['rtl'] %}class="rtl-form"{% endif %} method="post" action="" class="p-6">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between mb-6 pb-4 border-b border-gray-200 dark:border-dark-tertiary">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-primary-600 dark:text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <h4 id="changeEmailModalTitle" class="text-lg font-semibold text-gray-900 dark:text-gray-100">{{ lang('confirmemail.change_email.title') }}</h4>
+        </div>
+        <button type="button" 
+                class="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 rounded-lg hover:bg-gray-100 dark:hover:bg-dark-tertiary transition-colors"
+                data-dismiss="modal" 
+                aria-label="Close">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="space-y-5">
+        <div id="changeEmailError"
+             class="hidden rounded-lg bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 p-4 {% if site['rtl'] %} rtl-alert {% endif %}"
+             role="alert">
+          <div class="flex items-start gap-3">
+            <svg class="w-5 h-5 text-red-500 dark:text-red-400 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+            </svg>
+            <p class="text-sm font-medium text-red-800 dark:text-red-200 error-summary"></p>
+          </div>
+        </div>
+        <div>
+          <label for="current-email" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">{{ lang('confirmemail.change_email.current_email') }}</label>
+          <div class="px-4 py-3 bg-gray-50 dark:bg-dark-tertiary border border-gray-200 dark:border-dark-tertiary rounded-lg text-gray-700 dark:text-gray-300 font-medium">
+            {{ user['email'] }}
+          </div>
+        </div>
+        <div>
+          <label for="new-email" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">{{ lang('confirmemail.change_email.new_email') }}</label>
+          <input type="email" 
+                 id="new-email" 
+                 name="ChangeEmailForm[email]"
+                 class="w-full px-4 py-3 bg-white dark:bg-dark-tertiary border border-gray-300 dark:border-dark-tertiary rounded-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-colors"
+                 placeholder="Enter new email address">
+        </div>
+        <div>
+          <label for="current-password" class="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">{{ lang('confirmemail.change_email.current_password') }}</label>
+          <input type="password" 
+                 id="current-password" 
+                 name="ChangeEmailForm[password]"
+                 class="w-full px-4 py-3 bg-white dark:bg-dark-tertiary border border-gray-300 dark:border-dark-tertiary rounded-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-colors"
+                 placeholder="Enter your current password">
+        </div>
+        <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="flex items-center gap-3 mt-6 pt-4 border-t border-gray-200 dark:border-dark-tertiary">
+        <button type="button" 
+                class="flex-1 px-4 py-2.5 bg-gray-100 dark:bg-dark-tertiary hover:bg-gray-200 dark:hover:bg-dark-tertiary/80 text-gray-700 dark:text-gray-300 font-semibold rounded-lg transition-colors"
+                data-dismiss="modal">
+          {{ lang('confirmemail.change_email.close') }}
+        </button>
+        <button type="submit" 
+                id="changeEmailSubmitBtn"
+                class="flex-1 px-4 py-2.5 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary">
+          {{ lang('confirmemail.change_email.submit') }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

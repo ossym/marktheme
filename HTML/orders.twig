@@ -1,2 +1,455 @@
-{# Orders template #}
+<main class="page-wrapper shrink grow bg-gray-50 dark:bg-dark transition-colors duration-300">
+    <div class="mx-auto w-full max-w-full space-y-6 px-4 py-6 sm:px-6 lg:px-8">
+        <!-- Orders Filter + Search Section -->
+        <section class="bg-white dark:bg-dark-secondary p-5 sm:p-6 rounded-xl shadow-sm dark:shadow-xl border border-gray-200 dark:border-dark-tertiary mb-6 transition-all duration-300">
+            <!-- Search Bar -->
+            <form action="{{ page['url'] }}" method="get" id="history-search" class="flex flex-col sm:flex-row gap-3 sm:gap-4" role="search">
+                <!-- Search Icon + Input -->
+                <div class="relative flex-1">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <svg class="h-5 w-5 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+                    <input type="search" name="search" id="orders-search-input" value="{{ search }}"
+                        placeholder="Search By Service" aria-label="Search orders by service"
+                        class="block w-full pl-10 pr-3 py-2.5 border border-gray-300 dark:border-dark-tertiary rounded-lg bg-white dark:bg-dark-tertiary text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent transition-all duration-200" />
+                </div>
+                <button type="submit" class="px-6 py-2.5 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-medium rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary transition-all duration-200">
+                    Search
+                </button>
+            </form>
 
+            <!-- Filter Tabs -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 mt-6">
+                <a href="{{ page['url'] }}"
+                    class="order-tab-btn flex items-center justify-center px-4 py-2.5 rounded-lg border text-sm font-medium transition-all duration-200 {{ status == 'all' ? 'bg-gradient-to-r from-primary-500 to-primary-600 text-white border-primary-500 shadow-md' : 'bg-white dark:bg-dark-tertiary border-gray-300 dark:border-dark-tertiary text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-secondary hover:border-primary-400 dark:hover:border-primary-500' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2 {{ status == 'all' ? 'text-white' : 'text-primary-500 dark:text-primary-400' }}" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <rect width="18" height="18" x="3" y="3" rx="2" /></svg>
+                    All
+                </a>
+                <a href="{{ page['url'] }}/pending"
+                    class="order-tab-btn flex items-center justify-center px-4 py-2.5 rounded-lg border text-sm font-medium transition-all duration-200 {{ status == 'pending' ? 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 border-yellow-300 dark:border-yellow-600 shadow-md' : 'bg-white dark:bg-dark-tertiary border-gray-300 dark:border-dark-tertiary text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-secondary hover:border-yellow-400 dark:hover:border-yellow-500' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2 {{ status == 'pending' ? 'text-yellow-600 dark:text-yellow-400' : 'text-yellow-500 dark:text-yellow-400' }}" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="18" height="18" x="3" y="3" rx="2" /></svg>
+                    Pending
+                </a>
+                <a href="{{ page['url'] }}/inprogress"
+                    class="order-tab-btn flex items-center justify-center px-4 py-2.5 rounded-lg border text-sm font-medium transition-all duration-200 {{ status == 'inprogress' ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 border-blue-300 dark:border-blue-600 shadow-md' : 'bg-white dark:bg-dark-tertiary border-gray-300 dark:border-dark-tertiary text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-secondary hover:border-blue-400 dark:hover:border-blue-500' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2 {{ status == 'inprogress' ? 'text-blue-600 dark:text-blue-400' : 'text-blue-500 dark:text-blue-400' }}" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="18" height="18" x="3" y="3" rx="2" /></svg>
+                    In Progress
+                </a>
+                <a href="{{ page['url'] }}/completed"
+                    class="order-tab-btn flex items-center justify-center px-4 py-2.5 rounded-lg border text-sm font-medium transition-all duration-200 {{ status == 'completed' ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 border-green-300 dark:border-green-600 shadow-md' : 'bg-white dark:bg-dark-tertiary border-gray-300 dark:border-dark-tertiary text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-secondary hover:border-green-400 dark:hover:border-green-500' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2 {{ status == 'completed' ? 'text-green-600 dark:text-green-400' : 'text-green-500 dark:text-green-400' }}" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="18" height="18" x="3" y="3" rx="2" /></svg>
+                    Completed
+                </a>
+                <a href="{{ page['url'] }}/partial"
+                    class="order-tab-btn flex items-center justify-center px-4 py-2.5 rounded-lg border text-sm font-medium transition-all duration-200 {{ status == 'partial' ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 border-purple-300 dark:border-purple-600 shadow-md' : 'bg-white dark:bg-dark-tertiary border-gray-300 dark:border-dark-tertiary text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-secondary hover:border-purple-400 dark:hover:border-purple-500' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2 {{ status == 'partial' ? 'text-purple-600 dark:text-purple-400' : 'text-purple-500 dark:text-purple-400' }}" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="18" height="18" x="3" y="3" rx="2" /></svg>
+                    Partial
+                </a>
+                <a href="{{ page['url'] }}/processing"
+                    class="order-tab-btn flex items-center justify-center px-4 py-2.5 rounded-lg border text-sm font-medium transition-all duration-200 {{ status == 'processing' ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 border-indigo-300 dark:border-indigo-600 shadow-md' : 'bg-white dark:bg-dark-tertiary border-gray-300 dark:border-dark-tertiary text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-secondary hover:border-indigo-400 dark:hover:border-indigo-500' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2 {{ status == 'processing' ? 'text-indigo-600 dark:text-indigo-400' : 'text-indigo-500 dark:text-indigo-400' }}" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="18" height="18" x="3" y="3" rx="2" /></svg>
+                    Processing
+                </a>
+                <a href="{{ page['url'] }}/canceled"
+                    class="order-tab-btn flex items-center justify-center px-4 py-2.5 rounded-lg border text-sm font-medium transition-all duration-200 {{ status == 'canceled' ? 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 border-red-300 dark:border-red-600 shadow-md' : 'bg-white dark:bg-dark-tertiary border-gray-300 dark:border-dark-tertiary text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-secondary hover:border-red-400 dark:hover:border-red-500' }}">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-2 {{ status == 'canceled' ? 'text-red-600 dark:text-red-400' : 'text-red-500 dark:text-red-400' }}" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="18" height="18" x="3" y="3" rx="2" /></svg>
+                    Canceled
+                </a>
+            </div>
+        </section>
+
+        <!-- Orders Content Section -->
+        <section class="dash_card bg-white dark:bg-dark-secondary rounded-xl shadow-sm dark:shadow-xl border border-gray-200 dark:border-dark-tertiary p-6 sm:p-8 space-y-6 transition-all duration-300">
+
+            {% if orderList is empty and 'all' == status %}
+            <div class="empty-state flex flex-col items-center space-y-8 sm:space-y-10 rounded-xl border-2 border-primary-200 dark:border-primary-800 bg-primary-50/50 dark:bg-primary-900/20 py-12 sm:py-16 px-6 text-center">
+                <svg width="64" height="64" viewbox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-red-500 dark:text-red-400">
+                    <path
+                        d="M30 60C13.4314 60 0 46.5684 0 30C0 13.4314 13.4314 0 30 0C46.5684 0 60 13.4314 60 30C60 46.5684 46.5684 60 30 60ZM30 54C43.2549 54 54 43.2549 54 30C54 16.7452 43.2549 6 30 6C16.7452 6 6 16.7452 6 30C6 43.2549 16.7452 54 30 54ZM27 39H33V45H27V39ZM27 15H33V33H27V15Z"
+                        fill="currentColor" />
+                </svg>
+
+                <p class="text-base sm:text-lg text-gray-700 dark:text-gray-300 max-w-md">
+                    Hello
+                    <a href="/account" class="font-semibold text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors">{{user['username']}}</a>, You have never
+                    ordered before or Put wrong ID.
+                    <br class="hidden sm:block" />You can
+                    <a href="/addfunds" class="font-semibold text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 transition-colors">Add balance</a>
+                    to make new order.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 w-full sm:w-auto">
+                    <a href="/addfunds" class="px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary transition-all duration-200 text-center">{{ lang('addfunds.title') }}</a>
+                    <a href="/"
+                        class="px-6 py-3 border-2 border-primary-500 dark:border-primary-400 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/30 font-semibold rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-dark-secondary transition-all duration-200 text-center">{{ lang('neworder.button') }}</a>
+                </div>
+            </div>
+            {% endif %}
+
+            <div class="orders-table-wrapper relative">
+                <div class="loading-overlay hidden absolute inset-0 bg-white/80 dark:bg-dark-secondary/80 backdrop-blur-sm z-50 flex flex-col items-center justify-center gap-3 rounded-xl" aria-hidden="true">
+                    <div class="spinner w-8 h-8 border-4 border-primary-200 dark:border-primary-800 border-t-primary-500 dark:border-t-primary-400 rounded-full animate-spin" aria-hidden="true"></div>
+                    <span class="loading-text text-gray-600 dark:text-gray-400 font-medium">Loading…</span>
+                </div>
+                {% if orderList %}
+                <div class="orders-mobile-list grid gap-4 sm:gap-6 md:hidden" aria-live="polite">
+                    {% for order in orderList %}
+                    <article class="order-card bg-white dark:bg-dark-tertiary rounded-xl border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md hover:shadow-md dark:hover:shadow-lg transition-all duration-300 overflow-hidden" data-order-id="{{ order['id'] }}">
+                        <header class="order-card__header p-4 sm:p-5 border-b border-gray-200 dark:border-dark-tertiary bg-gray-50 dark:bg-dark-secondary/50">
+                            <div class="flex items-start justify-between gap-4">
+                                <div class="order-card__id flex items-center gap-3 flex-1 min-w-0">
+                                    <button onclick="copyAndNotify('{{ order.id }}')" class="copy-btn flex-shrink-0 p-2 text-gray-400 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-lg transition-all duration-200"
+                                        title="Copy ID" aria-label="Copy ID">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="w-4 h-4">
+                                            <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                                        </svg>
+                                    </button>
+                                    <div class="order-card__id-meta flex-1 min-w-0">
+                                        <span class="block text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">{{ lang('orders.id') }}</span>
+                                        <span class="block text-sm font-bold text-gray-900 dark:text-gray-100 font-mono">{{ order['id'] }}</span>
+                                    </div>
+                                </div>
+                                <div class="order-card__meta text-right flex-shrink-0">
+                                    <span class="block text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">{{ lang('orders.date') }}</span>
+                                    <span class="block text-sm font-medium text-gray-700 dark:text-gray-300">{{ order['date'] }}</span>
+                                </div>
+                            </div>
+                        </header>
+                        <div class="order-card__content p-4 sm:p-5 space-y-4">
+                            <div class="order-card__row order-card__row--link">
+                                <span class="block text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">{{ lang('orders.link') }}</span>
+                                <div class="order-card__value order-card__link flex items-start gap-2 group">
+                                    <a href="/anon.ws?r={{ order['link']}}|url_encode }}" target="_blank" rel="noopener" class="flex-1 text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 hover:underline break-all transition-colors">{{ order['link'] }}</a>
+                                    <button onclick="copyAndNotify('{{ order['link'] }}')" class="copy-btn flex-shrink-0 p-1.5 text-gray-400 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded transition-all duration-200"
+                                        title="Copy Link" aria-label="Copy Link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" class="w-4 h-4">
+                                            <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="order-card__row">
+                                    <span class="block text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">{{ lang('orders.charge') }}</span>
+                                    <span class="block text-sm font-semibold text-gray-900 dark:text-gray-100">{{ order['charge'] }}</span>
+                                </div>
+                                <div class="order-card__row">
+                                    <span class="block text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">{{ lang('orders.quantity') }}</span>
+                                    <span class="block text-sm font-semibold text-gray-900 dark:text-gray-100">{{ order['quantity'] }}</span>
+                                </div>
+                                <div class="order-card__row">
+                                    <span class="block text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">{{ lang('orders.startcount') }}</span>
+                                    <span class="block text-sm font-semibold text-primary-600 dark:text-primary-400">{{ order['start_count'] ?? '-' }}</span>
+                                </div>
+                                <div class="order-card__row">
+                                    <span class="block text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-1">{{ lang('orders.remains') }}</span>
+                                    <span class="block text-sm font-semibold text-rose-600 dark:text-rose-400">{{ order.remains }}</span>
+                                </div>
+                            </div>
+                            <div class="order-card__row pt-2 border-t border-gray-200 dark:border-dark-tertiary">
+                                <span class="block text-xs font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide mb-2">{{ lang('orders.service') }}</span>
+                                <div class="order-card__value order-card__value--service flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                                    <span class="order-card__service-id inline-flex items-center px-2 py-1 rounded text-xs font-bold bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300">{{ order['service_id'] }}</span>
+                                    <span class="order-card__service-name text-sm text-gray-700 dark:text-gray-300">{{ order['service'] }}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="order-card__footer p-4 sm:p-5 border-t border-gray-200 dark:border-dark-tertiary bg-gray-50 dark:bg-dark-secondary/50 flex items-center justify-between gap-4">
+                            <div class="order-card__status flex items-center gap-2">
+                                <span data-status="{{ order['status'] }}" class="order-status-badge inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border
+                                    {% if 'pending' in order['status']|lower %}bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 border-yellow-300 dark:border-yellow-600
+                                    {% elseif 'inprogress' in order['status']|lower or 'in progress' in order['status']|lower %}bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 border-blue-300 dark:border-blue-600
+                                    {% elseif 'completed' in order['status']|lower %}bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 border-green-300 dark:border-green-600
+                                    {% elseif 'partial' in order['status']|lower %}bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 border-purple-300 dark:border-purple-600
+                                    {% elseif 'processing' in order['status']|lower %}bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 border-indigo-300 dark:border-indigo-600
+                                    {% elseif 'canceled' in order['status']|lower or 'cancelled' in order['status']|lower %}bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 border-red-300 dark:border-red-600
+                                    {% else %}bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 border-gray-300 dark:border-gray-600
+                                    {% endif %}">{{ order['status'] }}</span>
+                                {% if order['cancelReason'] %}
+                                <button class="p-1.5 text-gray-400 dark:text-gray-500 hover:text-amber-500 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-900/20 rounded transition-all duration-200" data-toggle="tooltip" data-placement="top"
+                                    title="{{ order['cancelReason'] }}">
+                                    <i class="fas fa-comment-alt-lines text-sm"></i>
+                                </button>
+                                {% endif %}
+                            </div>
+                            <div class="order-card__actions flex items-center gap-2">
+                                <a href="/?service={{ order.service_id }}" class="reorder-btn p-2 text-gray-400 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-lg transition-all duration-200" aria-label="Reorder"
+                                    title="Reorder">
+                                    <i class="fas fa-redo text-sm"></i>
+                                </a>
+                            </div>
+                        </footer>
+                        {% if task == 1 %}
+                        <div class="order-card__task order-actions p-4 sm:p-5 border-t border-gray-200 dark:border-dark-tertiary bg-gray-50 dark:bg-dark-secondary/50 flex flex-wrap items-center gap-2">
+                            {% if order['refilling'] == 1 %}
+                            <span class="text-sm text-gray-600 dark:text-gray-400 font-medium">{{ lang('orders.refilling') }}</span>
+                            {% else %}
+                            {% if order['refill'] == 1 %}
+                            <a href="{{ page['url'] }}/{{ order['id'] }}/refill"
+                                class="btn btn-xs btn-primary px-3 py-1.5 text-xs font-medium rounded-lg bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white shadow-sm hover:shadow transition-all duration-200">{{ lang('orders.button.refill') }}</a>
+                            {% endif %}
+                            {% if order['refillAvailableTime'] %}
+                            <button class="btn btn-xs btn-primary disabled px-3 py-1.5 text-xs font-medium rounded-lg bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed opacity-60" data-toggle="tooltip" data-placement="top"
+                                title="{{ order['refillAvailableTime'] }}">{{ lang('orders.button.refill') }}</button>
+                            {% endif %}
+                            {% if order['cancel'] == 1 %}
+                            <a href="{{ page['url'] }}/{{ order['id'] }}/cancel"
+                                class="btn btn-xs btn-default px-3 py-1.5 text-xs font-medium rounded-lg bg-white dark:bg-dark-tertiary border border-gray-300 dark:border-dark-tertiary text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-secondary transition-all duration-200">{{ lang('orders.button.cancel') }}</a>
+                            {% endif %}
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                    </article>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                <div class="overflow-x-auto -mx-4 sm:mx-0">
+                    <table id="service-table" cellspacing="0" class="hidden md:table w-full min-w-full border-collapse {% if site['rtl'] %} rtl-table {% endif %}">
+                    <thead class="bg-gray-50 dark:bg-dark-secondary">
+                        <tr>
+                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-dark-tertiary">{{ lang('orders.id') }}</th>
+                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-dark-tertiary">{{ lang('orders.date') }}</th>
+                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-dark-tertiary min-w-[300px] max-w-md">{{ lang('orders.link') }}</th>
+                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-dark-tertiary">{{ lang('orders.charge') }}</th>
+                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-dark-tertiary">{{ lang('orders.startcount') }}</th>
+                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-dark-tertiary">{{ lang('orders.remains') }}</th>
+                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-dark-tertiary">{{ lang('orders.quantity') }}</th>
+                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-dark-tertiary">{{ lang('orders.service') }}</th>
+                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-dark-tertiary">{{ lang('orders.status') }}</th>
+                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-dark-tertiary"></th>
+                            {% if task == 1 %}
+                            <th class="px-4 py-3 text-left text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider border-b border-gray-200 dark:border-dark-tertiary">&nbsp;</th>
+                            {% endif %}
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white dark:bg-dark-secondary divide-y divide-gray-200 dark:divide-dark-tertiary">
+                        {% for order in orderList %}
+                        <tr class="hover:bg-gray-50 dark:hover:bg-dark-tertiary/50 transition-colors duration-150">
+                            <td data-label="ID" class="px-4 py-3 whitespace-nowrap">
+                                <div class="id-cell flex items-center gap-2">
+                                    <button onclick="copyAndNotify('{{ order.id }}')"
+                                        class="p-1.5 text-gray-400 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded transition-all duration-200" title="Copy ID">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                                    </button>
+                                    <strong class="text-sm font-bold text-gray-900 dark:text-gray-100 font-mono">{{ order['id'] }}</strong>
+                                </div>
+                            </td>
+                            <td data-label="Date" class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">{{ order['date'] }}</td>
+                            <td data-label="Link" class="px-4 py-3 min-w-[300px] max-w-md">
+                                <div class="link-cell flex items-start gap-2">
+                                    <a href="/anon.ws?r={{ order['link']}}|url_encode }}" target="_blank" rel="noopener" class="flex-1 text-sm text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 hover:underline break-all">
+                                        {{ order['link'] }}
+                                    </a>
+                                    <button onclick="copyAndNotify('{{ order['link'] }}')"
+                                        class="flex-shrink-0 p-1.5 text-gray-400 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded transition-all duration-200" title="Copy Link">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24"
+                                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
+                                            <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" /></svg>
+                                    </button>
+                                </div>
+                            {% if order['orderDetails'] %}
+                            {% for orderDetails in order['orderDetails'] %}
+                            <a href="#" data-toggle="modal"
+                                data-target="#order-details-{{ order['id'] }}-{{ loop.index }}">
+                                <i class="far fa-file-alt"></i>
+                            </a>
+                            <div class="modal fade {% if site.rtl %}modal-rtl{% endif %}" tabindex="-1" role="dialog"
+                                id="order-details-{{ order['id'] }}-{{ loop.index }}">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h4 class="modal-title">{{ orderDetails.label }}</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            {% for orderDetail in orderDetails['details'] %}
+                                            <div class="form-group">
+                                                <label
+                                                    for="details-{{ order['id'] }}-{{ loop.index }}">{{ orderDetail.label }}</label>
+                                                {% if orderDetail.type == 'textarea' %}
+                                                <textarea id="details-{{ order['id'] }}-{{ loop.index }}"
+                                                    class="form-control" rows="7"
+                                                    disabled>{{ orderDetail.value }}</textarea>
+                                                {% elseif orderDetail.type == 'input' %}
+                                                <input id="details-{{ order['id'] }}-{{ loop.index }}"
+                                                    class="form-control" value="{{ orderDetail.value }}" disabled />
+                                                {% endif %}
+                                            </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                        </td>
+                            <td data-label="Charge" class="px-4 py-3 whitespace-nowrap text-sm font-semibold text-gray-900 dark:text-gray-100">{{ order['charge'] }}</td>
+                            <td data-label="{{ lang('orders.startcount') }}" class="px-4 py-3 whitespace-nowrap">
+                                <span class="text-sm font-medium text-primary-600 dark:text-primary-400">{{ order['start_count'] ?? '-' }}</span>
+                            </td>
+                            <td data-label="{{ lang('orders.remains') }}" class="px-4 py-3 whitespace-nowrap">
+                                <span class="text-sm font-medium text-rose-600 dark:text-rose-400">{{ order.remains }}</span>
+                            </td>
+                            <td data-label="Quantity" class="px-4 py-3 whitespace-nowrap text-sm text-gray-700 dark:text-gray-300">{{ order['quantity'] }}</td>
+                            <td data-label="Service" class="px-4 py-3">
+                                <div class="flex items-center gap-2">
+                                    <span class="inline-flex items-center px-2 py-1 rounded text-xs font-bold bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300">{{ order['service_id'] }}</span>
+                                    <span class="text-sm text-gray-700 dark:text-gray-300">{{ order['service'] }}</span>
+                                </div>
+                            </td>
+                            <td class="px-4 py-3 whitespace-nowrap">
+                                <div data-status="{{ order['status'] }}" class="flex items-center gap-2">
+                                    <span class="order-status-badge inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold border
+                                        {% if 'pending' in order['status']|lower %}bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 border-yellow-300 dark:border-yellow-600
+                                        {% elseif 'inprogress' in order['status']|lower or 'in progress' in order['status']|lower %}bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 border-blue-300 dark:border-blue-600
+                                        {% elseif 'completed' in order['status']|lower %}bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 border-green-300 dark:border-green-600
+                                        {% elseif 'partial' in order['status']|lower %}bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300 border-purple-300 dark:border-purple-600
+                                        {% elseif 'processing' in order['status']|lower %}bg-indigo-100 dark:bg-indigo-900/30 text-indigo-800 dark:text-indigo-300 border-indigo-300 dark:border-indigo-600
+                                        {% elseif 'canceled' in order['status']|lower or 'cancelled' in order['status']|lower %}bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 border-red-300 dark:border-red-600
+                                        {% else %}bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 border-gray-300 dark:border-gray-600
+                                        {% endif %}">{{ order['status'] }}</span>
+                                    {% if order['cancelReason'] %}
+                                    <button class="p-1 text-gray-400 dark:text-gray-500 hover:text-amber-500 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-900/20 rounded transition-all duration-200" data-toggle="tooltip" data-placement="top"
+                                        title="{{ order['cancelReason'] }}">
+                                        <i class="fas fa-comment-alt-lines text-xs"></i>
+                                    </button>
+                                    {% endif %}
+                                </div>
+                            </td>
+                            <td data-label="Reorder" class="px-4 py-3 whitespace-nowrap">
+                                <a href="/?service={{ order.service_id }}" class="reorder-btn inline-flex p-2 text-gray-400 dark:text-gray-500 hover:text-primary-500 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 rounded-lg transition-all duration-200" aria-label="Reorder"
+                                    title="Reorder">
+                                    <i class="fas fa-redo text-sm"></i>
+                                </a>
+                            </td>
+                            {% if task == 1 %}
+                            <td class="px-4 py-3 whitespace-nowrap">
+                                <div class="order-actions flex items-center gap-2">
+                                    {% if order['refilling'] == 1 %}
+                                    <span class="text-sm text-gray-600 dark:text-gray-400 font-medium">{{ lang('orders.refilling') }}</span>
+                                    {% else %}
+                                    {% if order['refill'] == 1 %}
+                                    <a href="{{ page['url'] }}/{{ order['id'] }}/refill"
+                                        class="btn btn-xs btn-primary px-3 py-1.5 text-xs font-medium rounded-lg bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white shadow-sm hover:shadow transition-all duration-200">{{ lang('orders.button.refill') }}</a>
+                                    {% endif %}
+                                    {% if order['refillAvailableTime'] %}
+                                    <button class="btn btn-xs btn-primary disabled px-3 py-1.5 text-xs font-medium rounded-lg bg-gray-300 dark:bg-gray-600 text-gray-500 dark:text-gray-400 cursor-not-allowed opacity-60" data-toggle="tooltip"
+                                        data-placement="top"
+                                        title="{{ order['refillAvailableTime'] }}">{{ lang('orders.button.refill') }}</button>
+                                    {% endif %}
+                                    {% if order['cancel'] == 1 %}
+                                    <a href="{{ page['url'] }}/{{ order['id'] }}/cancel"
+                                        class="btn btn-xs btn-default px-3 py-1.5 text-xs font-medium rounded-lg bg-white dark:bg-dark-tertiary border border-gray-300 dark:border-dark-tertiary text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-secondary transition-all duration-200">{{ lang('orders.button.cancel') }}</a>
+                                    {% endif %}
+                                    {% endif %}
+                                </div>
+                            </td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                </div>
+            </div>
+
+            {% if pagination['count'] > 10 %}
+            <section class="pagination flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-6 pt-6 border-t border-gray-200 dark:border-dark-tertiary">
+                {% if pagination['current'] != 1 %}
+                <a href="{{ page['url'] }}{% if pagination['last'] %}?page={{ pagination['last'] }}{% endif %}"
+                    class="carousel-prev flex h-10 w-10 items-center justify-center rounded-full border border-primary-500 dark:border-primary-400 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:border-primary-600 dark:hover:border-primary-300 transition-all duration-200">
+                    <svg width="12" height="20" viewbox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M10.3281 1.33398L1.66146 10.0007L10.3281 18.6673" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+                {% endif %}
+                {% set r, l = 3, 3 %}
+                {% if pagination['current'] == 1 %}
+                {% set r = 6 %}
+                {% endif %}
+                {% if pagination['current'] == 2 %}
+                {% set r = 5 %}
+                {% endif %}
+                {% if pagination['current'] >= pagination['pages'] %}
+                {% set l = 5 %}
+                {% endif %}
+                {% for i in 1..ceil(pagination['pages']) %}
+                {% if i >= (pagination['current']-l) and i <= (pagination['current']+r) %}
+                <a href="{{ page['url'] }}{% if i != 1 %}?page={{ i }}{% endif %}"
+                    class="page_num flex h-10 w-10 items-center justify-center rounded-lg border text-sm font-medium transition-all duration-200 {% if i == pagination['current'] %} bg-gradient-to-r from-primary-500 to-primary-600 text-white border-primary-500 shadow-md {% else %} bg-white dark:bg-dark-tertiary border-gray-300 dark:border-dark-tertiary text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-secondary hover:border-primary-400 dark:hover:border-primary-500 {% endif %}">{{ i }}
+                </a>
+                {% endif %}
+                {% endfor %}
+                {% if pagination['current'] < pagination['pages'] %}
+                <a href="{{ page['url'] }}{% if pagination['next'] %}?page={{ pagination['next'] }}{% endif %}"
+                    class="carousel-next flex h-10 w-10 items-center justify-center rounded-full border border-primary-500 dark:border-primary-400 text-primary-600 dark:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-900/20 hover:border-primary-600 dark:hover:border-primary-300 transition-all duration-200">
+                    <svg width="12" height="20" viewbox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1.67188 18.666L10.3385 9.99935L1.67188 1.33268" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
+                {% endif %}
+            </section>
+            {% endif %}
+        </section>
+    </div>
+</main>
+<script>
+    function showCopyToast() {
+        const toast = document.getElementById('copy-toast');
+        toast.classList.remove('opacity-0');
+        toast.classList.add('opacity-100');
+        setTimeout(() => {
+            toast.classList.remove('opacity-100');
+            toast.classList.add('opacity-0');
+        }, 2000); // hide after 2 seconds
+    }
+
+    function copyAndNotify(text) {
+        navigator.clipboard.writeText(text).then(() => {
+            showCopyToast();
+        });
+    }
+</script>
+
+<div id="copy-toast"
+    class="fixed top-20 right-5 bg-gray-900 dark:bg-gray-800 text-white text-sm px-4 py-2.5 rounded-lg shadow-xl opacity-0 transition-opacity duration-300 z-[99999] pointer-events-none border border-gray-700 dark:border-gray-600">
+    <div class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+        </svg>
+        <span>Copied to clipboard!</span>
+    </div>
+</div>

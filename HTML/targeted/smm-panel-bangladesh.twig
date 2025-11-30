@@ -1,0 +1,472 @@
+<!-- Start : HERO-->
+<section class="hero px-5">
+  <div class="container mx-auto flex flex-col md:flex-row md:space-x-10">
+    <div class="hero_right flex flex-col items-start justify-center space-y-6 md:w-1/2 md:pr-7">
+      <span class="text__highlight bg-secondary-border text-sm">
+        <svg
+          width="24"
+          height="25"
+          viewBox="0 0 24 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M14.7416 14.2228L24 12.515L14.6816 10.927L17.2285 7.24157L13.6629 9.78839L11.985 0.5L10.397 9.84832L6.74157 7.24157L9.25843 10.927L0 12.515L9.25843 14.2228L6.74157 17.7584L10.397 15.2416L11.985 24.5L13.6929 15.3015L17.2285 17.7584L14.7416 14.2228Z"
+            fill="#00BFF3"
+          />
+        </svg>
+        বিশ্বের #1 এসএমএম প্যানেল ও প্রদানকার
+      </span>
+      <h1 class="hero__heading text-5xl font-semibold">
+        সবচেয়ে সস্তা এসএমএম প্যানেল
+      </h1>
+      <p class="hero__intro text-sm">
+        মার্কেটেরাম হল একটি <b>শীর্ষ এসএমএম প্যানেল</b> যা ইনস্টাগ্রাম, ফেসবুক, টুইটার, ইউটিউব, এবং টিকটক সহ বিভিন্ন প্ল্যাটফর্মের জন্য <b>সস্তা এসএমএম সেবা</b> প্রদান করে। আমরা আপনার অনলাইন উপস্থিতি বাড়ানোর জন্য প্রকৃত বাগধারা এবং মিথস্ক্রিয়াগুলিতে গুরুত্ব দিই, ব্যক্তিগত ব্র্যান্ড উন্নতি খোঁজা ব্যক্তিদের এবং ডিজিটাল প্রসারের জন্য ব্যবসায়ের লক্ষ্য সাধনে আমাদের সেবা প্রদান করে।
+      </p>
+    </div>
+    <div class="hero_left relative flex-col justify-center md:flex md:w-1/2 py-20">
+      <form class="signIn_form w-full space-y-7" method="post" action="{{ page['url'] }}">
+                                {% if error %}
+                                  <div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                    {{ errorMessage }}
+                                  </div>
+                                {% endif %}
+
+                                {% if success %}
+                                  <div class="alert alert-success alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    {{successMessage}}
+                                  </div>
+                                {% endif %}
+
+                                <div class="input-field">
+                                  <div class="rounded-md bg-primary-main p-3">
+                                    <svg width="20" height="20" viewbox="0 0 22 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M21.6693 28.332H0.335938V25.6654C0.335938 21.9835 3.32071 18.9987 7.0026 18.9987H15.0026C18.6845 18.9987 21.6693 21.9835 21.6693 25.6654V28.332ZM11.0026 16.332C6.58432 16.332 3.0026 12.7503 3.0026 8.33203C3.0026 3.91375 6.58432 0.332031 11.0026 0.332031C15.4209 0.332031 19.0026 3.91375 19.0026 8.33203C19.0026 12.7503 15.4209 16.332 11.0026 16.332Z" fill="white"/>
+                                    </svg>
+                                  </div>
+                                  <input type="text" placeholder="{{ lang('signup.username') }}" id="username" name="LoginForm[username]" aria-label="{{ lang('signup.username') }}" />
+                                </div>
+                                <div class="input-field">
+                                  <div class="rounded-md bg-primary-main p-3">
+                                    <svg width="20" height="20" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M9.75067 11.4226L20.3373 0.835938L23.1659 3.66436L21.2803 5.54998L24.1087 8.3784L19.3945 13.0925L16.5661 10.2641L12.5791 14.2511C13.8909 16.7643 13.4915 19.9383 11.3807 22.0491C8.77722 24.6526 4.55612 24.6526 1.95263 22.0491C-0.650877 19.4457 -0.650877 15.2246 1.95263 12.621C4.0634 10.5103 7.23746 10.1109 9.75067 11.4226ZM8.55228 19.2207C9.59374 18.1793 9.59374 16.4909 8.55228 15.4495C7.51088 14.4081 5.82246 14.4081 4.78106 15.4495C3.73966 16.4909 3.73966 18.1793 4.78106 19.2207C5.82246 20.2621 7.51088 20.2621 8.55228 19.2207Z" fill="white"/>
+                                    </svg>
+                                  </div>
+                                  <input type="password" placeholder="{{ lang('signup.password') }}" id="password" name="LoginForm[password]" aria-label="{{ lang('signup.password') }}" />
+                                </div>
+                                <div class="form-info flex content-between justify-between">
+                                  <div>
+                                    <input type="checkbox" name="LoginForm[remember]" value="1" id="remember"/>
+                                    <label for="remember">Remember me</label>
+                                  </div>
+                                  <a href="{{ page_url('resetpassword') }}" title="{{ lang('signin.reset_password') }}">Forgot password?</a>
+                                </div>
+                                <div class="my-4">
+                                  {% if captcha %}
+                                    {{ captchaCode }}
+                                  {% endif %}
+                                </div>
+                                <input type="hidden" name="_csrf" value="{{csrftoken}}">
+
+                                <div class="signin_btns">
+                                  <div class="form_btns grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-2">
+                                    <button type="submit" class="btn btn--primary" href="#">
+                                      <span>{{ lang('signin.button') }}</span>
+                                      <img loading="lazy" src="https://storage.perfectcdn.com/7gc9nb/terrzy6bnr147d9w.svg" alt="Join Marketerum Now!"/>
+                                    </button>
+                                  </div>
+                                  {% if googleSignIn %}
+                                    <div class="google-login-wrap">
+                                      <span class="google-login">
+                                        Login with
+                                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="LgbsSe-Bz112c"><g><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path><path fill="none" d="M0 0h48v48H0z"></path></g></svg>
+                                      </span>
+                                      <div class="form-group google-btn">
+                                        <div id="g_id_onload" data-client_id="{{ googleClientId }}" data-login_uri="{{ googleSignInRedirectUrl }}" data-auto_prompt="false" data-_csrf="{{csrftoken}}"></div>
+                                        <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left"></div>
+                                      </div>
+                                    </div>
+                                  {% endif %}
+                                </div>
+                                <div class="have-acc">
+                                  Do not have an account?
+                                  <a class="font-semibold text-secondary-main" href="{{ page_url('signup') }}">
+                                    &nbsp&nbsp<span> {{ lang('signup.button') }}</span>
+                                  </a>
+                                </div>
+
+      </form>
+    </div>
+  </div>
+</section>
+<!-- end : HERO-->
+
+<!-- SECTION : STATS -->
+<section class="stats px-5">
+	<div class="container mx-auto flex flex-col flex-wrap items-center justify-between gap-x-10 gap-y-8 text-center">
+		<h2 class="stats__title text-2xl font-semibold md:basis-full lg:basis-auto">
+			Marketerum Achievements
+		</h2>
+		<div class="stats__grid w-full">
+		<div class="stats__item">
+			<div class="stats__icon">
+				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/4awu9w7452rb1eql.svg" alt="Total orders">
+			</div>
+			<div class="stats__data">
+                <div class="stats__number">
+                    {{ totals['ordersAll']|number_format(0, '.', ',') }}
+				</div>
+				<span>Orders Completed</span>
+			</div>
+		</div>
+		<div class="stats__item">
+			<div class="stats__icon">
+				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/67hc9ch7mk699ow1.png" alt="Our Happy customers">
+			</div>
+			<div class="stats__data">
+                <div class="stats__number">
+                    {{ totals['usersAll']|number_format(0, '.', ',') }}
+				</div>
+				<span>Satisfied Customers</span>
+			</div>
+		</div>
+		<div class="stats__item">
+			<div class="stats__icon">
+				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/l2d4lro3zhi6p334.png" alt="Our stable services">
+			</div>
+			<div class="stats__data">
+                <div class="stats__number">
+                    5,235+
+                </div>
+				<span>Active Services</span>
+			</div>
+		</div>
+		</div>
+	</div>
+</section>
+<!-- END : STATS -->
+
+<!-- SECTION : ABOUT US -->
+<section class="about px-5">
+  <div class="container mx-auto">
+    <div class="intro mx-auto space-y-5 md:w-10/12">
+      <span class="text__highlight">About Us</span>
+      <h2 class="heading--main">
+      সেরা এবং সবচেয় <span class="p-color">SMM প্যানেল সেবা</span>
+      </h2>
+      <p class="text-sm text-justify">
+      আমরা মার্কেটারামে, আমরা আমাদের অসামান্য এবং সস্তা <b>SMM প্যানেল সেবা</b> দিয়ে SMM স্কেপটি নতুনভাবে বিশ্লেষণ করেছি। আমাদের সর্বোত্তম মূল্য যোগান আমাদের সাবধানে প্রস্তুত প্যাকেজে প্রকাশ পেয়ে, সমস্ত আকারের ব্যবসায়ের জন্য যে সরল টুলগুলি প্রয়োজন তা দেওয়া হয়েছে বলে দেওয়ার মাধ্যমে আমরা অত্যুত্তম সাবধানতা সঙ্গী হয়।
+      </p>
+      <p class="text-sm text-justify">
+      আপনার বাজেট ভাঙ্গানো না করে রয়েল-টাইম ইনসাইট, এবং ম impression স্থানীয় ও আকর্ষণীয় বৃদ্ধির একটি প্রবেশদ্বার প্রদান করা হয়। আমাদের গতিশীল মার্কেটিং অভিযানের সাথে, আপনি আপনার পাবেন এবং শক্তিশালী বার্তা তৈরি করতে এবং প্রতিধ্বতি এবং কনভার্ট করার জন্য।
+      </p>
+      <p class="text-sm text-justify">
+      আমাদের প্রবীণ পেশাদারদের দক্ষতা এবং সর্বশেষ টুলগুলির সাথে আপনার ব্র্যান্ডের অনলাইন উপস্থিতি উন্নত করুন। আপনি যদি একটি বড় বড় ঘুরু মারার জন্য একটি স্টার্টআপ হন বা একটি প্রতিষ্ঠিত ব্যবসা বড় করতে চান, তাদের SMM প্যানেল সেবাগুলি ফলাফল নিশ্চিত করে। একেবারে মূল্যপ্রভৃতির সমাধান থেকে বিশ্বাসযোগ্য ROI দেখে এসেছে ব্যবস্থাপনা গুলির সার্থক যাত্রা সঙ্গী হন। মার্কেটারুমে ডিজিটাল মার্কেটিং ভবিষ্যত গোলাকার সঙ্গে আজ ডিজিটাল সাফল্যের দিকে অবগত হন।
+      </p>
+      <p class="text-sm text-justify">
+      মার্কেটারুমের মূল্য-কার্যকর, উচ্চ-প্রভাব SMM প্যানেল সেবার সাথে আপনার ব্র্যান্ডের অনলাইন উপস্থিতি উন্নত করুন। একটি বাস্তব-সময় যোগান, রণনৈতিক ক্যাম্পেইন এবং চেনা যায় না বৃদ্ধি অভিজ্ঞতা প্রাপ্ত করুন যা আপনার ব্যবসা আলাদা করবে। আপনার ডিজিটাল সাফল্যের পথ এখানে শুরু হয়।
+      </p>
+      <a href="https://marketerum.com/services" class="btn btn--primary" style="display: inline-block">View All Services</a>
+    </div>
+  </div>
+</section>
+<!-- END : ABOUT -->
+
+<!-- SECTION : WHY US -->
+<section class="whyus px-5">
+      <div class="container mx-auto space-y-12 py-20">
+        <div class="intro relative mx-auto space-y-12 md:w-10/12">
+          <span class="text__highlight relative"
+            >F.A.Q
+          </span>
+          <h2 class="heading--main relative !text-white">
+            আমাদের <br class="hidden md:inline-block" />SMM প্যানেল চয়ন কেন?
+          </h2>
+          <p class="text-justify">
+            মার্কেটারাম.কম কে আপনার <b>SMM প্যানেল সরবরাহকারী</b> হিসেবে চয়ন করলে এটি অদ্ভুত সুবিধা এবং অসাধারণ ফলাফল নিশ্চিত করতে হয়। আমাদের প্ল্যাটফর্মটি প্রামাণিকতা, গুণগততা এবং মৌল্যমূল্য সম্পর্কে আমরা বিশেষভাবে বাজে। মার্কেটারাম.কম দিয়ে, আপনি নিজের নির্দিষ্ট পাবলিক এবং লক্ষ্যের সাথে মেলানোর জন্য উপযুক্ত সেবা সমূহে অ্যাক্সেস পেতে। আমাদের ব্যবহারকেন্দ্রিক দক্ষতা, প্রশ্নবিনা পদ্ধতিসহ দৈর্ঘ্যাত্মিক সহানুভূতি সরবরাহ করে, যা আপনাকে আপনার অনলাইন উপস্থিতি বাড়াতে, আপনার পাবলিককে আমোদের প্রদান করে এবং আপনার সামাজিক মিডিয়া লক্ষ্য সাধন করতে সক্ষম করে। শুধুমাত্র একটি শিল্প নেতা হিসেবে, আমরা প্রাপ্তির পার্শ্বে সত্যিক ইন্টারয়াকশন এবং প্রাপ্যতা সরবরাহ করতে প্রতিশ্রুতি দেওয়ার মধ্যে আছি, যা মার্কেটারাম.কম কে আপনার SMM প্রয়োজনের জন্য শেষ চয়ন তৈরি করে।
+          </p>
+          <svg
+            class="absolute -top-40 left-0"
+            width="42"
+            height="46"
+            viewBox="0 0 42 46"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M17 1.3094C19.4752 -0.119661 22.5248 -0.119661 25 1.3094L37.7846 8.6906C40.2598 10.1197 41.7846 12.7607 41.7846 15.6188V30.3812C41.7846 33.2393 40.2598 35.8803 37.7846 37.3094L25 44.6906C22.5248 46.1197 19.4752 46.1197 17 44.6906L4.21539 37.3094C1.74018 35.8803 0.215391 33.2393 0.215391 30.3812V15.6188C0.215391 12.7607 1.74018 10.1197 4.21539 8.6906L17 1.3094Z"
+              fill="#85E0F9"
+            />
+          </svg>
+
+        </div>
+      </div>
+    </section>
+<!-- END : WHY US -->
+
+<!-- SECTION : FAQ -->
+<section class="faq1 px-5">
+      <div class="container mx-auto text-center">
+        <div class="intro mx-auto mb-12 space-y-8 md:w-8/12">
+          <span class="text__highlight relative">
+            সাধারণ প্রশ্নোত্তর
+          </span>
+          <h2 class="heading--main">
+            SMM প্যানেল বাংলাদেশ সম্পর্কে জানুন
+          </h2>
+          <p class="text-justify">
+            SMM প্যানেল বাংলাদেশ সম্পর্কে জানুন, এর বৈশিষ্ট্যগুলি, সুবিধাগুলি এবং বাজারে এটি কেন বিশেষ তা আবিষ্কার করুন।
+          </p>
+        </div>
+
+        <div class="faqs">
+          <div class="faqs__tab md:grid md:grid-cols-2 md:gap-8">
+            <div class="faq__col">
+            <div class="tab__item">
+              <a href="#" class="tab__label">
+                <span>
+                  SMM প্যানেল বাংলাদেশ কীভাবে সেরা হয়?
+                </span>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                    stroke="#02030E"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <p>
+                SMM প্যানেল বাংলাদেশ সেরা হওয়ার কারণ হল এর বৈশিষ্ট্য, ব্যবহারকারী-বান্ধব ইন্টারফেস এবং নির্ভরযোগ্য পারফরম্যান্স। এটি উন্নত বিশ্লেষণ, কার্যকর স্বয়ংক্রিয় সরঞ্জাম এবং শক্তিশালী গ্রাহক সহায়তার জন্য পরিচিত, যা এটিকে বাজারে শীর্ষস্থানীয় করে তোলে।
+              </p>
+            </div>
+
+            <div class="tab__item">
+              <a href="#" class="tab__label">
+                <span>
+                  SMM প্যানেল বাংলাদেশ ব্যবহারের কি সুবিধা আছে?
+                </span>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                    stroke="#02030E"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <p>
+                SMM প্যানেল বাংলাদেশ ব্যবহারের মাধ্যমে আপনি সহজে সামাজিক মিডিয়া পরিচালনা করতে পারবেন, কাজগুলির স্বয়ংক্রিয়করণ উন্নত করতে পারবেন, পারফরম্যান্স ট্র্যাকিং করতে পারবেন এবং প্রচারাভিযানের দক্ষতা বৃদ্ধি করতে পারবেন। এই বৈশিষ্ট্যগুলি সামগ্রিক বিপণন ফলাফল উন্নত করতে সহায়ক।
+              </p>
+            </div>
+
+            <div class="tab__item">
+              <a href="#" class="tab__label">
+                <span>
+                  সেরা SMM প্যানেল কিভাবে মূল্যায়ন করবেন?
+                </span>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                    stroke="#02030E"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <p>
+                সেরা SMM প্যানেল মূল্যায়ন করার জন্য, প্যানেলের বৈশিষ্ট্যগুলি, ব্যবহার সহজতা, গ্রাহক সহায়তা, মূল্য নির্ধারণ এবং ব্যবহারকারীর পর্যালোচনা মূল্যায়ন করুন। SMM প্যানেল বাংলাদেশ তার উচ্চ মান এবং বিস্তৃত প্রস্তাবনার জন্য পরিচিত।
+              </p>
+            </div>
+
+            <div class="tab__item">
+              <a href="#" class="tab__label">
+                <span>
+                  SMM প্যানেল বাংলাদেশ-এর কি কোনো নেতিবাচক দিক আছে?
+                </span>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                    stroke="#02030E"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <p>
+                যদিও SMM প্যানেল বাংলাদেশ অনেক ক্ষেত্রে উৎকৃষ্ট, কিছু সম্ভাব্য নেতিবাচক দিক হতে পারে যেমন অন্যান্য অপশনের তুলনায় উচ্চ খরচ এবং নতুন ব্যবহারকারীদের জন্য একটি শেখার বাঁধা। এই দিকগুলি আপনার প্রয়োজনের বিরুদ্ধে মূল্যায়ন করলে এটি আপনার জন্য সঠিক কিনা নির্ধারণ করতে সহায়ক হবে।
+              </p>
+            </div>
+
+            <div class="tab__item">
+              <a href="#" class="tab__label">
+                <span>
+                  SMM প্যানেল বাংলাদেশ অন্য প্যানেলগুলির তুলনায় কেমন?
+                </span>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                    stroke="#02030E"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <p>
+                SMM প্যানেল বাংলাদেশ সাধারণত অন্যান্য প্যানেলের তুলনায় উন্নত বৈশিষ্ট্য, অধিক কাস্টমাইজেশন অপশন এবং শক্তিশালী সহায়তা প্রদান করে। এর উচ্চ পারফরম্যান্স, নির্ভরযোগ্যতা এবং ইতিবাচক ব্যবহারকারীর প্রতিক্রিয়া দ্বারা এটি শীর্ষ পছন্দ হিসেবে পরিচিত।
+              </p>
+            </div>
+
+            </div>
+
+            <div class="faq__col">
+            <div class="tab__item">
+              <a href="#" class="tab__label">
+                <span>
+                  SMM প্যানেল বাংলাদেশ-এ কোন বৈশিষ্ট্যগুলি খুঁজবেন?
+                </span>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                    stroke="#02030E"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <p>
+                গুরুত্বপূর্ণ বৈশিষ্ট্যগুলির মধ্যে রয়েছে ব্যবহারকারী-বান্ধব ইন্টারফেস, বিস্তৃত বিশ্লেষণ, নির্ভরযোগ্য স্বয়ংক্রিয় সরঞ্জাম, কাস্টমাইজেশন ক্ষমতা এবং শক্তিশালী গ্রাহক সহায়তা। এই বৈশিষ্ট্যগুলি নিশ্চিত করে যে আপনি SMM প্যানেল-এর সর্বাধিক সুবিধা পাবেন।
+              </p>
+            </div>
+
+            <div class="tab__item">
+              <a href="#" class="tab__label">
+                <span>
+                  SMM প্যানেল বাংলাদেশ থেকে সর্বাধিক সুবিধা কিভাবে পাবেন?
+                </span>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                    stroke="#02030E"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <p>
+                SMM প্যানেল বাংলাদেশ-এর সুবিধা সর্বাধিক করতে, নিয়মিতভাবে এর উন্নত বৈশিষ্ট্যগুলি ব্যবহার করুন, নতুন সরঞ্জাম বা আপডেটগুলির সাথে আপডেট থাকুন এবং এটি আপনার বিপণন কৌশলের সাথে কার্যকরভাবে একীভূত করুন। চলমান মূল্যায়ন এবং অপটিমাইজেশন আপনাকে সেরা ফলাফল অর্জনে সহায়ক হবে।
+              </p>
+            </div>
+
+            <div class="tab__item">
+              <a href="#" class="tab__label">
+                <span>
+                  SMM প্যানেল বাংলাদেশ কি বিনামূল্যে উপলব্ধ?
+                </span>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                    stroke="#02030E"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <p>
+                বেশিরভাগ SMM প্যানেল বাংলাদেশ ব্যবহারের জন্য বিনামূল্যে নয়, তবে কিছু প্যানেল সীমিত বৈশিষ্ট্য সহ একটি ফ্রি ট্রায়াল অফার করতে পারে। এটি আপনার প্রয়োজনীয়তা অনুযায়ী সবচেয়ে উপযুক্ত প্যানেল নির্বাচন করার সময় মূল্যায়ন করা উচিত।
+              </p>
+            </div>
+
+            <div class="tab__item">
+              <a href="#" class="tab__label">
+                <span>
+                  SMM প্যানেল বাংলাদেশ কেন ব্যবহার করবেন?
+                </span>
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 18 18"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
+                    stroke="#02030E"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </a>
+              <p>
+                SMM প্যানেল বাংলাদেশ ব্যবহার করার মাধ্যমে আপনি আপনার সামাজিক মিডিয়া কৌশলকে আরও উন্নত করতে পারবেন, প্রচারাভিযানগুলোকে দক্ষভাবে পরিচালনা করতে পারবেন এবং ফলাফল বিশ্লেষণ করে আরও কার্যকর পদক্ষেপ নিতে পারবেন। এটি আপনার বিপণন প্রচেষ্টার ফলাফল উন্নত করার জন্য একটি গুরুত্বপূর্ণ হাতিয়ার হতে পারে।
+              </p>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+

@@ -1,2 +1,103 @@
-{# Blog post template #}
+<section class="p-0">
+	<div class="relative flex overflow-hidden bg-gradient-to-br from-primary-500 to-primary-600 dark:from-primary-600 dark:to-primary-700 transition-all duration-300 pb-24 md:pb-32 lg:pb-40">
+		<!-- Decorative Background Elements -->
+		<div class="absolute inset-0 overflow-hidden pointer-events-none">
+			<div class="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"></div>
+			<div class="absolute bottom-0 left-0 w-96 h-96 bg-white/5 rounded-full blur-3xl"></div>
+		</div>
+		
+		<div class="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
+			<nav class="pt-6 md:pt-8 mb-8">
+				<a href="{{ page_url('blog') }}" class="inline-flex items-center gap-2 px-4 py-2 text-white/90 hover:text-white rounded-lg hover:bg-white/10 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/50">
+					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+					</svg>
+					<span class="font-medium">{{ lang('blog.back')}}</span>
+				</a>
+			</nav>
+			
+			<!-- Article Header Content in Hero Section -->
+			<div class="max-w-4xl">
+				<div class="flex items-center gap-2 text-white/90 text-sm md:text-base mb-4">
+					<span>By</span>
+					<strong class="font-semibold text-white">Marketerum</strong>
+					<span>•</span>
+					<span>in</span>
+					<span class="font-medium text-white">Blog</span>
+				</div>
+				<h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
+					{{ post['title'] }}
+				</h1>
+			</div>
+		</div>
+	</div>
+	
+	<main class="container relative mx-auto px-4 sm:px-6 lg:px-8 -mt-20 md:-mt-28 lg:-mt-36">
+		<article class="bg-white dark:bg-dark-secondary rounded-2xl md:rounded-3xl shadow-2xl border border-gray-200 dark:border-dark-tertiary overflow-hidden">
+			{% if post['image'] %}
+			<div class="px-6 md:px-8 lg:px-12 pt-6 md:pt-8">
+				<div class="relative overflow-hidden rounded-xl md:rounded-2xl shadow-xl">
+					<img
+						class="w-full h-auto object-cover"
+						src="{{ post['image'] }}"
+						alt="{{ post['title'] }}"
+					/>
+					<div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent pointer-events-none"></div>
+				</div>
+			</div>
+			{% else %}
+			<div class="pt-6 md:pt-8"></div>
+			{% endif %}
+				<div class="flex items-center gap-2 text-white/90 text-sm md:text-base mb-4">
+					<span>By</span>
+					<strong class="font-semibold text-white">Marketerum</strong>
+					<span>•</span>
+					<span>in</span>
+					<span class="font-medium text-white">Blog</span>
+				</div>
+				<h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+					{{ post['title'] }}
+				</h1>
+			</header>
+			
+			<div class="px-6 md:px-8 lg:px-12 py-8 md:py-12 text-gray-700 dark:text-gray-300 space-y-6 [&_h1]:text-3xl [&_h1]:font-bold [&_h1]:text-gray-900 [&_h1]:dark:text-white [&_h1]:mb-4 [&_h1]:mt-8 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:text-gray-900 [&_h2]:dark:text-white [&_h2]:mb-3 [&_h2]:mt-6 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-gray-900 [&_h3]:dark:text-white [&_h3]:mb-2 [&_h3]:mt-4 [&_p]:text-base [&_p]:leading-relaxed [&_p]:mb-4 [&_a]:text-primary-600 [&_a]:dark:text-primary-400 [&_a]:underline [&_a]:hover:text-primary-700 [&_a]:dark:hover:text-primary-300 [&_strong]:font-bold [&_strong]:text-gray-900 [&_strong]:dark:text-white [&_ul]:list-disc [&_ul]:list-inside [&_ul]:space-y-2 [&_ul]:mb-4 [&_ol]:list-decimal [&_ol]:list-inside [&_ol]:space-y-2 [&_ol]:mb-4 [&_li]:mb-1 [&_blockquote]:border-l-4 [&_blockquote]:border-primary-500 [&_blockquote]:dark:border-primary-400 [&_blockquote]:pl-4 [&_blockquote]:italic [&_blockquote]:my-4 [&_code]:bg-gray-100 [&_code]:dark:bg-dark-tertiary [&_code]:px-2 [&_code]:py-1 [&_code]:rounded [&_code]:text-primary-600 [&_code]:dark:text-primary-400 [&_code]:text-sm [&_pre]:bg-gray-900 [&_pre]:dark:bg-dark-tertiary [&_pre]:p-4 [&_pre]:rounded-lg [&_pre]:overflow-x-auto [&_pre]:my-4 [&_img]:rounded-lg [&_img]:my-6 [&_img]:w-full [&_img]:h-auto">
+				{{ post['content'] }}
+			</div>
+		</article>
+		
+		<!-- Decorative Elements -->
+		<div class="hidden lg:block pointer-events-none">
+			<img
+				class="absolute -right-[25px] bottom-[25%] w-24 opacity-20 dark:opacity-10 transition-opacity duration-300"
+				src="https://storage.perfectcdn.com/7gc9nb/1guycw8z5stxsq3b.png"
+				alt=""
+			/>
+			<img
+				class="absolute -left-[60px] top-[35%] w-24 opacity-20 dark:opacity-10 transition-opacity duration-300"
+				src="https://storage.perfectcdn.com/7gc9nb/or4prtit7r7hi8n2.svg"
+				alt=""
+			/>
+			<img
+				class="absolute left-1/2 -bottom-14 -translate-x-1/2 w-24 opacity-20 dark:opacity-10 transition-opacity duration-300"
+				src="https://storage.perfectcdn.com/7gc9nb/hjlhz1rz00ktb1di.png"
+				alt=""
+			/>
+		</div>
+	</main>
+	
+	<script>
+		// Select all h1 tags and remove the first one if there are multiple
+		const h1Tags = document.querySelectorAll('article h1, .prose h1');
+		if (h1Tags.length > 1) {
+			// Find the first h1 that's not in the header (which is our main title)
+			const headerH1 = document.querySelector('header h1');
+			if (headerH1) {
+				const contentH1 = Array.from(h1Tags).find(h1 => h1 !== headerH1 && h1.closest('.prose'));
+				if (contentH1) {
+					contentH1.remove();
+				}
+			}
+		}
+	</script>
+</section>
 
