@@ -1,447 +1,486 @@
-<!-- Start : HERO-->
-<section class="hero px-5">
-  <div class="container mx-auto flex flex-col md:flex-row md:space-x-10">
-    <div class="hero_right flex flex-col items-start justify-center space-y-6 md:w-1/2 md:pr-7">
-      <span class="text__highlight bg-secondary-border text-sm">
-        <svg
-          width="24"
-          height="25"
-          viewBox="0 0 24 25"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M14.7416 14.2228L24 12.515L14.6816 10.927L17.2285 7.24157L13.6629 9.78839L11.985 0.5L10.397 9.84832L6.74157 7.24157L9.25843 10.927L0 12.515L9.25843 14.2228L6.74157 17.7584L10.397 15.2416L11.985 24.5L13.6929 15.3015L17.2285 17.7584L14.7416 14.2228Z"
-            fill="#00BFF3"
-          />
-        </svg>
-        Das weltweit wichtigste SMM-Panel
-      </span>
-      <h1 class="hero__heading text-5xl font-semibold">
-        <span>Billigstes</span> SMM-Panel
-      </h1>
-      <p class="hero__intro text-sm">
-        Wir bei Marketerum sind stolz darauf, der beste SMM-Panel-Anbieter zu sein, der die besten und günstigsten SMM-Dienste anbietet. Als ein vertrauenswürdiges SMM-Reseller-Panel für beliebte Plattformen wie Instagram, Facebook, Twitter, YouTube und TikTok verstehen wir die Bedeutung von echtem Engagement. Unsere Dienstleistungen sind darauf ausgerichtet, Ihre Online-Präsenz zu verbessern und Ihnen zu helfen, authentische Follower und Interaktionen zu gewinnen. Ganz gleich, ob Sie als Privatperson Ihre persönliche Marke stärken oder als Unternehmen Ihren digitalen Fußabdruck vergrößern möchten, unser umfassendes Serviceangebot deckt Sie ab. Mit Marketerum war es noch nie so einfach und erschwinglich, ein bemerkenswertes soziales Wachstum zu erzielen.
-      </p>
+<section class="flex flex-col lg:flex-row bg-gradient-to-br from-slate-50 via-primary-50/30 to-accent-50/20 dark:from-dark dark:via-dark-secondary dark:to-dark transition-all duration-300 hero overflow-hidden">
+    <!-- Left Section: Promotional Content -->
+    <div class="flex flex-1 items-center justify-center relative p-6 sm:p-8 lg:p-10 xl:p-12 order-2 lg:order-1">
+        <!-- Decorative Background Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-primary-200/20 dark:bg-primary-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-accent-200/20 dark:bg-accent-500/10 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-lg w-full space-y-5 sm:space-y-6 relative z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-white/90 dark:bg-dark-secondary/90 backdrop-blur-md border border-primary-200/50 dark:border-primary-500/30 rounded-full text-xs sm:text-sm font-medium text-primary-600 dark:text-primary-400 shadow-sm transition-all duration-300 hover:shadow-md">
+                <svg class="w-3 h-3 sm:w-4 sm:h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                Das weltweit wichtigste SMM-Panel
+            </div>
 
+            <!-- Main Heading -->
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-slate-100 leading-tight tracking-tight">
+                <span class="text-primary-500 dark:text-primary-400">Billigstes</span> SMM-Panel
+            </h1>
+
+            <!-- Description -->
+            <p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                Wir bei Marketerum sind stolz darauf, der beste SMM-Panel-Anbieter zu sein, der die besten und günstigsten SMM-Dienste anbietet. Als ein vertrauenswürdiges SMM-Reseller-Panel für beliebte Plattformen wie Instagram, Facebook, Twitter, YouTube und TikTok verstehen wir die Bedeutung von echtem Engagement. Unsere Dienstleistungen sind darauf ausgerichtet, Ihre Online-Präsenz zu verbessern und Ihnen zu helfen, authentische Follower und Interaktionen zu gewinnen. Ganz gleich, ob Sie als Privatperson Ihre persönliche Marke stärken oder als Unternehmen Ihren digitalen Fußabdruck vergrößern möchten, unser umfassendes Serviceangebot deckt Sie ab. Mit Marketerum war es noch nie so einfach und erschwinglich, ein bemerkenswertes soziales Wachstum zu erzielen.
+            </p>
+        </div>
     </div>
-    <div class="hero_left relative flex-col justify-center md:flex md:w-1/2 py-20">
-      <form class="signIn_form w-full space-y-7" method="post" action="{{ page['url'] }}">
-      				{% if error %}
-      					<div class="alert alert-dismissible alert-danger {% if site['rtl'] %} rtl-alert {% endif %}">
-      						<button type="button" class="close" data-dismiss="alert">&times;</button>
-      						{{ errorMessage }}
-      					</div>
-      				{% endif %}
 
-      				{% if success %}
-      					<div class="alert alert-success alert-dismissible" role="alert">
-      						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      							<span aria-hidden="true">&times;</span>
-      						</button>
-      						{{successMessage}}
-      					</div>
-      				{% endif %}
+    <!-- Right Section: Login Form -->
+    <div class="flex-1 flex items-center justify-center py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 xl:px-12 order-1 lg:order-2 transition-all duration-300 relative">
+        <!-- Decorative Background for Form Section -->
+        <div class="absolute inset-0 bg-gradient-to-br from-white/50 to-gray-50/50 dark:from-dark-secondary/50 dark:to-dark/50 pointer-events-none"></div>
+        <div class="max-w-lg w-full h-full space-y-5 sm:space-y-6 relative z-10">
 
-      				<div class="input-field">
-      					<div class="rounded-md bg-primary-main p-3">
-      						<svg width="20" height="20" viewbox="0 0 22 29" fill="none" xmlns="http://www.w3.org/2000/svg">
-      							<path d="M21.6693 28.332H0.335938V25.6654C0.335938 21.9835 3.32071 18.9987 7.0026 18.9987H15.0026C18.6845 18.9987 21.6693 21.9835 21.6693 25.6654V28.332ZM11.0026 16.332C6.58432 16.332 3.0026 12.7503 3.0026 8.33203C3.0026 3.91375 6.58432 0.332031 11.0026 0.332031C15.4209 0.332031 19.0026 3.91375 19.0026 8.33203C19.0026 12.7503 15.4209 16.332 11.0026 16.332Z" fill="white"/>
-      						</svg>
-      					</div>
-      					<input type="text" placeholder="{{ lang('signup.username') }}" id="username" name="LoginForm[username]" aria-label="{{ lang('signup.username') }}" />
-      				</div>
-      				<div class="input-field">
-      					<div class="rounded-md bg-primary-main p-3">
-      						<svg width="20" height="20" viewbox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      							<path d="M9.75067 11.4226L20.3373 0.835938L23.1659 3.66436L21.2803 5.54998L24.1087 8.3784L19.3945 13.0925L16.5661 10.2641L12.5791 14.2511C13.8909 16.7643 13.4915 19.9383 11.3807 22.0491C8.77722 24.6526 4.55612 24.6526 1.95263 22.0491C-0.650877 19.4457 -0.650877 15.2246 1.95263 12.621C4.0634 10.5103 7.23746 10.1109 9.75067 11.4226ZM8.55228 19.2207C9.59374 18.1793 9.59374 16.4909 8.55228 15.4495C7.51088 14.4081 5.82246 14.4081 4.78106 15.4495C3.73966 16.4909 3.73966 18.1793 4.78106 19.2207C5.82246 20.2621 7.51088 20.2621 8.55228 19.2207Z" fill="white"/>
-      						</svg>
-      					</div>
-      					<input type="password" placeholder="{{ lang('signup.password') }}" id="password" name="LoginForm[password]" aria-label="{{ lang('signup.password') }}" />
-      				</div>
-      				<div class="form-info flex content-between justify-between">
-      					<div>
-      						<input type="checkbox" name="LoginForm[remember]" value="1" id="remember"/>
-      						<label for="remember">Remember me</label>
-      					</div>
-      					<a href="{{ page_url('resetpassword') }}" title="{{ lang('signin.reset_password') }}">Forgot password?</a>
-      				</div>
-      				<div class="my-4">
-      					{% if captcha %}
-      						{{ captchaCode }}
-      					{% endif %}
-      				</div>
-      				<input type="hidden" name="_csrf" value="{{csrftoken}}">
+        <!-- Form Card -->
+        <div class="bg-white/95 dark:bg-dark-secondary/95 backdrop-blur-sm rounded-xl shadow-lg dark:shadow-2xl border border-gray-200/50 dark:border-dark-tertiary/50 p-6 sm:p-8 transition-all duration-300 hover:shadow-xl dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 {% if site['rtl'] %} rtl-form {% endif %}">
+            <form method="post" action="{{ page['url'] }}" class="space-y-6">
+                <!-- Error Alert -->
+                    {% if error %}
+                <div class="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg flex items-center justify-between {% if site['rtl'] %} rtl-alert {% endif %}" role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                        </svg>
+                        <span>{{ errorMessage }}</span>
+                    </div>
+                    <button type="button" class="text-red-500 hover:text-red-700 focus:outline-none" onclick="this.parentElement.remove()" aria-label="Close error message">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    </div>
+                    {% endif %}
 
-      				<div class="signin_btns">
-      					<div class="form_btns grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-2">
-      						<button type="submit" class="btn btn--primary" href="#">
-      							<span>{{ lang('signin.button') }}</span>
-      							<img loading="lazy" src="https://storage.perfectcdn.com/7gc9nb/terrzy6bnr147d9w.svg" alt="Join Marketerum Now!"/>
-      						</button>
-      					</div>
-      					{% if googleSignIn %}
-      						<div class="google-login-wrap">
-      							<span class="google-login">
-      								Login with 
-      								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="LgbsSe-Bz112c"><g><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path><path fill="none" d="M0 0h48v48H0z"></path></g></svg>
-      							</span>
-      							<div class="form-group google-btn">
-      								<div id="g_id_onload" data-client_id="{{ googleClientId }}" data-login_uri="{{ googleSignInRedirectUrl }}" data-auto_prompt="false" data-_csrf="{{csrftoken}}"></div>
-      								<div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left"></div>
-      							</div>
-      						</div>
-      					{% endif %}
-      				</div>
-      				<div class="have-acc">
-      					Do not have an account?
-      					<a class="font-semibold text-secondary-main" href="{{ page_url('signup') }}">
-      						&nbsp&nbsp<span> {{ lang('signup.button') }}</span>
-      					</a>
-                    	</div>
+                <!-- Success Alert -->
+                    {% if success %}
+                <div class="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg flex items-center justify-between" role="alert" aria-live="polite" aria-atomic="true">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                        <span>{{ successMessage }}</span>
+                    </div>
+                    <button type="button" class="text-green-500 hover:text-green-700 focus:outline-none" onclick="this.parentElement.remove()" aria-label="Close success message">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                    </div>
+                    {% endif %}
 
-      			</form>
-    </div>
-  </div>
-</section>
-<!-- end : HERO-->
-
-<!-- SECTION : STATS -->
-<section class="stats px-5">
-	<div class="container mx-auto flex flex-col flex-wrap items-center justify-between gap-x-10 gap-y-8 text-center">
-		<h2 class="stats__title text-2xl font-semibold md:basis-full lg:basis-auto">
-			Marketerum Achievements
-		</h2>
-		<div class="stats__grid w-full">
-		<div class="stats__item">
-			<div class="stats__icon">
-				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/4awu9w7452rb1eql.svg" alt="Total orders">
-			</div>
-			<div class="stats__data">
-                <div class="stats__number">
-                    {{ totals['ordersAll']|number_format(0, '.', ',') }}
-				</div>
-				<span>Orders Completed</span>
-			</div>
-		</div>
-		<div class="stats__item">
-			<div class="stats__icon">
-				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/67hc9ch7mk699ow1.png" alt="Our Happy customers">
-			</div>
-			<div class="stats__data">
-                <div class="stats__number">
-                    {{ totals['usersAll']|number_format(0, '.', ',') }}
-				</div>
-				<span>Satisfied Customers</span>
-			</div>
-		</div>
-		<div class="stats__item">
-			<div class="stats__icon">
-				<img loading="lazy" width="48" height="48" src="https://storage.perfectcdn.com/7gc9nb/l2d4lro3zhi6p334.png" alt="Our stable services">
-			</div>
-			<div class="stats__data">
-                <div class="stats__number">
-                    5,235+
+                <!-- Username Field -->
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">
+                        {{ lang('signup.username') }}
+                    </label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none" aria-hidden="true">
+                            <svg class="h-5 w-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        </div>
+                        <input 
+                            type="text" 
+                            id="username" 
+                            name="LoginForm[username]" 
+                            required
+                            autocomplete="username"
+                            aria-required="true"
+                            aria-describedby="username-description"
+                            class="appearance-none relative block w-full pl-10 pr-3 py-2 border border-primary-200 dark:border-primary-500/30 placeholder-gray-400 dark:placeholder-slate-500 text-gray-900 dark:text-slate-100 dark:bg-dark-tertiary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm transition-colors"
+                            placeholder="{{ lang('signup.username') }}"
+                        >
+                        <span id="username-description" class="sr-only">Enter your username</span>
+                    </div>
                 </div>
-				<span>Active Services</span>
-			</div>
-		</div>
-		</div>
-	</div>
-</section>
-<!-- END : STATS -->
 
-<!-- SECTION : ABOUT US -->
-<section class="about px-5">
-  <div class="container mx-auto">
-    <div class="intro mx-auto space-y-5 md:w-10/12">
-      <span class="text__highlight">Über uns</span>
-      <h2 class="heading--main">
-        Beste und günstigste <span class="p-color">SMM-Panel-Dienste</span>
-      </h2>
-      <p class="text-sm text-justify">
-        Wir von Marketerum definieren die SMM-Landschaft mit unseren außergewöhnlichen und erschwinglichen <b>SMM-Panel-Diensten</b> neu. Unser Engagement für Exzellenz zeigt sich in unseren sorgfältig zusammengestellten Paketen, die Unternehmen jeder Größe die Werkzeuge an die Hand geben, die sie brauchen, um die digitale Welt zu erobern.
-      </p>
-      <p class="text-sm text-justify">
-        Entfesseln Sie die Kraft des strategischen Social Media Marketing, ohne Ihr Budget zu sprengen. Unsere besten und erschwinglichsten SMM-Panel-Services bieten ein Tor zu sofortigem Engagement, Echtzeit-Einblicken und beeindruckendem Wachstum. Mit unseren dynamischen Kampagnen treffen Sie den Puls Ihres Publikums und entwickeln wirkungsvolle Botschaften, die ankommen und konvertieren.
-      </p>
-      <p class="text-sm text-justify">
-        UNutzen Sie das Fachwissen unserer erfahrenen Experten und modernste Tools, um die Online-Präsenz Ihrer Marke zu verbessern. Ganz gleich, ob Sie ein Start-up-Unternehmen sind, das groß rauskommen will, oder ein etabliertes Unternehmen, das expandieren möchte - unsere SMM-Panel-Services garantieren Ergebnisse, die zählen. Schließen Sie sich den Unternehmen an, die mit unseren kosteneffektiven Lösungen einen bemerkenswerten ROI erzielt haben. Nutzen Sie die Zukunft des digitalen Marketings noch heute mit Marketerum.
-      </p>
-      <p class="text-sm text-justify">
-        Steigern Sie die Online-Präsenz Ihrer Marke mit den kosteneffizienten, wirkungsvollen SMM-Panel-Services von Marketerum. Erleben Sie Echtzeit-Engagement, strategische Kampagnen und unbestreitbares Wachstum, das Ihr Unternehmen von der Konkurrenz abhebt. Ihre Reise zum digitalen Erfolg beginnt hier.
-      </p>
-      <a href="https://marketerum.com/services" class="btn btn--primary" style="display: inline-block">Alle Services anzeigen</a>
+                <!-- Password Field -->
+                <div class="form-group__password">
+                    <div class="flex items-center justify-between mb-2">
+                        <label for="password" class="block text-sm font-medium text-gray-700 dark:text-slate-300">
+                            {{ lang('signup.password') }}
+                        </label>
+                        {% if site['resetPassword'] %}
+                        <a href="{{ page_url('resetpassword') }}" class="text-sm text-primary-500 hover:text-primary-600 transition-colors">
+                            {{ lang('signin.reset_password') }}
+                        </a>
+                        {% endif %}
+                    </div>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none" aria-hidden="true">
+                            <svg class="h-5 w-5 text-primary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            </svg>
+                        </div>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="LoginForm[password]" 
+                            required
+                            autocomplete="current-password"
+                            aria-required="true"
+                            aria-describedby="password-description"
+                            class="appearance-none relative block w-full pl-10 pr-3 py-2 border border-primary-200 dark:border-primary-500/30 placeholder-gray-400 dark:placeholder-slate-500 text-gray-900 dark:text-slate-100 dark:bg-dark-tertiary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 focus:z-10 sm:text-sm transition-colors"
+                            placeholder="{{ lang('signup.password') }}"
+                        >
+                        <span id="password-description" class="sr-only">Enter your password</span>
+                    </div>
+                </div>
+
+                <!-- Remember Me Checkbox -->
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <input 
+                            type="checkbox" 
+                            name="LoginForm[remember]" 
+                            value="1" 
+                            id="remember"
+                            aria-describedby="remember-description"
+                            class="h-4 w-4 text-primary-500 focus:ring-primary-500 border-gray-300 rounded"
+                        >
+                        <label for="remember" class="ml-2 block text-sm text-gray-700 dark:text-slate-300">
+                            {{ lang('signin.remember_me')|default('Remember me') }}
+                        </label>
+                        <span id="remember-description" class="sr-only">Keep me signed in on this device</span>
+                    </div>
+                    </div>
+
+                <!-- Captcha -->
+                    {% if captcha %}
+                <div>
+                    {{ captchaCode }}
+                </div>
+                {% endif %}
+
+                <!-- CSRF Token -->
+                <input type="hidden" name="_csrf" value="{{ csrftoken }}">
+
+                <!-- Submit Button & Google Sign In -->
+                <div class="space-y-4">
+                    <button 
+                        type="submit" 
+                        class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all shadow-md hover:shadow-lg"
+                        aria-label="Sign in to your account"
+                    >
+                        {{ lang('signin.button')|default('Sign In') }}
+                    </button>
+
+                    {% if googleSignIn %}
+                    <div class="flex items-center justify-center">
+                        <div id="g_id_onload" data-client_id="{{ googleClientId }}" data-login_uri="{{ googleSignInRedirectUrl }}" data-auto_prompt="false" data-_csrf="{{ csrftoken }}"></div>
+                        <div class="g_id_signin" data-type="standard" data-size="large" data-theme="outline" data-text="sign_in_with" data-shape="rectangular" data-logo_alignment="left"></div>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Sign Up Link -->
+                <div class="text-center text-sm text-gray-600 dark:text-slate-400">
+                    {{ lang('signin.text')|default('Do not have an account?') }} 
+                    <a href="{{ page_url('signup') }}" class="font-medium text-primary-500 dark:text-primary-400 hover:text-primary-600 dark:hover:text-primary-300 transition-colors">
+                        {{ lang('signup.title')|default('Sign up') }}
+                    </a>
+                </div>
+            </form>
+        </div>
+        </div>
     </div>
-  </div>
 </section>
-<!-- END : ABOUT -->
 
-<!-- SECTION : WHY US -->
-<section class="whyus px-5">
-      <div class="container mx-auto space-y-12 py-20">
-        <div class="intro relative mx-auto space-y-12 md:w-10/12">
-          <span class="text__highlight relative"
-            >F.A.Q
-            
-          </span>
-          <h2 class="heading--main relative">
-            Warum sollten Sie unser <br class="hidden md:inline-block" />SMM-Panel wählen ?
+<!-- Marketerum Achievements Section -->
+<section class="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-dark transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-slate-100 text-center mb-8 sm:mb-12">Marketerum Achievements</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
+            <!-- Orders Completed Card -->
+            <div class="bg-white dark:bg-dark-secondary rounded-lg p-6 sm:p-8 shadow-md dark:shadow-xl hover:shadow-lg dark:hover:shadow-2xl transition-all duration-300 border border-transparent dark:border-dark-tertiary hover:border-primary-200 dark:hover:border-primary-500/30">
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-primary-500 rounded-full flex items-center justify-center">
+                            <svg class="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-500 mb-2">
+                            {{ totals['ordersAll']|default('0')|number_format(0, '.', ',') }}
+                        </div>
+                        <div class="text-base sm:text-lg text-gray-600 dark:text-slate-400">Orders Completed</div>
+                    </div>
+                </div>
+            </div>
 
-            
-          </h2>
-          <p class="text-justify">
-            Die Entscheidung für marketerum.com als Ihr <b>SMM-Panel-Anbieter</b> ist eine Entscheidung, die unvergleichliche Vorteile und außergewöhnliche Ergebnisse verspricht. Unsere Plattform zeichnet sich durch ihr Engagement für Authentizität, Qualität und Erschwinglichkeit aus und stellt sicher, dass Ihre Social Media Reise sowohl effektiv als auch effizient ist. Mit marketerum.com erhalten Sie Zugang zu einem breiten Spektrum an zielgerichteten Dienstleistungen, die auf Ihr spezifisches Publikum und Ihre Ziele abgestimmt sind. Unser nutzerorientierter Ansatz, gepaart mit transparenten Praktiken und einem 24/7-Support, sorgt für eine nahtlose Erfahrung, die es Ihnen ermöglicht, Ihre Online-Präsenz auszubauen, Ihr Publikum einzubinden und Ihre Social-Media-Ziele zu erreichen. Als Branchenführer haben wir uns verpflichtet, echte Interaktionen und einen Wert zu liefern, der die Erwartungen übertrifft. Das macht marketerum.com zur ersten Wahl für Ihre SMM-Anforderungen.
-          </p>
-          <svg
-            class="absolute -top-40 left-0"
-            width="42"
-            height="46"
-            viewBox="0 0 42 46"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M17 1.3094C19.4752 -0.119661 22.5248 -0.119661 25 1.3094L37.7846 8.6906C40.2598 10.1197 41.7846 12.7607 41.7846 15.6188V30.3812C41.7846 33.2393 40.2598 35.8803 37.7846 37.3094L25 44.6906C22.5248 46.1197 19.4752 46.1197 17 44.6906L4.21539 37.3094C1.74018 35.8803 0.215391 33.2393 0.215391 30.3812V15.6188C0.215391 12.7607 1.74018 10.1197 4.21539 8.6906L17 1.3094Z"
-              fill="#85E0F9"
-            />
-          </svg>
+            <!-- Satisfied Customers Card -->
+            <div class="bg-white dark:bg-dark-secondary rounded-lg p-6 sm:p-8 shadow-md dark:shadow-xl hover:shadow-lg dark:hover:shadow-2xl transition-all duration-300 border border-transparent dark:border-dark-tertiary hover:border-primary-200 dark:hover:border-primary-500/30">
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-primary-500 rounded-full flex items-center justify-center">
+                            <svg class="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-500 mb-2">
+                            {{ totals['usersAll']|default('0')|number_format(0, '.', ',') }}
+                        </div>
+                        <div class="text-base sm:text-lg text-gray-600 dark:text-slate-400">Satisfied Customers</div>
+                    </div>
+                </div>
+            </div>
 
-          
+            <!-- Active Services Card -->
+            <div class="bg-white dark:bg-dark-secondary rounded-lg p-6 sm:p-8 shadow-md dark:shadow-xl hover:shadow-lg dark:hover:shadow-2xl transition-all duration-300 border border-transparent dark:border-dark-tertiary hover:border-primary-200 dark:hover:border-primary-500/30">
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-14 h-14 sm:w-16 sm:h-16 bg-primary-500 rounded-full flex items-center justify-center">
+                            <svg class="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <div class="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-500 mb-2">
+                            {{ totals['servicesAll']|default('5,235') }}+
+                        </div>
+                        <div class="text-base sm:text-lg text-gray-600 dark:text-slate-400">Active Services</div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
-<!-- END : WHY US -->
+    </div>
+</section>
 
-<!-- SECTION : FAQ -->
-<section class="faq1 px-5">
-      <div class="container mx-auto text-center">
-        <div class="intro mx-auto mb-12 space-y-8 md:w-8/12">
-          <span class="text__highlight relative">
-            Häufige Fragen
+<!-- About Us Section -->
+<section class="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-primary-50 to-white dark:from-dark-secondary dark:to-dark transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white dark:bg-dark-secondary rounded-2xl border border-primary-200 dark:border-primary-500/30 shadow-lg dark:shadow-xl overflow-hidden transition-all duration-300">
+            <!-- Gradient Top -->
+            <div class="bg-gradient-to-b from-primary-50 to-white dark:from-primary-900/20 dark:to-dark-secondary h-32 sm:h-40"></div>
             
-          </span>
-          <h2 class="heading--main">
-            Wichtige Fragen zu <span>SMM Panel Deutschland</span>
-          </h2>
-          <p class="text-justify">
+            <!-- Content -->
+            <div class="px-6 sm:px-8 lg:px-12 pb-8 sm:pb-12 lg:pb-16 -mt-20 sm:-mt-24 relative">
+                <!-- About Us Badge -->
+                <div class="inline-flex items-center px-4 py-2 bg-primary-100 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-500/30 rounded-full text-sm font-medium text-gray-700 dark:text-slate-300 mb-6">
+                    Über uns
+                </div>
+
+                <!-- Main Title -->
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-6 sm:mb-8 leading-tight">
+                    Beste und günstigste <span class="text-primary-500 dark:text-primary-400">SMM-Panel-Dienste</span>
+                </h2>
+
+                <!-- Body Text -->
+                <div class="space-y-4 sm:space-y-5 text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                    <p>
+                        Wir von Marketerum definieren die SMM-Landschaft mit unseren außergewöhnlichen und erschwinglichen <strong class="font-semibold text-gray-900 dark:text-slate-100">SMM-Panel-Diensten</strong> neu. Unser Engagement für Exzellenz zeigt sich in unseren sorgfältig zusammengestellten Paketen, die Unternehmen jeder Größe die Werkzeuge an die Hand geben, die sie brauchen, um die digitale Welt zu erobern.
+                    </p>
+                    <p>
+                        Entfesseln Sie die Kraft des strategischen Social Media Marketing, ohne Ihr Budget zu sprengen. Unsere besten und erschwinglichsten SMM-Panel-Services bieten ein Tor zu sofortigem Engagement, Echtzeit-Einblicken und beeindruckendem Wachstum. Mit unseren dynamischen Kampagnen treffen Sie den Puls Ihres Publikums und entwickeln wirkungsvolle Botschaften, die ankommen und konvertieren.
+                    </p>
+                    <p>
+                        Nutzen Sie das Fachwissen unserer erfahrenen Experten und modernste Tools, um die Online-Präsenz Ihrer Marke zu verbessern. Ganz gleich, ob Sie ein Start-up-Unternehmen sind, das groß rauskommen will, oder ein etabliertes Unternehmen, das expandieren möchte - unsere SMM-Panel-Services garantieren Ergebnisse, die zählen. Schließen Sie sich den Unternehmen an, die mit unseren kosteneffektiven Lösungen einen bemerkenswerten ROI erzielt haben. Nutzen Sie die Zukunft des digitalen Marketings noch heute mit Marketerum.
+                    </p>
+                    <p>
+                        Steigern Sie die Online-Präsenz Ihrer Marke mit den kosteneffizienten, wirkungsvollen SMM-Panel-Services von Marketerum. Erleben Sie Echtzeit-Engagement, strategische Kampagnen und unbestreitbares Wachstum, das Ihr Unternehmen von der Konkurrenz abhebt. Ihre Reise zum digitalen Erfolg beginnt hier.
+                    </p>
+                </div>
+
+                <!-- Call to Action Button -->
+                <div class="mt-8 sm:mt-10">
+                    <a href="{{ page_url('services') }}" class="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white bg-primary-500 rounded-lg hover:bg-primary-600 transition-all shadow-md hover:shadow-lg">
+                        Alle Services anzeigen
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="py-12 sm:py-16 lg:py-20 bg-white dark:bg-dark-secondary transition-colors duration-300">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Decorative Hexagon Icon -->
+        <div class="flex justify-start mb-6">
+            <div class="relative">
+                <svg class="w-16 h-16 sm:w-20 sm:h-20 text-primary-300 transform rotate-12" fill="currentColor" viewBox="0 0 100 100" aria-hidden="true">
+                    <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" stroke="currentColor" stroke-width="2" fill="currentColor" opacity="0.3"/>
+                    <polygon points="50,15 85,32.5 85,67.5 50,85 15,67.5 15,32.5" stroke="currentColor" stroke-width="2" fill="currentColor" opacity="0.5"/>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Why Choose Us Badge -->
+        <div class="mb-6">
+            <div class="inline-flex items-center px-4 py-2 bg-primary-100 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-500/30 rounded-full text-sm font-medium text-gray-700 dark:text-slate-300 shadow-sm">
+                F.A.Q
+            </div>
+        </div>
+
+        <!-- Main Heading -->
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-100 mb-6 sm:mb-8 leading-tight">
+            Warum sollten Sie unser<br class="hidden sm:block"> SMM-Panel wählen?
+        </h2>
+
+        <!-- Body Text -->
+        <div class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed space-y-4">
+            <p>
+                Die Entscheidung für marketerum.com als Ihr <strong class="font-semibold text-gray-900 dark:text-slate-100">SMM-Panel-Anbieter</strong> ist eine Entscheidung, die unvergleichliche Vorteile und außergewöhnliche Ergebnisse verspricht. Unsere Plattform zeichnet sich durch ihr Engagement für Authentizität, Qualität und Erschwinglichkeit aus und stellt sicher, dass Ihre Social Media Reise sowohl effektiv als auch effizient ist. Mit marketerum.com erhalten Sie Zugang zu einem breiten Spektrum an zielgerichteten Dienstleistungen, die auf Ihr spezifisches Publikum und Ihre Ziele abgestimmt sind. Unser nutzerorientierter Ansatz, gepaart mit transparenten Praktiken und einem 24/7-Support, sorgt für eine nahtlose Erfahrung, die es Ihnen ermöglicht, Ihre Online-Präsenz auszubauen, Ihr Publikum einzubinden und Ihre Social-Media-Ziele zu erreichen. Als Branchenführer haben wir uns verpflichtet, echte Interaktionen und einen Wert zu liefern, der die Erwartungen übertrifft. Das macht marketerum.com zur ersten Wahl für Ihre SMM-Anforderungen.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-dark transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- FAQ Badge -->
+        <div class="text-center mb-6">
+            <div class="inline-flex items-center px-4 py-2 bg-primary-100 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-500/30 rounded-full text-sm font-medium text-gray-700 dark:text-slate-300 shadow-sm">
+                Häufige Fragen
+            </div>
+        </div>
+
+        <!-- Main Heading -->
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-100 text-center mb-6">
+            Wichtige Fragen zu <span class="text-primary-500 dark:text-primary-400">SMM Panel Deutschland</span>
+        </h2>
+
+        <!-- Introductory Text -->
+        <p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 text-center max-w-3xl mx-auto mb-10 sm:mb-12 leading-relaxed">
             Erfahren Sie mehr über wichtige Fragen zu SMM Panel Deutschland, einschließlich Funktionen, Vorteilen und Nutzungshinweisen.
-          </p>
+        </p>
+
+        <!-- FAQ Accordion -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6" role="region" aria-label="Frequently Asked Questions">
+            <!-- Left Column -->
+            <div class="space-y-4 sm:space-y-6">
+                <!-- FAQ Item 1 -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border-2 border-primary-200 dark:border-primary-500/30 shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="1" aria-expanded="true" aria-controls="faq-answer-1" id="faq-question-1">
+                        <span class="font-semibold text-gray-900 dark:text-slate-100 text-base sm:text-lg pr-4">Was ist ein SMM Panel Deutschland?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-primary-500 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-1" class="faq-answer p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-1">
+                        <p>
+                            Ein SMM Panel Deutschland ist ein Werkzeug zur Verwaltung und Optimierung von Social-Media-Marketing-Kampagnen. Es bietet eine zentrale Plattform zur Automatisierung von Aufgaben, Überwachung von Leistungskennzahlen und Verwaltung von Nutzerinteraktionen.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="2" aria-expanded="false" aria-controls="faq-answer-2" id="faq-question-2">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">Welche Vorteile bietet ein SMM Panel Deutschland?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-2" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-2">
+                        <p>
+                            Die Hauptvorteile eines SMM Panels Deutschland sind die Vereinfachung der Marketingverwaltung, die Automatisierung wiederkehrender Aufgaben, die zentrale Datenanalyse und die Verbesserung der Effizienz bei der Verwaltung mehrerer Kampagnen und Nutzeranfragen.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="3" aria-expanded="false" aria-controls="faq-answer-3" id="faq-question-3">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">Wie wählt man das passende SMM Panel Deutschland aus?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-3" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-3">
+                        <p>
+                            Bei der Auswahl des passenden SMM Panels Deutschland sollten Sie auf den Funktionsumfang, die Benutzerfreundlichkeit, Anpassungsoptionen, den Kundenservice und die Gesamtkosten achten. Stellen Sie sicher, dass es Ihre spezifischen Anforderungen erfüllt und Ihre Marketingziele unterstützt.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="4" aria-expanded="false" aria-controls="faq-answer-4" id="faq-question-4">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">Welche häufigen Probleme können bei der Nutzung eines SMM Panels Deutschland auftreten?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-4" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-4">
+                        <p>
+                            Häufige Probleme bei der Nutzung eines SMM Panels Deutschland können technische Störungen, Komplikationen bei der Integration mit verschiedenen Plattformen und Herausforderungen bei der Konfiguration und Anpassung sein. Achten Sie darauf, dass der Anbieter zuverlässige Unterstützung bietet, um diese Probleme zu lösen.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="space-y-4 sm:space-y-6">
+                <!-- FAQ Item 5 -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="5" aria-expanded="false" aria-controls="faq-answer-5" id="faq-question-5">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">Wie kann man die Effektivität eines SMM Panels Deutschland maximieren?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-5" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-5">
+                        <p>
+                            Um die Effektivität eines SMM Panels Deutschland zu maximieren, sollten Sie regelmäßig Ihre Strategien basierend auf Leistungsdaten anpassen, alle Funktionen des Panels nutzen und sicherstellen, dass es gut in Ihre Marketingaktivitäten integriert ist. Halten Sie sich auch über Updates und Best Practices informiert.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 6 -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="6" aria-expanded="false" aria-controls="faq-answer-6" id="faq-question-6">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">Welche Funktionen sollte ein SMM Panel Deutschland bieten?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-6" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-6">
+                        <p>
+                            Wichtige Funktionen eines SMM Panels Deutschland umfassen eine benutzerfreundliche Oberfläche, umfassende Analyse- und Berichtswerkzeuge, Automatisierungsfunktionen, Anpassungsoptionen und zuverlässigen Kundenservice.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7 -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="7" aria-expanded="false" aria-controls="faq-answer-7" id="faq-question-7">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">Wie erhält man Unterstützung für ein SMM Panel Deutschland?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-7" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-7">
+                        <p>
+                            Unterstützung für ein SMM Panel Deutschland wird normalerweise durch Zugriff auf Dokumentationen, Benutzerhandbücher und direkte Kundenservice-Kanäle bereitgestellt. Stellen Sie sicher, dass der Anbieter eine zuverlässige und reaktionsschnelle Unterstützung bietet, um technische Probleme oder Fragen zu klären.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 8 -->
+                <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                    <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="8" aria-expanded="false" aria-controls="faq-answer-8" id="faq-question-8">
+                        <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">Was kostet die Nutzung eines SMM Panels Deutschland?</span>
+                        <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                        </svg>
+                    </button>
+                    <div id="faq-answer-8" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-8">
+                        <p>
+                            Die Kosten für die Nutzung eines SMM Panels Deutschland können je nach den angebotenen Funktionen, dem Support-Niveau und etwaigen zusätzlichen Anpassungswünschen variieren. Überprüfen Sie die Preisstruktur, um sicherzustellen, dass sie innerhalb Ihres Budgets liegt und Ihren Erwartungen entspricht.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="faqs">
-          <div class="faqs__tab md:grid md:grid-cols-2 md:gap-8">
-            <div class="tab__item">
-              <a href="#" class="tab__label">
-                <span>
-                  Was ist ein SMM Panel Deutschland?
-                </span>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
-                    stroke="#02030E"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-              <p class="text-justify">
-                Ein SMM Panel Deutschland ist ein Werkzeug zur Verwaltung und Optimierung von Social-Media-Marketing-Kampagnen. Es bietet eine zentrale Plattform zur Automatisierung von Aufgaben, Überwachung von Leistungskennzahlen und Verwaltung von Nutzerinteraktionen.
-              </p>
-            </div>
-
-            <div class="tab__item">
-              <a href="#" class="tab__label">
-                <span>
-                  Welche Vorteile bietet ein SMM Panel Deutschland?
-                </span>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
-                    stroke="#02030E"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-              <p class="text-justify">
-                Die Hauptvorteile eines SMM Panels Deutschland sind die Vereinfachung der Marketingverwaltung, die Automatisierung wiederkehrender Aufgaben, die zentrale Datenanalyse und die Verbesserung der Effizienz bei der Verwaltung mehrerer Kampagnen und Nutzeranfragen.
-              </p>
-            </div>
-
-            <div class="tab__item">
-              <a href="#" class="tab__label">
-                <span>
-                  Wie wählt man das passende SMM Panel Deutschland aus?
-                </span>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
-                    stroke="#02030E"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-              <p class="text-justify">
-                Bei der Auswahl des passenden SMM Panels Deutschland sollten Sie auf den Funktionsumfang, die Benutzerfreundlichkeit, Anpassungsoptionen, den Kundenservice und die Gesamtkosten achten. Stellen Sie sicher, dass es Ihre spezifischen Anforderungen erfüllt und Ihre Marketingziele unterstützt.
-              </p>
-            </div>
-
-            <div class="tab__item">
-              <a href="#" class="tab__label">
-                <span>
-                  Welche häufigen Probleme können bei der Nutzung eines SMM Panels Deutschland auftreten?
-                </span>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
-                    stroke="#02030E"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-              <p class="text-justify">
-                Häufige Probleme bei der Nutzung eines SMM Panels Deutschland können technische Störungen, Komplikationen bei der Integration mit verschiedenen Plattformen und Herausforderungen bei der Konfiguration und Anpassung sein. Achten Sie darauf, dass der Anbieter zuverlässige Unterstützung bietet, um diese Probleme zu lösen.
-              </p>
-            </div>
-
-            <div class="tab__item">
-              <a href="#" class="tab__label">
-                <span>
-                  Wie kann man die Effektivität eines SMM Panels Deutschland maximieren?
-                </span>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
-                    stroke="#02030E"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-              <p class="text-justify">
-                Um die Effektivität eines SMM Panels Deutschland zu maximieren, sollten Sie regelmäßig Ihre Strategien basierend auf Leistungsdaten anpassen, alle Funktionen des Panels nutzen und sicherstellen, dass es gut in Ihre Marketingaktivitäten integriert ist. Halten Sie sich auch über Updates und Best Practices informiert.
-              </p>
-            </div>
-
-            <div class="tab__item">
-              <a href="#" class="tab__label">
-                <span>
-                  Welche Funktionen sollte ein SMM Panel Deutschland bieten?
-                </span>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
-                    stroke="#02030E"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-              <p class="text-justify">
-                Wichtige Funktionen eines SMM Panels Deutschland umfassen eine benutzerfreundliche Oberfläche, umfassende Analyse- und Berichtswerkzeuge, Automatisierungsfunktionen, Anpassungsoptionen und zuverlässigen Kundenservice.
-              </p>
-            </div>
-
-            <div class="tab__item">
-              <a href="#" class="tab__label">
-                <span>
-                  Wie erhält man Unterstützung für ein SMM Panel Deutschland?
-                </span>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
-                    stroke="#02030E"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-              <p class="text-justify">
-                Unterstützung für ein SMM Panel Deutschland wird normalerweise durch Zugriff auf Dokumentationen, Benutzerhandbücher und direkte Kundenservice-Kanäle bereitgestellt. Stellen Sie sicher, dass der Anbieter eine zuverlässige und reaktionsschnelle Unterstützung bietet, um technische Probleme oder Fragen zu klären.
-              </p>
-            </div>
-
-            <div class="tab__item">
-              <a href="#" class="tab__label">
-                <span>
-                  Was kostet die Nutzung eines SMM Panels Deutschland?
-                </span>
-                <svg
-                  width="18"
-                  height="18"
-                  viewBox="0 0 18 18"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9 17V9M9 9V1M9 9H17M9 9H1"
-                    stroke="#02030E"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </a>
-              <p class="text-justify">
-                Die Kosten für die Nutzung eines SMM Panels Deutschland können je nach den angebotenen Funktionen, dem Support-Niveau und etwaigen zusätzlichen Anpassungswünschen variieren. Überprüfen Sie die Preisstruktur, um sicherzustellen, dass sie innerhalb Ihres Budgets liegt und Ihren Erwartungen entspricht.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-<!-- END : FAQ -->
-
-
+    </div>
+</section>
