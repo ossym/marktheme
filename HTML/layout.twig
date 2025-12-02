@@ -32,6 +32,8 @@
             {% if user['auth'] %}
                 <link rel="stylesheet" type="text/css" href="{{ style['href'] }}">
             {% endif %}
+        {% elseif  style['href'] == 'https://storage.perfectcdn.com/global/w1ak29btsbdhu8s0.css' %}
+                <!-- No need to load this style already loaded by the theme -->
         {% else %}
             {# Other styles - load for both modes #}
             <link rel="stylesheet" type="text/css" href="{{ style['href'] }}">
@@ -50,7 +52,7 @@
     </a>
     {% if user['auth'] %}
     <!-- Authenticated Mode: Sidebar + Header -->
-    <div class="flex h-screen overflow-hidden">
+    <div class="flex overflow-hidden">
         <!-- Sidebar -->
         <aside id="sidebar" class="hidden lg:flex lg:flex-shrink-0 lg:flex-col bg-white border-r border-gray-200 transition-all duration-300 ease-in-out {% if site['rtl'] %} border-l border-r-0 {% endif %}" data-sidebar-expanded="true">
             <div class="flex flex-col flex-grow pt-5 pb-4 overflow-y-auto">
@@ -92,16 +94,6 @@
                         </a>
                     {% endfor %}
                 </nav>
-
-                <!-- Updates/Support at bottom -->
-                <div class="px-4 mt-auto mb-4 sidebar-updates-container">
-                    <a href="#" class="flex items-center px-3 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-gray-100 transition-colors sidebar-updates-link" title="Updates">
-                        <svg class="w-5 h-5 sidebar-updates-icon mr-3 text-accent-500" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.369 1.262.589 1.694.755.712.27 1.36.232 1.871.141.574-.099 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                        </svg>
-                        <span class="sidebar-updates-text">Updates</span>
-                    </a>
-                </div>
             </div>
         </aside>
 
@@ -170,13 +162,6 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                             </svg>
                         </button>
-                        <a href="{{ page_url('index') }}" class="lg:hidden flex items-center">
-                            {% if site['logo'] %}
-                            <img src="{{ site['logo'] }}" alt="{{ site['name'] }}" class="h-7 w-auto">
-                            {% else %}
-                            <span class="text-lg font-bold text-primary-500">{{ site['name'] }}</span>
-                            {% endif %}
-                        </a>
                     </div>
 
                     <!-- Right: Theme Toggle + Balance + User Info -->
@@ -194,7 +179,7 @@
                         <!-- Add Funds Button -->
                         <a href="{{ page_url('addfunds') }}" class="p-2 rounded-lg text-gray-400 hover:text-gray-500 hover:bg-gray-100 transition-colors" title="Add Funds" aria-label="Add funds to account">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
                             </svg>
                         </a>
 
@@ -224,8 +209,14 @@
                         <!-- User Menu -->
                         <div class="relative dropdown user-menu-dropdown">
                             <button class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors" data-toggle="dropdown" aria-label="User menu for {{ user.username }}" aria-expanded="false" aria-haspopup="true">
-                                <div class="w-8 h-8 rounded-full bg-primary-100 flex items-center justify-center" aria-hidden="true">
-                                    <span class="text-sm font-medium text-primary-500">{{ user.username[0]|upper }}</span>
+                                <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-sm" aria-hidden="true">
+                                    {% if user.username and user.username[0] %}
+                                        <span class="text-sm font-semibold text-white">{{ user.username[0]|upper }}</span>
+                                    {% else %}
+                                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                        </svg>
+                                    {% endif %}
                                 </div>
                                 <span class="hidden sm:block text-sm font-medium text-gray-700">{{ user.username }}</span>
                                 <svg class="hidden sm:block h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -254,6 +245,7 @@
             </main>
         </div>
     </div>
+    
     {% else %}
     <!-- Guest Mode: Header Only -->
     <header class="bg-white border-b border-gray-200 sticky top-0 z-50 {% if site['rtl'] %} rtl-navbar {% endif %}">
@@ -391,12 +383,12 @@
                 <div>
                     <h3 class="text-lg font-bold text-gray-900 dark:text-slate-100 mb-4">Menu</h3>
                     <div class="grid grid-cols-2 gap-3">
-                        <a href="{{ page_url('index') }}" class="text-gray-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200">Home</a>
+                        <a href="{{ page_url('/') }}" class="text-gray-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200">Home</a>
                         <a href="{{ page_url('terms') }}" class="text-gray-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200">Terms</a>
                         <a href="{{ page_url('services') }}" class="text-gray-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200">Services</a>
-                        <a href="{{ page_url('privacy') }}" class="text-gray-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200">Privacy policy</a>
+                        <a href="/privacy-policy" class="text-gray-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200">Privacy policy</a>
                         <a href="{{ page_url('blog') }}" class="text-gray-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200">Blog</a>
-                        <a href="{{ page_url('contact') }}" class="text-gray-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200">Contact</a>
+                        <a href="/contact-us" class="text-gray-600 dark:text-slate-300 hover:text-primary-500 dark:hover:text-primary-400 transition-colors duration-200">Contact</a>
                     </div>
                 </div>
 
@@ -411,7 +403,7 @@
                             </svg>
                         </a>
                         <!-- WhatsApp -->
-                        <a href="#" class="w-10 h-10 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-500/30 rounded-lg flex items-center justify-center text-primary-500 dark:text-primary-400 hover:bg-primary-100 dark:hover:bg-primary-900/40 hover:border-primary-300 dark:hover:border-primary-500/50 transition-all duration-200" title="WhatsApp" aria-label="Contact us on WhatsApp">
+                        <a href="https://wa.me/447868724202" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-500/30 rounded-lg flex items-center justify-center text-primary-500 dark:text-primary-400 hover:bg-primary-100 dark:hover:bg-primary-900/40 hover:border-primary-300 dark:hover:border-primary-500/50 transition-all duration-200" title="WhatsApp" aria-label="Contact us on WhatsApp">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.369 1.262.589 1.694.755.712.27 1.36.232 1.871.141.574-.099 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                             </svg>
@@ -456,22 +448,6 @@
                 </p>
             </div>
         </div>
-
-        <!-- Floating Action Buttons -->
-        <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-4">
-            <!-- Scroll to Top Button -->
-            <button id="scroll-to-top" class="w-12 h-12 bg-primary-500 text-white rounded-full shadow-lg hover:bg-primary-600 transition-all hover:shadow-xl flex items-center justify-center hidden" aria-label="Scroll to top">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
-                </svg>
-            </button>
-            <!-- WhatsApp Button -->
-            <a href="#" class="w-12 h-12 bg-accent-500 text-white rounded-full shadow-lg hover:bg-accent-600 transition-all hover:shadow-xl flex items-center justify-center" title="WhatsApp" aria-label="Contact us on WhatsApp">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.369 1.262.589 1.694.755.712.27 1.36.232 1.871.141.574-.099 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-                </svg>
-            </a>
-        </div>
     </footer>
     {% endif %}
 
@@ -494,6 +470,22 @@
                 </button>
             </div>
         </div>
+    </div>
+
+    <!-- Floating Action Buttons -->
+    <div class="fixed bottom-[20px] left-6 z-50 flex flex-col gap-4">
+        <!-- Scroll to Top Button -->
+        <button id="scroll-to-top" class="w-[60px] h-[60px] bg-primary-500 text-white rounded-full shadow-lg hover:bg-primary-600 transition-all hover:shadow-xl flex items-center justify-center hidden" aria-label="Scroll to top">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+        </button>
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/447868724202" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-accent-500 text-white rounded-full shadow-lg hover:bg-accent-600 transition-all hover:shadow-xl flex items-center justify-center" title="WhatsApp" aria-label="Contact us on WhatsApp">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.369 1.262.589 1.694.755.712.27 1.36.232 1.871.141.574-.099 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+        </a>
     </div>
 
     {{ site['custom_footer'] }}

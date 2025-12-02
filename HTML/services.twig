@@ -112,15 +112,14 @@
                                                 </div>
                                         </div>
                                 </div>
-                                <div class="grid grid-cols-3 gap-2 sm:gap-3 mb-6 sm:mb-8 max-h-[240px] overflow-y-auto p-2 -mx-2 px-2 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
-                                                <button
-                                                        type="button"
+                                <div class="platforms-section gap-2 mb-6 sm:mb-8 max-h-[100px] overflow-y-auto p-2 -mx-2 px-2 scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent">
+                                                <button type="button"
                                                         @click="handleCategoryButtonClick('all')"
-                                                        :class="selectedCategoryId === 'all' ? 'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105' : 'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]'"
+                                                        :class="selectedCategoryId === 'all' ? 'active is-active' : ''"
                                                         :aria-pressed="selectedCategoryId === 'all'"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" class="h-5 w-5">
                                                                         <path fill="#64717c" d="M38.526,12.292l-3.052-2.584L25.073,22H11v4h14.072l10.402,12.292l3.052-2.584L28.62,24    L38.526,12.292z"></path>
                                                                         <linearGradient id="servicesAllGradientA" x1="4.491" x2="15.13" y1="18.976" y2="28.678" gradientUnits="userSpaceOnUse">
@@ -140,7 +139,7 @@
                                                                         <circle cx="37" cy="37" r="6" fill="url(#servicesAllGradientC)"></circle>
                                                                 </svg>
                                                         </span>
-                                                        <span class="text-sm sm:text-base font-semibold">All</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">All</span>
                                                 </button>
                                                                                                 <!-- Facebook -->
                                                 <button
@@ -148,21 +147,20 @@
                                                         aria-label="Facebook"
                                                         @click="platformAvailability.facebook && handleCategoryButtonClick('facebook')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'facebook',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'facebook',
+                                                                'active is-active': selectedCategoryId === 'facebook',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.facebook
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'facebook'"
                                                         :aria-disabled="!platformAvailability.facebook"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                         					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                         						<path fill="#039be5" d="M24 5A19 19 0 1 0 24 43A19 19 0 1 0 24 5Z"></path>
                                                         						<path fill="#fff" d="M26.572,29.036h4.917l0.772-4.995h-5.69v-2.73c0-2.075,0.678-3.915,2.619-3.915h3.119v-4.359c-0.548-0.074-1.707-0.236-3.897-0.236c-4.573,0-7.254,2.415-7.254,7.917v3.323h-4.701v4.995h4.701v13.729C22.089,42.905,23.032,43,24,43c0.875,0,1.729-0.08,2.572-0.194V29.036z"></path>
                                                         					</svg>
                                                         				</span>
-                                                        <span class="text-sm sm:text-base font-semibold">Facebook</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Facebook</span>
                                                 </button>
 
                                                 <!-- Instagram -->
@@ -171,15 +169,14 @@
                                                         aria-label="Instagram"
                                                         @click="platformAvailability.instagram && handleCategoryButtonClick('instagram')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'instagram',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'instagram',
+                                                                'active is-active': selectedCategoryId === 'instagram',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.instagram
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'instagram'"
                                                         :aria-disabled="!platformAvailability.instagram"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                         					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                         						<path fill="#304ffe" d="M41.67,13.48c-0.4,0.26-0.97,0.5-1.21,0.77c-0.09,0.09-0.14,0.19-0.12,0.29v1.03l-0.3,1.01l-0.3,1l-0.33,1.1 l-0.68,2.25l-0.66,2.22l-0.5,1.67c0,0.26-0.01,0.52-0.03,0.77c-0.07,0.96-0.27,1.88-0.59,2.74c-0.19,0.53-0.42,1.04-0.7,1.52 c-0.1,0.19-0.22,0.38-0.34,0.56c-0.4,0.63-0.88,1.21-1.41,1.72c-0.41,0.41-0.86,0.79-1.35,1.11c0,0,0,0-0.01,0 c-0.08,0.07-0.17,0.13-0.27,0.18c-0.31,0.21-0.64,0.39-0.98,0.55c-0.23,0.12-0.46,0.22-0.7,0.31c-0.05,0.03-0.11,0.05-0.16,0.07 c-0.57,0.27-1.23,0.45-1.89,0.54c-0.04,0.01-0.07,0.01-0.11,0.02c-0.4,0.07-0.79,0.13-1.19,0.16c-0.18,0.02-0.37,0.03-0.55,0.03 l-0.71-0.04l-3.42-0.18c0-0.01-0.01,0-0.01,0l-1.72-0.09c-0.13,0-0.27,0-0.4-0.01c-0.54-0.02-1.06-0.08-1.58-0.19 c-0.01,0-0.01,0-0.01,0c-0.95-0.18-1.86-0.5-2.71-0.93c-0.47-0.24-0.93-0.51-1.36-0.82c-0.18-0.13-0.35-0.27-0.52-0.42 c-0.48-0.4-0.91-0.83-1.31-1.27c-0.06-0.06-0.11-0.12-0.16-0.18c-0.06-0.06-0.12-0.13-0.17-0.19c-0.38-0.48-0.7-0.97-0.96-1.49 c-0.24-0.46-0.43-0.95-0.58-1.49c-0.06-0.19-0.11-0.37-0.15-0.57c-0.01-0.01-0.02-0.03-0.02-0.05c-0.1-0.41-0.19-0.84-0.24-1.27 c-0.06-0.33-0.09-0.66-0.09-1c-0.02-0.13-0.02-0.27-0.02-0.4l1.91-2.95l1.87-2.88l0.85-1.31l0.77-1.18l0.26-0.41v-1.03 c0.02-0.23,0.03-0.47,0.02-0.69c-0.01-0.7-0.15-1.38-0.38-2.03c-0.22-0.69-0.53-1.34-0.85-1.94c-0.38-0.69-0.78-1.31-1.11-1.87 C14,7.4,13.66,6.73,13.75,6.26C14.47,6.09,15.23,6,16,6h16c4.18,0,7.78,2.6,9.27,6.26C41.43,12.65,41.57,13.06,41.67,13.48z"></path>
                                                         						<path fill="#4928f4" d="M42,16v0.27l-1.38,0.8l-0.88,0.51l-0.97,0.56l-1.94,1.13l-1.9,1.1l-1.94,1.12l-0.77,0.45 c0,0.48-0.12,0.92-0.34,1.32c-0.31,0.58-0.83,1.06-1.49,1.47c-0.67,0.41-1.49,0.74-2.41,0.98c0,0,0-0.01-0.01,0 c-3.56,0.92-8.42,0.5-10.78-1.26c-0.66-0.49-1.12-1.09-1.32-1.78c-0.06-0.23-0.09-0.48-0.09-0.73v-7.19 c0.01-0.15-0.09-0.3-0.27-0.45c-0.54-0.43-1.81-0.84-3.23-1.25c-1.11-0.31-2.3-0.62-3.3-0.92c-0.79-0.24-1.46-0.48-1.86-0.71 c0.18-0.35,0.39-0.7,0.61-1.03c1.4-2.05,3.54-3.56,6.02-4.13C14.47,6.09,15.23,6,16,6h10.8c5.37,0.94,10.32,3.13,14.47,6.26 c0.16,0.39,0.3,0.8,0.4,1.22c0.18,0.66,0.29,1.34,0.32,2.05C42,15.68,42,15.84,42,16z"></path>
@@ -206,7 +203,7 @@
                                                         						</g>
                                                         					</svg>
                                                         				</span>
-                                                        <span class="text-sm sm:text-base font-semibold">Instagram</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Instagram</span>
                                                 </button>
 
                                                 <!-- Twitter -->
@@ -215,20 +212,19 @@
                                                         aria-label="Twitter"
                                                         @click="platformAvailability.twitter && handleCategoryButtonClick('twitter')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'twitter',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'twitter',
+                                                                'active is-active': selectedCategoryId === 'twitter',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.twitter
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'twitter'"
                                                         :aria-disabled="!platformAvailability.twitter"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                         					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                         						<path fill="#03A9F4" d="M42,12.429c-1.323,0.586-2.746,0.977-4.247,1.162c1.526-0.906,2.7-2.351,3.251-4.058c-1.428,0.837-3.01,1.452-4.693,1.776C34.967,9.884,33.05,9,30.926,9c-4.08,0-7.387,3.278-7.387,7.32c0,0.572,0.067,1.129,0.193,1.67c-6.138-0.308-11.582-3.226-15.224-7.654c-0.64,1.082-1,2.349-1,3.686c0,2.541,1.301,4.778,3.285,6.096c-1.211-0.037-2.351-0.374-3.349-0.914c0,0.022,0,0.055,0,0.086c0,3.551,2.547,6.508,5.923,7.181c-0.617,0.169-1.269,0.263-1.941,0.263c-0.477,0-0.942-0.054-1.392-0.135c0.94,2.902,3.667,5.023,6.898,5.086c-2.528,1.96-5.712,3.134-9.174,3.134c-0.598,0-1.183-0.034-1.761-0.104C9.268,36.786,13.152,38,17.321,38c13.585,0,21.017-11.156,21.017-20.834c0-0.317-0.01-0.633-0.025-0.945C39.763,15.197,41.013,13.905,42,12.429"></path>
                                                         					</svg>
                                                         				</span>
-                                                        <span class="text-sm sm:text-base font-semibold">Twitter</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Twitter</span>
                                                 </button>
 
                                                 <!-- Youtube -->
@@ -237,21 +233,21 @@
                                                         aria-label="Youtube"
                                                         @click="platformAvailability.youtube && handleCategoryButtonClick('youtube')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'youtube',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'youtube',
+                                                                'active is-active': selectedCategoryId === 'youtube',
+ 'youtube',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.youtube
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'youtube'"
                                                         :aria-disabled="!platformAvailability.youtube"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                         					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                         						<path fill="#FF3D00" d="M43.2,33.9c-0.4,2.1-2.1,3.7-4.2,4c-3.3,0.5-8.8,1.1-15,1.1c-6.1,0-11.6-0.6-15-1.1c-2.1-0.3-3.8-1.9-4.2-4C4.4,31.6,4,28.2,4,24c0-4.2,0.4-7.6,0.8-9.9c0.4-2.1,2.1-3.7,4.2-4C12.3,9.6,17.8,9,24,9c6.2,0,11.6,0.6,15,1.1c2.1,0.3,3.8,1.9,4.2,4c0.4,2.3,0.9,5.7,0.9,9.9C44,28.2,43.6,31.6,43.2,33.9z"></path>
                                                         						<path fill="#FFF" d="M20 31L20 17 32 24z"></path>
                                                         					</svg>
                                                         				</span>
-                                                        <span class="text-sm sm:text-base font-semibold">Youtube</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Youtube</span>
                                                 </button>
 
                                                 <!-- Tiktok -->
@@ -260,15 +256,15 @@
                                                         aria-label="Tiktok"
                                                         @click="platformAvailability.tiktok && handleCategoryButtonClick('tiktok')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'tiktok',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'tiktok',
+                                                                'active is-active': selectedCategoryId === 'tiktok',
+ 'tiktok',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.tiktok
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'tiktok'"
                                                         :aria-disabled="!platformAvailability.tiktok"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                         					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                         						<path fill="#212121" fill-rule="evenodd" d="M10.904,6h26.191C39.804,6,42,8.196,42,10.904v26.191 C42,39.804,39.804,42,37.096,42H10.904C8.196,42,6,39.804,6,37.096V10.904C6,8.196,8.196,6,10.904,6z" clip-rule="evenodd"></path>
                                                         						<path fill="#ec407a" fill-rule="evenodd" d="M29.208,20.607c1.576,1.126,3.507,1.788,5.592,1.788v-4.011 c-0.395,0-0.788-0.041-1.174-0.123v3.157c-2.085,0-4.015-0.663-5.592-1.788v8.184c0,4.094-3.321,7.413-7.417,7.413 c-1.528,0-2.949-0.462-4.129-1.254c1.347,1.376,3.225,2.23,5.303,2.23c4.096,0,7.417-3.319,7.417-7.413L29.208,20.607L29.208,20.607 z M30.657,16.561c-0.805-0.879-1.334-2.016-1.449-3.273v-0.516h-1.113C28.375,14.369,29.331,15.734,30.657,16.561L30.657,16.561z M19.079,30.832c-0.45-0.59-0.693-1.311-0.692-2.053c0-1.873,1.519-3.391,3.393-3.391c0.349,0,0.696,0.053,1.029,0.159v-4.1 c-0.389-0.053-0.781-0.076-1.174-0.068v3.191c-0.333-0.106-0.68-0.159-1.03-0.159c-1.874,0-3.393,1.518-3.393,3.391 C17.213,29.127,17.972,30.274,19.079,30.832z" clip-rule="evenodd"></path>
@@ -276,7 +272,7 @@
                                                         						<path fill="#81d4fa" fill-rule="evenodd" d="M33.626,18.262v-0.854c-1.05,0.002-2.078-0.292-2.969-0.848 C31.445,17.423,32.483,18.018,33.626,18.262z M28.095,12.772c-0.027-0.153-0.047-0.306-0.061-0.461v-0.516h-4.036v16.019 c-0.006,1.867-1.523,3.379-3.393,3.379c-0.549,0-1.067-0.13-1.526-0.362c0.62,0.813,1.599,1.338,2.701,1.338 c1.87,0,3.386-1.512,3.393-3.379V12.772H28.095z M21.635,21.38v-0.909c-0.337-0.046-0.677-0.069-1.018-0.069 c-4.097,0-7.417,3.319-7.417,7.413c0,2.567,1.305,4.829,3.288,6.159c-1.308-1.336-2.114-3.165-2.114-5.183 C14.374,24.749,17.611,21.463,21.635,21.38z" clip-rule="evenodd"></path>
                                                         					</svg>
                                                         				</span>
-                                                        <span class="text-sm sm:text-base font-semibold">Tiktok</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Tiktok</span>
                                                 </button>
 
                                                 <!-- Spotify -->
@@ -285,21 +281,21 @@
                                                         aria-label="Spotify"
                                                         @click="platformAvailability.spotify && handleCategoryButtonClick('spotify')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'spotify',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'spotify',
+                                                                'active is-active': selectedCategoryId === 'spotify',
+ 'spotify',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.spotify
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'spotify'"
                                                         :aria-disabled="!platformAvailability.spotify"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                         					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                         						<path fill="#8bc34a" d="M24.001,4c-11.077,0-20,8.923-20,20s8.923,20,20,20c11.076,0,20-8.923,20-20S35.077,4,24.001,4z"></path>
                                                         						<path fill="#fff" d="M31.747,33.915c-0.292,0-0.585-0.145-0.877-0.292c-2.777-1.607-6.139-2.484-9.792-2.484c-2.047,0-4.093,0.291-5.993,0.73c-0.292,0-0.731,0.146-0.877,0.146c-0.731,0-1.169-0.586-1.169-1.17c0-0.73,0.438-1.17,1.023-1.314c2.338-0.586,4.677-0.877,7.161-0.877c4.093,0,7.893,1.021,11.108,2.924c0.438,0.291,0.731,0.584,0.731,1.314C32.916,33.478,32.331,33.915,31.747,33.915z M33.793,28.945c-0.438,0-0.73-0.144-1.023-0.291c-3.068-1.9-7.308-3.071-12.13-3.071c-2.339,0-4.531,0.293-6.139,0.733c-0.439,0.144-0.585,0.144-0.877,0.144c-0.877,0-1.462-0.73-1.462-1.461c0-0.877,0.439-1.316,1.169-1.607c2.192-0.584,4.385-1.023,7.454-1.023c4.97,0,9.793,1.17,13.593,3.507c0.584,0.291,0.877,0.877,0.877,1.461C35.255,28.215,34.67,28.945,33.793,28.945z M36.132,23.101c-0.438,0-0.585-0.146-1.023-0.291c-3.508-2.047-8.769-3.217-13.885-3.217c-2.631,0-5.262,0.293-7.6,0.877c-0.293,0-0.585,0.146-1.023,0.146c-1.023,0.146-1.754-0.73-1.754-1.754c0-1.023,0.585-1.607,1.315-1.754c2.777-0.877,5.7-1.17,9.062-1.17c5.554,0,11.4,1.17,15.785,3.654c0.584,0.293,1.022,0.877,1.022,1.754C37.886,22.369,37.154,23.101,36.132,23.101z"></path>
                                                         					</svg>
                                                         				</span>
-                                                        <span class="text-sm sm:text-base font-semibold">Spotify</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Spotify</span>
                                                 </button>
 
                                                 <!-- Snapchat -->
@@ -308,21 +304,21 @@
                                                         aria-label="Snapchat"
                                                         @click="platformAvailability.snapchat && handleCategoryButtonClick('snapchat')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'snapchat',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'snapchat',
+                                                                'active is-active': selectedCategoryId === 'snapchat',
+ 'snapchat',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.snapchat
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'snapchat'"
                                                         :aria-disabled="!platformAvailability.snapchat"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                         					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                         						<path fill="#ffee58" d="M24 4A20 20 0 1 0 24 44A20 20 0 1 0 24 4Z"></path>
                                                         						<path fill="#fff" d="M24.164,37c-0.067,0-0.133-0.002-0.199-0.005l0,0C23.923,36.998,23.88,37,23.835,37 c-1.54,0-2.529-0.716-3.485-1.408c-0.66-0.478-1.283-0.929-2.017-1.054c-0.358-0.061-0.714-0.091-1.059-0.091 c-0.62,0-1.11,0.098-1.468,0.169c-0.217,0.044-0.405,0.081-0.547,0.081c-0.149,0-0.31-0.033-0.38-0.278 c-0.061-0.212-0.105-0.418-0.147-0.617c-0.109-0.512-0.187-0.828-0.396-0.86c-2.443-0.387-3.142-0.913-3.298-1.288 c-0.022-0.053-0.035-0.107-0.038-0.16c-0.008-0.143,0.092-0.271,0.23-0.294c3.755-0.634,5.439-4.566,5.51-4.733 c0.002-0.005,0.004-0.009,0.006-0.014c0.23-0.477,0.275-0.892,0.134-1.231c-0.258-0.622-1.002-0.886-1.558-1.066 c-0.136-0.044-0.265-0.086-0.367-0.127c-1.11-0.45-1.202-0.911-1.159-1.147c0.074-0.401,0.597-0.68,1.02-0.68 c0.116,0,0.218,0.021,0.304,0.062c0.499,0.24,0.853,0.351,1.241,0.351c0.537,0,0.771-0.231,0.799-0.262 c-0.014-0.26-0.031-0.532-0.048-0.813c-0.112-1.819-0.251-4.079,0.311-5.369c1.683-3.867,5.254-4.167,6.308-4.167 c0.027,0,0.462-0.005,0.462-0.005h0.063c1.057,0,4.634,0.301,6.319,4.17c0.562,1.291,0.423,3.553,0.311,5.37l-0.005,0.079 c-0.015,0.253-0.031,0.499-0.043,0.734c0.027,0.028,0.242,0.24,0.729,0.26h0.001c0.37-0.015,0.711-0.109,1.177-0.333 c0.136-0.065,0.288-0.079,0.392-0.079c0.158,0,0.318,0.031,0.451,0.088l0.008,0.004c0.377,0.137,0.624,0.408,0.629,0.691 c0.005,0.266-0.194,0.667-1.168,1.061c-0.101,0.041-0.23,0.083-0.367,0.127c-0.557,0.181-1.313,0.428-1.571,1.05 c-0.141,0.34-0.096,0.753,0.134,1.231c0.002,0.005,0.004,0.009,0.006,0.014c0.07,0.167,1.753,4.098,5.51,4.732 c0.139,0.024,0.238,0.15,0.23,0.294c-0.003,0.054-0.016,0.108-0.038,0.161c-0.155,0.371-0.854,0.898-3.297,1.285 c-0.2,0.031-0.277,0.298-0.396,0.857c-0.043,0.203-0.087,0.403-0.148,0.613c-0.052,0.182-0.163,0.268-0.35,0.268h-0.03 c-0.129,0-0.314-0.024-0.547-0.071c-0.414-0.083-0.877-0.159-1.468-0.159c-0.344,0-0.701,0.031-1.059,0.091 c-0.733,0.125-1.356,0.576-2.014,1.053C26.693,36.284,25.704,37,24.164,37z"></path>
                                                         					</svg>
                                                         				</span>
-                                                        <span class="text-sm sm:text-base font-semibold">Snapchat</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Snapchat</span>
                                                 </button>
 
                                                 <!-- Telegram -->
@@ -331,15 +327,15 @@
                                                         aria-label="Telegram"
                                                         @click="platformAvailability.telegram && handleCategoryButtonClick('telegram')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'telegram',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'telegram',
+                                                                'active is-active': selectedCategoryId === 'telegram',
+ 'telegram',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.telegram
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'telegram'"
                                                         :aria-disabled="!platformAvailability.telegram"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                         					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                         						<path fill="#29b6f6" d="M24 4A20 20 0 1 0 24 44A20 20 0 1 0 24 4Z"></path>
                                                         						<path fill="#fff" d="M33.95,15l-3.746,19.126c0,0-0.161,0.874-1.245,0.874c-0.576,0-0.873-0.274-0.873-0.274l-8.114-6.733 l-3.97-2.001l-5.095-1.355c0,0-0.907-0.262-0.907-1.012c0-0.625,0.933-0.923,0.933-0.923l21.316-8.468 c-0.001-0.001,0.651-0.235,1.126-0.234C33.667,14,34,14.125,34,14.5C34,14.75,33.95,15,33.95,15z"></path>
@@ -347,7 +343,7 @@
                                                         						<path fill="#cfd8dc" d="M29.897,18.196c-0.169-0.22-0.481-0.26-0.701-0.093L16,26c0,0,2.106,5.892,2.427,6.912 c0.322,1.021,0.58,1.045,0.58,1.045l0.964-5.965l9.832-9.096C30.023,18.729,30.064,18.416,29.897,18.196z"></path>
                                                         					</svg>
                                                         				</span>
-                                                        <span class="text-sm sm:text-base font-semibold">Telegram</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Telegram</span>
                                                 </button>
 
                                                 <!-- Twitch -->
@@ -356,22 +352,22 @@
                                                         aria-label="Twitch"
                                                         @click="platformAvailability.twitch && handleCategoryButtonClick('twitch')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'twitch',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'twitch',
+                                                                'active is-active': selectedCategoryId === 'twitch',
+ 'twitch',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.twitch
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'twitch'"
                                                         :aria-disabled="!platformAvailability.twitch"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                         					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                         						<path fill="#FFF" d="M12 32L12 8 39 8 39 26 33 32 24 32 18 38 18 32z"></path>
                                                         						<path fill="#8E24AA" d="M9,5l-3,7.123V38h9v5h5l5-5h7l10-10V5H9z M38,26l-5,5h-9l-5,5v-5h-6V9h25V26z"></path>
                                                         						<path fill="#8E24AA" d="M32 25h-5V15h5V25zM24 25h-5V15h5V25z"></path>
                                                         					</svg>
                                                         				</span>
-                                                        <span class="text-sm sm:text-base font-semibold">Twitch</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Twitch</span>
                                                 </button>
 
                                                 <!-- Discord -->
@@ -380,21 +376,21 @@
                                                         aria-label="Discord"
                                                         @click="platformAvailability.discord && handleCategoryButtonClick('discord')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'discord',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'discord',
+                                                                'active is-active': selectedCategoryId === 'discord',
+ 'discord',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.discord
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'discord'"
                                                         :aria-disabled="!platformAvailability.discord"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                         					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                         						<path fill="#8c9eff" d="M42,45l-9-7.001L34,41H10c-2.761,0-5-2.238-5-5V10c0-2.762,2.239-5,5-5h27c2.762,0,5,2.238,5,5V45z"></path>
                                                         						<path fill="#fff" d="M32.59,16.24c0,0-2.6-2.01-5.68-2.24l-0.27,0.55c2.78,0.67,4.05,1.64,5.38,2.83 C29.73,16.21,27.46,15,23.5,15s-6.23,1.21-8.52,2.38c1.33-1.19,2.85-2.27,5.38-2.83L20.09,14c-3.23,0.31-5.68,2.24-5.68,2.24 S11.5,20.43,11,28.62c2.94,3.36,7.39,3.38,7.39,3.38l0.92-1.23c-1.57-0.54-3.36-1.51-4.9-3.27c1.84,1.38,4.61,2.5,9.09,2.5 s7.25-1.12,9.09-2.5c-1.54,1.76-3.33,2.73-4.9,3.27L28.61,32c0,0,4.45-0.02,7.39-3.38C35.5,20.43,32.59,16.24,32.59,16.24z M20,27 c-1.1,0-2-1.12-2-2.5s0.9-2.5,2-2.5s2,1.12,2,2.5S21.1,27,20,27z M27,27c-1.1,0-2-1.12-2-2.5s0.9-2.5,2-2.5s2,1.12,2,2.5 S28.1,27,27,27z"></path>
                                                         					</svg>
                                                         				</span>
-                                                        <span class="text-sm sm:text-base font-semibold">Discord</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Discord</span>
                                                 </button>
 
 
@@ -404,15 +400,15 @@
                                                         aria-label="Reddit"
                                                         @click="platformAvailability.reddit && handleCategoryButtonClick('reddit')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'reddit',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'reddit',
+                                                                'active is-active': selectedCategoryId === 'reddit',
+ 'reddit',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.reddit
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'reddit'"
                                                         :aria-disabled="!platformAvailability.reddit"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                         					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                         						<path fill="#64717c" d="M24,18c-0.552,0-1-0.448-1-1c0-2.815,0.36-12,5-12c1.173,0,2.037,0.676,2.872,1.331	C31.919,7.151,33.002,8,35,8h4c0.552,0,1,0.448,1,1s-0.448,1-1,1h-4c-2.688,0-4.233-1.211-5.362-2.095C28.922,7.344,28.46,7,28,7	c-1.738,0-3,4.206-3,10C25,17.552,24.552,18,24,18z"></path>
                                                         						<radialGradient id="PTH08zocUYAZh7xvCE~aha_h3FOPWMfgNnV_gr1" cx="36.257" cy="27.553" r="11.69" gradientunits="userSpaceOnUse">
@@ -446,7 +442,7 @@
                                                         						<circle cx="39" cy="9" r="3" fill="url(#PTH08zocUYAZh7xvCE~ahd_h3FOPWMfgNnV_gr4)"></circle>
                                                         					</svg>
                                                         				</span>
-                                                        <span class="text-sm sm:text-base font-semibold">Reddit</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Reddit</span>
                                                 </button>
 
                                                 <!-- Soundcloud -->
@@ -455,20 +451,20 @@
                                                         aria-label="Soundcloud"
                                                         @click="platformAvailability.soundcloud && handleCategoryButtonClick('soundcloud')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'soundcloud',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'soundcloud',
+                                                                'active is-active': selectedCategoryId === 'soundcloud',
+ 'soundcloud',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.soundcloud
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'soundcloud'"
                                                         :aria-disabled="!platformAvailability.soundcloud"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                         					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                         						<path fill="#FF5722" d="M10 33.018c.596 0 1.265 0 2 0V19.041c-1.11 1.001-1.699 2.212-2 3.121V33.018zM21 18.105c-.675-.316-1.752-.715-3-.837v15.749c.976 0 1.98 0 3 0V18.105zM14 33.018c.943 0 1.95 0 3 0V17.24c-1.173.03-2.171.23-3 .558V33.018zM4 23.953c-1.178.896-2 2.35-2 4.039 0 1.586.795 2.987 2 3.905V23.953zM40.995 22.016c-1.444 0-2.283.521-2.283.521s-.839-8.488-9.271-8.488c-4.906 0-6.83 2.704-7.441 3.897v15.071c8.825 0 18.297 0 18.297 0s5.869-.094 5.869-5.453C46.166 23.439 42.439 22.016 40.995 22.016zM8 23.1c-.395-.051-.842-.088-1.341-.088-.223 0-.441.037-.659.073v9.767c.423.104.861.166 1.311.166.151 0 .393 0 .689 0V23.1z"></path>
                                                         					</svg>
                                                         				</span>
-                                                        <span class="text-sm sm:text-base font-semibold">Soundcloud</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Soundcloud</span>
                                                 </button>
 
                                                 <!-- Deezer -->
@@ -477,15 +473,15 @@
                                                         aria-label="Deezer"
                                                         @click="platformAvailability.deezer && handleCategoryButtonClick('deezer')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'deezer',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'deezer',
+                                                                'active is-active': selectedCategoryId === 'deezer',
+ 'deezer',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.deezer
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'deezer'"
                                                         :aria-disabled="!platformAvailability.deezer"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                         					<img src="https://storage.perfectcdn.com/7gc9nb/fggs92ls0upo3kju.png" alt="Deezer" class="h-6 w-6 object-contain"/>
                                                         				</span>
                                                         <span class="text-md font-semibold  group-hover:text-blue-500">Deezer</span>
@@ -497,18 +493,18 @@
                                                         aria-label="Clubhouse"
                                                         @click="platformAvailability.clubhouse && handleCategoryButtonClick('clubhouse')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'clubhouse',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'clubhouse',
+                                                                'active is-active': selectedCategoryId === 'clubhouse',
+ 'clubhouse',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.clubhouse
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'clubhouse'"
                                                         :aria-disabled="!platformAvailability.clubhouse"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                         					<img src="https://storage.perfectcdn.com/7gc9nb/o5c1gcgw7302kpjn.png" alt="Clubhouse" class="h-6 w-6 object-contain"/>
                                                         				</span>
-                                                        <span class="text-sm sm:text-base font-semibold">Clubhouse</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Clubhouse</span>
                                                 </button>
 
                                                 <!-- Likee -->
@@ -517,15 +513,15 @@
                                                         aria-label="Likee"
                                                         @click="platformAvailability.likee && handleCategoryButtonClick('likee')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'likee',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'likee',
+                                                                'active is-active': selectedCategoryId === 'likee',
+ 'likee',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.likee
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'likee'"
                                                         :aria-disabled="!platformAvailability.likee"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                         					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 100 100" class="h-5 w-5">
                                                         						<circle cx="77" cy="13" r="1" fill="#e2ba34"></circle>
                                                         						<circle cx="50" cy="50" r="37" fill="#e2e2f7"></circle>
@@ -565,7 +561,7 @@
                                                         						</g>
                                                         					</svg>
                                                         				</span>
-                                                        <span class="text-sm sm:text-base font-semibold">Likee</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Likee</span>
                                                 </button>
 
                                                 <!-- Linkedin -->
@@ -574,21 +570,21 @@
                                                         aria-label="Linkedin"
                                                         @click="platformAvailability.linkedin && handleCategoryButtonClick('linkedin')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'linkedin',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'linkedin',
+                                                                'active is-active': selectedCategoryId === 'linkedin',
+ 'linkedin',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.linkedin
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'linkedin'"
                                                         :aria-disabled="!platformAvailability.linkedin"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                         					<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                         						<path fill="#0288D1" d="M42,37c0,2.762-2.238,5-5,5H11c-2.761,0-5-2.238-5-5V11c0-2.762,2.239-5,5-5h26c2.762,0,5,2.238,5,5V37z"></path>
                                                         						<path fill="#FFF" d="M12 19H17V36H12zM14.485 17h-.028C12.965 17 12 15.888 12 14.499 12 13.08 12.995 12 14.514 12c1.521 0 2.458 1.08 2.486 2.499C17 15.887 16.035 17 14.485 17zM36 36h-5v-9.099c0-2.198-1.225-3.698-3.192-3.698-1.501 0-2.313 1.012-2.707 1.99C24.957 25.543 25 26.511 25 27v9h-5V19h5v2.616C25.721 20.5 26.85 19 29.738 19c3.578 0 6.261 2.25 6.261 7.274L36 36 36 36z"></path>
                                                         					</svg>
                                                         				</span>
-                                                        <span class="text-sm sm:text-base font-semibold">Linkedin</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Linkedin</span>
                                                 </button>
 
                                                 <!-- Threads -->
@@ -597,21 +593,21 @@
                                                         aria-label="Threads"
                                                         @click="platformAvailability.threads && handleCategoryButtonClick('threads')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'threads',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'threads',
+                                                                'active is-active': selectedCategoryId === 'threads',
+ 'threads',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.threads
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'threads'"
                                                         :aria-disabled="!platformAvailability.threads"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                                         <path fill="#000000" d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z"></path>
                                                                         <path fill="#FFFFFF" d="M24,12c-6.627,0-12,5.373-12,12s5.373,12,12,12s12-5.373,12-12S30.627,12,24,12z M24,32c-4.418,0-8-3.582-8-8s3.582-8,8-8s8,3.582,8,8S28.418,32,24,32z"></path>
                                                                 </svg>
                                                         </span>
-                                                        <span class="text-sm sm:text-base font-semibold">Threads</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Threads</span>
                                                 </button>
 
                                                 <!-- AudioMack -->
@@ -620,21 +616,21 @@
                                                         aria-label="AudioMack"
                                                         @click="platformAvailability.audiomack && handleCategoryButtonClick('audiomack')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'audiomack',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'audiomack',
+                                                                'active is-active': selectedCategoryId === 'audiomack',
+ 'audiomack',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.audiomack
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'audiomack'"
                                                         :aria-disabled="!platformAvailability.audiomack"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                                         <path fill="#FFA500" d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z"></path>
                                                                         <path fill="#FFFFFF" d="M18,18h12v12H18V18z M20,20v8h8v-8H20z"></path>
                                                                 </svg>
                                                         </span>
-                                                        <span class="text-sm sm:text-base font-semibold">AudioMack</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">AudioMack</span>
                                                 </button>
 
                                                 <!-- Boomplay -->
@@ -643,21 +639,21 @@
                                                         aria-label="Boomplay"
                                                         @click="platformAvailability.boomplay && handleCategoryButtonClick('boomplay')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'boomplay',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'boomplay',
+                                                                'active is-active': selectedCategoryId === 'boomplay',
+ 'boomplay',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.boomplay
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'boomplay'"
                                                         :aria-disabled="!platformAvailability.boomplay"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                                         <path fill="#FF6B00" d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z"></path>
                                                                         <path fill="#FFFFFF" d="M24,14c5.523,0,10,4.477,10,10s-4.477,10-10,10s-10-4.477-10-10S18.477,14,24,14z"></path>
                                                                 </svg>
                                                         </span>
-                                                        <span class="text-sm sm:text-base font-semibold">Boomplay</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Boomplay</span>
                                                 </button>
 
                                                 <!-- Kick -->
@@ -666,21 +662,21 @@
                                                         aria-label="Kick"
                                                         @click="platformAvailability.kick && handleCategoryButtonClick('kick')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'kick',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'kick',
+                                                                'active is-active': selectedCategoryId === 'kick',
+ 'kick',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.kick
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'kick'"
                                                         :aria-disabled="!platformAvailability.kick"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                                         <path fill="#53FC18" d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z"></path>
                                                                         <path fill="#000000" d="M18,18h12v12H18V18z"></path>
                                                                 </svg>
                                                         </span>
-                                                        <span class="text-sm sm:text-base font-semibold">Kick</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Kick</span>
                                                 </button>
 
                                                 <!-- WhatsApp -->
@@ -689,21 +685,21 @@
                                                         aria-label="WhatsApp"
                                                         @click="platformAvailability.whatsapp && handleCategoryButtonClick('whatsapp')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'whatsapp',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'whatsapp',
+                                                                'active is-active': selectedCategoryId === 'whatsapp',
+ 'whatsapp',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.whatsapp
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'whatsapp'"
                                                         :aria-disabled="!platformAvailability.whatsapp"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                                         <path fill="#25D366" d="M24,4C12.954,4,4,12.954,4,24c0,3.549,1.008,6.867,2.75,9.687L4,44l10.313-2.75C17.133,41.992,20.451,43,24,43c11.046,0,20-8.954,20-20S35.046,4,24,4z"></path>
                                                                         <path fill="#FFFFFF" d="M24,12c-6.627,0-12,5.373-12,12c0,2.126,0.554,4.121,1.523,5.858L12,32l2.142-1.523C15.879,31.446,17.874,32,20,32c6.627,0,12-5.373,12-12S30.627,12,24,12z"></path>
                                                                 </svg>
                                                         </span>
-                                                        <span class="text-sm sm:text-base font-semibold">WhatsApp</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">WhatsApp</span>
                                                 </button>
 
                                                 <!-- KuaiShou -->
@@ -712,21 +708,21 @@
                                                         aria-label="KuaiShou"
                                                         @click="platformAvailability.kuaishou && handleCategoryButtonClick('kuaishou')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'kuaishou',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'kuaishou',
+                                                                'active is-active': selectedCategoryId === 'kuaishou',
+ 'kuaishou',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.kuaishou
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'kuaishou'"
                                                         :aria-disabled="!platformAvailability.kuaishou"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                                         <path fill="#FF6600" d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z"></path>
                                                                         <path fill="#FFFFFF" d="M24,14c5.523,0,10,4.477,10,10s-4.477,10-10,10s-10-4.477-10-10S18.477,14,24,14z"></path>
                                                                 </svg>
                                                         </span>
-                                                        <span class="text-sm sm:text-base font-semibold">KuaiShou</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">KuaiShou</span>
                                                 </button>
 
                                                 <!-- Douyin -->
@@ -735,21 +731,21 @@
                                                         aria-label="Douyin"
                                                         @click="platformAvailability.douyin && handleCategoryButtonClick('douyin')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'douyin',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'douyin',
+                                                                'active is-active': selectedCategoryId === 'douyin',
+ 'douyin',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.douyin
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'douyin'"
                                                         :aria-disabled="!platformAvailability.douyin"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                                         <path fill="#000000" d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z"></path>
                                                                         <path fill="#FFFFFF" d="M24,14c5.523,0,10,4.477,10,10s-4.477,10-10,10s-10-4.477-10-10S18.477,14,24,14z"></path>
                                                                 </svg>
                                                         </span>
-                                                        <span class="text-sm sm:text-base font-semibold">Douyin</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Douyin</span>
                                                 </button>
 
                                                 <!-- Shazam -->
@@ -758,21 +754,21 @@
                                                         aria-label="Shazam"
                                                         @click="platformAvailability.shazam && handleCategoryButtonClick('shazam')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'shazam',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'shazam',
+                                                                'active is-active': selectedCategoryId === 'shazam',
+ 'shazam',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.shazam
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'shazam'"
                                                         :aria-disabled="!platformAvailability.shazam"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                                         <path fill="#1476FF" d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z"></path>
                                                                         <path fill="#FFFFFF" d="M24,14c5.523,0,10,4.477,10,10s-4.477,10-10,10s-10-4.477-10-10S18.477,14,24,14z"></path>
                                                                 </svg>
                                                         </span>
-                                                        <span class="text-sm sm:text-base font-semibold">Shazam</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Shazam</span>
                                                 </button>
 
                                                 <!-- Fanvue -->
@@ -781,21 +777,21 @@
                                                         aria-label="Fanvue"
                                                         @click="platformAvailability.fanvue && handleCategoryButtonClick('fanvue')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'fanvue',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'fanvue',
+                                                                'active is-active': selectedCategoryId === 'fanvue',
+ 'fanvue',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.fanvue
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'fanvue'"
                                                         :aria-disabled="!platformAvailability.fanvue"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                                         <path fill="#FF6B9D" d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z"></path>
                                                                         <path fill="#FFFFFF" d="M24,14c5.523,0,10,4.477,10,10s-4.477,10-10,10s-10-4.477-10-10S18.477,14,24,14z"></path>
                                                                 </svg>
                                                         </span>
-                                                        <span class="text-sm sm:text-base font-semibold">Fanvue</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">Fanvue</span>
                                                 </button>
 
                                                 <!-- FanCentro -->
@@ -804,21 +800,21 @@
                                                         aria-label="FanCentro"
                                                         @click="platformAvailability.fancentro && handleCategoryButtonClick('fancentro')"
                                                         :class="{
-                                                                'bg-primary-500 dark:bg-primary-600 text-white border-primary-500 dark:border-primary-600 shadow-lg scale-105': selectedCategoryId === 'fancentro',
-                                                                'bg-white dark:bg-[#1e3a5f] text-gray-700 dark:text-gray-300 border-gray-200 dark:border-[#2d4a6f] hover:bg-gray-50 dark:hover:bg-[#2d4a6f]': selectedCategoryId !== 'fancentro',
+                                                                'active is-active': selectedCategoryId === 'fancentro',
+ 'fancentro',
                                                                 'opacity-40 pointer-events-none cursor-not-allowed': !platformAvailability.fancentro
                                                         }"
                                                         :aria-pressed="selectedCategoryId === 'fancentro'"
                                                         :aria-disabled="!platformAvailability.fancentro"
-                                                        class="group flex-shrink-0 min-w-[100px] text-left rounded-xl border px-4 py-2.5 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500/50 dark:focus:ring-primary-400/50 flex items-center gap-2 font-medium"
+                                                        class="nwo-cat-btn group flex-shrink-0 min-w-[100px] text-left rounded-xl bg-white dark:bg-[#1e3a5f] border border-gray-200/70 dark:border-[#2d4a6f] px-4 py-2 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500/30 flex items-center gap-1"
                                                 >
-                                                        <span class="flex items-center justify-center rounded-lg p-1 group-hover:scale-110 transition-transform duration-200">
+                                                        <span class="flex items-center justify-center rounded-xl group-hover:scale-110 transition-transform duration-200">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" class="h-5 w-5">
                                                                         <path fill="#00A8FF" d="M24,4C12.954,4,4,12.954,4,24s8.954,20,20,20s20-8.954,20-20S35.046,4,24,4z"></path>
                                                                         <path fill="#FFFFFF" d="M24,14c5.523,0,10,4.477,10,10s-4.477,10-10,10s-10-4.477-10-10S18.477,14,24,14z"></path>
                                                                 </svg>
                                                         </span>
-                                                        <span class="text-sm sm:text-base font-semibold">FanCentro</span>
+                                                        <span class="text-md font-semibold group-hover:text-blue-500">FanCentro</span>
                                                 </button>
                                 </div>
                                 <div class="flex flex-col gap-4 sm:gap-5 lg:gap-6 py-4">
@@ -1238,14 +1234,28 @@
 {% else %}
 <!-- Start ; SERVICES -->
   <section class="services-landing">
-          <div class="page-title services-landing__hero dark relative flex overflow-hidden bg-[#0A2753]">
-                  <div class="container mx-auto flex justify-between">
+          <div class="page-title services-landing__hero dark relative flex overflow-hidden bg-gradient-to-br from-[#0A2753] via-[#0F3A6B] to-[#0A2753]">
+                  <!-- Enhanced Background Layers -->
+                  <div class="absolute inset-0 overflow-hidden pointer-events-none">
+                          <!-- Animated Gradient Orbs -->
+                          <div class="absolute top-0 right-0 w-96 h-96 bg-primary-400/20 rounded-full blur-3xl animate-pulse"></div>
+                          <div class="absolute bottom-0 left-0 w-96 h-96 bg-cyan-400/15 rounded-full blur-3xl animate-pulse" style="animation-delay: 1s;"></div>
+                          <div class="absolute top-1/2 right-1/4 w-64 h-64 bg-blue-400/10 rounded-full blur-2xl"></div>
+                          
+                          <!-- Subtle Grid Pattern Overlay -->
+                          <div class="absolute inset-0 opacity-[0.03]" style="background-image: linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 50px 50px;"></div>
+                          
+                          <!-- Radial Gradient Overlay for Depth -->
+                          <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, transparent 0%, rgba(10, 39, 83, 0.5) 100%);"></div>
+                  </div>
+                  
+                  <div class="container mx-auto flex justify-between relative z-10 p-6">
                         <div class="page-headings flex flex-col justify-center space-y-4 pr-[40px]">
                                 <span class="text__highlight w-fit">Services</span>
                                 <h1 class="z-10 text-3xl font-semibold leading-[1.4em] text-white md:text-5xl">
                                         Transform Your Online Presence with Our Services
                                 </h1>
-                                <p class="text-gray-700 dark:text-gray-300">
+                                <p class="text-gray-200 dark:text-gray-300">
                                         We're all about making your brand shine online. Our Social Media
                                         Marketing (SMM) services are like your brand's cheerleaders. They work
                                         hard to boost your presence on Facebook, Instagram, Twitter, and
@@ -1257,9 +1267,9 @@
                                 </p>
                         </div>
                   </div>
-                  <svg class="absolute -bottom-[50%] left-0 md:-bottom-[10%] lg:bottom-0" width="488" height="306"
+                  <svg class="absolute -bottom-[50%] left-0 md:-bottom-[10%] lg:bottom-0 z-0" width="488" height="306"
                           viewbox="0 0 488 306" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path opacity="0.34"
+                          <path opacity="0.4"
                                   d="M-158.855 18.8875C-117.176 -5.17616 -65.8243 -5.17616 -24.1448 18.8875L420.083 275.362C461.762 299.426 487.438 343.898 487.438 392.025V904.975C487.438 953.102 461.762 997.574 420.083 1021.64L-24.1448 1278.11C-65.8243 1302.18 -117.176 1302.18 -158.855 1278.11L-603.083 1021.64C-644.762 997.574 -670.438 953.102 -670.438 904.975V392.025C-670.438 343.898 -644.762 299.426 -603.083 275.362L-158.855 18.8875Z"
                                   fill="url(#paint0_linear_6163_12011)" />
                           <defs>
@@ -1272,7 +1282,7 @@
           </div>
 
           <div class="services-landing__body max-w-7xl mx-auto">
-                  <section class="services-overview">
+                  <section class="services-overview p-6">
                           <div class="services-overview__grid px-10">
                                   <article class="services-overview__card">
                                           <h4 class="text-xl font-medium">Facebook SMM Panel</h4>

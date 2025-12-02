@@ -14,7 +14,13 @@ module.exports = {
     "./HTML/blog.twig",
     "./HTML/blogpost.twig",
     "./HTML/newpage.twig",
+    "./HTML/contact-us.twig",
+    "./HTML/privacy-policy.twig",
     "./HTML/layout.twig", // Include layout for guest mode
+    "./HTML/ai-tools/*.twig",
+    "./HTML/targeted/*.twig",
+    "./HTML/pages/*.twig",
+    "./HTML/ar-files/*.twig",
     "./JS/**/*.js",
   ],
   theme: {

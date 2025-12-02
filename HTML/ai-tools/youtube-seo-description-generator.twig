@@ -1,225 +1,335 @@
-<section class="ai-hero-section ai-hero-section--youtube">
-    <div class="container mx-auto px-4">
-        <div class="ai-hero__panel">
-            <div class="ai-hero__content text-center md:text-left">
-                <span class="ai-hero__badge">YouTube AI Tool</span>
-                <div class="intro space-y-6">
-                    <h1 class="heading--main">
-                        YouTube <span>SEO Description Generator</span>
-                    </h1>
-                    <p class="ai-hero__description text-justify text-center md:text-left">
-                        Want your YouTube videos to get more views? A good description helps your video rank higher and reach more people. Our YouTube SEO Description Generator makes it easy to create engaging descriptions that include the right keywords. Let's get started!
-                    </p>
-                </div>
-            </div>
-
-            <div class="ai-hero__form">
-                <div id="customContentGeneratorContainer" class="flex flex-col gap-4">
-                    <input type="text" id="userInput" class="customInput" placeholder="Enter your video topic here..."/>
-                    <select id="languageSelect" class="customInput">
-                        <option value="English" selected>English</option>
-                        <option value="Mandarin">Mandarin</option>
-                        <option value="Spanish">Spanish</option>
-                        <option value="Hindi">Hindi</option>
-                        <option value="French">French</option>
-                        <option value="Arabic">Arabic</option>
-                        <option value="Bengali">Bengali</option>
-                        <option value="Russian">Russian</option>
-                        <option value="Portuguese">Portuguese</option>
-                        <option value="Indonesian">Indonesian</option>
-                        <option value="German">German</option>
-                        <option value="Japanese">Japanese</option>
-                        <option value="Punjabi">Punjabi</option>
-                        <option value="Italian">Italian</option>
-                        <option value="Korean">Korean</option>
-                        <option value="Turkish">Turkish</option>
-                        <option value="Vietnamese">Vietnamese</option>
-                    </select>
-                    <button id="generateContentButton" class="customButton">Generate Description</button>
-                    <div id="customLoader" class="hidden">Generating description, please wait...</div>
-                </div>
-
-                <div id="customGeneratedContent" class="ai-hero__output mt-4 md:mt-6">
-                    <textarea id="generatedContentTextarea" class="customTextarea hidden"></textarea>
-                </div>
-            </div>
+<section class="flex flex-col lg:flex-row bg-gradient-to-br from-slate-50 via-primary-50/30 to-accent-50/20 dark:from-dark dark:via-dark-secondary dark:to-dark transition-all duration-300 hero overflow-hidden">
+    <!-- Left Section: Promotional Content -->
+    <div class="flex flex-1 items-center justify-center relative p-6 sm:p-8 lg:p-10 xl:p-12 order-2 lg:order-1">
+        <!-- Decorative Background Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-primary-200/20 dark:bg-primary-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-accent-200/20 dark:bg-accent-500/10 rounded-full blur-3xl"></div>
         </div>
+        <div class="max-w-lg w-full space-y-5 sm:space-y-6 relative z-10">
+            <!-- Badge -->
+            <div class="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-white/90 dark:bg-dark-secondary/90 backdrop-blur-md border border-primary-200/50 dark:border-primary-500/30 rounded-full text-xs sm:text-sm font-medium text-primary-600 dark:text-primary-400 shadow-sm transition-all duration-300 hover:shadow-md">
+                <svg class="w-3 h-3 sm:w-4 sm:h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+                YouTube AI Tool
+            </div>
 
-        <div class="ai-hero__steps mx-auto mt-12 text-center md:w-9/12">
-            <span class="text__highlight inline-block">3 STEPS</span>
-            <h2 class="heading--main">How to Use Our <span>YouTube SEO Description Generator</span></h2>
-            <p class="text-justify text-center">
-                Creating a good YouTube description is easy with our tool. Just follow these three steps:
+            <!-- Main Heading -->
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 dark:text-slate-100 leading-tight tracking-tight">
+                YouTube <span class="text-primary-500 dark:text-primary-400">SEO Description Generator</span>
+            </h1>
+
+            <!-- Description -->
+            <p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 leading-relaxed">
+                Want your YouTube videos to get more views? A good description helps your video rank higher and reach more people. Our YouTube SEO Description Generator makes it easy to create engaging descriptions that include the right keywords. Let's get started!
             </p>
         </div>
-
-        <div class="box-wrapper mt-8 md:mt-10">
-            <div class="box">
-                <div class="box-title"><h3>Enter Your Video Topic</h3></div>
-                <div class="box-description">Start by typing the topic of your video. This helps our tool understand what your video is about, so it can create the right description for you.</div>
-            </div>
-            <div class="box">
-                <div class="box-title"><h3>Select Your Language</h3></div>
-                <div class="box-description">Choose the language you want your description in. We support many languages so you can connect with your audience better.</div>
-            </div>
-            <div class="box">
-                <div class="box-title"><h3>Click 'Generate' and Get Your Description</h3></div>
-                <div class="box-description">Click the 'Generate' button, and you'll get a YouTube description that is ready to use. You can edit it if needed or just copy and paste it under your video.</div>
-            </div>
-        </div>
-
     </div>
-</section>
 
-<section class="mt-16">
-    <div class="container mx-auto text-center px-4">
-        <h3 class="heading--main">FAQ</h3>
-        <div class="faqs">
-            <div class="faqs__tab md:columns-2">
-                <div class="tab__item">
-                    <a class="tab__label">
-                        <span>
-                            What is the YouTube SEO Description Generator?
-                        </span>
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 17V9M9 9V1M9 9H17M9 9H1" stroke="#02030E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </a>
-                    <p>
-                        The YouTube SEO Description Generator is a tool that helps you create video descriptions that can improve your ranking on YouTube.
-                    </p>
+    <!-- Right Section: Form -->
+    <div class="flex-1 flex items-center justify-center py-6 sm:py-8 lg:py-10 px-4 sm:px-6 lg:px-8 xl:px-12 order-1 lg:order-2 transition-all duration-300 relative">
+        <!-- Decorative Background for Form Section -->
+        <div class="absolute inset-0 bg-gradient-to-br from-white/50 to-gray-50/50 dark:from-dark-secondary/50 dark:to-dark/50 pointer-events-none"></div>
+        <div class="max-w-lg w-full h-full space-y-5 sm:space-y-6 relative z-10">
+            <!-- Form Card -->
+            <div class="bg-white/95 dark:bg-dark-secondary/95 backdrop-blur-sm rounded-xl shadow-lg dark:shadow-2xl border border-gray-200/50 dark:border-dark-tertiary/50 p-6 sm:p-8 transition-all duration-300 hover:shadow-xl dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30">
+                <div id="customContentGeneratorContainer" class="space-y-4">
+                    <div>
+                        <label for="userInput" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">
+                            Enter Your Video Topic
+                        </label>
+                        <input 
+                            type="text" 
+                            id="userInput" 
+                            class="appearance-none relative block w-full px-4 py-3 border border-primary-200 dark:border-primary-500/30 placeholder-gray-400 dark:placeholder-slate-500 text-gray-900 dark:text-slate-100 dark:bg-dark-tertiary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 sm:text-sm transition-colors" 
+                            placeholder="Enter your video topic here..."
+                        />
+                    </div>
+                    
+                    <div>
+                        <label for="languageSelect" class="block text-sm font-medium text-gray-700 dark:text-slate-300 mb-2">
+                            Select Language
+                        </label>
+                        <select 
+                            id="languageSelect" 
+                            class="appearance-none relative block w-full px-4 py-3 border border-primary-200 dark:border-primary-500/30 text-gray-900 dark:text-slate-100 dark:bg-dark-tertiary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 sm:text-sm transition-colors"
+                        >
+                            <option value="English" selected>English</option>
+                            <option value="Mandarin">Mandarin</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="Hindi">Hindi</option>
+                            <option value="French">French</option>
+                            <option value="Arabic">Arabic</option>
+                            <option value="Bengali">Bengali</option>
+                            <option value="Russian">Russian</option>
+                            <option value="Portuguese">Portuguese</option>
+                            <option value="Indonesian">Indonesian</option>
+                            <option value="German">German</option>
+                            <option value="Japanese">Japanese</option>
+                            <option value="Punjabi">Punjabi</option>
+                            <option value="Italian">Italian</option>
+                            <option value="Korean">Korean</option>
+                            <option value="Turkish">Turkish</option>
+                            <option value="Vietnamese">Vietnamese</option>
+                        </select>
+                    </div>
+                    
+                    <button 
+                        id="generateContentButton" 
+                        class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-all shadow-md hover:shadow-lg"
+                    >
+                        Generate Description
+                    </button>
+                    
+                    <div id="customLoader" class="hidden text-center text-sm text-gray-600 dark:text-slate-400 py-2">
+                        Generating description, please wait...
+                    </div>
                 </div>
 
-                <div class="tab__item">
-                    <a class="tab__label">
-                        <span>
-                            How does this tool help my YouTube video?
-                        </span>
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 17V9M9 9V1M9 9H17M9 9H1" stroke="#02030E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </a>
-                    <p>
-                        It helps by adding keywords and making the description clear, so more people can find your video.
-                    </p>
-                </div>
-
-                <div class="tab__item">
-                    <a class="tab__label">
-                        <span>
-                            Can I use this tool for any type of video?
-                        </span>
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 17V9M9 9V1M9 9H17M9 9H1" stroke="#02030E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </a>
-                    <p>
-                        Yes, you can use it for any kind of video, from tutorials to vlogs to product reviews.
-                    </p>
-                </div>
-
-                <div class="tab__item">
-                    <a class="tab__label">
-                        <span>
-                            What languages does the tool support?
-                        </span>
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 17V9M9 9V1M9 9H17M9 9H1" stroke="#02030E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </a>
-                    <p>
-                        It supports many languages, including English, Spanish, French, German, Hindi, and more.
-                    </p>
-                </div>
-
-                <div class="tab__item">
-                    <a class="tab__label">
-                        <span>
-                            Is each description unique?
-                        </span>
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 17V9M9 9V1M9 9H17M9 9H1" stroke="#02030E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </a>
-                    <p>
-                        Yes, every description is unique and written to match your video topic.
-                    </p>
-                </div>
-
-                <div class="tab__item">
-                    <a class="tab__label">
-                        <span>
-                            Can I edit the description after it is generated?
-                        </span>
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 17V9M9 9V1M9 9H17M9 9H1" stroke="#02030E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </a>
-                    <p>
-                        Of course! You can edit the description to make it fit your style or add any extra details.
-                    </p>
-                </div>
-
-                <div class="tab__item">
-                    <a class="tab__label">
-                        <span>
-                            Is this tool good for beginners?
-                        </span>
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 17V9M9 9V1M9 9H17M9 9H1" stroke="#02030E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </a>
-                    <p>
-                        Yes, it's easy to use and perfect for beginners who want to improve their YouTube video rankings.
-                    </p>
-                </div>
-
-                <div class="tab__item">
-                    <a class="tab__label">
-                        <span>
-                            Do I need to create an account?
-                        </span>
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 17V9M9 9V1M9 9H17M9 9H1" stroke="#02030E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </a>
-                    <p>
-                        No, you can use it without signing up. But having an account helps you save your descriptions.
-                    </p>
-                </div>
-
-                <div class="tab__item">
-                    <a class="tab__label">
-                        <span>
-                            Can I generate multiple descriptions at once?
-                        </span>
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 17V9M9 9V1M9 9H17M9 9H1" stroke="#02030E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </a>
-                    <p>
-                        Right now, you can generate one description at a time. But you can use the tool as many times as you need.
-                    </p>
-                </div>
-
-                <div class="tab__item">
-                    <a class="tab__label">
-                        <span>
-                            Is the YouTube SEO Description Generator free?
-                        </span>
-                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 17V9M9 9V1M9 9H17M9 9H1" stroke="#02030E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-                        </svg>
-                    </a>
-                    <p>
-                        Yes, it's free to use and you can make as many descriptions as you need!
-                    </p>
+                <div id="customGeneratedContent" class="mt-6">
+                    <textarea 
+                        id="generatedContentTextarea" 
+                        class="hidden w-full px-4 py-3 border border-primary-200 dark:border-primary-500/30 text-gray-900 dark:text-slate-100 dark:bg-dark-tertiary rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 sm:text-sm transition-colors min-h-[200px] resize-y"
+                        placeholder="Generated description will appear here..."
+                    ></textarea>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+<!-- How to Use Section -->
+<section class="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-dark transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Badge -->
+        <div class="text-center mb-6">
+            <div class="inline-flex items-center px-4 py-2 bg-primary-100 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-500/30 rounded-full text-sm font-medium text-gray-700 dark:text-slate-300 shadow-sm">
+                3 STEPS
+            </div>
+        </div>
+
+        <!-- Main Heading -->
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-100 text-center mb-6 sm:mb-8 leading-tight">
+            How to Use Our <span class="text-primary-500 dark:text-primary-400">YouTube SEO Description Generator</span>
+        </h2>
+
+        <!-- Description -->
+        <p class="text-base sm:text-lg text-gray-700 dark:text-slate-300 text-center max-w-3xl mx-auto mb-10 sm:mb-12 leading-relaxed">
+            Creating a good YouTube description is easy with our tool. Just follow these three steps:
+        </p>
+
+        <!-- Steps Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            <!-- Step 1 -->
+            <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-lg dark:shadow-xl p-6 sm:p-8 transition-all duration-300 hover:shadow-xl dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 border border-transparent dark:border-dark-tertiary">
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-primary-500 rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold text-lg sm:text-xl">1</span>
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-slate-100 mb-3">
+                            Enter Your Video Topic
+                        </h3>
+                        <p class="text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+                            Start by typing the topic of your video. This helps our tool understand what your video is about, so it can create the right description for you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-lg dark:shadow-xl p-6 sm:p-8 transition-all duration-300 hover:shadow-xl dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 border border-transparent dark:border-dark-tertiary">
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-primary-500 rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold text-lg sm:text-xl">2</span>
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-slate-100 mb-3">
+                            Select Your Language
+                        </h3>
+                        <p class="text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+                            Choose the language you want your description in. We support many languages so you can connect with your audience better.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-lg dark:shadow-xl p-6 sm:p-8 transition-all duration-300 hover:shadow-xl dark:hover:shadow-2xl hover:border-primary-200 dark:hover:border-primary-500/30 border border-transparent dark:border-dark-tertiary">
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 sm:w-14 sm:h-14 bg-primary-500 rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold text-lg sm:text-xl">3</span>
+                        </div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-slate-100 mb-3">
+                            Click 'Generate' and Get Your Description
+                        </h3>
+                        <p class="text-base text-gray-700 dark:text-slate-300 leading-relaxed">
+                            Click the 'Generate' button, and you'll get a YouTube description that is ready to use. You can edit it if needed or just copy and paste it under your video.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="py-12 sm:py-16 lg:py-20 bg-gray-50 dark:bg-dark transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- FAQ Badge -->
+        <div class="text-center mb-6">
+            <div class="inline-flex items-center px-4 py-2 bg-primary-100 dark:bg-primary-900/30 border border-primary-200 dark:border-primary-500/30 rounded-full text-sm font-medium text-gray-700 dark:text-slate-300 shadow-sm">
+                F.A.Q
+            </div>
+        </div>
+
+        <!-- Main Heading -->
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-slate-100 text-center mb-10 sm:mb-12">
+            Frequently Asked Questions
+        </h2>
+
+        <!-- FAQ Accordion -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6" role="region" aria-label="Frequently Asked Questions">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border-2 border-primary-200 dark:border-primary-500/30 shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="1" aria-expanded="true" aria-controls="faq-answer-1" id="faq-question-1">
+                    <span class="font-semibold text-gray-900 dark:text-slate-100 text-base sm:text-lg pr-4">What is the YouTube SEO Description Generator?</span>
+                    <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-primary-500 flex-shrink-0 transform transition-transform rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <div id="faq-answer-1" class="faq-answer p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-1">
+                    <p>The YouTube SEO Description Generator is a tool that helps you create video descriptions that can improve your ranking on YouTube.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="2" aria-expanded="false" aria-controls="faq-answer-2" id="faq-question-2">
+                    <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">How does this tool help my YouTube video?</span>
+                    <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                </button>
+                <div id="faq-answer-2" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-2">
+                    <p>It helps by adding keywords and making the description clear, so more people can find your video.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="3" aria-expanded="false" aria-controls="faq-answer-3" id="faq-question-3">
+                    <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">Can I use this tool for any type of video?</span>
+                    <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                </button>
+                <div id="faq-answer-3" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-3">
+                    <p>Yes, you can use it for any kind of video, from tutorials to vlogs to product reviews.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="4" aria-expanded="false" aria-controls="faq-answer-4" id="faq-question-4">
+                    <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">What languages does the tool support?</span>
+                    <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                </button>
+                <div id="faq-answer-4" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-4">
+                    <p>It supports many languages, including English, Spanish, French, German, Hindi, and more.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="5" aria-expanded="false" aria-controls="faq-answer-5" id="faq-question-5">
+                    <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">Is each description unique?</span>
+                    <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                </button>
+                <div id="faq-answer-5" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-5">
+                    <p>Yes, every description is unique and written to match your video topic.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 6 -->
+            <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="6" aria-expanded="false" aria-controls="faq-answer-6" id="faq-question-6">
+                    <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">Can I edit the description after it is generated?</span>
+                    <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                </button>
+                <div id="faq-answer-6" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-6">
+                    <p>Of course! You can edit the description to make it fit your style or add any extra details.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 7 -->
+            <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="7" aria-expanded="false" aria-controls="faq-answer-7" id="faq-question-7">
+                    <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">Is this tool good for beginners?</span>
+                    <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                </button>
+                <div id="faq-answer-7" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-7">
+                    <p>Yes, it's easy to use and perfect for beginners who want to improve their YouTube video rankings.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 8 -->
+            <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="8" aria-expanded="false" aria-controls="faq-answer-8" id="faq-question-8">
+                    <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">Do I need to create an account?</span>
+                    <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                </button>
+                <div id="faq-answer-8" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-8">
+                    <p>No, you can use it without signing up. But having an account helps you save your descriptions.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 9 -->
+            <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="9" aria-expanded="false" aria-controls="faq-answer-9" id="faq-question-9">
+                    <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">Can I generate multiple descriptions at once?</span>
+                    <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                </button>
+                <div id="faq-answer-9" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-9">
+                    <p>Right now, you can generate one description at a time. But you can use the tool as many times as you need.</p>
+                </div>
+            </div>
+
+            <!-- FAQ Item 10 -->
+            <div class="faq-item bg-white dark:bg-dark-secondary rounded-lg border border-gray-200 dark:border-dark-tertiary shadow-sm dark:shadow-md overflow-hidden transition-all duration-300 hover:shadow-md dark:hover:shadow-lg">
+                <button class="faq-question w-full flex items-center justify-between p-4 sm:p-6 text-left hover:bg-gray-50 dark:hover:bg-dark-tertiary transition-colors duration-200" data-faq="10" aria-expanded="false" aria-controls="faq-answer-10" id="faq-question-10">
+                    <span class="font-medium text-gray-700 dark:text-slate-300 text-base sm:text-lg pr-4">Is the YouTube SEO Description Generator free?</span>
+                    <svg class="faq-icon w-5 h-5 sm:w-6 sm:h-6 text-gray-400 flex-shrink-0 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                </button>
+                <div id="faq-answer-10" class="faq-answer hidden p-4 sm:p-6 pt-0 text-gray-700 dark:text-slate-300 leading-relaxed" role="region" aria-labelledby="faq-question-10">
+                    <p>Yes, it's free to use and you can make as many descriptions as you need!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <script src="https://ai-tools-phi.vercel.app/js/ai-client.js"></script>
 <script>
@@ -260,6 +370,60 @@ document.addEventListener('DOMContentLoaded', () => {
       btn.disabled = false;
       hide(loader);
     }
+  });
+
+  // FAQ Accordion functionality
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', () => {
+      const faqId = button.getAttribute('data-faq');
+      const answer = document.getElementById(`faq-answer-${faqId}`);
+      const icon = button.querySelector('.faq-icon');
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+      // Close all other FAQs
+      document.querySelectorAll('.faq-item').forEach(item => {
+        const otherButton = item.querySelector('.faq-question');
+        const otherAnswer = item.querySelector('.faq-answer');
+        const otherIcon = otherButton.querySelector('.faq-icon');
+        if (otherButton !== button) {
+          otherButton.setAttribute('aria-expanded', 'false');
+          otherAnswer.classList.add('hidden');
+          otherAnswer.classList.remove('block');
+          otherIcon.classList.remove('rotate-45');
+          const otherItem = item;
+          otherItem.classList.remove('border-2', 'border-primary-200', 'dark:border-primary-500/30');
+          otherItem.classList.add('border', 'border-gray-200', 'dark:border-dark-tertiary');
+          otherButton.querySelector('span').classList.remove('font-semibold', 'text-gray-900', 'dark:text-slate-100');
+          otherButton.querySelector('span').classList.add('font-medium', 'text-gray-700', 'dark:text-slate-300');
+        }
+      });
+
+      // Toggle current FAQ
+      if (isExpanded) {
+        button.setAttribute('aria-expanded', 'false');
+        answer.classList.add('hidden');
+        answer.classList.remove('block');
+        icon.classList.remove('rotate-45');
+        icon.classList.add('text-gray-400');
+        const item = button.closest('.faq-item');
+        item.classList.remove('border-2', 'border-primary-200', 'dark:border-primary-500/30');
+        item.classList.add('border', 'border-gray-200', 'dark:border-dark-tertiary');
+        button.querySelector('span').classList.remove('font-semibold', 'text-gray-900', 'dark:text-slate-100');
+        button.querySelector('span').classList.add('font-medium', 'text-gray-700', 'dark:text-slate-300');
+      } else {
+        button.setAttribute('aria-expanded', 'true');
+        answer.classList.remove('hidden');
+        answer.classList.add('block');
+        icon.classList.add('rotate-45');
+        icon.classList.remove('text-gray-400');
+        icon.classList.add('text-primary-500');
+        const item = button.closest('.faq-item');
+        item.classList.remove('border', 'border-gray-200', 'dark:border-dark-tertiary');
+        item.classList.add('border-2', 'border-primary-200', 'dark:border-primary-500/30');
+        button.querySelector('span').classList.remove('font-medium', 'text-gray-700', 'dark:text-slate-300');
+        button.querySelector('span').classList.add('font-semibold', 'text-gray-900', 'dark:text-slate-100');
+      }
+    });
   });
 });
 </script>

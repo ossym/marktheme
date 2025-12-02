@@ -1,0 +1,135 @@
+{% if user['auth'] %}
+<div class="min-h-screen bg-gray-50 dark:bg-dark transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div class="mb-8 sm:mb-12">
+            <div class="bg-gradient-to-br from-yellow-400 via-yellow-500 to-yellow-600 dark:from-yellow-500 dark:via-yellow-600 dark:to-yellow-700 rounded-2xl shadow-xl overflow-hidden relative">
+                <div class="absolute inset-0 bg-black/10 dark:bg-black/20"></div>
+                <div class="relative px-6 sm:px-8 lg:px-12 py-8 sm:py-12 lg:py-16">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 sm:w-16 sm:h-16 bg-white/20 dark:bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center">
+                            <svg class="w-6 h-6 sm:w-8 sm:h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.746-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12.017 24c6.624 0 11.99-5.367 11.99-11.987C24.007 5.367 18.641.001 12.017.001z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-2">مشاهدات سناب شات</h1>
+                            <p class="text-yellow-100 dark:text-yellow-200 text-sm sm:text-base">زيادة مشاهدات قصصك</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-md border border-gray-200 dark:border-dark-tertiary overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div class="p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">مشاهدات عادية</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">مشاهدات عالية الجودة</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-600 dark:text-gray-300">الحد الأدنى:</span>
+                            <span class="text-sm font-semibold text-gray-900 dark:text-white">100</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-600 dark:text-gray-300">الحد الأقصى:</span>
+                            <span class="text-sm font-semibold text-gray-900 dark:text-white">1,000,000</span>
+                        </div>
+                        <div class="flex items-center justify-between border-t border-gray-200 dark:border-gray-700 pt-3">
+                            <span class="text-base font-semibold text-gray-900 dark:text-white">السعر:</span>
+                            <span class="text-xl font-bold text-primary-600 dark:text-primary-400">$0.12</span>
+                        </div>
+                    </div>
+                    <a href="{{ page_url('neworder') }}" class="block w-full bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white text-center font-semibold py-3 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
+                        اطلب الآن
+                    </a>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-md border border-gray-200 dark:border-dark-tertiary overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div class="p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">مشاهدات مميزة</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">زيادة التفاعل</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-600 dark:text-gray-300">الحد الأدنى:</span>
+                            <span class="text-sm font-semibold text-gray-900 dark:text-white">500</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-600 dark:text-gray-300">الحد الأقصى:</span>
+                            <span class="text-sm font-semibold text-gray-900 dark:text-white">500,000</span>
+                        </div>
+                        <div class="flex items-center justify-between border-t border-gray-200 dark:border-gray-700 pt-3">
+                            <span class="text-base font-semibold text-gray-900 dark:text-white">السعر:</span>
+                            <span class="text-xl font-bold text-primary-600 dark:text-primary-400">$0.18</span>
+                        </div>
+                    </div>
+                    <a href="{{ page_url('neworder') }}" class="block w-full bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white text-center font-semibold py-3 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
+                        اطلب الآن
+                    </a>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-dark-secondary rounded-xl shadow-md border border-gray-200 dark:border-dark-tertiary overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                <div class="p-6">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                            <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-white">مشاهدات VIP</h3>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">أعلى جودة متاحة</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-600 dark:text-gray-300">الحد الأدنى:</span>
+                            <span class="text-sm font-semibold text-gray-900 dark:text-white">1,000</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-sm text-gray-600 dark:text-gray-300">الحد الأقصى:</span>
+                            <span class="text-sm font-semibold text-gray-900 dark:text-white">100,000</span>
+                        </div>
+                        <div class="flex items-center justify-between border-t border-gray-200 dark:border-gray-700 pt-3">
+                            <span class="text-base font-semibold text-gray-900 dark:text-white">السعر:</span>
+                            <span class="text-xl font-bold text-primary-600 dark:text-primary-400">$0.24</span>
+                        </div>
+                    </div>
+                    <a href="{{ page_url('neworder') }}" class="block w-full bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white text-center font-semibold py-3 px-4 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
+                        اطلب الآن
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="min-h-screen bg-gray-50 dark:bg-dark transition-colors duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <div class="bg-white dark:bg-dark-secondary rounded-2xl shadow-lg border border-gray-200 dark:border-dark-tertiary p-8 sm:p-12 text-center">
+            <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-4">يرجى تسجيل الدخول</h2>
+            <p class="text-gray-600 dark:text-gray-400 mb-6">يجب عليك تسجيل الدخول لعرض الخدمات</p>
+            <a href="{{ page_url('signin') }}" class="inline-block bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg">
+                تسجيل الدخول
+            </a>
+        </div>
+    </div>
+</div>
+{% endif %}
+

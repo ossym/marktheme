@@ -20,7 +20,10 @@ module.exports = {
     "./HTML/updates.twig",
     "./HTML/child_panel.twig",
     "./HTML/child_panel_order.twig",
+    "./HTML/contact-us.twig",
+    "./HTML/privacy-policy.twig",
     "./HTML/layout.twig", // Include layout for auth mode
+    "./HTML/ar-files/**/*.twig", // Arabic service pages
     "./JS/**/*.js",
   ],
   theme: {
