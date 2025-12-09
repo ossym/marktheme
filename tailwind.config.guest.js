@@ -11,6 +11,7 @@ module.exports = {
     "./HTML/2fa.twig",
     "./HTML/terms.twig",
     "./HTML/faq.twig",
+    "./HTML/api.twig",
     "./HTML/blog.twig",
     "./HTML/blogpost.twig",
     "./HTML/newpage.twig",

@@ -20,17 +20,17 @@
       <!-- Tabs and Search Card -->
       <div class="rounded-xl border border-gray-200 bg-white p-4 shadow-sm dark:border-gray-700 dark:bg-gray-800/50 space-y-6">
         <!-- Tabs -->
-        <div class="flex flex-wrap gap-2" role="tablist">
-          <!-- All Tab - Neutral/Cyan Color -->
-          <a href="{{ page['url'] }}{% if search %}?search={{ search }}{% endif %}" class="inline-flex items-center justify-center rounded-lg border px-4 py-2 text-sm font-medium transition-all duration-200 {% if 'all' == order_status %}border-cyan-500 bg-gradient-to-r from-cyan-500 to-teal-500 text-white shadow-md ring-cyan-500 dark:from-cyan-400 dark:to-teal-400 dark:ring-cyan-400{% else %}border-gray-300 bg-white text-gray-700 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-cyan-400 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300{% endif %}">
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-3 gap-3" role="tablist">
+          <!-- All Tab -->
+          <a href="{{ page['url'] }}{% if search %}?search={{ search }}{% endif %}" class="order-tab-btn flex items-center justify-center px-4 py-2.5 rounded-lg border text-sm font-medium transition-all duration-200 {% if 'all' == order_status %}bg-gradient-to-r from-primary-500 to-primary-600 text-white border-primary-500 shadow-md dark:from-primary-500 dark:to-primary-600{% else %}bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 border-primary-300 dark:border-primary-600 hover:bg-primary-100 dark:hover:bg-primary-900/30{% endif %}">
             {{ lang('orders.refunds.all') }}
           </a>
-          <!-- Canceled Tab - Red Color -->
-          <a href="{{ page['url'] }}?order_status=canceled{% if search %}&search={{ search }}{% endif %}" class="inline-flex items-center justify-center rounded-lg border px-4 py-2 text-sm font-medium transition-all duration-200 {% if 'canceled' == order_status %}border-red-500 bg-gradient-to-r from-red-500 to-red-600 text-white shadow-md ring-red-500 dark:from-red-400 dark:to-red-500 dark:ring-red-400{% else %}border-gray-300 bg-white text-gray-700 hover:border-red-500 hover:bg-red-50 hover:text-red-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-red-400 dark:hover:bg-red-900/30 dark:hover:text-red-300{% endif %}">
+          <!-- Canceled Tab -->
+          <a href="{{ page['url'] }}?order_status=canceled{% if search %}&search={{ search }}{% endif %}" class="order-tab-btn flex items-center justify-center px-4 py-2.5 rounded-lg border text-sm font-medium transition-all duration-200 {% if 'canceled' == order_status %}bg-red-500 dark:bg-red-600 text-white border-red-500 dark:border-red-600 shadow-md{% else %}bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 border-red-300 dark:border-red-600 hover:bg-red-100 dark:hover:bg-red-900/30{% endif %}">
             {{ lang('orders.refunds.canceled') }}
           </a>
-          <!-- Partial Tab - Amber/Yellow Color -->
-          <a href="{{ page['url'] }}?order_status=partial{% if search %}&search={{ search }}{% endif %}" class="inline-flex items-center justify-center rounded-lg border px-4 py-2 text-sm font-medium transition-all duration-200 {% if 'partial' == order_status %}border-amber-500 bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-md ring-amber-500 dark:from-amber-400 dark:to-amber-500 dark:ring-amber-400{% else %}border-gray-300 bg-white text-gray-700 hover:border-amber-500 hover:bg-amber-50 hover:text-amber-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-amber-400 dark:hover:bg-amber-900/30 dark:hover:text-amber-300{% endif %}">
+          <!-- Partial Tab -->
+          <a href="{{ page['url'] }}?order_status=partial{% if search %}&search={{ search }}{% endif %}" class="order-tab-btn flex items-center justify-center px-4 py-2.5 rounded-lg border text-sm font-medium transition-all duration-200 {% if 'partial' == order_status %}bg-yellow-500 dark:bg-yellow-600 text-white border-yellow-500 dark:border-yellow-600 shadow-md{% else %}bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-300 border-yellow-300 dark:border-yellow-600 hover:bg-yellow-100 dark:hover:bg-yellow-900/30{% endif %}">
             {{ lang('orders.refunds.partial') }}
           </a>
         </div>

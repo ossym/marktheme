@@ -62,36 +62,28 @@
             {% set baseUrl = item.key == 'all' ? page['url'] : page['url'] ~ '/' ~ item.key %}
             {% set isActive = currentStatus == item.key %}
             {% if item.key == 'all' %}
-              {% set activeClasses = 'border-cyan-500 bg-gradient-to-r from-cyan-500 to-teal-500 text-white shadow-md ring-cyan-500 dark:from-cyan-400 dark:to-teal-400 dark:ring-cyan-400' %}
-              {% set inactiveClasses = 'border-gray-300 bg-white text-gray-700 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-cyan-400 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300' %}
-              {% set dotColor = isActive ? 'bg-white' : 'bg-gray-400 dark:bg-gray-500' %}
+              {% set activeClasses = 'bg-gradient-to-r from-primary-500 to-primary-600 text-white border-primary-500 shadow-md dark:from-primary-500 dark:to-primary-600' %}
+              {% set inactiveClasses = 'bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 border-primary-300 dark:border-primary-600 hover:bg-primary-100 dark:hover:bg-primary-900/30' %}
             {% elseif item.key == 'active' %}
-              {% set activeClasses = 'border-green-500 bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-md ring-green-500 dark:from-green-400 dark:to-emerald-400 dark:ring-green-400' %}
-              {% set inactiveClasses = 'border-gray-300 bg-white text-gray-700 hover:border-green-500 hover:bg-green-50 hover:text-green-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-green-400 dark:hover:bg-green-900/30 dark:hover:text-green-300' %}
-              {% set dotColor = isActive ? 'bg-white' : 'bg-green-400 dark:bg-green-500' %}
+              {% set activeClasses = 'bg-green-500 dark:bg-green-600 text-white border-green-500 dark:border-green-600 shadow-md' %}
+              {% set inactiveClasses = 'bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 border-green-300 dark:border-green-600 hover:bg-green-100 dark:hover:bg-green-900/30' %}
             {% elseif item.key == 'paused' %}
-              {% set activeClasses = 'border-amber-500 bg-gradient-to-r from-amber-500 to-yellow-500 text-white shadow-md ring-amber-500 dark:from-amber-400 dark:to-yellow-400 dark:ring-amber-400' %}
-              {% set inactiveClasses = 'border-gray-300 bg-white text-gray-700 hover:border-amber-500 hover:bg-amber-50 hover:text-amber-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-amber-400 dark:hover:bg-amber-900/30 dark:hover:text-amber-300' %}
-              {% set dotColor = isActive ? 'bg-white' : 'bg-amber-400 dark:bg-amber-500' %}
+              {% set activeClasses = 'bg-yellow-500 dark:bg-yellow-600 text-white border-yellow-500 dark:border-yellow-600 shadow-md' %}
+              {% set inactiveClasses = 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-300 border-yellow-300 dark:border-yellow-600 hover:bg-yellow-100 dark:hover:bg-yellow-900/30' %}
             {% elseif item.key == 'completed' %}
-              {% set activeClasses = 'border-blue-500 bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-md ring-blue-500 dark:from-blue-400 dark:to-indigo-400 dark:ring-blue-400' %}
-              {% set inactiveClasses = 'border-gray-300 bg-white text-gray-700 hover:border-blue-500 hover:bg-blue-50 hover:text-blue-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-blue-400 dark:hover:bg-blue-900/30 dark:hover:text-blue-300' %}
-              {% set dotColor = isActive ? 'bg-white' : 'bg-blue-400 dark:bg-blue-500' %}
+              {% set activeClasses = 'bg-blue-500 dark:bg-blue-600 text-white border-blue-500 dark:border-blue-600 shadow-md' %}
+              {% set inactiveClasses = 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border-blue-300 dark:border-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30' %}
             {% elseif item.key == 'expired' %}
-              {% set activeClasses = 'border-red-500 bg-gradient-to-r from-red-500 to-rose-500 text-white shadow-md ring-red-500 dark:from-red-400 dark:to-rose-400 dark:ring-red-400' %}
-              {% set inactiveClasses = 'border-gray-300 bg-white text-gray-700 hover:border-red-500 hover:bg-red-50 hover:text-red-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-red-400 dark:hover:bg-red-900/30 dark:hover:text-red-300' %}
-              {% set dotColor = isActive ? 'bg-white' : 'bg-red-400 dark:bg-red-500' %}
+              {% set activeClasses = 'bg-red-500 dark:bg-red-600 text-white border-red-500 dark:border-red-600 shadow-md' %}
+              {% set inactiveClasses = 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 border-red-300 dark:border-red-600 hover:bg-red-100 dark:hover:bg-red-900/30' %}
             {% elseif item.key == 'canceled' %}
-              {% set activeClasses = 'border-gray-500 bg-gradient-to-r from-gray-500 to-slate-500 text-white shadow-md ring-gray-500 dark:from-gray-400 dark:to-slate-400 dark:ring-gray-400' %}
-              {% set inactiveClasses = 'border-gray-300 bg-white text-gray-700 hover:border-gray-500 hover:bg-gray-50 hover:text-gray-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-gray-400 dark:hover:bg-gray-900/30 dark:hover:text-gray-300' %}
-              {% set dotColor = isActive ? 'bg-white' : 'bg-gray-400 dark:bg-gray-500' %}
+              {% set activeClasses = 'bg-gray-500 dark:bg-gray-600 text-white border-gray-500 dark:border-gray-600 shadow-md' %}
+              {% set inactiveClasses = 'bg-gray-50 dark:bg-gray-900/20 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-900/30' %}
             {% else %}
-              {% set activeClasses = 'border-cyan-500 bg-gradient-to-r from-cyan-500 to-teal-500 text-white shadow-md ring-cyan-500 dark:from-cyan-400 dark:to-teal-400 dark:ring-cyan-400' %}
-              {% set inactiveClasses = 'border-gray-300 bg-white text-gray-700 hover:border-cyan-500 hover:bg-cyan-50 hover:text-cyan-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:hover:border-cyan-400 dark:hover:bg-cyan-900/30 dark:hover:text-cyan-300' %}
-              {% set dotColor = isActive ? 'bg-white' : 'bg-gray-400 dark:bg-gray-500' %}
+              {% set activeClasses = 'bg-gradient-to-r from-primary-500 to-primary-600 text-white border-primary-500 shadow-md dark:from-primary-500 dark:to-primary-600' %}
+              {% set inactiveClasses = 'bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 border-primary-300 dark:border-primary-600 hover:bg-primary-100 dark:hover:bg-primary-900/30' %}
             {% endif %}
-            <a href="{{ baseUrl }}{% if search %}?search={{ search|url_encode }}{% endif %}" class="inline-flex items-center gap-2 rounded-lg border px-4 py-2 text-sm font-medium transition-all duration-200 {% if isActive %}{{ activeClasses }}{% else %}{{ inactiveClasses }}{% endif %}" data-status="{{ item.key }}" role="tab" aria-selected="{{ isActive ? 'true' : 'false' }}">
-              <span class="h-2 w-2 rounded-full {{ dotColor }}" aria-hidden="true"></span>
+            <a href="{{ baseUrl }}{% if search %}?search={{ search|url_encode }}{% endif %}" class="order-tab-btn flex items-center justify-center px-4 py-2.5 rounded-lg border text-sm font-medium transition-all duration-200 {% if isActive %}{{ activeClasses }}{% else %}{{ inactiveClasses }}{% endif %}" data-status="{{ item.key }}" role="tab" aria-selected="{{ isActive ? 'true' : 'false' }}">
               {{ item.label }}
             </a>
           {% endfor %}

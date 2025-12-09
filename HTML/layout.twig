@@ -177,10 +177,11 @@
                         </button>
 
                         <!-- Add Funds Button -->
-                        <a href="{{ page_url('addfunds') }}" class="p-2 rounded-lg text-gray-400 hover:text-gray-500 hover:bg-gray-100 transition-colors" title="Add Funds" aria-label="Add funds to account">
+                        <a href="{{ page_url('addfunds') }}" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-medium shadow-md hover:shadow-lg transition-all duration-200 dark:from-primary-500 dark:to-primary-600 dark:hover:from-primary-600 dark:hover:to-primary-700" title="Add Funds" aria-label="Add funds to account">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
                             </svg>
+                            <span class="hidden sm:inline">Add Funds</span>
                         </a>
 
                         <!-- Balance Dropdown -->
@@ -208,7 +209,7 @@
 
                         <!-- User Menu -->
                         <div class="relative dropdown user-menu-dropdown">
-                            <button class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-100 transition-colors" data-toggle="dropdown" aria-label="User menu for {{ user.username }}" aria-expanded="false" aria-haspopup="true">
+                            <button class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-dark-tertiary transition-colors" data-toggle="dropdown" aria-label="User menu for {{ user.username }}" aria-expanded="false" aria-haspopup="true">
                                 <div class="w-8 h-8 rounded-full bg-gradient-to-br from-primary-500 to-primary-600 flex items-center justify-center shadow-sm" aria-hidden="true">
                                     {% if user.username and user.username[0] %}
                                         <span class="text-sm font-semibold text-white">{{ user.username[0]|upper }}</span>
@@ -218,18 +219,51 @@
                                         </svg>
                                     {% endif %}
                                 </div>
-                                <span class="hidden sm:block text-sm font-medium text-gray-700">{{ user.username }}</span>
-                                <svg class="hidden sm:block h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                <span class="hidden sm:block text-sm font-medium text-gray-700 dark:text-slate-100">{{ user.username }}</span>
+                                <svg class="hidden sm:block h-4 w-4 text-gray-400 dark:text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                 </svg>
                             </button>
-                            <ul class="hidden absolute right-0 mt-2 w-48 rounded-lg shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-[100] dropdown-menu user-account-menu">
-                                {% for menu in site['account_menu'] %}
-                                {% if menu['link'] %}
-                                <li>
-                                    <a href="{{ menu['link'] }}" {% if menu['external'] %} target="_blank" {% endif %} class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 {% if menu['active'] %} bg-primary-50 text-primary-500 {% endif %}">{{ menu['name'] }}</a>
+                            <ul class="hidden absolute right-0 mt-2 w-56 rounded-lg shadow-lg bg-white dark:bg-dark-secondary ring-1 ring-black ring-opacity-5 dark:ring-gray-700 z-[100] dropdown-menu user-account-menu py-1">
+                                <!-- Blog Menu Item -->
+                                <li class="border-t border-gray-200 dark:border-gray-700 mt-1 pt-1">
+                                    <a href="/blog" class="flex items-center px-4 py-2.5 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-dark-tertiary transition-colors duration-150">
+                                        <svg class="w-5 h-5 mr-3 text-gray-400 dark:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                                        </svg>
+                                        <span class="flex-1">Blog</span>
+                                    </a>
                                 </li>
-                                {% endif %}
+                                <!-- Terms Menu Item -->
+                                <li>
+                                    <a href="/terms" class="flex items-center px-4 py-2.5 text-sm text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-dark-tertiary transition-colors duration-150">
+                                        <svg class="w-5 h-5 mr-3 text-gray-400 dark:text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                        </svg>
+                                        <span class="flex-1">Terms</span>
+                                    </a>
+                                </li>
+                                {% for menu in site['account_menu'] %}
+                                    {% if menu['link'] %}
+                                        <li {% if menu['name']|lower == 'logout' %} class="border-t border-gray-200 dark:border-gray-700 mt-1 pt-1" {% endif %}>
+                                            <a href="{{ menu['link'] }}" {% if menu['external'] %} target="_blank" {% endif %} class="flex items-center px-4 py-2.5 text-sm transition-colors duration-150 {% if menu['name']|lower == 'logout' %} text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-700 dark:hover:text-red-300 {% else %} text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-dark-tertiary {% if menu['active'] %} bg-primary-50 dark:bg-primary-900/20 text-primary-500 dark:text-primary-400 {% endif %} {% endif %}">
+                                                {% if menu['name']|lower == 'account' %}
+                                                    <svg class="w-5 h-5 mr-3 text-gray-400 dark:text-slate-500 {% if menu['active'] %} text-primary-500 dark:text-primary-400 {% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                                                    </svg>
+                                                {% elseif menu['name']|lower == 'logout' %}
+                                                    <svg class="w-5 h-5 mr-3 text-red-500 dark:text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                                    </svg>
+                                                {% else %}
+                                                    <svg class="w-5 h-5 mr-3 text-gray-400 dark:text-slate-500 {% if menu['active'] %} text-primary-500 dark:text-primary-400 {% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                                    </svg>
+                                                {% endif %}
+                                                <span class="flex-1">{{ menu['name'] }}</span>
+                                            </a>
+                                        </li>
+                                    {% endif %}
                                 {% endfor %}
                             </ul>
                         </div>
@@ -239,7 +273,7 @@
 
             <!-- Auth Mode: Page Content -->
             <main id="main-content" class="flex-1 overflow-y-auto" role="main">
-                <div class="py-6">
+                <div class="auth-container py-6">
                     {{ content }}
                 </div>
             </main>
@@ -451,6 +485,103 @@
     </footer>
     {% endif %}
 
+    <!-- Bonus Offer Popup -->
+    <div class="modal fade" id="bonusPopup" data-expires="2025-12-30T00:00" data-status="false" data-percent="5" tabindex="-1" role="dialog" aria-labelledby="bonusTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered max-w-md" role="document">
+            <div class="modal-content bg-white dark:bg-dark-secondary rounded-xl shadow-2xl border border-gray-200 dark:border-dark-tertiary overflow-hidden relative">
+                <button type="button" class="absolute top-4 right-4 z-20 w-8 h-8 flex items-center justify-center bg-white/20 hover:bg-white/30 backdrop-blur-sm rounded-full text-white hover:text-white transition-all duration-200 shadow-lg hover:shadow-xl" id="bonusCloseBtn" data-dismiss="modal" aria-label="Close">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <div class="bg-gradient-to-br from-primary-500 to-primary-600 px-6 py-8 text-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16"></div>
+                    <div class="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full -ml-12 -mb-12"></div>
+                    <div class="relative z-10">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mb-4 backdrop-blur-sm">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                            </svg>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-2" id="bonusTitle">
+                            Special Offer
+                            <span class="block text-3xl mt-1" id="bonusPercent">40%</span>
+                        </h4>
+                        <p class="text-primary-100 text-sm">Get extra credits on your payment!</p>
+                    </div>
+                </div>
+                <div class="px-6 py-6">
+                    <p class="text-gray-700 dark:text-slate-300 text-center mb-6">
+                        🎉 Exclusive bonus offer! This amazing deal won't last long.
+                    </p>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-dark-tertiary rounded-lg border border-gray-200 dark:border-dark-tertiary">
+                            <span class="text-gray-700 dark:text-slate-300 font-medium">Add $10</span>
+                            <span class="text-primary-600 dark:text-primary-400 font-semibold">+ $4.00 bonus</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-dark-tertiary rounded-lg border border-gray-200 dark:border-dark-tertiary">
+                            <span class="text-gray-700 dark:text-slate-300 font-medium">Add $50</span>
+                            <span class="text-primary-600 dark:text-primary-400 font-semibold">+ $20.00 bonus</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-dark-tertiary rounded-lg border border-gray-200 dark:border-dark-tertiary">
+                            <span class="text-gray-700 dark:text-slate-300 font-medium">Add $100</span>
+                            <span class="text-primary-600 dark:text-primary-400 font-semibold">+ $40 bonus</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-dark-tertiary rounded-lg border border-gray-200 dark:border-dark-tertiary">
+                            <span class="text-gray-700 dark:text-slate-300 font-medium">Add $500</span>
+                            <span class="text-primary-600 dark:text-primary-400 font-semibold">+ $200 bonus</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-dark-tertiary rounded-lg border border-gray-200 dark:border-dark-tertiary">
+                            <span class="text-gray-700 dark:text-slate-300 font-medium">Add $1000</span>
+                            <span class="text-primary-600 dark:text-primary-400 font-semibold">+ $400 bonus</span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 dark:text-slate-400 text-center mb-6">
+                        Offer valid until <span class="font-semibold text-gray-700 dark:text-slate-300" id="bonusExpiration">30 November 2025 at 00:00</span>
+                    </p>
+                    <a href="/addfunds" class="block w-full text-center px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200" id="bonusClaimBtn">
+                        Claim Your Bonus
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if user['auth'] %}
+        <!-- Balance Info Modal -->
+        <div class="modal fade" id="balancePopup" tabindex="-1" role="dialog" aria-labelledby="balancePopupTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered max-w-md" role="document">
+                <div class="modal-content bg-white dark:bg-dark-secondary rounded-xl shadow-2xl border border-gray-200 dark:border-dark-tertiary overflow-hidden relative">
+                    <button type="button" class="absolute top-4 right-4 z-20 w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-gray-200 dark:bg-dark-tertiary dark:hover:bg-gray-700 rounded-full text-gray-600 hover:text-gray-800 dark:text-slate-300 dark:hover:text-slate-100 transition-all duration-200 shadow-md hover:shadow-lg" id="balanceCloseBtn" data-dismiss="modal" aria-label="Close">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                    <div class="px-6 py-8 text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-full mb-4">
+                            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h4 id="balancePopupTitle" class="text-2xl font-bold text-gray-900 dark:text-slate-100 mb-3">🎉 Welcome to Marketerum</h4>
+                        <div class="mb-4">
+                            <p class="text-gray-600 dark:text-slate-400 mb-2">Your current balance is</p>
+                            <p class="text-3xl font-bold text-primary-600 dark:text-primary-400">{{ user.balance_formatted }}</p>
+                        </div>
+                        <p class="text-gray-700 dark:text-slate-300 mb-6">Add funds to start boosting your social media presence and grow your accounts.</p>
+                        <a href="/addfunds" class="block w-full text-center px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-200 mb-3" id="balanceAddFundsBtn">
+                            <svg class="w-5 h-5 inline-block mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+                            </svg>
+                            Add Funds &amp; Start Growing
+                        </a>
+                        <small class="text-gray-500 dark:text-slate-400 text-sm">Minimum deposit is just $1</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
     <!-- Notifications wrapper -->
     <div id="notify-wrapper" class="fixed top-4 right-4 z-50 max-w-sm w-full bg-green-50 border border-green-200 rounded-lg shadow-lg p-4 hidden" style="display: none;" role="alert">
         <div class="flex items-start">
@@ -473,19 +604,19 @@
     </div>
 
     <!-- Floating Action Buttons -->
-    <div class="fixed bottom-[20px] left-6 z-50 flex flex-col gap-4">
+    <div class="fixed bottom-[110px] left-[20px] z-50 flex flex-col gap-4">
         <!-- Scroll to Top Button -->
-        <button id="scroll-to-top" class="w-[60px] h-[60px] bg-primary-500 text-white rounded-full shadow-lg hover:bg-primary-600 transition-all hover:shadow-xl flex items-center justify-center hidden" aria-label="Scroll to top">
+        <button id="scroll-to-top" class="w-[55px] h-[55px] bg-primary-500 text-white rounded-full shadow-lg hover:bg-primary-600 transition-all hover:shadow-xl flex items-center justify-center hidden" aria-label="Scroll to top">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
             </svg>
         </button>
         <!-- WhatsApp Button -->
-        <a href="https://wa.me/447868724202" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-accent-500 text-white rounded-full shadow-lg hover:bg-accent-600 transition-all hover:shadow-xl flex items-center justify-center" title="WhatsApp" aria-label="Contact us on WhatsApp">
+      <!--   <a href="https://wa.me/447868724202" target="_blank" rel="noopener noreferrer" class="w-12 h-12 bg-accent-500 text-white rounded-full shadow-lg hover:bg-accent-600 transition-all hover:shadow-xl flex items-center justify-center" title="WhatsApp" aria-label="Contact us on WhatsApp">
             <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.369 1.262.589 1.694.755.712.27 1.36.232 1.871.141.574-.099 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
             </svg>
-        </a>
+        </a>-->
     </div>
 
     {{ site['custom_footer'] }}
@@ -497,6 +628,272 @@
             {% endif %}
 		</script>
 	{% endfor %}
+
+    <!-- Modals Control Scripts -->
+    <script>
+    (function() {
+        'use strict';
+
+        // ============================================
+        // Balance Modal Control
+        // ============================================
+        {% if user['auth'] %}
+        const BalanceModal = {
+            STORAGE_KEY: 'balanceModalClosed',
+            HOUR_DELAY: 1, // 1 hour
+            MIN_BALANCE: 1, // $1 minimum
+
+            init: function() {
+                const modal = document.getElementById('balancePopup');
+                if (!modal) return;
+
+                // Check if modal was closed recently
+                if (this.wasClosedRecently()) {
+                    return;
+                }
+
+                // Check user balance
+                const balanceText = '{{ user.balance_formatted }}';
+                const balanceValue = this.parseBalance(balanceText);
+
+                // Show modal only if balance is less than $1
+                if (balanceValue < this.MIN_BALANCE) {
+                    // Small delay to ensure page is loaded and jQuery is ready
+                    setTimeout(() => {
+                        if (typeof $ !== 'undefined' && $.fn.modal) {
+                            $(modal).modal({
+                                backdrop: true,
+                                keyboard: true,
+                                show: true
+                            });
+                        }
+                    }, 500);
+                }
+
+                // Handle close button
+                const closeBtn = document.getElementById('balanceCloseBtn');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', () => {
+                        this.saveCloseTime();
+                    });
+                }
+
+                // Handle Add Funds button - save time and navigate to /addfunds
+                const addFundsBtn = document.getElementById('balanceAddFundsBtn');
+                if (addFundsBtn) {
+                    addFundsBtn.addEventListener('click', () => {
+                        this.saveCloseTime();
+                    });
+                }
+
+                // Handle modal backdrop click
+                $(modal).on('hidden.bs.modal', () => {
+                    this.saveCloseTime();
+                });
+            },
+
+            parseBalance: function(balanceText) {
+                // Extract numeric value from balance string (e.g., "$10.50" -> 10.50)
+                const match = balanceText.match(/[\d.]+/);
+                return match ? parseFloat(match[0]) : 0;
+            },
+
+            wasClosedRecently: function() {
+                const closedTime = localStorage.getItem(this.STORAGE_KEY);
+                if (!closedTime) return false;
+
+                const now = new Date().getTime();
+                const closed = parseInt(closedTime, 10);
+                const hoursPassed = (now - closed) / (1000 * 60 * 60);
+
+                return hoursPassed < this.HOUR_DELAY;
+            },
+
+            saveCloseTime: function() {
+                localStorage.setItem(this.STORAGE_KEY, new Date().getTime().toString());
+            }
+        };
+
+        // Initialize Balance Modal when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => BalanceModal.init());
+        } else {
+            BalanceModal.init();
+        }
+        {% endif %}
+
+        // ============================================
+        // Bonus Modal Control
+        // ============================================
+        const BonusModal = {
+            STORAGE_KEY: 'bonusModalClosed',
+            HOUR_DELAY: 1, // 1 hour
+
+            init: function() {
+                const modal = document.getElementById('bonusPopup');
+                if (!modal) return;
+
+                // Check if modal was closed recently
+                if (this.wasClosedRecently()) {
+                    return;
+                }
+
+                // Check if bonus is active (data-status="true")
+                const isActive = modal.getAttribute('data-status') === 'true';
+                if (!isActive) {
+                    return;
+                }
+
+                // Check expiration date
+                const expiresDate = modal.getAttribute('data-expires');
+                if (expiresDate && this.isExpired(expiresDate)) {
+                    return;
+                }
+
+                // Update bonus percentage and calculate tiers
+                this.updateBonusContent(modal);
+
+                // Show modal with delay
+                setTimeout(() => {
+                    if (typeof $ !== 'undefined' && $.fn.modal) {
+                        $(modal).modal({
+                            backdrop: true,
+                            keyboard: true,
+                            show: true
+                        });
+                    }
+                }, 1000);
+
+                // Handle close button
+                const closeBtn = document.getElementById('bonusCloseBtn');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', () => {
+                        this.saveCloseTime();
+                    });
+                }
+
+                // Handle modal backdrop click
+                $(modal).on('hidden.bs.modal', () => {
+                    this.saveCloseTime();
+                });
+            },
+
+            isExpired: function(expiresDate) {
+                const expiration = new Date(expiresDate);
+                const now = new Date();
+                return now > expiration;
+            },
+
+            wasClosedRecently: function() {
+                const closedTime = localStorage.getItem(this.STORAGE_KEY);
+                if (!closedTime) return false;
+
+                const now = new Date().getTime();
+                const closed = parseInt(closedTime, 10);
+                const hoursPassed = (now - closed) / (1000 * 60 * 60);
+
+                return hoursPassed < this.HOUR_DELAY;
+            },
+
+            saveCloseTime: function() {
+                localStorage.setItem(this.STORAGE_KEY, new Date().getTime().toString());
+            },
+
+            updateBonusContent: function(modal) {
+                // Get bonus percentage from data attribute
+                const percent = modal.getAttribute('data-percent') || '40';
+                const percentNum = parseInt(percent, 10);
+
+                // Update percentage display
+                const percentElement = document.getElementById('bonusPercent');
+                if (percentElement) {
+                    percentElement.textContent = percent + '%';
+                }
+
+                // Update expiration date display
+                const expiresDate = modal.getAttribute('data-expires');
+                if (expiresDate) {
+                    const expiration = new Date(expiresDate);
+                    const expirationElement = document.getElementById('bonusExpiration');
+                    if (expirationElement) {
+                        expirationElement.textContent = this.formatDate(expiration);
+                    }
+                }
+
+                // Calculate and update bonus tiers
+                const tiers = [
+                    { amount: 10, bonus: (10 * percentNum / 100).toFixed(2) },
+                    { amount: 50, bonus: (50 * percentNum / 100).toFixed(2) },
+                    { amount: 100, bonus: (100 * percentNum / 100).toFixed(0) },
+                    { amount: 500, bonus: (500 * percentNum / 100).toFixed(0) },
+                    { amount: 1000, bonus: (1000 * percentNum / 100).toFixed(0) }
+                ];
+
+                const tierItems = modal.querySelectorAll('.flex.items-center.justify-between');
+                tierItems.forEach((item, index) => {
+                    if (tiers[index]) {
+                        const amountSpan = item.querySelector('span:first-child');
+                        const bonusSpan = item.querySelector('span:last-child');
+                        if (amountSpan) {
+                            amountSpan.textContent = `Add $${tiers[index].amount}`;
+                        }
+                        if (bonusSpan) {
+                            bonusSpan.textContent = `+ $${tiers[index].bonus} bonus`;
+                        }
+                    }
+                });
+            },
+
+            formatDate: function(date) {
+                const months = ['January', 'February', 'March', 'April', 'May', 'June', 
+                               'July', 'August', 'September', 'October', 'November', 'December'];
+                const day = date.getDate();
+                const month = months[date.getMonth()];
+                const year = date.getFullYear();
+                const hours = date.getHours().toString().padStart(2, '0');
+                const minutes = date.getMinutes().toString().padStart(2, '0');
+                return `${day} ${month} ${year} at ${hours}:${minutes}`;
+            },
+
+            // Public method to show modal programmatically
+            show: function(percent, expiresDate, status) {
+                const modal = document.getElementById('bonusPopup');
+                if (!modal) return;
+
+                if (percent) modal.setAttribute('data-percent', percent);
+                if (expiresDate) modal.setAttribute('data-expires', expiresDate);
+                if (status !== undefined) modal.setAttribute('data-status', status.toString());
+
+                this.updateBonusContent(modal);
+                if (typeof $ !== 'undefined' && $.fn.modal) {
+                    $(modal).modal({
+                        backdrop: true,
+                        keyboard: true,
+                        show: true
+                    });
+                }
+            },
+
+            // Public method to hide modal programmatically
+            hide: function() {
+                const modal = document.getElementById('bonusPopup');
+                if (modal && typeof $ !== 'undefined' && $.fn.modal) {
+                    $(modal).modal('hide');
+                }
+            }
+        };
+
+        // Initialize Bonus Modal when DOM is ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => BonusModal.init());
+        } else {
+            BonusModal.init();
+        }
+
+        // Expose BonusModal to window for external control
+        window.BonusModal = BonusModal;
+    })();
+    </script>
 
 </body>
 

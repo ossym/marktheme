@@ -4,44 +4,38 @@
   {
     'key': 'all',
     'label': lang('refill.all'),
-    'icon_color': '#00BFF3',
-    'active_classes': 'bg-gradient-to-r from-[#00bff3] to-[#009EC9] text-white border-[#00bff3] shadow-md dark:from-[#00bff3] dark:to-[#009EC9]',
-    'inactive_classes': 'bg-white dark:bg-dark-tertiary border-gray-300 dark:border-dark-tertiary text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-secondary hover:border-[#00bff3] dark:hover:border-[#00bff3]'
+    'active_classes': 'bg-gradient-to-r from-primary-500 to-primary-600 text-white border-primary-500 shadow-md dark:from-primary-500 dark:to-primary-600',
+    'inactive_classes': 'bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 border-primary-300 dark:border-primary-600 hover:bg-primary-100 dark:hover:bg-primary-900/30'
   },
   {
     'key': 'pending',
     'label': lang('refill.status.pending'),
-    'icon_color': '#f59e0b',
-    'active_classes': 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300 border-yellow-300 dark:border-yellow-600 shadow-md',
-    'inactive_classes': 'bg-white dark:bg-dark-tertiary border-gray-300 dark:border-dark-tertiary text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-secondary hover:border-yellow-400 dark:hover:border-yellow-500'
+    'active_classes': 'bg-yellow-500 dark:bg-yellow-600 text-white border-yellow-500 dark:border-yellow-600 shadow-md',
+    'inactive_classes': 'bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-300 border-yellow-300 dark:border-yellow-600 hover:bg-yellow-100 dark:hover:bg-yellow-900/30'
   },
   {
     'key': 'inprogress',
     'label': lang('refill.status.inprogress'),
-    'icon_color': '#2563eb',
-    'active_classes': 'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 border-blue-300 dark:border-blue-600 shadow-md',
-    'inactive_classes': 'bg-white dark:bg-dark-tertiary border-gray-300 dark:border-dark-tertiary text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-secondary hover:border-blue-400 dark:hover:border-blue-500'
+    'active_classes': 'bg-blue-500 dark:bg-blue-600 text-white border-blue-500 dark:border-blue-600 shadow-md',
+    'inactive_classes': 'bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border-blue-300 dark:border-blue-600 hover:bg-blue-100 dark:hover:bg-blue-900/30'
   },
   {
     'key': 'completed',
     'label': lang('refill.status.completed'),
-    'icon_color': '#16a34a',
-    'active_classes': 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300 border-green-300 dark:border-green-600 shadow-md',
-    'inactive_classes': 'bg-white dark:bg-dark-tertiary border-gray-300 dark:border-dark-tertiary text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-secondary hover:border-green-400 dark:hover:border-green-500'
+    'active_classes': 'bg-green-500 dark:bg-green-600 text-white border-green-500 dark:border-green-600 shadow-md',
+    'inactive_classes': 'bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300 border-green-300 dark:border-green-600 hover:bg-green-100 dark:hover:bg-green-900/30'
   },
   {
     'key': 'rejected',
     'label': lang('refill.status.rejected'),
-    'icon_color': '#dc2626',
-    'active_classes': 'bg-rose-100 dark:bg-rose-900/30 text-rose-800 dark:text-rose-300 border-rose-300 dark:border-rose-600 shadow-md',
-    'inactive_classes': 'bg-white dark:bg-dark-tertiary border-gray-300 dark:border-dark-tertiary text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-secondary hover:border-rose-400 dark:hover:border-rose-500'
+    'active_classes': 'bg-red-500 dark:bg-red-600 text-white border-red-500 dark:border-red-600 shadow-md',
+    'inactive_classes': 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 border-red-300 dark:border-red-600 hover:bg-red-100 dark:hover:bg-red-900/30'
   },
   {
     'key': 'error',
     'label': lang('refill.status.error'),
-    'icon_color': '#ef4444',
-    'active_classes': 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300 border-red-300 dark:border-red-600 shadow-md',
-    'inactive_classes': 'bg-white dark:bg-dark-tertiary border-gray-300 dark:border-dark-tertiary text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-secondary hover:border-red-400 dark:hover:border-red-500'
+    'active_classes': 'bg-red-500 dark:bg-red-600 text-white border-red-500 dark:border-red-600 shadow-md',
+    'inactive_classes': 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300 border-red-300 dark:border-red-600 hover:bg-red-100 dark:hover:bg-red-900/30'
   }
 ] %}
 {% set statusBadgeClasses = {
@@ -88,13 +82,8 @@
               {% set tabUrl = tabUrl ~ '?search=' ~ search|url_encode %}
             {% endif %}
             <a href="{{ tabUrl }}"
-               class="order-tab-btn flex items-center justify-center gap-2 rounded-lg border px-4 py-2.5 text-sm font-medium transition-all duration-200 {{ isActive ? tab.active_classes : tab.inactive_classes }}">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none"
-                   stroke="{{ isActive and tabKey == 'all' ? '#ffffff' : tab.icon_color }}" stroke-width="2.5"
-                   stroke-linecap="round" stroke-linejoin="round">
-                <rect width="18" height="18" x="3" y="3" rx="2" />
-              </svg>
-              <span>{{ tab.label }}</span>
+               class="order-tab-btn flex items-center justify-center px-4 py-2.5 rounded-lg border text-sm font-medium transition-all duration-200 {{ isActive ? tab.active_classes : tab.inactive_classes }}">
+              {{ tab.label }}
             </a>
           {% endfor %}
         </div>
